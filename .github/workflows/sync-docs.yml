@@ -41,8 +41,19 @@ jobs:
 
           while IFS= read -r REPO; do
             echo "Cloning $REPO..."
-            git clone --depth 1 https://x-access-token:$GH_PAT@github.com/khulnasoft/$REPO.git
-            cp -r $REPO/docs ../docs/$REPO 2>/dev/null || cp $REPO/README.md ../docs/$REPO.md
+            git clone --depth 1 https://x-access-token:$GH_PAT@github.com/khulnasoft/$REPO.git || {
+              echo "Failed to clone $REPO. Skipping...";
+              continue;
+            }
+
+            if [ -d "$REPO/docs" ]; then
+              cp -r $REPO/docs ../docs/$REPO
+            elif [ -f "$REPO/README.md" ]; then
+              cp $REPO/README.md ../docs/$REPO.md
+            else
+              echo "Warning: No docs found for $REPO. Skipping..."
+            fi
+
             rm -rf $REPO
           done < ../repos.txt
           cd ..
