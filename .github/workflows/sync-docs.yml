@@ -1,8 +1,8 @@
-name: Auto-Sync Docs from Repositories
+name: Sync Docs from Repositories
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # Runs daily at 2 AM UTC
+    - cron: "0 2 * * *"
   workflow_dispatch:
   repository_dispatch:
     types: [sync-docs]
@@ -18,45 +18,27 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Fetch Repo List from GitHub API
-        env:
-          GH_PAT: ${{ secrets.ORG_REPO_TOKEN }}
+      - name: Install yq (YAML parser)
         run: |
-          curl -s -H "Authorization: token $GH_PAT" \
-            "https://api.github.com/orgs/khulnasoft/repos?per_page=100" \
-            | jq -r '.[].name' > repos.txt
-          echo "Updated repos.txt:"
-          cat repos.txt
+          sudo apt update && sudo apt install -y jq yq
 
       - name: Set up Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Clone and Sync Docs
+      - name: Clone and Copy Docs from Repos
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.ORG_REPO_TOKEN }}
         run: |
-          mkdir -p repos docs && cd repos
+          mkdir -p repos && cd repos
 
-          while IFS= read -r REPO; do
+          for REPO in $(yq e '.repositories[]' ../repos.yml); do
             echo "Cloning $REPO..."
-            git clone --depth 1 https://x-access-token:$GH_PAT@github.com/khulnasoft/$REPO.git || {
-              echo "Failed to clone $REPO. Skipping...";
-              continue;
-            }
-
-            mkdir -p ../docs/$REPO
-            if [ -d "$REPO/docs" ]; then
-              cp -r $REPO/docs/* ../docs/$REPO/
-            elif [ -f "$REPO/README.md" ]; then
-              cp $REPO/README.md ../docs/$REPO.md
-            else
-              echo "Warning: No docs found for $REPO. Skipping..."
-            fi
-
+            git clone --depth 1 https://x-access-token:$GH_PAT@github.com/khulnasoft/$REPO.git
+            cp -r $REPO/docs ../docs/$REPO 2>/dev/null || cp $REPO/README.md ../docs/$REPO.md
             rm -rf $REPO
-          done < ../repos.txt
+          done
           cd ..
 
       - name: Commit & Push Changes
@@ -65,5 +47,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes detected."
           else
-            git commit -m "Auto-sync latest docs from all repos"
+            git commit -m "Auto-sync latest docs"
             git push "https://x-access-token:$GH_PAT@github.com/khulnasoft/khulnasoft.github.io.git" main
