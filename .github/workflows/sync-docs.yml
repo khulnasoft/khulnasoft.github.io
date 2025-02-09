@@ -37,7 +37,7 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          mkdir -p repos && cd repos
+          mkdir -p repos docs && cd repos
 
           while IFS= read -r REPO; do
             echo "Cloning $REPO..."
@@ -46,8 +46,9 @@ jobs:
               continue;
             }
 
+            mkdir -p ../docs/$REPO
             if [ -d "$REPO/docs" ]; then
-              cp -r $REPO/docs ../docs/$REPO
+              cp -r $REPO/docs/* ../docs/$REPO/
             elif [ -f "$REPO/README.md" ]; then
               cp $REPO/README.md ../docs/$REPO.md
             else
