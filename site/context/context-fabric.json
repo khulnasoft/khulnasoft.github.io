@@ -84,7 +84,7 @@
     "health": {
       "score": 90,
       "status": "healthy",
-      "readiness": 84
+      "readiness": 90
     }
   },
   "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",

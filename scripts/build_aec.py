@@ -13,7 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, history as hist, governance
 from aec import render
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,9 +50,12 @@ def main() -> int:
     resources = data["resources"]
     org = data["organization"]
 
+    prior_history = hist.load_state(SITE / "history.json")
+
     clean_site()
 
     graph = graphmod.build_graph(resources)
+    impact = graphmod.compute_impact(resources)
     insights = intelligence.build_insights(resources)
 
     readiness_by_id = {r["id"]: intelligence.compute_readiness(r) for r in resources}
@@ -63,11 +66,15 @@ def main() -> int:
     ctx_by_id = {r["id"]: ctxmod.build_context(r, readiness_by_id[r["id"]]) for r in resources}
     twins_all = twinsmod.build_all_twins(resources, insights, recs_by_id, ctx_by_id)
     reg = registries.build_registries(resources, data["prompts"], data["agents"])
+    release = governance.evaluate_release(resources, readiness_by_id, org)
     metrics = graphmod._compute_metrics(resources)
 
     # ---- derived artifacts ----
     write(SITE / "graph-data.json", {"nodes": graph["nodes"], "edges": graph["edges"]})
+    write(SITE / "impact.json", impact)
+    write(SITE / "release.json", release)
     write(SITE / "manifests.json", [{"path": m["path"]} for m in data["manifests"]])
+    write(SITE / "history.json", hist.record_snapshot(SITE / "history.json", readiness_by_id, prior=prior_history))
     write(SITE / "search-index.json", [
         {
             "slug": r["slug"],
@@ -75,8 +82,16 @@ def main() -> int:
             "kind": r["kind"],
             "owner": r.get("owner"),
             "workspace": r.get("workspace"),
+            "lifecycle": r.get("lifecycle"),
+            "health": r["health"]["status"],
+            "readiness": readiness_by_id[r["id"]]["overall"],
+            "level": readiness_by_id[r["id"]]["level"],
+            "capabilities": r.get("capabilities", []),
+            "tags": r.get("tags", []),
             "summary": r["summary"],
-            "text": " ".join([r["name"], r["kind"], r.get("owner", ""), r.get("workspace", ""), r["summary"], *r.get("capabilities", [])]),
+            "preview": ctxmod.compose_layer("metadata", r) and r["summary"][:220],
+            "relationships": [rel["target"] for rel in r.get("relationships", [])],
+            "text": " ".join([r["name"], r["kind"], r.get("owner", ""), r.get("workspace", ""), r["summary"], *r.get("capabilities", []), *r.get("tags", [])]).lower(),
         }
         for r in resources
     ])
@@ -96,6 +111,10 @@ def main() -> int:
     write(SITE / "catalog.html", render.render_catalog(resources))
     write(SITE / "search.html", render.render_search())
     write(SITE / "graph.html", render.render_graph(graph))
+    write(SITE / "playground.html", render.render_playground())
+    write(SITE / "impact.html", render.render_impact_simulator())
+    write(SITE / "timeline.html", render.render_readiness_timeline(hist.load_state(SITE / "history.json")))
+    write(SITE / "release.html", render.render_release_copilot(release))
     write(SITE / "digital-twin.html", render.render_digital_twins(resources, twins_all))
     write(SITE / "context-fabric.html", render.render_context_fabric(resources, ctxmod.LAYERS))
     write(SITE / "registries.html", render.render_registries(reg))

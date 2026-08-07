@@ -37,11 +37,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 80,
-    "level": "deployable",
+    "overall": 86,
+    "level": "ready",
     "scores": {
       "architecture": 89,
-      "documentation": 0,
+      "documentation": 89,
       "security": 89,
       "tests": 89,
       "ci": 89,
@@ -68,7 +68,6 @@
   },
   "context_summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
   "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability.",
     "Enable a context bundle and register a prompt for agent consumption."
   ]
 }

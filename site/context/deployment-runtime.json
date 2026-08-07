@@ -68,7 +68,7 @@
     "health": {
       "score": 84,
       "status": "healthy",
-      "readiness": 76
+      "readiness": 82
     }
   },
   "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",

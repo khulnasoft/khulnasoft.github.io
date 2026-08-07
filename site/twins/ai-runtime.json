@@ -38,11 +38,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 79,
-    "level": "deployable",
+    "overall": 85,
+    "level": "ready",
     "scores": {
       "architecture": 88,
-      "documentation": 0,
+      "documentation": 88,
       "security": 88,
       "tests": 88,
       "ci": 88,
@@ -69,7 +69,6 @@
   },
   "context_summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
   "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability.",
     "Enable a context bundle and register a prompt for agent consumption."
   ]
 }

@@ -35,59 +35,59 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 .badge.bad{background:rgba(248,113,113,.16);color:#f87171}
 </style></head>
 <body>
-<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
 <main><h1>Engineering Digital Twins</h1>
 <p class="muted">Each twin is the canonical, continuously updated representation of a resource: metadata, source state, readiness, dependencies, and AI context in one place.</p>
 <div class="grid"><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ai-code-assistant.html">AI Code Assistant</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-agent</span>ai</div>
 <div class="muted">An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.</div>
-<div class="muted" style="margin:.45rem 0">health <code>85</code> · readiness <code>79</code> · lifecycle <code>beta</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>85</code> · readiness <code>85</code> · lifecycle <code>beta</code></div>
 <a href="twins/ai-code-assistant.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ai-runtime.html">AI Runtime Services</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-runtime</span>core</div>
 <div class="muted">Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.</div>
-<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>79</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>85</code> · lifecycle <code>active</code></div>
 <a href="twins/ai-runtime.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/api-gateway.html">API Gateway</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">api</span>core</div>
 <div class="muted">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
-<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>77</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>83</code> · lifecycle <code>active</code></div>
 <a href="twins/api-gateway.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/context-fabric.html">Context Fabric</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span>ai</div>
 <div class="muted">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
-<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>84</code> · lifecycle <code>supported</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
 <a href="twins/context-fabric.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/deployment-runtime.html">Deployment Runtime</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">deployment</span>core</div>
 <div class="muted">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
-<div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>76</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>82</code> · lifecycle <code>active</code></div>
 <a href="twins/deployment-runtime.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/helm-charts-registry.html">Helm Charts</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">helm-chart</span>core-infrastructure</div>
 <div class="muted">Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.</div>
-<div class="muted" style="margin:.45rem 0">health <code>91</code> · readiness <code>84</code> · lifecycle <code>supported</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>91</code> · readiness <code>91</code> · lifecycle <code>supported</code></div>
 <a href="twins/helm-charts-registry.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/khulnasoft-platform.html">KhulnaSoft Platform Core</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">platform</span>core</div>
 <div class="muted">The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.</div>
-<div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>82</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>89</code> · lifecycle <code>active</code></div>
 <a href="twins/khulnasoft-platform.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/knowledge-graph.html">Engineering Knowledge Graph</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">graph</span>core</div>
 <div class="muted">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
-<div class="muted" style="margin:.45rem 0">health <code>93</code> · readiness <code>86</code> · lifecycle <code>supported</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>93</code> · readiness <code>93</code> · lifecycle <code>supported</code></div>
 <a href="twins/knowledge-graph.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span>core</div>
 <div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
-<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>81</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>87</code> · lifecycle <code>active</code></div>
 <a href="twins/repository-catalog.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/security-center.html">Security Center</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">security</span>core</div>
 <div class="muted">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>
-<div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>80</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>86</code> · lifecycle <code>active</code></div>
 <a href="twins/security-center.json">open twin</a></div></div></main>
 <footer class="footer"><span>KhulnaSoft AI-Native Engineering Cloud</span>
 <a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>

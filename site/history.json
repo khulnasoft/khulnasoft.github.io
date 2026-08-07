@@ -1,0 +1,199 @@
+{
+  "updatedAt": "2026-08-07T05:35:30Z",
+  "max_snapshots": 50,
+  "history": [
+    {
+      "build": "2026-08-07T05:26:27Z",
+      "scores": {
+        "resource:ai-code-assistant": 79,
+        "resource:ai-runtime": 79,
+        "resource:api-gateway": 77,
+        "resource:context-fabric": 84,
+        "resource:deployment-runtime": 76,
+        "resource:helm-charts-registry": 84,
+        "resource:khulnasoft-platform": 82,
+        "resource:knowledge-graph": 86,
+        "resource:repository-catalog": 81,
+        "resource:security-center": 80
+      }
+    },
+    {
+      "build": "2026-08-07T05:26:44Z",
+      "scores": {
+        "resource:ai-code-assistant": 79,
+        "resource:ai-runtime": 79,
+        "resource:api-gateway": 77,
+        "resource:context-fabric": 84,
+        "resource:deployment-runtime": 76,
+        "resource:helm-charts-registry": 84,
+        "resource:khulnasoft-platform": 82,
+        "resource:knowledge-graph": 86,
+        "resource:repository-catalog": 81,
+        "resource:security-center": 80
+      }
+    },
+    {
+      "build": "2026-08-07T05:26:44Z",
+      "scores": {
+        "resource:ai-code-assistant": 79,
+        "resource:ai-runtime": 79,
+        "resource:api-gateway": 77,
+        "resource:context-fabric": 84,
+        "resource:deployment-runtime": 76,
+        "resource:helm-charts-registry": 84,
+        "resource:khulnasoft-platform": 82,
+        "resource:knowledge-graph": 86,
+        "resource:repository-catalog": 81,
+        "resource:security-center": 80
+      }
+    },
+    {
+      "build": "2026-08-07T05:27:25Z",
+      "scores": {
+        "resource:ai-code-assistant": 79,
+        "resource:ai-runtime": 79,
+        "resource:api-gateway": 77,
+        "resource:context-fabric": 84,
+        "resource:deployment-runtime": 76,
+        "resource:helm-charts-registry": 84,
+        "resource:khulnasoft-platform": 82,
+        "resource:knowledge-graph": 86,
+        "resource:repository-catalog": 81,
+        "resource:security-center": 80
+      }
+    },
+    {
+      "build": "2026-08-07T05:29:10Z",
+      "scores": {
+        "resource:ai-code-assistant": 79,
+        "resource:ai-runtime": 79,
+        "resource:api-gateway": 77,
+        "resource:context-fabric": 84,
+        "resource:deployment-runtime": 76,
+        "resource:helm-charts-registry": 84,
+        "resource:khulnasoft-platform": 82,
+        "resource:knowledge-graph": 86,
+        "resource:repository-catalog": 81,
+        "resource:security-center": 80
+      }
+    },
+    {
+      "build": "2026-08-07T05:30:35Z",
+      "scores": {
+        "resource:ai-code-assistant": 85,
+        "resource:ai-runtime": 85,
+        "resource:api-gateway": 83,
+        "resource:context-fabric": 90,
+        "resource:deployment-runtime": 82,
+        "resource:helm-charts-registry": 91,
+        "resource:khulnasoft-platform": 89,
+        "resource:knowledge-graph": 93,
+        "resource:repository-catalog": 87,
+        "resource:security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T05:30:56Z",
+      "scores": {
+        "resource:ai-code-assistant": 85,
+        "resource:ai-runtime": 85,
+        "resource:api-gateway": 83,
+        "resource:context-fabric": 90,
+        "resource:deployment-runtime": 82,
+        "resource:helm-charts-registry": 91,
+        "resource:khulnasoft-platform": 89,
+        "resource:knowledge-graph": 93,
+        "resource:repository-catalog": 87,
+        "resource:security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T05:33:26Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 85,
+        "api-gateway": 83,
+        "context-fabric": 90,
+        "deployment-runtime": 82,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 93,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T05:33:27Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 85,
+        "api-gateway": 83,
+        "context-fabric": 90,
+        "deployment-runtime": 82,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 93,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T05:35:30Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 85,
+        "api-gateway": 83,
+        "context-fabric": 90,
+        "deployment-runtime": 82,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 93,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    }
+  ],
+  "resources": {
+    "ai-code-assistant": {
+      "slug": "ai-code-assistant",
+      "name": "ai-code-assistant"
+    },
+    "ai-runtime": {
+      "slug": "ai-runtime",
+      "name": "ai-runtime"
+    },
+    "api-gateway": {
+      "slug": "api-gateway",
+      "name": "api-gateway"
+    },
+    "context-fabric": {
+      "slug": "context-fabric",
+      "name": "context-fabric"
+    },
+    "deployment-runtime": {
+      "slug": "deployment-runtime",
+      "name": "deployment-runtime"
+    },
+    "helm-charts-registry": {
+      "slug": "helm-charts-registry",
+      "name": "helm-charts-registry"
+    },
+    "khulnasoft-platform": {
+      "slug": "khulnasoft-platform",
+      "name": "khulnasoft-platform"
+    },
+    "knowledge-graph": {
+      "slug": "knowledge-graph",
+      "name": "knowledge-graph"
+    },
+    "repository-catalog": {
+      "slug": "repository-catalog",
+      "name": "repository-catalog"
+    },
+    "security-center": {
+      "slug": "security-center",
+      "name": "security-center"
+    }
+  },
+  "drift": {}
+}

@@ -52,11 +52,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 84,
-    "level": "deployable",
+    "overall": 91,
+    "level": "ready",
     "scores": {
       "architecture": 91,
-      "documentation": 0,
+      "documentation": 91,
       "security": 91,
       "tests": 91,
       "ci": 91,
@@ -82,7 +82,5 @@
     "readiness": 84
   },
   "context_summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
-  "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability."
-  ]
+  "recommended_actions": []
 }

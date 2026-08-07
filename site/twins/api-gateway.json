@@ -37,11 +37,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 77,
+    "overall": 83,
     "level": "deployable",
     "scores": {
       "architecture": 86,
-      "documentation": 0,
+      "documentation": 86,
       "security": 86,
       "tests": 86,
       "ci": 86,
@@ -68,7 +68,6 @@
   },
   "context_summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
   "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability.",
     "Enable a context bundle and register a prompt for agent consumption."
   ]
 }

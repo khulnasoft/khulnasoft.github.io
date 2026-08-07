@@ -68,7 +68,7 @@
     "health": {
       "score": 86,
       "status": "healthy",
-      "readiness": 77
+      "readiness": 83
     }
   },
   "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",

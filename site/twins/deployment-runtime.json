@@ -37,11 +37,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 76,
+    "overall": 82,
     "level": "deployable",
     "scores": {
       "architecture": 84,
-      "documentation": 0,
+      "documentation": 84,
       "security": 84,
       "tests": 84,
       "ci": 84,
@@ -71,7 +71,6 @@
     "Review release runbooks weekly",
     "Tune automated rollback thresholds",
     "Keep deployment health checks current",
-    "Publish an architecture doc and README for AI/agent discoverability.",
     "Enable a context bundle and register a prompt for agent consumption."
   ]
 }

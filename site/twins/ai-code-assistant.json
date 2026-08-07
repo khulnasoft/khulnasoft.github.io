@@ -46,11 +46,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 79,
-    "level": "deployable",
+    "overall": 85,
+    "level": "ready",
     "scores": {
       "architecture": 85,
-      "documentation": 0,
+      "documentation": 85,
       "security": 85,
       "tests": 85,
       "ci": 85,
@@ -76,7 +76,5 @@
     "readiness": 88
   },
   "context_summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
-  "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability."
-  ]
+  "recommended_actions": []
 }

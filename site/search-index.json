@@ -5,8 +5,28 @@
     "kind": "ai-agent",
     "owner": "AI Enablement",
     "workspace": "ai",
+    "lifecycle": "beta",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "ai-agent",
+      "context-retrieval",
+      "review",
+      "assistant"
+    ],
+    "tags": [
+      "ai",
+      "agent",
+      "assistant"
+    ],
     "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
-    "text": "AI Code Assistant ai-agent AI Enablement ai An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions. ai-agent context-retrieval review assistant"
+    "preview": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+    "relationships": [
+      "resource:context-fabric",
+      "resource:ai-runtime"
+    ],
+    "text": "ai code assistant ai-agent ai enablement ai an ai agent that navigates the context fabric and control plane to summarize architecture, review posture, and answer engineering questions. ai-agent context-retrieval review assistant ai agent assistant"
   },
   {
     "slug": "ai-runtime",
@@ -14,8 +34,27 @@
     "kind": "ai-runtime",
     "owner": "KhulnaSoft",
     "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "context-fabric",
+      "agent-runtime",
+      "prompt-registry",
+      "mcp"
+    ],
+    "tags": [
+      "ai",
+      "agents",
+      "context"
+    ],
     "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
-    "text": "AI Runtime Services ai-runtime KhulnaSoft core Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud. context-fabric agent-runtime prompt-registry mcp"
+    "preview": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+    "relationships": [
+      "resource:khulnasoft-platform"
+    ],
+    "text": "ai runtime services ai-runtime khulnasoft core runtime services that compose context, invoke agents, and provide reusable ai capabilities across the engineering cloud. context-fabric agent-runtime prompt-registry mcp ai agents context"
   },
   {
     "slug": "api-gateway",
@@ -23,8 +62,26 @@
     "kind": "api",
     "owner": "KhulnaSoft",
     "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 83,
+    "level": "deployable",
+    "capabilities": [
+      "api",
+      "mcp",
+      "routing"
+    ],
+    "tags": [
+      "api",
+      "routing",
+      "agent"
+    ],
     "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
-    "text": "API Gateway api KhulnaSoft core The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents. api mcp routing"
+    "preview": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+    "relationships": [
+      "resource:ai-runtime"
+    ],
+    "text": "api gateway api khulnasoft core the public entry point for context, catalog, and platform apis consumed by internal tools, cli clients, and ai agents. api mcp routing api routing agent"
   },
   {
     "slug": "context-fabric",
@@ -32,8 +89,28 @@
     "kind": "component",
     "owner": "AI Enablement",
     "workspace": "ai",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 90,
+    "level": "ready",
+    "capabilities": [
+      "context-fabric",
+      "layered-context",
+      "selective-retrieval",
+      "llms.txt"
+    ],
+    "tags": [
+      "context",
+      "ai",
+      "plane-knowledge"
+    ],
     "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
-    "text": "Context Fabric component AI Enablement ai Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval. context-fabric layered-context selective-retrieval llms.txt"
+    "preview": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+    "relationships": [
+      "resource:khulnasoft-platform",
+      "resource:knowledge-graph"
+    ],
+    "text": "context fabric component ai enablement ai composes layered, ai-ready context by metadata, architecture, dependency, api, deployment, runtime, observability, security, and business layers, supporting selective retrieval. context-fabric layered-context selective-retrieval llms.txt context ai plane-knowledge"
   },
   {
     "slug": "deployment-runtime",
@@ -41,8 +118,26 @@
     "kind": "deployment",
     "owner": "KhulnaSoft",
     "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 82,
+    "level": "deployable",
+    "capabilities": [
+      "deployment",
+      "automation",
+      "release"
+    ],
+    "tags": [
+      "deployment",
+      "release",
+      "automation"
+    ],
     "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
-    "text": "Deployment Runtime deployment KhulnaSoft core The runtime layer that orchestrates deployment automation, health checks, and release coordination. deployment automation release"
+    "preview": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+    "relationships": [
+      "resource:api-gateway"
+    ],
+    "text": "deployment runtime deployment khulnasoft core the runtime layer that orchestrates deployment automation, health checks, and release coordination. deployment automation release deployment release automation"
   },
   {
     "slug": "helm-charts-registry",
@@ -50,8 +145,27 @@
     "kind": "helm-chart",
     "owner": "Core Infrastructure",
     "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 91,
+    "level": "ready",
+    "capabilities": [
+      "helm-chart",
+      "deployment",
+      "kubernetes"
+    ],
+    "tags": [
+      "kubernetes",
+      "deployment",
+      "infra"
+    ],
     "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
-    "text": "Helm Charts helm-chart Core Infrastructure core-infrastructure Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets. helm-chart deployment kubernetes"
+    "preview": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+    "relationships": [
+      "resource:deployment-runtime",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "helm charts helm-chart core infrastructure core-infrastructure versioned helm charts packaging workhorse services and their deployment topology for kubernetes targets. helm-chart deployment kubernetes kubernetes deployment infra"
   },
   {
     "slug": "khulnasoft-platform",
@@ -59,8 +173,27 @@
     "kind": "platform",
     "owner": "KhulnaSoft",
     "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 89,
+    "level": "ready",
+    "capabilities": [
+      "control-plane",
+      "catalog",
+      "governance",
+      "registry"
+    ],
+    "tags": [
+      "control-plane",
+      "governance",
+      "catalog"
+    ],
     "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
-    "text": "KhulnaSoft Platform Core platform KhulnaSoft core The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources. control-plane catalog governance registry"
+    "preview": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+    "relationships": [
+      "resource:ai-runtime"
+    ],
+    "text": "khulnasoft platform core platform khulnasoft core the control-plane foundation for the ai-native engineering cloud, coordinating organizations, projects, policies, and engineering resources. control-plane catalog governance registry control-plane governance catalog"
   },
   {
     "slug": "knowledge-graph",
@@ -68,8 +201,26 @@
     "kind": "graph",
     "owner": "Platform Core",
     "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 93,
+    "level": "ready",
+    "capabilities": [
+      "knowledge-graph",
+      "relationship-model",
+      "search"
+    ],
+    "tags": [
+      "graph",
+      "knowledge-plane"
+    ],
     "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
-    "text": "Engineering Knowledge Graph graph Platform Core core The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth. knowledge-graph relationship-model search"
+    "preview": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+    "relationships": [
+      "resource:repository-catalog",
+      "resource:context-fabric"
+    ],
+    "text": "engineering knowledge graph graph platform core core the derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth. knowledge-graph relationship-model search graph knowledge-plane"
   },
   {
     "slug": "repository-catalog",
@@ -77,8 +228,25 @@
     "kind": "repository",
     "owner": "KhulnaSoft",
     "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "catalog",
+      "discovery",
+      "metadata"
+    ],
+    "tags": [
+      "catalog",
+      "governance"
+    ],
     "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
-    "text": "Repository Catalog Service repository KhulnaSoft core A registry service for discovering repositories, owners, metadata, and health signals across the organization. catalog discovery metadata"
+    "preview": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+    "relationships": [
+      "resource:khulnasoft-platform"
+    ],
+    "text": "repository catalog service repository khulnasoft core a registry service for discovering repositories, owners, metadata, and health signals across the organization. catalog discovery metadata catalog governance"
   },
   {
     "slug": "security-center",
@@ -86,7 +254,24 @@
     "kind": "security",
     "owner": "KhulnaSoft",
     "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 86,
+    "level": "ready",
+    "capabilities": [
+      "security",
+      "vulnerability",
+      "policy"
+    ],
+    "tags": [
+      "security",
+      "compliance"
+    ],
     "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
-    "text": "Security Center security KhulnaSoft core A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud. security vulnerability policy"
+    "preview": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+    "relationships": [
+      "resource:repository-catalog"
+    ],
+    "text": "security center security khulnasoft core a security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud. security vulnerability policy security compliance"
   }
 ]

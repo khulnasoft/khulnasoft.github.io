@@ -69,7 +69,7 @@
     "health": {
       "score": 88,
       "status": "healthy",
-      "readiness": 79
+      "readiness": 85
     }
   },
   "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",

@@ -38,11 +38,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 82,
-    "level": "deployable",
+    "overall": 89,
+    "level": "ready",
     "scores": {
       "architecture": 92,
-      "documentation": 0,
+      "documentation": 92,
       "security": 92,
       "tests": 92,
       "ci": 92,
@@ -69,7 +69,6 @@
   },
   "context_summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
   "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability.",
     "Enable a context bundle and register a prompt for agent consumption."
   ]
 }

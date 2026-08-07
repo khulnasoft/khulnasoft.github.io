@@ -69,7 +69,7 @@
     "health": {
       "score": 92,
       "status": "healthy",
-      "readiness": 82
+      "readiness": 89
     }
   },
   "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",

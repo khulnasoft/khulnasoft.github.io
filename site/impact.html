@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Architecture · KhulnaSoft AEC</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+<title>Impact Simulator · KhulnaSoft AEC</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
 background:#07111f;color:#f5f7fb;line-height:1.5}
 a{color:#58c6dd}a:hover{text-decoration:underline}
 header.top{border-bottom:1px solid #1f3040;padding:.85rem 1.4rem;display:flex;align-items:center;gap:1rem;
@@ -36,20 +36,37 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 </style></head>
 <body>
 <header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
-<main><h1>Platform Architecture</h1>
-<p class="muted">The AEC is a modular platform with six planes. All derived artifacts (twins, context, graph, registries, portal) are generated from a canonical model beneath those planes.</p>
-<h2>Canonical model</h2>
-<div class="card"><code>organization → workspace → project → resource</code><br/><br/>
-<span class="muted">Manifest:</span> <code>khulnasoft.yaml</code> is the authoritative contract; twins and portals are a derived layer.</div>
-<h2>Planes</h2>
-<ul class="plain">
-<li><strong>Experience</strong> — portal, catalog views, dashboards</li>
-<li><strong>Knowledge</strong> — graph, vectors, search, context fabric</li>
-<li><strong>Control</strong> — org, governance, registries, workflows</li>
-<li><strong>Intelligence</strong> — analyzers, readiness, recommendations</li>
-<li><strong>Runtime</strong> — events, workers, deployment automation</li>
-<li><strong>Infrastructure</strong> — GitHub/Kubernetes/cloud integrations</li>
-</ul></main>
+<main><h1>Dependency &amp; Change-Impact Simulator</h1>
+<p class="muted">Click a resource to see the <strong>downstream blast radius</strong>: which services and components are affected if it changes. Impact is derived from the knowledge graph at build-time and ranked by exposure.</p>
+<div id="summ" class="card" style="margin-bottom:1rem"></div>
+<div style="display:flex;gap:1.4rem;flex-wrap:wrap">
+<div id="list" style="flex:1;min-width:280px"></div>
+<div id="detail" style="flex:2;min-width:320px"><div class="muted">Select a resource on the left to simulate impact.</div></div>
+</div>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+window.dim=null;
+fetch('impact.json').then(r=>r.json()).then(d=>{
+ window.dim=d;
+ const byName=Object.fromEntries(d.per_resource.map(v=>[v.name,v]));
+ document.getElementById('summ').innerHTML=`<span class="muted">fleet</span> <strong>${d.total}</strong> resources ·
+ max blast radius <strong>${d.max_blast_radius}</strong> · avg <strong>${d.avg_blast_radius}</strong>`;
+ document.getElementById('list').innerHTML='<h2>Resources</h2><ul class="plain">'+d.nodes.map(n=>
+  `<li><a href="#" data-resid="${esc(n.id)}">${esc(n.name)}</a> <span class="muted">(${esc(n.kind)})</span> · <span class="pill">${byName[n.name].blast_radius} affected</span></li>`).join('')+'</ul>';
+});
+document.addEventListener('click',ev=>{
+ const t=ev.target.closest('[data-resid]');if(!t)return;ev.preventDefault();
+ const v=(window.dim&&window.dim.per_resource||{})[t.dataset.resid];if(!v)return;
+ let html=`<h2>Impact of &quot;${esc(v.name)}&quot;</h2>
+ <div class="card"><strong>Blast radius:</strong> ${v.blast_radius} resource(s) affected</div>
+ ${v.blast_radius===0?'<p class="muted" style="margin-top:.6rem">No downstream dependents — safe change surface.</p>':''}`;
+ if(v.impacted.length){
+  html+=`<h3>Affected dependents (ranked by exposure)</h3><table><thead><tr><th>Resource</th><th>Kind</th><th>Hop depth</th></tr></thead><tbody>`
+  +v.impacted.map(n=>`<tr><td>${esc(n.name)}</td><td>${esc(n.kind)}</td><td>${n.depth}</td></tr>`).join('')+`</tbody></table>`;
+ }
+ document.getElementById('detail').innerHTML=html;
+});
+</script></main>
 <footer class="footer"><span>KhulnaSoft AI-Native Engineering Cloud</span>
 <a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
 <a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>

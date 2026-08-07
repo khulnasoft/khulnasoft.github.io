@@ -86,7 +86,7 @@
     "health": {
       "score": 91,
       "status": "healthy",
-      "readiness": 84
+      "readiness": 91
     }
   },
   "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",

@@ -45,11 +45,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 86,
+    "overall": 93,
     "level": "ready",
     "scores": {
       "architecture": 93,
-      "documentation": 0,
+      "documentation": 93,
       "security": 93,
       "tests": 93,
       "ci": 93,
@@ -75,7 +75,5 @@
     "readiness": 90
   },
   "context_summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
-  "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability."
-  ]
+  "recommended_actions": []
 }

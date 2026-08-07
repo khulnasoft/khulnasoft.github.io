@@ -67,7 +67,7 @@
     "health": {
       "score": 90,
       "status": "healthy",
-      "readiness": 81
+      "readiness": 87
     }
   },
   "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",

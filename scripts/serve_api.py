@@ -18,7 +18,7 @@ from urllib.parse import urlparse, parse_qs
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries  # noqa: E402
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance  # noqa: E402
 
 
 def load_model() -> dict:
@@ -40,6 +40,8 @@ def load_model() -> dict:
     }
     data["twins"] = twinsmod.build_all_twins(resources, data["insights"], data["recs"], data["context"])
     data["registries"] = registries.build_registries(resources, data["prompts"], data["agents"])
+    data["impact"] = graphmod.compute_impact(resources)
+    data["release"] = governance.evaluate_release(resources, data["readiness"], data["org"])
     data["metrics"] = graphmod._compute_metrics(resources)
     data["by_slug"] = {r["slug"]: r for r in resources}
     return data
@@ -65,6 +67,15 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/graph":
             return self.send_json({"nodes": MODEL["graph"]["nodes"], "edges": MODEL["graph"]["edges"]})
+
+        if path == "/impact":
+            return self.send_json(MODEL["impact"])
+
+        if path == "/release":
+            return self.send_json(MODEL["release"])
+
+        if path == "/search-index":
+            return self.send_json(self._search_index())
 
         if path == "/registries":
             return self.send_json(MODEL["registries"])
@@ -118,6 +129,24 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_json(MODEL["readiness"][resource["id"]])
 
         return self.send_json({"error": "unknown sub-resource"}, status=404)
+
+    @staticmethod
+    def _search_index():
+        out = []
+        for r in MODEL["resources"]:
+            rd = MODEL["readiness"].get(r["id"], {})
+            out.append({
+                "slug": r["slug"], "name": r["name"], "kind": r["kind"],
+                "owner": r.get("owner"), "workspace": r.get("workspace"),
+                "lifecycle": r.get("lifecycle"), "health": r["health"]["status"],
+                "readiness": rd.get("overall"), "level": rd.get("level"),
+                "capabilities": r.get("capabilities", []), "tags": r.get("tags", []),
+                "summary": r["summary"], "preview": r["summary"][:220],
+                "relationships": [rel["target"] for rel in r.get("relationships", [])],
+                "text": " ".join([r["name"], r["kind"], r.get("owner", ""), r.get("workspace", ""),
+                                  r["summary"], *r.get("capabilities", []), *r.get("tags", [])]).lower(),
+            })
+        return out
 
     @staticmethod
     def _public(r):

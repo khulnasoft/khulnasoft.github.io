@@ -51,11 +51,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 84,
-    "level": "deployable",
+    "overall": 90,
+    "level": "ready",
     "scores": {
       "architecture": 90,
-      "documentation": 0,
+      "documentation": 90,
       "security": 90,
       "tests": 90,
       "ci": 90,
@@ -81,7 +81,5 @@
     "readiness": 92
   },
   "context_summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
-  "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability."
-  ]
+  "recommended_actions": []
 }

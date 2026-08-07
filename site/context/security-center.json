@@ -67,7 +67,7 @@
     "health": {
       "score": 89,
       "status": "healthy",
-      "readiness": 80
+      "readiness": 86
     }
   },
   "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",

@@ -23,6 +23,13 @@ jobs:
           test -f site/index.html
           test -f site/llms.txt
           test -f site/mcp.json
+          test -f site/playground.html
+          test -f site/impact.html
+          test -f site/timeline.html
+          test -f site/release.html
+          test -f site/impact.json
+          test -f site/release.json
+          test -f site/history.json
           python3 -m py_compile scripts/serve_api.py
       - name: Upload site artifact
         uses: actions/upload-artifact@v4

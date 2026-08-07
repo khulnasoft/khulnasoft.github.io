@@ -52,7 +52,6 @@ def compute_readiness(resource: dict) -> dict:
     }
 
     modifiers = {
-        "documentation": 0,
         "ai_readiness": ai.get("readiness", 50) if ai else 50,
         "production_readiness": _production(health, resource, ai),
     }
@@ -60,7 +59,7 @@ def compute_readiness(resource: dict) -> dict:
     for dim, base in seed_scores.items():
         seed_scores[dim] = round(max(0, min(100, base + modifiers.get(dim, 0))))
 
-    scores = {**seed_scores, **modifiers, "production_readiness": modifiers["production_readiness"]}
+    scores = {**seed_scores, **modifiers}
     scores["ai_readiness"] = modifiers["ai_readiness"]
 
     overall = round(sum(scores.values()) / len(scores))

@@ -76,7 +76,7 @@
     "health": {
       "score": 93,
       "status": "healthy",
-      "readiness": 86
+      "readiness": 93
     }
   },
   "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",

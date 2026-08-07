@@ -37,11 +37,11 @@
     "status": "healthy"
   },
   "readiness": {
-    "overall": 81,
-    "level": "deployable",
+    "overall": 87,
+    "level": "ready",
     "scores": {
       "architecture": 90,
-      "documentation": 0,
+      "documentation": 90,
       "security": 90,
       "tests": 90,
       "ci": 90,
@@ -68,7 +68,6 @@
   },
   "context_summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
   "recommended_actions": [
-    "Publish an architecture doc and README for AI/agent discoverability.",
     "Enable a context bundle and register a prompt for agent consumption."
   ]
 }

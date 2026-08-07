@@ -22,7 +22,7 @@ The canonical model is `organization → workspace → project → resource`. `k
 - **Canonical schema** (`schemas/`) — universal resource, manifest, and organization/governance contracts.
 - **Model source** (`data/`) — resource registry, organization/governance, manifests, prompts, and agent registrations.
 - **Build engine** (`scripts/aec/`) — loads the model and derives the graph, digital twins, layered context, readiness intelligence, and registries.
-- **Static portal + API** (`site/`, `scripts/serve_api.py`) — catalog, search, graph, digital twins, context fabric, registries, readiness, AI control plane, and agent endpoints.
+- **Static portal + API** (`site/`, `scripts/serve_api.py`) — catalog, search, graph, digital twins, context fabric, registries, readiness, AI control plane, context explorer/agent playground, change-impact simulator, readiness timeline, release copilot, and agent endpoints.
 - **AI-ready outputs** — `llms.txt`, `llms-full.txt`, `mcp.json`, and per-resource context bundles/twins (JSON).
 
 ## Getting started
@@ -42,8 +42,11 @@ curl localhost:8001/resources/context-fabric/context           # full layered co
 curl 'localhost:8001/resources/context-fabric/context?layers=metadata,deployment'  # selective
 curl localhost:8001/resources/context-fabric/recommendations   # insights
 curl localhost:8001/graph                                      # knowledge graph
-curl localhost:8001/registries                                 # control-plane registries
-curl localhost:8001/llms.txt                                   # AI-ready index
+curl localhost:8001/impact                                    # change-impact / blast radius
+curl localhost:8001/release                                   # release readiness copilot
+curl localhost:8001/search-index                              # enriched search index
+curl localhost:8001/registries                                # control-plane registries
+curl localhost:8001/llms.txt                                  # AI-ready index
 ```
 
 ## Source layout
