@@ -8,13 +8,15 @@ derived layers. Exit code 0 if all pass, non-zero otherwise.
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, search as searchmod
 from aec import registries, ingest, analyzers
 
 FAILURES: list[str] = []
@@ -162,6 +164,21 @@ def main() -> int:
             and mon and mon["source"] == "monitoring" and mon["scope"] == ["resource:orders-db"])
     check("8b. Source adapters normalize GitHub/K8s/monitoring into canonical events", ok8b,
           f"gh={gh.get('type') if gh else None} k8s={k8s.get('type') if k8s else None}")
+
+    # 9. Phase 9.2/9.3 keyword + semantic (TF-IDF) + hybrid search.
+    idx = searchmod.build_index(resources)
+    hybrid = searchmod.search(idx, "api gateway context", mode="hybrid")
+    semantic = searchmod.search(idx, "api gateway context", mode="semantic")
+    keyword = searchmod.search(idx, "api gateway context", mode="keyword")
+    ok9 = bool(hybrid) and bool(semantic) and bool(keyword)
+    check("9. Hybrid/keyword/semantic search all return ranked results", ok9,
+          f"hybrid={len(hybrid)} semantic={len(semantic)} keyword={len(keyword)}")
+    # A vector bundle is emitted per resource for downstream vector indexing.
+    with open(SITE / "vectors.json") as fh:
+        vectors = json.load(fh)
+    ok9b = vectors["model"] == "tfidf-sparse" and len(vectors["vectors"]) == len(resources)
+    check("9b. Vector artifacts emitted for every resource", ok9b,
+          f"model={vectors['model']} n={len(vectors['vectors'])}")
 
     print(f"\n{sum(1 for _, o in CHECKS if o)}/{len(CHECKS)} checks passed")
     if FAILURES:

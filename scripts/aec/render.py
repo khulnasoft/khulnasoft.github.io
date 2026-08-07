@@ -335,10 +335,11 @@ def render_dashboard(metrics):
 
 def render_search():
     body = """<h1>Ask the Portal</h1>
-<p class="muted">Keyword + facet search across the knowledge base, with ranked relevance and live previews from each resource's context bundle.</p>
+<p class="muted">Hybrid search across the knowledge base: keyword + semantic (TF-IDF) ranking with live previews from each resource's context bundle. Pick a mode or let the default blend both.</p>
 <div class="card">
-<div style="display:flex;gap:.6rem;flex-wrap:wrap">
+<div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
 <input id="q" style="flex:1;min-width:220px;padding:.6rem;border-radius:8px;border:1px solid #1f3244;background:#0d1a28;color:#f5f7fb" placeholder="e.g. api agent gateway mcp" autofocus/>
+<select id="mode"><option value="hybrid">hybrid</option><option value="keyword">keyword</option><option value="semantic">semantic</option></select>
 <span class="muted" style="align-self:center" id="count"></span>
 </div>
 <div id="facets" style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem"></div>
@@ -346,6 +347,7 @@ def render_search():
 </div>
 <script>
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ranks=new Map();
 const toks=w=>w.toLowerCase().split(/[^\\w+#\\.-]+/).filter(Boolean);
 function score(item,q){
  const terms=toks(q);if(!terms.length)return 0;
@@ -358,13 +360,12 @@ function score(item,q){
  }
  return s;
 }
-function activeFacets(){return [...document.querySelectorAll('#facets input:checked')].map(i=>JSON.parse(i.dataset.f));}
-function render(d){
- const q=document.getElementById('q').value;
- const faces=activeFacets();
- let hits=(d||[]).map(it=>({it,r:score(it,q)})).filter(x=>q?x.r>0:true);
- for(const f of faces){hits=hits.filter(x=>String(x.it[f.k]??'')===String(f.v));}
- hits.sort((a,b)=>b.r-a.r);
+ function activeFacets(){return [...document.querySelectorAll('#facets input:checked')].map(i=>JSON.parse(i.dataset.f));}
+function render(d,q){
+  const faces=activeFacets();
+  let hits=(d||[]).map(it=>({it,r:ranks.get(it.slug)||0,sk:score(it,q)})).filter(x=>q?x.r>0||x.sk>0:true);
+  for(const f of faces){hits=hits.filter(x=>String(x.it[f.k]??'')===String(f.v));}
+  hits.sort((a,b)=>(b.r||b.sk)-(a.r||a.sk));
  const kinds=[...new Set((d||[]).map(i=>i.kind))];
  document.getElementById('facets').innerHTML=kinds.map(k=>
   `<label style="background:#0d1a28;border:1px solid #1f3244;padding:.3rem .6rem;border-radius:8px;font-size:.8rem"><input type="checkbox" data-f='{"k":"kind","v":"${esc(k)}"}' class="fac" style="margin-right:.35rem">${esc(k)}</label>`).join('');
@@ -379,14 +380,26 @@ function render(d){
     <a style="margin-left:.5rem" href="context/${esc(it.slug)}.json">bundle</a> · <a href="twins/${esc(it.slug)}.json">twin</a></div>
   </div>`).join('')||'<div class="muted">No matches.</div>':'<div class="muted">Type keywords or filter by facet above.</div>';
 }
+function go(d){
+ const q=document.getElementById('q').value;
+ ranks.clear();
+ if(q){
+  const m=document.getElementById('mode').value;
+  fetch('/search?q='+encodeURIComponent(q)+'&mode='+m).then(r=>r.json()).then(j=>{
+   (j.results||[]).forEach(rr=>ranks.set(rr.slug,rr.score));
+   render(d,q);
+  });
+ } else { render(d,q); }
+}
 function init(d){
  window.idx=d;
- document.getElementById('q').addEventListener('input',()=>render(d));
- document.getElementById('facets').addEventListener('change',()=>render(d));
- render(d);
+ document.getElementById('q').addEventListener('input',()=>go(d));
+ document.getElementById('mode').addEventListener('change',()=>go(d));
+ document.getElementById('facets').addEventListener('change',()=>render(d,document.getElementById('q').value));
+ render(d,'');
 }
 fetch('search-index.json').then(r=>r.json()).then(init);
-</script>"""
+ </script>"""
     return shell("Ask the Portal", body)
 
 

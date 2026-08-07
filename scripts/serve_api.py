@@ -18,7 +18,7 @@ from urllib.parse import urlparse, parse_qs
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance, ingest, analyzers, runtime as rtmod, aicontrol  # noqa: E402
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance, ingest, analyzers, runtime as rtmod, aicontrol, search as searchmod  # noqa: E402
 
 
 def load_model() -> dict:
@@ -47,6 +47,7 @@ def load_model() -> dict:
     data["metrics"] = graphmod._compute_metrics(resources)
     data["ai_services"] = aicontrol.build_ai_services(resources, data["agents"], data["prompts"], data["readiness"], data["org"])
     data["by_slug"] = {r["slug"]: r for r in resources}
+    data["search_index"] = searchmod.build_index(resources)
     return data
 
 
@@ -95,6 +96,13 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/search-index":
             return self.send_json(self._search_index())
+
+        if path == "/search":
+            q = query.get("q", [""])[0]
+            mode = query.get("mode", ["hybrid"])[0]
+            limit = int(query.get("limit", ["25"])[0])
+            results = searchmod.search(MODEL["search_index"], q, mode=mode, limit=limit)
+            return self.send_json({"query": q, "mode": mode, "results": results})
 
         if path == "/registries":
             return self.send_json(MODEL["registries"])

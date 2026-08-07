@@ -13,8 +13,8 @@ import json
 import sys
 from pathlib import Path
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, history as hist, governance, ingest, analyzers, runtime as rtmod, sdks
-from aec import aicontrol
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, history as hist, governance, ingest, analyzers, runtime as rtmod, sdks, aicontrol
+from aec import search as searchmod
 from aec import render
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,29 +87,17 @@ def main() -> int:
     write(SITE / "events.json", {"summary": event_summary, "events": applied})
     write(SITE / "event-index.json", ingest.affected_index(events))
     write(SITE / "history.json", hist.record_snapshot(SITE / "history.json", readiness_by_id, prior=prior_history))
-    write(SITE / "search-index.json", [
-        {
-            "slug": r["slug"],
-            "name": r["name"],
-            "kind": r["kind"],
-            "owner": r.get("owner"),
-            "workspace": r.get("workspace"),
-            "lifecycle": r.get("lifecycle"),
-            "health": r["health"]["status"],
-            "readiness": readiness_by_id[r["id"]]["overall"],
-            "level": readiness_by_id[r["id"]]["level"],
-            "capabilities": r.get("capabilities", []),
-            "tags": r.get("tags", []),
-            "summary": r["summary"],
-            "preview": ctxmod.compose_layer("metadata", r) and r["summary"][:220],
-            "relationships": [rel["target"] for rel in r.get("relationships", [])],
-            "text": " ".join([r["name"], r["kind"], r.get("owner", ""), r.get("workspace", ""), r["summary"], *r.get("capabilities", []), *r.get("tags", [])]).lower(),
-        }
-        for r in resources
-    ])
     write(SITE / "llms.txt", ctxmod.build_llms(resources))
     write(SITE / "llms-full.txt", ctxmod.build_llms_full(resources))
     write(SITE / "mcp.json", ctxmod.build_mcp_metadata(resources))
+
+    search_index = searchmod.build_index(resources)
+    write(SITE / "vectors.json", {
+        "model": "tfidf-sparse",
+        "vocab_size": search_index["vocab_size"],
+        "vectors": search_index["vectors"],
+    })
+    write(SITE / "search-index.json", searchmod.build_search_index(resources, readiness_by_id, search_index))
 
     # per-resource JSON (context bundles, twins)
     for r in resources:
