@@ -1,0 +1,618 @@
+{
+  "per_resource": {
+    "resource:ai-code-assistant": {
+      "id": "resource:ai-code-assistant",
+      "slug": "ai-code-assistant",
+      "languages": [
+        "typescript"
+      ],
+      "frameworks": [
+        "node"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "uses",
+          "target": "resource:context-fabric"
+        },
+        {
+          "type": "uses",
+          "target": "resource:ai-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "beta"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:ai-runtime": {
+      "id": "resource:ai-runtime",
+      "slug": "ai-runtime",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:api-gateway": {
+      "id": "resource:api-gateway",
+      "slug": "api-gateway",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:checkout-service": {
+      "id": "resource:checkout-service",
+      "slug": "checkout-service",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "architecture": [
+        "microservice"
+      ],
+      "api": true,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:orders-db"
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:payment-events"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": "210ms"
+      }
+    },
+    "resource:context-fabric": {
+      "id": "resource:context-fabric",
+      "slug": "context-fabric",
+      "languages": [
+        "typescript",
+        "python"
+      ],
+      "frameworks": [
+        "node",
+        "fastapi"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:knowledge-graph"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:deployment-runtime": {
+      "id": "resource:deployment-runtime",
+      "slug": "deployment-runtime",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:api-gateway"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:helm-charts-registry": {
+      "id": "resource:helm-charts-registry",
+      "slug": "helm-charts-registry",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "helm",
+        "kubernetes"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "deploys",
+          "target": "resource:deployment-runtime"
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:khulnasoft-platform": {
+      "id": "resource:khulnasoft-platform",
+      "slug": "khulnasoft-platform",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:knowledge-graph": {
+      "id": "resource:knowledge-graph",
+      "slug": "knowledge-graph",
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "networkx-compatible"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "contains",
+          "target": "resource:repository-catalog"
+        },
+        {
+          "type": "provides",
+          "target": "resource:context-fabric"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:ledger-worker": {
+      "id": "resource:ledger-worker",
+      "slug": "ledger-worker",
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "fastapi"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:payment-events"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:orders-db": {
+      "id": "resource:orders-db",
+      "slug": "orders-db",
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "serves",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:payment-events": {
+      "id": "resource:payment-events",
+      "slug": "payment-events",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "event-driven"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "consumed_by",
+          "target": "resource:ledger-worker"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:platform-ingress": {
+      "id": "resource:platform-ingress",
+      "slug": "platform-ingress",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "dependencies": [
+        {
+          "type": "routes_to",
+          "target": "resource:api-gateway"
+        },
+        {
+          "type": "routes_to",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:recommendation-model": {
+      "id": "resource:recommendation-model",
+      "slug": "recommendation-model",
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "fastapi"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        },
+        {
+          "type": "serves",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:repository-catalog": {
+      "id": "resource:repository-catalog",
+      "slug": "repository-catalog",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:security-center": {
+      "id": "resource:security-center",
+      "slug": "security-center",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:repository-catalog"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    }
+  },
+  "summary": {
+    "language_count": [
+      "go",
+      "python",
+      "sql",
+      "typescript",
+      "yaml"
+    ],
+    "framework_count": [
+      "fastapi",
+      "gin",
+      "helm",
+      "kubernetes",
+      "networkx-compatible",
+      "node"
+    ],
+    "relationship_count": 23,
+    "api_resources": 3,
+    "tech_debt_resources": 0,
+    "tech_debt_items": 0,
+    "deprecated_resources": 0,
+    "perf_regressions": 0
+  }
+}

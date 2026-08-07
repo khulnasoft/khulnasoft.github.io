@@ -14,6 +14,9 @@
 - [API Gateway](https://khulnasoft.github.io/resources/api-gateway.html)
   - Context: `/context/api-gateway.json`
   - Twin: `/api/resources/api-gateway/twin`
+- [Checkout Service](https://khulnasoft.github.io/resources/checkout-service.html)
+  - Context: `/context/checkout-service.json`
+  - Twin: `/api/resources/checkout-service/twin`
 - [Context Fabric](https://khulnasoft.github.io/resources/context-fabric.html)
   - Context: `/context/context-fabric.json`
   - Twin: `/api/resources/context-fabric/twin`
@@ -29,6 +32,21 @@
 - [Engineering Knowledge Graph](https://khulnasoft.github.io/resources/knowledge-graph.html)
   - Context: `/context/knowledge-graph.json`
   - Twin: `/api/resources/knowledge-graph/twin`
+- [Ledger Worker](https://khulnasoft.github.io/resources/ledger-worker.html)
+  - Context: `/context/ledger-worker.json`
+  - Twin: `/api/resources/ledger-worker/twin`
+- [Orders Database](https://khulnasoft.github.io/resources/orders-db.html)
+  - Context: `/context/orders-db.json`
+  - Twin: `/api/resources/orders-db/twin`
+- [Payment Events](https://khulnasoft.github.io/resources/payment-events.html)
+  - Context: `/context/payment-events.json`
+  - Twin: `/api/resources/payment-events/twin`
+- [Platform Ingress](https://khulnasoft.github.io/resources/platform-ingress.html)
+  - Context: `/context/platform-ingress.json`
+  - Twin: `/api/resources/platform-ingress/twin`
+- [Recommendation Model](https://khulnasoft.github.io/resources/recommendation-model.html)
+  - Context: `/context/recommendation-model.json`
+  - Twin: `/api/resources/recommendation-model/twin`
 - [Repository Catalog Service](https://khulnasoft.github.io/resources/repository-catalog.html)
   - Context: `/context/repository-catalog.json`
   - Twin: `/api/resources/repository-catalog/twin`

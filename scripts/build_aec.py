@@ -13,7 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, history as hist, governance
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, history as hist, governance, ingest, analyzers, runtime as rtmod, sdks
 from aec import render
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,8 +47,10 @@ def write(path: Path, content):
 
 def main() -> int:
     data = model.load_all()
-    resources = data["resources"]
+    events = ingest.load_events()
+    resources, applied = ingest.apply_events(model.load_resources(), events)
     org = data["organization"]
+    event_summary = ingest.summarize(events, resources)
 
     prior_history = hist.load_state(SITE / "history.json")
 
@@ -63,17 +65,25 @@ def main() -> int:
         r["id"]: intelligence.compute_recommendations(r, readiness_by_id[r["id"]])
         for r in resources
     }
+    analyses = analyzers.build_analyses(resources, readiness_by_id)
     ctx_by_id = {r["id"]: ctxmod.build_context(r, readiness_by_id[r["id"]]) for r in resources}
     twins_all = twinsmod.build_all_twins(resources, insights, recs_by_id, ctx_by_id)
     reg = registries.build_registries(resources, data["prompts"], data["agents"])
     release = governance.evaluate_release(resources, readiness_by_id, org)
+    runtime_state = rtmod.build_runtime(events, rtmod.load_automations())
+    sdk_artifacts = sdks.generate_sdks()
+    marketplace = model.load_json(ROOT / "data" / "marketplace" / "items.json")
     metrics = graphmod._compute_metrics(resources)
+    metrics["events"] = event_summary
 
     # ---- derived artifacts ----
     write(SITE / "graph-data.json", {"nodes": graph["nodes"], "edges": graph["edges"]})
     write(SITE / "impact.json", impact)
+    write(SITE / "analytics.json", analyses)
     write(SITE / "release.json", release)
     write(SITE / "manifests.json", [{"path": m["path"]} for m in data["manifests"]])
+    write(SITE / "events.json", {"summary": event_summary, "events": applied})
+    write(SITE / "event-index.json", ingest.affected_index(events))
     write(SITE / "history.json", hist.record_snapshot(SITE / "history.json", readiness_by_id, prior=prior_history))
     write(SITE / "search-index.json", [
         {
@@ -115,6 +125,13 @@ def main() -> int:
     write(SITE / "impact.html", render.render_impact_simulator())
     write(SITE / "timeline.html", render.render_readiness_timeline(hist.load_state(SITE / "history.json")))
     write(SITE / "release.html", render.render_release_copilot(release))
+    write(SITE / "data-lake.html", render.render_data_lake())
+    write(SITE / "analytics.html", render.render_analytics(analyses))
+    write(SITE / "runtime.html", render.render_runtime_plane(runtime_state, resources))
+    write(SITE / "runtime.json", runtime_state)
+    write(SITE / "marketplace.json", marketplace)
+    write(SITE / "sdk-manifest.json", sdk_artifacts)
+    write(SITE / "marketplace.html", render.render_marketplace(marketplace, sdk_artifacts))
     write(SITE / "digital-twin.html", render.render_digital_twins(resources, twins_all))
     write(SITE / "context-fabric.html", render.render_context_fabric(resources, ctxmod.LAYERS))
     write(SITE / "registries.html", render.render_registries(reg))

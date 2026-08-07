@@ -1,0 +1,116 @@
+{
+  "resource": {
+    "id": "resource:checkout-service",
+    "name": "Checkout Service",
+    "slug": "checkout-service",
+    "kind": "service"
+  },
+  "context": {
+    "metadata": {
+      "summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+      "name": "Checkout Service",
+      "kind": "service",
+      "owner": "Commerce",
+      "team": "commerce-payments",
+      "workspace": "commerce",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "3.2.1",
+      "tags": [
+        "commerce",
+        "payments"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "capabilities": [
+        "microservice",
+        "api",
+        "payment",
+        "messaging"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:orders-db",
+          "detail": null
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:payment-events",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [
+        "POST /checkout",
+        "GET /checkout/{id}",
+        "POST /checkout/{id}/confirm"
+      ],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "observability": {
+      "p99": 210,
+      "p99_label": "210ms"
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+      "owner": "Commerce",
+      "workspace": "commerce"
+    },
+    "health": {
+      "score": 88,
+      "status": "healthy",
+      "readiness": 89
+    }
+  },
+  "summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

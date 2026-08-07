@@ -103,6 +103,41 @@ def build_context_registry(resources: list[dict]) -> dict:
     }
 
 
+def build_model_registry(resources: list[dict]) -> dict:
+    """Registry of AI models in the ecosystem (kind: model/ai-model)."""
+    models = [
+        {"id": r["id"], "name": r["name"], "slug": r["slug"], "kind": r["kind"], "version": r.get("version"),
+         "owner": r.get("owner"), "workspace": r.get("workspace"),
+         "readiness": r.get("ai", {}).get("readiness"), "capabilities": r.get("capabilities", [])}
+        for r in resources if r["kind"] in ("model", "ai-model", "ai-agent")
+    ]
+    return {"registry": "model", "count": len(models), "models": models}
+
+
+def build_tool_registry(resources: list[dict]) -> dict:
+    """Registry of capabilities/resources usable as AI tools (MCP, SDK, CLI, API)."""
+    tool_caps = {"mcp", "api", "cli", "sdk", "tool", "vscode-extension", "github-action", "openapi"}
+    tools = []
+    for r in resources:
+        caps = {c.lower() for c in r.get("capabilities", [])}
+        if caps & tool_caps:
+            tools.append({"id": r["id"], "name": r["name"], "slug": r["slug"],
+                          "kind": r["kind"], "toolTypes": sorted(caps & tool_caps)})
+    return {"registry": "tool", "count": len(tools), "tools": tools}
+
+
+def build_memory_registry(resources: list[dict]) -> dict:
+    """Registry of memory/knowledge stores (graph, vector, context fabric, database)."""
+    mem_caps = {"vector-collection", "knowledge-graph", "graph", "context-fabric", "database", "embedding-collection", "search"}
+    memories = []
+    for r in resources:
+        caps = {c.lower() for c in r.get("capabilities", [])}
+        if caps & mem_caps or r["kind"] in ("graph", "database", "queue"):
+            memories.append({"id": r["id"], "name": r["name"], "slug": r["slug"],
+                             "kind": r["kind"], "access": sorted(caps & mem_caps)})
+    return {"registry": "memory", "count": len(memories), "memories": memories}
+
+
 def build_registries(resources: list[dict], prompts: list[dict], agents: list[dict]) -> dict:
     """Build all control-plane registries as one queryable structure."""
     return {
@@ -113,4 +148,7 @@ def build_registries(resources: list[dict], prompts: list[dict], agents: list[di
         "prompt": build_prompt_registry(prompts),
         "agent": build_agent_registry(agents),
         "context": build_context_registry(resources),
+        "model": build_model_registry(resources),
+        "tool": build_tool_registry(resources),
+        "memory": build_memory_registry(resources),
     }

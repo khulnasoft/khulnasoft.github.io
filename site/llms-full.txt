@@ -13,7 +13,7 @@
 - Owner: KhulnaSoft | Workspace: core | Lifecycle: active
 - Capabilities: context-fabric, agent-runtime, prompt-registry, mcp
 - Relationships: depends_on resource:khulnasoft-platform
-- Health: 88/100 (healthy)
+- Health: 82/100 (healthy)
 - Rendering: 2026-08-07
 
 ## API Gateway (api)
@@ -21,7 +21,15 @@
 - Owner: KhulnaSoft | Workspace: core | Lifecycle: active
 - Capabilities: api, mcp, routing
 - Relationships: depends_on resource:ai-runtime
-- Health: 86/100 (healthy)
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## Checkout Service (service)
+- Summary: BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: microservice, api, payment, messaging
+- Relationships: depends_on resource:orders-db; depends_on resource:payment-events
+- Health: 88/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Context Fabric (component)
@@ -37,7 +45,7 @@
 - Owner: KhulnaSoft | Workspace: core | Lifecycle: active
 - Capabilities: deployment, automation, release
 - Relationships: depends_on resource:api-gateway
-- Health: 84/100 (healthy)
+- Health: 86/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Helm Charts (helm-chart)
@@ -61,7 +69,47 @@
 - Owner: Platform Core | Workspace: core | Lifecycle: supported
 - Capabilities: knowledge-graph, relationship-model, search
 - Relationships: contains resource:repository-catalog; provides resource:context-fabric
-- Health: 93/100 (healthy)
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Ledger Worker (worker)
+- Summary: Consumes payment events and writes idempotent ledger entries, reconciling daily batches.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: worker, messaging, automation
+- Relationships: depends_on resource:payment-events
+- Health: 84/100 (healthy)
+- Rendering: 2026-08-07
+
+## Orders Database (database)
+- Summary: Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: database, storage
+- Relationships: serves resource:checkout-service
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
+## Payment Events (queue)
+- Summary: Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: messaging, event-driven
+- Relationships: consumed_by resource:ledger-worker
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Platform Ingress (ingress)
+- Summary: North-south ingress gateway routing external traffic to platform APIs and the portal.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: networking, routing, api
+- Relationships: routes_to resource:api-gateway; routes_to resource:khulnasoft-platform
+- Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## Recommendation Model (model)
+- Summary: Embedding-based product recommendation model served through the AI runtime with online feature updates.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: supported
+- Capabilities: ai, model, vector-collection
+- Relationships: depends_on resource:ai-runtime; serves resource:checkout-service
+- Health: 86/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Repository Catalog Service (repository)

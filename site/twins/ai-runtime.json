@@ -34,27 +34,27 @@
     }
   ],
   "health": {
-    "score": 88,
+    "score": 82,
     "status": "healthy"
   },
   "readiness": {
-    "overall": 85,
-    "level": "ready",
+    "overall": 80,
+    "level": "deployable",
     "scores": {
-      "architecture": 88,
-      "documentation": 88,
-      "security": 88,
-      "tests": 88,
-      "ci": 88,
-      "performance": 88,
-      "dependencies": 88,
-      "maintainability": 88,
-      "release": 88,
-      "compliance": 88,
-      "observability": 88,
-      "community": 88,
+      "architecture": 82,
+      "documentation": 82,
+      "security": 82,
+      "tests": 82,
+      "ci": 82,
+      "performance": 82,
+      "dependencies": 82,
+      "maintainability": 82,
+      "release": 82,
+      "compliance": 82,
+      "observability": 82,
+      "community": 82,
       "ai_readiness": 50,
-      "production_readiness": 88
+      "production_readiness": 82
     }
   },
   "intelligence": {

@@ -66,9 +66,9 @@
       "workspace": "core"
     },
     "health": {
-      "score": 86,
+      "score": 88,
       "status": "healthy",
-      "readiness": 83
+      "readiness": 85
     }
   },
   "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",

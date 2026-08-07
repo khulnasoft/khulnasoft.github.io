@@ -18,7 +18,7 @@ from urllib.parse import urlparse, parse_qs
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance  # noqa: E402
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance, ingest, analyzers, runtime as rtmod  # noqa: E402
 
 
 def load_model() -> dict:
@@ -42,6 +42,8 @@ def load_model() -> dict:
     data["registries"] = registries.build_registries(resources, data["prompts"], data["agents"])
     data["impact"] = graphmod.compute_impact(resources)
     data["release"] = governance.evaluate_release(resources, data["readiness"], data["org"])
+    data["events"] = ingest.load_events()
+    data["analytics"] = analyzers.build_analyses(resources, data["readiness"])
     data["metrics"] = graphmod._compute_metrics(resources)
     data["by_slug"] = {r["slug"]: r for r in resources}
     return data
@@ -71,6 +73,22 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/impact":
             return self.send_json(MODEL["impact"])
 
+        if path == "/analytics":
+            return self.send_json(MODEL["analytics"])
+
+        if path == "/runtime":
+            return self.send_json({
+                "workflows": rtmod.load_workflows(),
+                "automations": rtmod.load_automations(),
+                "events_seen": len(MODEL["events"]),
+            })
+
+        if path == "/events":
+            return self.send_json({
+                "summary": ingest.summarize(MODEL["events"], MODEL["resources"]),
+                "events": MODEL["events"],
+            })
+
         if path == "/release":
             return self.send_json(MODEL["release"])
 
@@ -95,6 +113,27 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/mcp.json":
             return self.send_json(ctxmod.build_mcp_metadata(MODEL["resources"]))
 
+        return self.send_json({"error": "not found"}, status=404)
+
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        path = parsed.path.rstrip("/")
+        if path == "/webhook/ingest":
+            length = int(self.headers.get("Content-Length", 0))
+            raw = self.rfile.read(length) if length else b"{}"
+            try:
+                evt = ingest.normalize_event(json.loads(raw.decode("utf-8")))
+            except Exception:
+                evt = None
+            if evt is None:
+                return self.send_json({"error": "invalid event"}, status=400)
+            touched = rtmod.resolve_touched(evt, MODEL["resources"])
+            return self.send_json({
+                "accepted": True,
+                "event": evt["id"],
+                "target_refresh": touched,
+                "actions": [a["name"] for a in rtmod.load_automations() if a["event"] == evt["type"]],
+            })
         return self.send_json({"error": "not found"}, status=404)
 
     def _resource_route(self, path, query):

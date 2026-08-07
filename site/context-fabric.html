@@ -35,7 +35,7 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 .badge.bad{background:rgba(248,113,113,.16);color:#f87171}
 </style></head>
 <body>
-<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
 <main><h1>Context Fabric</h1>
 <p class="muted">AI-ready context composed by layer: <span class="pill">metadata</span><span class="pill">architecture</span><span class="pill">dependency</span><span class="pill">api</span><span class="pill">workflow</span><span class="pill">deployment</span><span class="pill">runtime</span><span class="pill">observability</span><span class="pill">security</span><span class="pill">business</span>. Context supports selective retrieval so agents fetch only the layers they need. Published as <code>llms.txt</code>, <code>llms-full.txt</code>, and MCP metadata.</p>
 <div class="grid"><div class="card"><a style="font-weight:700" href="resources/ai-code-assistant.html">AI Code Assistant</a>
@@ -44,7 +44,9 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.3rem 0">Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.</div>
 <a href="context/ai-runtime.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/api-gateway.html">API Gateway</a>
 <div class="muted" style="margin:.3rem 0">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
-<a href="context/api-gateway.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/context-fabric.html">Context Fabric</a>
+<a href="context/api-gateway.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/checkout-service.html">Checkout Service</a>
+<div class="muted" style="margin:.3rem 0">BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.</div>
+<a href="context/checkout-service.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/context-fabric.html">Context Fabric</a>
 <div class="muted" style="margin:.3rem 0">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
 <a href="context/context-fabric.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/deployment-runtime.html">Deployment Runtime</a>
 <div class="muted" style="margin:.3rem 0">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
@@ -54,7 +56,17 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.3rem 0">The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.</div>
 <a href="context/khulnasoft-platform.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/knowledge-graph.html">Engineering Knowledge Graph</a>
 <div class="muted" style="margin:.3rem 0">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
-<a href="context/knowledge-graph.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a>
+<a href="context/knowledge-graph.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/ledger-worker.html">Ledger Worker</a>
+<div class="muted" style="margin:.3rem 0">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
+<a href="context/ledger-worker.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/orders-db.html">Orders Database</a>
+<div class="muted" style="margin:.3rem 0">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
+<a href="context/orders-db.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/payment-events.html">Payment Events</a>
+<div class="muted" style="margin:.3rem 0">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
+<a href="context/payment-events.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/platform-ingress.html">Platform Ingress</a>
+<div class="muted" style="margin:.3rem 0">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
+<a href="context/platform-ingress.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/recommendation-model.html">Recommendation Model</a>
+<div class="muted" style="margin:.3rem 0">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
+<a href="context/recommendation-model.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a>
 <div class="muted" style="margin:.3rem 0">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
 <a href="context/repository-catalog.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/security-center.html">Security Center</a>
 <div class="muted" style="margin:.3rem 0">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>

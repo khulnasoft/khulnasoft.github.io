@@ -35,11 +35,11 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 .badge.bad{background:rgba(248,113,113,.16);color:#f87171}
 </style></head>
 <body>
-<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
 <main><h1>KhulnaSoft AI-Native Engineering Cloud</h1>
 <p class="muted">A continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-<div class="card metric"><div class="value">10</div><div class="label">resource count</div></div><div class="card metric"><div class="value">{'ai-agent': 1, 'ai-runtime': 1, 'api': 1, 'component': 1, 'deployment': 1, 'helm-chart': 1, 'platform': 1, 'graph': 1, 'repository': 1, 'security': 1}</div><div class="label">kind distribution</div></div><div class="card metric"><div class="value">89</div><div class="label">health score</div></div><div class="card metric"><div class="value">89</div><div class="label">reliability score</div></div><div class="card metric"><div class="value">0</div><div class="label">automation coverage</div></div><div class="card metric"><div class="value">40</div><div class="label">context coverage</div></div></div>
+<div class="card metric"><div class="value">16</div><div class="label">resource count</div></div><div class="card metric"><div class="value">{'ai-agent': 1, 'ai-runtime': 1, 'api': 1, 'service': 1, 'component': 1, 'deployment': 1, 'helm-chart': 1, 'platform': 1, 'graph': 1, 'worker': 1, 'database': 1, 'queue': 1, 'ingress': 1, 'model': 1, 'repository': 1, 'security': 1}</div><div class="label">kind distribution</div></div><div class="card metric"><div class="value">88</div><div class="label">health score</div></div><div class="card metric"><div class="value">88</div><div class="label">reliability score</div></div><div class="card metric"><div class="value">6</div><div class="label">automation coverage</div></div><div class="card metric"><div class="value">38</div><div class="label">context coverage</div></div><div class="card metric"><div class="value">{'total_events': 4, 'sources': {'kubernetes': 1, 'github': 1, 'monitoring': 1, 'security': 1}, 'types': {'deployment.success': 1, 'repository.push': 1, 'health.degraded': 1, 'security.findings': 1}, 'resources_touched': 4}</div><div class="label">events</div></div></div>
 <h2>Resources</h2><div class="grid"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
 <a href="resources/ai-code-assistant.html" style="font-weight:700;font-size:1.05rem">AI Code Assistant</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-agent</span><span class="pill">ai</span></div>
@@ -53,6 +53,10 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">api</span><span class="pill">core</span></div>
 <div class="muted">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
 <div style="margin-top:.6rem"><a href="context/api-gateway.json">bundle</a> · <a href="twins/api-gateway.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/checkout-service.html" style="font-weight:700;font-size:1.05rem">Checkout Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">service</span><span class="pill">commerce</span></div>
+<div class="muted">BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.</div>
+<div style="margin-top:.6rem"><a href="context/checkout-service.json">bundle</a> · <a href="twins/checkout-service.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
 <a href="resources/context-fabric.html" style="font-weight:700;font-size:1.05rem">Context Fabric</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span><span class="pill">ai</span></div>
 <div class="muted">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
@@ -73,6 +77,26 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">graph</span><span class="pill">core</span></div>
 <div class="muted">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
 <div style="margin-top:.6rem"><a href="context/knowledge-graph.json">bundle</a> · <a href="twins/knowledge-graph.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ledger-worker.html" style="font-weight:700;font-size:1.05rem">Ledger Worker</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">worker</span><span class="pill">commerce</span></div>
+<div class="muted">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
+<div style="margin-top:.6rem"><a href="context/ledger-worker.json">bundle</a> · <a href="twins/ledger-worker.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/orders-db.html" style="font-weight:700;font-size:1.05rem">Orders Database</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span><span class="pill">commerce</span></div>
+<div class="muted">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
+<div style="margin-top:.6rem"><a href="context/orders-db.json">bundle</a> · <a href="twins/orders-db.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/payment-events.html" style="font-weight:700;font-size:1.05rem">Payment Events</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">queue</span><span class="pill">commerce</span></div>
+<div class="muted">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
+<div style="margin-top:.6rem"><a href="context/payment-events.json">bundle</a> · <a href="twins/payment-events.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/platform-ingress.html" style="font-weight:700;font-size:1.05rem">Platform Ingress</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ingress</span><span class="pill">core</span></div>
+<div class="muted">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
+<div style="margin-top:.6rem"><a href="context/platform-ingress.json">bundle</a> · <a href="twins/platform-ingress.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/recommendation-model.html" style="font-weight:700;font-size:1.05rem">Recommendation Model</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">model</span><span class="pill">ai</span></div>
+<div class="muted">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
+<div style="margin-top:.6rem"><a href="context/recommendation-model.json">bundle</a> · <a href="twins/recommendation-model.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
 <a href="resources/repository-catalog.html" style="font-weight:700;font-size:1.05rem">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span><span class="pill">core</span></div>
 <div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>

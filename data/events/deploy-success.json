@@ -1,0 +1,12 @@
+{
+  "id": "evt:2026-08-07-deploy-success",
+  "source": "kubernetes",
+  "type": "deployment.success",
+  "happenedAt": "2026-08-07T09:30:00Z",
+  "scope": ["resource:deployment-runtime", "resource:api-gateway"],
+  "payload": {
+    "revision": "rev-142",
+    "rolling": true,
+    "replicas": 3
+  }
+}

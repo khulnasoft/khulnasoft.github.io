@@ -1,0 +1,110 @@
+{
+  "resource": {
+    "id": "resource:recommendation-model",
+    "name": "Recommendation Model",
+    "slug": "recommendation-model",
+    "kind": "model"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+      "name": "Recommendation Model",
+      "kind": "model",
+      "owner": "AI Enablement",
+      "team": "ai-ml",
+      "workspace": "ai",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "0.9.4",
+      "tags": [
+        "ai",
+        "ml"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "fastapi"
+      ],
+      "capabilities": [
+        "ai",
+        "model",
+        "vector-collection"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime",
+          "detail": null
+        },
+        {
+          "type": "serves",
+          "target": "resource:checkout-service",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "observability": {
+      "p99": 120
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+      "owner": "AI Enablement",
+      "workspace": "ai"
+    },
+    "health": {
+      "score": 86,
+      "status": "healthy",
+      "readiness": 87
+    }
+  },
+  "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

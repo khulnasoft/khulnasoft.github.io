@@ -36,8 +36,8 @@
     "workspace": "core",
     "lifecycle": "active",
     "health": "healthy",
-    "readiness": 85,
-    "level": "ready",
+    "readiness": 80,
+    "level": "deployable",
     "capabilities": [
       "context-fabric",
       "agent-runtime",
@@ -64,8 +64,8 @@
     "workspace": "core",
     "lifecycle": "active",
     "health": "healthy",
-    "readiness": 83,
-    "level": "deployable",
+    "readiness": 85,
+    "level": "ready",
     "capabilities": [
       "api",
       "mcp",
@@ -82,6 +82,34 @@
       "resource:ai-runtime"
     ],
     "text": "api gateway api khulnasoft core the public entry point for context, catalog, and platform apis consumed by internal tools, cli clients, and ai agents. api mcp routing api routing agent"
+  },
+  {
+    "slug": "checkout-service",
+    "name": "Checkout Service",
+    "kind": "service",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 89,
+    "level": "ready",
+    "capabilities": [
+      "microservice",
+      "api",
+      "payment",
+      "messaging"
+    ],
+    "tags": [
+      "commerce",
+      "payments"
+    ],
+    "summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+    "preview": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+    "relationships": [
+      "resource:orders-db",
+      "resource:payment-events"
+    ],
+    "text": "checkout service service commerce commerce bff for checkout flows: cart orchestration, payment intent creation, and idempotent order placement. microservice api payment messaging commerce payments"
   },
   {
     "slug": "context-fabric",
@@ -120,7 +148,7 @@
     "workspace": "core",
     "lifecycle": "active",
     "health": "healthy",
-    "readiness": 82,
+    "readiness": 83,
     "level": "deployable",
     "capabilities": [
       "deployment",
@@ -203,7 +231,7 @@
     "workspace": "core",
     "lifecycle": "supported",
     "health": "healthy",
-    "readiness": 93,
+    "readiness": 86,
     "level": "ready",
     "capabilities": [
       "knowledge-graph",
@@ -221,6 +249,136 @@
       "resource:context-fabric"
     ],
     "text": "engineering knowledge graph graph platform core core the derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth. knowledge-graph relationship-model search graph knowledge-plane"
+  },
+  {
+    "slug": "ledger-worker",
+    "name": "Ledger Worker",
+    "kind": "worker",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 82,
+    "level": "deployable",
+    "capabilities": [
+      "worker",
+      "messaging",
+      "automation"
+    ],
+    "tags": [
+      "commerce",
+      "events"
+    ],
+    "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+    "preview": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+    "relationships": [
+      "resource:payment-events"
+    ],
+    "text": "ledger worker worker commerce commerce consumes payment events and writes idempotent ledger entries, reconciling daily batches. worker messaging automation commerce events"
+  },
+  {
+    "slug": "orders-db",
+    "name": "Orders Database",
+    "kind": "database",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 90,
+    "level": "ready",
+    "capabilities": [
+      "database",
+      "storage"
+    ],
+    "tags": [
+      "commerce",
+      "data"
+    ],
+    "summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+    "preview": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+    "relationships": [
+      "resource:checkout-service"
+    ],
+    "text": "orders database database commerce commerce primary transactional store for orders and payment state, backed by postgres with wal-based replication. database storage commerce data"
+  },
+  {
+    "slug": "payment-events",
+    "name": "Payment Events",
+    "kind": "queue",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 88,
+    "level": "ready",
+    "capabilities": [
+      "messaging",
+      "event-driven"
+    ],
+    "tags": [
+      "commerce",
+      "events"
+    ],
+    "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+    "preview": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+    "relationships": [
+      "resource:ledger-worker"
+    ],
+    "text": "payment events queue commerce commerce event topic for payment lifecycle events consumed by ledger, notifications, and analytics. messaging event-driven commerce events"
+  },
+  {
+    "slug": "platform-ingress",
+    "name": "Platform Ingress",
+    "kind": "ingress",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "networking",
+      "routing",
+      "api"
+    ],
+    "tags": [
+      "platform",
+      "networking"
+    ],
+    "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+    "preview": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+    "relationships": [
+      "resource:api-gateway",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "platform ingress ingress platform core north-south ingress gateway routing external traffic to platform apis and the portal. networking routing api platform networking"
+  },
+  {
+    "slug": "recommendation-model",
+    "name": "Recommendation Model",
+    "kind": "model",
+    "owner": "AI Enablement",
+    "workspace": "ai",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "ai",
+      "model",
+      "vector-collection"
+    ],
+    "tags": [
+      "ai",
+      "ml"
+    ],
+    "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+    "preview": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+    "relationships": [
+      "resource:ai-runtime",
+      "resource:checkout-service"
+    ],
+    "text": "recommendation model model ai enablement ai embedding-based product recommendation model served through the ai runtime with online feature updates. ai model vector-collection ai ml"
   },
   {
     "slug": "repository-catalog",

@@ -35,7 +35,7 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 .badge.bad{background:rgba(248,113,113,.16);color:#f87171}
 </style></head>
 <body>
-<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
 <main><h1>Resource Catalog</h1>
 <p class="muted">Every ecosystem asset as a first-class resource, with filtering-friendly facets.</p>
 <div class="card"><table><thead><tr><th>Name</th><th>Kind</th><th>Workspace</th><th>Owner</th><th>Health</th><th>Score</th><th>Capabilities</th></tr></thead>
@@ -44,16 +44,19 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <td><span class="badge ok">healthy</span></td><td>85</td>
 <td>ai-agent context-retrieval review</td></tr><tr><td><a href="resources/ai-runtime.html">AI Runtime Services</a></td>
 <td><span class="pill kind">ai-runtime</span></td><td>core</td><td>KhulnaSoft</td>
-<td><span class="badge ok">healthy</span></td><td>88</td>
+<td><span class="badge ok">healthy</span></td><td>82</td>
 <td>context-fabric agent-runtime prompt-registry</td></tr><tr><td><a href="resources/api-gateway.html">API Gateway</a></td>
 <td><span class="pill kind">api</span></td><td>core</td><td>KhulnaSoft</td>
-<td><span class="badge ok">healthy</span></td><td>86</td>
-<td>api mcp routing</td></tr><tr><td><a href="resources/context-fabric.html">Context Fabric</a></td>
+<td><span class="badge ok">healthy</span></td><td>88</td>
+<td>api mcp routing</td></tr><tr><td><a href="resources/checkout-service.html">Checkout Service</a></td>
+<td><span class="pill kind">service</span></td><td>commerce</td><td>Commerce</td>
+<td><span class="badge ok">healthy</span></td><td>88</td>
+<td>microservice api payment</td></tr><tr><td><a href="resources/context-fabric.html">Context Fabric</a></td>
 <td><span class="pill kind">component</span></td><td>ai</td><td>AI Enablement</td>
 <td><span class="badge ok">healthy</span></td><td>90</td>
 <td>context-fabric layered-context selective-retrieval</td></tr><tr><td><a href="resources/deployment-runtime.html">Deployment Runtime</a></td>
 <td><span class="pill kind">deployment</span></td><td>core</td><td>KhulnaSoft</td>
-<td><span class="badge ok">healthy</span></td><td>84</td>
+<td><span class="badge ok">healthy</span></td><td>86</td>
 <td>deployment automation release</td></tr><tr><td><a href="resources/helm-charts-registry.html">Helm Charts</a></td>
 <td><span class="pill kind">helm-chart</span></td><td>core-infrastructure</td><td>Core Infrastructure</td>
 <td><span class="badge ok">healthy</span></td><td>91</td>
@@ -62,8 +65,23 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <td><span class="badge ok">healthy</span></td><td>92</td>
 <td>control-plane catalog governance</td></tr><tr><td><a href="resources/knowledge-graph.html">Engineering Knowledge Graph</a></td>
 <td><span class="pill kind">graph</span></td><td>core</td><td>Platform Core</td>
-<td><span class="badge ok">healthy</span></td><td>93</td>
-<td>knowledge-graph relationship-model search</td></tr><tr><td><a href="resources/repository-catalog.html">Repository Catalog Service</a></td>
+<td><span class="badge ok">healthy</span></td><td>86</td>
+<td>knowledge-graph relationship-model search</td></tr><tr><td><a href="resources/ledger-worker.html">Ledger Worker</a></td>
+<td><span class="pill kind">worker</span></td><td>commerce</td><td>Commerce</td>
+<td><span class="badge ok">healthy</span></td><td>84</td>
+<td>worker messaging automation</td></tr><tr><td><a href="resources/orders-db.html">Orders Database</a></td>
+<td><span class="pill kind">database</span></td><td>commerce</td><td>Commerce</td>
+<td><span class="badge ok">healthy</span></td><td>92</td>
+<td>database storage</td></tr><tr><td><a href="resources/payment-events.html">Payment Events</a></td>
+<td><span class="pill kind">queue</span></td><td>commerce</td><td>Commerce</td>
+<td><span class="badge ok">healthy</span></td><td>90</td>
+<td>messaging event-driven</td></tr><tr><td><a href="resources/platform-ingress.html">Platform Ingress</a></td>
+<td><span class="pill kind">ingress</span></td><td>core</td><td>Platform</td>
+<td><span class="badge ok">healthy</span></td><td>89</td>
+<td>networking routing api</td></tr><tr><td><a href="resources/recommendation-model.html">Recommendation Model</a></td>
+<td><span class="pill kind">model</span></td><td>ai</td><td>AI Enablement</td>
+<td><span class="badge ok">healthy</span></td><td>86</td>
+<td>ai model vector-collection</td></tr><tr><td><a href="resources/repository-catalog.html">Repository Catalog Service</a></td>
 <td><span class="pill kind">repository</span></td><td>core</td><td>KhulnaSoft</td>
 <td><span class="badge ok">healthy</span></td><td>90</td>
 <td>catalog discovery metadata</td></tr><tr><td><a href="resources/security-center.html">Security Center</a></td>

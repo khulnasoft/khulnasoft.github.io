@@ -35,7 +35,7 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 .badge.bad{background:rgba(248,113,113,.16);color:#f87171}
 </style></head>
 <body>
-<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
 <main><h1>Engineering Digital Twins</h1>
 <p class="muted">Each twin is the canonical, continuously updated representation of a resource: metadata, source state, readiness, dependencies, and AI context in one place.</p>
 <div class="grid"><div class="card"><div style="display:flex;justify-content:space-between">
@@ -47,13 +47,18 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <a style="font-weight:700" href="resources/ai-runtime.html">AI Runtime Services</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-runtime</span>core</div>
 <div class="muted">Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.</div>
-<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>85</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>82</code> · readiness <code>80</code> · lifecycle <code>active</code></div>
 <a href="twins/ai-runtime.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/api-gateway.html">API Gateway</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">api</span>core</div>
 <div class="muted">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
-<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>83</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>85</code> · lifecycle <code>active</code></div>
 <a href="twins/api-gateway.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/checkout-service.html">Checkout Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">service</span>commerce</div>
+<div class="muted">BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.</div>
+<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>89</code> · lifecycle <code>supported</code></div>
+<a href="twins/checkout-service.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/context-fabric.html">Context Fabric</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span>ai</div>
 <div class="muted">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
@@ -62,7 +67,7 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <a style="font-weight:700" href="resources/deployment-runtime.html">Deployment Runtime</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">deployment</span>core</div>
 <div class="muted">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
-<div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>82</code> · lifecycle <code>active</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>83</code> · lifecycle <code>active</code></div>
 <a href="twins/deployment-runtime.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/helm-charts-registry.html">Helm Charts</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">helm-chart</span>core-infrastructure</div>
@@ -77,8 +82,33 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <a style="font-weight:700" href="resources/knowledge-graph.html">Engineering Knowledge Graph</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">graph</span>core</div>
 <div class="muted">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
-<div class="muted" style="margin:.45rem 0">health <code>93</code> · readiness <code>93</code> · lifecycle <code>supported</code></div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>86</code> · lifecycle <code>supported</code></div>
 <a href="twins/knowledge-graph.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/ledger-worker.html">Ledger Worker</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">worker</span>commerce</div>
+<div class="muted">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
+<div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>82</code> · lifecycle <code>supported</code></div>
+<a href="twins/ledger-worker.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/orders-db.html">Orders Database</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span>commerce</div>
+<div class="muted">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
+<div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
+<a href="twins/orders-db.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/payment-events.html">Payment Events</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">queue</span>commerce</div>
+<div class="muted">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>88</code> · lifecycle <code>supported</code></div>
+<a href="twins/payment-events.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/platform-ingress.html">Platform Ingress</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ingress</span>core</div>
+<div class="muted">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
+<div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>87</code> · lifecycle <code>supported</code></div>
+<a href="twins/platform-ingress.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/recommendation-model.html">Recommendation Model</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">model</span>ai</div>
+<div class="muted">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>87</code> · lifecycle <code>supported</code></div>
+<a href="twins/recommendation-model.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span>core</div>
 <div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>

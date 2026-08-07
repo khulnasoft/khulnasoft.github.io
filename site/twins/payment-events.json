@@ -1,0 +1,77 @@
+{
+  "resource": {
+    "id": "resource:payment-events",
+    "kind": "queue",
+    "name": "Payment Events",
+    "slug": "payment-events",
+    "owner": "Commerce",
+    "team": "commerce-payments",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "messaging",
+      "event-driven"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "prod"
+    }
+  },
+  "relationships": [
+    {
+      "type": "consumed_by",
+      "target": "resource:ledger-worker"
+    }
+  ],
+  "health": {
+    "score": 90,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 88,
+    "level": "ready",
+    "scores": {
+      "architecture": 90,
+      "documentation": 90,
+      "security": 90,
+      "tests": 90,
+      "ci": 90,
+      "performance": 90,
+      "dependencies": 90,
+      "maintainability": 90,
+      "release": 90,
+      "compliance": 90,
+      "observability": 90,
+      "community": 90,
+      "ai_readiness": 50,
+      "production_readiness": 96
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

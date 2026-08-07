@@ -42,11 +42,11 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 
 NAV = [
     ("Index", "index.html"), ("Resources", "catalog.html"), ("Search", "search.html"),
-    ("Graph", "graph.html"), ("Playground", "playground.html"), ("Impact", "impact.html"), ("Digital Twins", "digital-twin.html"), ("Context", "context-fabric.html"),
-    ("Registries", "registries.html"), ("Readiness", "readiness.html"), ("Timeline", "timeline.html"), ("AI Plane", "ai-control-plane.html"),
+    ("Graph", "graph.html"), ("Playground", "playground.html"), ("Impact", "impact.html"), ("Data Lake", "data-lake.html"), ("Digital Twins", "digital-twin.html"), ("Context", "context-fabric.html"),
+    ("Registries", "registries.html"), ("Readiness", "readiness.html"), ("Timeline", "timeline.html"), ("Intelligence", "analytics.html"), ("Runtime", "runtime.html"), ("AI Plane", "ai-control-plane.html"),
     ("Control Plane", "control-plane.html"), ("Release", "release.html"), ("Organization", "organizations.html"),
     ("Platform", "platform-overview.html"), ("Dashboard", "exec-dashboard.html"),
-    ("Docs", "docs/architecture.html"), ("API", "api.html"),
+    ("Docs", "docs/architecture.html"), ("API", "api.html"), ("Marketplace", "marketplace.html"),
 ]
 
 
@@ -200,6 +200,15 @@ def render_registries(reg):
     body += "<h2>Context Registry</h2><ul class='plain'>" + "".join(
         f"<li><strong>{r['name']}</strong> <code>{r['slug']}</code></li>" for r in reg["context"]["resources"]
     ) + "</ul>"
+    body += "<h2>Model Registry</h2><ul class='plain'>" + "".join(
+        f"<li><strong>{m['name']}</strong> ({m['kind']}) <span class='muted'>· {m.get('version')}</span></li>" for m in reg["model"]["models"]
+    ) + "</ul>"
+    body += "<h2>Tool Registry</h2><ul class='plain'>" + "".join(
+        f"<li><strong>{t['name']}</strong> <span class='muted'>[{', '.join(t['toolTypes'])}]</span></li>" for t in reg["tool"]["tools"]
+    ) + "</ul>"
+    body += "<h2>Memory Registry</h2><ul class='plain'>" + "".join(
+        f"<li><strong>{m['name']}</strong> <span class='muted'>({m['kind']})</span></li>" for m in reg["memory"]["memories"]
+    ) + "</ul>"
     return shell("Registries", body)
 
 
@@ -220,14 +229,20 @@ def render_readiness(insights, resources):
 
 
 def render_ai_control_plane(reg, layers):
+    models = "".join(f'<li><strong>{m["name"]}</strong> · {m.get("version", "-")} <span class="muted">[{m["kind"]}]</span></li>' for m in reg['model']['models'])
+    tools = "".join(f'<li><strong>{t["name"]}</strong> <span class="muted">[{", ".join(t["toolTypes"])}]</span></li>' for t in reg['tool']['tools'])
+    memory = "".join(f'<li><strong>{m["name"]}</strong> <span class="muted">({m["kind"]})</span></li>' for m in reg['memory']['memories'])
     body = f"""<h1>AI Control Plane</h1>
-<p class="muted">Prompt registry, context registry, agent registry, and AI-safe metadata for agents and automation.</p>
+<p class="muted">Prompt registry, context registry, agent registry, model registry, tool registry, memory registry, and AI-safe metadata for agents and automation.</p>
 <h2>Context Registry ({reg['context']['count']})</h2><ul class="plain">
 {''.join(f'<li><strong>{r["name"]}</strong> <code>{r["slug"]}</code></li>' for r in reg['context']['resources'])}</ul>
 <h2>Prompt Registry ({reg['prompt']['count']})</h2><ul class="plain">
 {''.join(f'<li><strong>{p["id"]}</strong><br/><span class="muted">{p["body"]}</span></li>' for p in reg['prompt']['prompts'])}</ul>
 <h2>Agent Registry ({reg['agent']['count']})</h2><ul class="plain">
 {''.join(f'<li><strong>{a["name"]}</strong> — {a["description"]} <span class="muted">[{", ".join(a["capabilities"])}]</span></li>' for a in reg['agent']['agents'])}</ul>
+<h2>Model Registry ({reg['model']['count']})</h2><ul class="plain">{models}</ul>
+<h2>Tool Registry ({reg['tool']['count']})</h2><ul class="plain">{tools}</ul>
+<h2>Memory Registry ({reg['memory']['count']})</h2><ul class="plain">{memory}</ul>
 <h2>Context layers</h2><p>{''.join(f'<span class="pill">{l}</span>' for l in layers)}</p>"""
     return shell("AI Control Plane", body)
 
@@ -517,6 +532,53 @@ def render_readiness_timeline(state):
     return shell("Readiness Timeline", body)
 
 
+def render_analytics(analyses):
+    s = analyses["summary"]
+    cards = ""
+    for a in analyses["per_resource"].values():
+        debt = "none" if a["techDebt"] == ["none detected"] else ", ".join(a["techDebt"])
+        cards += f"""<div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/{a['slug']}.html">{a['slug']}</a>
+{('badge ok' if not a['deprecation']['deprecated'] else 'badge bad')}</div>
+<div class="muted" style="margin:.3rem 0">lang: {', '.join(a['languages']) or '—'} · frameworks: {', '.join(a['frameworks']) or '—'}</div>
+<div class="muted">arch: {', '.join(a['architecture'])} · api: {'yes' if a['api'] else 'no'}</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>{debt}</code></div>
+{('<span class="badge bad">deprecated</span> ' if a['deprecation']['deprecated'] else '')}
+{('<span class="badge warn">perf regression</span>' if a['perfRegression']['regression'] else '')}
+</div>"""
+    body = f"""<h1>Engineering Intelligence</h1>
+<p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, and performance regressions.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+<div class="card metric"><div class="value">{s['relationship_count']}</div><div class="label">relationships</div></div>
+<div class="card metric"><div class="value">{s['api_resources']}</div><div class="label">api resources</div></div>
+<div class="card metric"><div class="value">{s['tech_debt_items']}</div><div class="label">debt items</div></div>
+<div class="card metric"><div class="value">{s['deprecated_resources']}</div><div class="label">deprecated</div></div>
+<div class="card metric"><div class="value">{s['perf_regressions']}</div><div class="label">perf regressions</div></div>
+</div>
+<h2>Analyses</h2><div class="grid">{cards}</div>"""
+    return shell("Engineering Intelligence", body)
+
+
+def render_data_lake():
+    body = """<h1>Engineering Data Lake</h1>
+<p class="muted">A raw, event-driven log of engineering signals (GitHub, deploys, security findings, health degradation) that feeds the twins, graph, context, and intelligence below. Differently from a static catalog, the data lake keeps raw events separated from normalized state.</p>
+<div id="summ" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"></div>
+<h2>Recent events</h2>
+<div class="card"><table id="tbl"><thead><tr><th>Event</th><th>Source</th><th>Type</th><th>Touched</th><th>Health effect</th></tr></thead><tbody></tbody></table></div>
+<p class="muted" style="margin-top:.6rem">Machine-readable: <code>events.json</code> (normalized log) · <code>event-index.json</code> (event → touched resources).</p>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('events.json').then(r=>r.json()).then(d=>{
+  document.getElementById('summ').innerHTML=`<div class="card metric"><div class="value">${d.summary.total_events}</div><div class="label">events</div></div>`
+  +`<div class="card metric"><div class="value">${d.summary.resources_touched}</div><div class="label">resources touched</div></div>`
+  +`<div class="card metric"><div class="value">${Object.keys(d.summary.sources).length}</div><div class="label">sources</div></div>`;
+  document.getElementById('tbl').querySelector('tbody').innerHTML=(d.events||[]).map(e=>
+    `<tr><td><code>${esc(e.id)}</code></td><td>${esc(e.source)}</td><td>${esc(e.type)}</td><td>${(e.touched||[]).map(t=>esc(t.split(':').pop())).join(', ')}</td><td>${e.healthEffect>0?'+':''}${e.healthEffect}</td></tr>`).join('');
+});
+</script>"""
+    return shell("Data Lake", body)
+
+
 def render_release_copilot(state):
     per = state["per_resource"]
     verdicts = sorted(
@@ -547,6 +609,52 @@ def render_release_copilot(state):
 <p class="muted">Click a resource's page for full gate detail; the checklist below is produced by the rules engine for every resource.</p>
 {''.join(f'<div class="card" style="margin-bottom:.6rem"><strong>{v["name"]}</strong> <span class="badge {"ok" if v["decision"]["verdict"]=="approve" else "bad"}">{v["decision"]["verdict"]}</span><ul class="plain">' + ''.join(f'<li><span class="badge {"ok" if g["passed"] else "warn"}">{("pass" if g["passed"] else "fail")}</span> {g["check"]} <span class="muted">· {g["actual"]} (required {g["required"]})</span>{"" if g["passed"] else f' — {g["advice"]}'}</li>' for g in v["gates"]) + '</ul></div>' for v in verdicts)}"""
     return shell("Release Copilot", body)
+
+
+def render_marketplace(items, sdk_artifacts):
+    cards = ""
+    for it in items:
+        tags = "".join(f'<span class="pill">{t}</span>' for t in it.get("tags", []))
+        cards += f"""<div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+<div><span class="pill kind">{it['type']}</span>
+<div style="font-weight:700;margin-top:.3rem">{it['name']}</div>
+<div class="muted" style="margin:.3rem 0">{it['summary']}</div>
+<div>{tags}</div></div>
+<div style="margin-top:.6rem"><button class="install" data-id="{it['id']}">Install</button></div></div>"""
+    sdks = "".join(f"""<div class="card"><strong>{s['language']}</strong> · <code>{s['file']}</code> · {s['lines']} lines<br/>
+<a href="sdks/{s['file'].split('/')[-1]}" style="font-size:.85rem">view stub</a></div>""" for s in sdk_artifacts)
+    body = f"""<h1>Marketplace &amp; SDKs</h1>
+<p class="muted">Reusable engineering assets (templates, prompt packs, policies, agents, workflows) installable from the portal, and generated SDK stubs derived from the canonical schema for consuming the platform programmatically.</p>
+<h2>SDKs (generated from resource.schema.json)</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">{sdks}</div>
+<h2>Reusable assets</h2><div class="grid">{cards}</div>
+<div id="toast" class="muted" style="margin-top:.8rem"></div>
+<script>
+document.addEventListener('click',ev=>{{
+ const b=ev.target.closest('.install'); if(!b)return;
+ const d=document.getElementById('toast'); d.textContent='Installed '+b.dataset.id+' ✔'; 
+ setTimeout(()=>d.textContent='',2200);
+}});
+</script>"""
+    return shell("Marketplace", body)
+
+
+def render_runtime_plane(runtime_state, resources):
+    wf = "".join(f"""<div class="card"><div style="display:flex;justify-content:space-between">
+<strong>{w['name']}</strong><span class="pill">{w['trigger']}</span></div>
+<ul class="plain" style="margin-top:.4rem">{''.join(f'<li>{s}</li>' for s in w.get('steps', []))}</ul></div>"""
+                  for w in runtime_state["workflows"])
+    autos = "".join(f'<li><strong>{a["name"]}</strong> — <span class="muted">{a["action"]}</span> '
+                    f'<span class="pill">on {a["event"]}</span></li>' for a in runtime_state["automations"])
+    body = f"""<h1>Runtime Plane &amp; Automation</h1>
+<p class="muted">Event-driven services that turn the data lake into orchestration: workflows describe the steps for each trigger, and automations bind events to actions such as provisioning context, reconciling drift, and enforcing release gates.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+<div class="card metric"><div class="value">{len(runtime_state['workflows'])}</div><div class="label">workflows</div></div>
+<div class="card metric"><div class="value">{len(runtime_state['automations'])}</div><div class="label">automations</div></div>
+<div class="card metric"><div class="value">{runtime_state['events_seen']}</div><div class="label">events ingested</div></div>
+</div>
+<h2>Workflows</h2><div class="grid">{wf}</div>
+<h2>Automations</h2><div class="grid"><div class="card"><ul class="plain">{autos}</ul></div></div>"""
+    return shell("Runtime & Automation", body)
 
 
 def render_architecture():
@@ -583,5 +691,6 @@ def render_api():
 <li><code>GET /registries</code> — control-plane registries</li>
 <li><code>GET /llms.txt</code>, <code>/llms-full.txt</code>, <code>/mcp.json</code> — AI-ready</li>
 <li><code>GET /health</code> — live platform health</li>
+<li><code>sdks/aec.ts</code>, <code>sdks/aec.py</code> — generated typed clients</li>
 </ul>"""
     return shell("API", body)

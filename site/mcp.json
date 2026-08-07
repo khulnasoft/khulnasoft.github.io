@@ -60,6 +60,25 @@
       ]
     },
     {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "slug": "checkout-service",
+      "kind": "service",
+      "endpoint": "mcp://khulnasoft/context/checkout-service",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
       "id": "resource:context-fabric",
       "name": "Context Fabric",
       "slug": "context-fabric",
@@ -141,6 +160,101 @@
       "slug": "knowledge-graph",
       "kind": "graph",
       "endpoint": "mcp://khulnasoft/context/knowledge-graph",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "slug": "ledger-worker",
+      "kind": "worker",
+      "endpoint": "mcp://khulnasoft/context/ledger-worker",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "slug": "orders-db",
+      "kind": "database",
+      "endpoint": "mcp://khulnasoft/context/orders-db",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "slug": "payment-events",
+      "kind": "queue",
+      "endpoint": "mcp://khulnasoft/context/payment-events",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "slug": "platform-ingress",
+      "kind": "ingress",
+      "endpoint": "mcp://khulnasoft/context/platform-ingress",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "slug": "recommendation-model",
+      "kind": "model",
+      "endpoint": "mcp://khulnasoft/context/recommendation-model",
       "layers": [
         "metadata",
         "architecture",

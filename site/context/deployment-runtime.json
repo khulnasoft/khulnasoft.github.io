@@ -66,9 +66,9 @@
       "workspace": "core"
     },
     "health": {
-      "score": 84,
+      "score": 86,
       "status": "healthy",
-      "readiness": 82
+      "readiness": 83
     }
   },
   "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",

@@ -1,0 +1,85 @@
+{
+  "workflows": [
+    {
+      "id": "workflow:onboard-repository",
+      "name": "Repository onboarding",
+      "trigger": "github.repository.created",
+      "steps": [
+        "Normalize repository metadata into a resource twin",
+        "Detect languages and capabilities",
+        "Compose initial context bundle",
+        "Seed readiness and recommendations",
+        "Register capabilities in the capability registry"
+      ],
+      "kind": "workflow"
+    },
+    {
+      "id": "workflow:impact-analysis",
+      "name": "Dependency impact analysis",
+      "trigger": "github.push",
+      "steps": [
+        "Resolve affected resources from the change surface",
+        "Traverse downstream blast radius",
+        "Rank impacted dependents by exposure",
+        "Emit impact report"
+      ],
+      "kind": "workflow"
+    },
+    {
+      "id": "workflow:release-readiness",
+      "name": "Release readiness check",
+      "trigger": "release.published",
+      "steps": [
+        "Aggregate docs, security, tests, approvals, readiness",
+        "Evaluate governance gates",
+        "Produce release verdict",
+        "Notify approvers on block"
+      ],
+      "kind": "workflow"
+    },
+    {
+      "id": "workflow:deployment-validation",
+      "name": "Deployment validation",
+      "trigger": "deployment.success",
+      "steps": [
+        "Verify active deployment state",
+        "Check health post-deploy",
+        "Update twin and readiness timeline",
+        "Alert on regression"
+      ],
+      "kind": "workflow"
+    }
+  ],
+  "automations": [
+    {
+      "id": "automation:auto-reconcile-drift",
+      "name": "Auto-reconcile drift",
+      "event": "health.degraded",
+      "action": "Reconcile twin state against the canonical manifest",
+      "target": "knowledge-graph",
+      "enabled": true
+    },
+    {
+      "id": "automation:provision-context",
+      "name": "Provision AI context",
+      "event": "repository.push",
+      "action": "Compose and publish context bundle layers for affected resources",
+      "target": "context-fabric",
+      "enabled": true
+    },
+    {
+      "id": "automation:enforce-release-gate",
+      "name": "Enforce release gate",
+      "event": "release.published",
+      "action": "Block release if governance tally fails",
+      "target": "release",
+      "enabled": true
+    }
+  ],
+  "automation_by_event": {
+    "health.degraded": 1,
+    "repository.push": 1,
+    "release.published": 1
+  },
+  "events_seen": 4
+}

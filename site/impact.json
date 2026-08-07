@@ -19,6 +19,12 @@
       "slug": "api-gateway"
     },
     {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "kind": "service",
+      "slug": "checkout-service"
+    },
+    {
       "id": "resource:context-fabric",
       "name": "Context Fabric",
       "kind": "component",
@@ -47,6 +53,36 @@
       "name": "Engineering Knowledge Graph",
       "kind": "graph",
       "slug": "knowledge-graph"
+    },
+    {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "kind": "worker",
+      "slug": "ledger-worker"
+    },
+    {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "kind": "database",
+      "slug": "orders-db"
+    },
+    {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "kind": "queue",
+      "slug": "payment-events"
+    },
+    {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "kind": "ingress",
+      "slug": "platform-ingress"
+    },
+    {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "kind": "model",
+      "slug": "recommendation-model"
     },
     {
       "id": "resource:repository-catalog",
@@ -80,6 +116,16 @@
     {
       "from": "resource:api-gateway",
       "to": "resource:ai-runtime",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:orders-db",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:payment-events",
       "type": "depends_on"
     },
     {
@@ -123,6 +169,41 @@
       "type": "provides"
     },
     {
+      "from": "resource:ledger-worker",
+      "to": "resource:payment-events",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:orders-db",
+      "to": "resource:checkout-service",
+      "type": "serves"
+    },
+    {
+      "from": "resource:payment-events",
+      "to": "resource:ledger-worker",
+      "type": "consumed_by"
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:api-gateway",
+      "type": "routes_to"
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:khulnasoft-platform",
+      "type": "routes_to"
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:ai-runtime",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:checkout-service",
+      "type": "serves"
+    },
+    {
       "from": "resource:repository-catalog",
       "to": "resource:khulnasoft-platform",
       "type": "depends_on"
@@ -146,7 +227,7 @@
       "id": "resource:ai-runtime",
       "name": "AI Runtime Services",
       "kind": "ai-runtime",
-      "blast_radius": 9,
+      "blast_radius": 11,
       "impacted": [
         {
           "id": "resource:khulnasoft-platform",
@@ -167,6 +248,12 @@
           "depth": -1
         },
         {
+          "id": "resource:api-gateway",
+          "name": "API Gateway",
+          "kind": "api",
+          "depth": -1
+        },
+        {
           "id": "resource:knowledge-graph",
           "name": "Engineering Knowledge Graph",
           "kind": "graph",
@@ -179,15 +266,21 @@
           "depth": -1
         },
         {
-          "id": "resource:api-gateway",
-          "name": "API Gateway",
-          "kind": "api",
-          "depth": -1
-        },
-        {
           "id": "resource:security-center",
           "name": "Security Center",
           "kind": "security",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "kind": "ingress",
           "depth": -1
         },
         {
@@ -209,7 +302,7 @@
       "id": "resource:api-gateway",
       "name": "API Gateway",
       "kind": "api",
-      "blast_radius": 2,
+      "blast_radius": 3,
       "impacted": [
         {
           "id": "resource:deployment-runtime",
@@ -218,9 +311,36 @@
           "depth": -1
         },
         {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "kind": "ingress",
+          "depth": -1
+        },
+        {
           "id": "resource:helm-charts-registry",
           "name": "Helm Charts",
           "kind": "helm-chart",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:checkout-service": {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "kind": "service",
+      "blast_radius": 2,
+      "impacted": [
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "kind": "database",
+          "depth": 1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
           "depth": -1
         }
       ],
@@ -274,7 +394,7 @@
       "id": "resource:khulnasoft-platform",
       "name": "KhulnaSoft Platform Core",
       "kind": "platform",
-      "blast_radius": 9,
+      "blast_radius": 11,
       "impacted": [
         {
           "id": "resource:ai-runtime",
@@ -295,6 +415,12 @@
           "depth": -1
         },
         {
+          "id": "resource:api-gateway",
+          "name": "API Gateway",
+          "kind": "api",
+          "depth": -1
+        },
+        {
           "id": "resource:knowledge-graph",
           "name": "Engineering Knowledge Graph",
           "kind": "graph",
@@ -307,15 +433,21 @@
           "depth": -1
         },
         {
-          "id": "resource:api-gateway",
-          "name": "API Gateway",
-          "kind": "api",
-          "depth": -1
-        },
-        {
           "id": "resource:security-center",
           "name": "Security Center",
           "kind": "security",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "kind": "ingress",
           "depth": -1
         },
         {
@@ -352,6 +484,109 @@
           "depth": -1
         }
       ],
+      "is_dependency": true
+    },
+    "resource:ledger-worker": {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "kind": "worker",
+      "blast_radius": 4,
+      "impacted": [
+        {
+          "id": "resource:payment-events",
+          "name": "Payment Events",
+          "kind": "queue",
+          "depth": 1
+        },
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:orders-db": {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "kind": "database",
+      "blast_radius": 2,
+      "impacted": [
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "kind": "service",
+          "depth": 1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:payment-events": {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "kind": "queue",
+      "blast_radius": 4,
+      "impacted": [
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:ledger-worker",
+          "name": "Ledger Worker",
+          "kind": "worker",
+          "depth": 1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:platform-ingress": {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "kind": "ingress",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:recommendation-model": {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "kind": "model",
+      "blast_radius": 0,
+      "impacted": [],
       "is_dependency": true
     },
     "resource:repository-catalog": {
@@ -396,7 +631,7 @@
       "is_dependency": true
     }
   },
-  "total": 10,
-  "max_blast_radius": 9,
+  "total": 16,
+  "max_blast_radius": 11,
   "avg_blast_radius": 3
 }

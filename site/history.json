@@ -1,153 +1,66 @@
 {
-  "updatedAt": "2026-08-07T05:35:30Z",
+  "updatedAt": "2026-08-07T05:57:57Z",
   "max_snapshots": 50,
   "history": [
     {
-      "build": "2026-08-07T05:26:27Z",
-      "scores": {
-        "resource:ai-code-assistant": 79,
-        "resource:ai-runtime": 79,
-        "resource:api-gateway": 77,
-        "resource:context-fabric": 84,
-        "resource:deployment-runtime": 76,
-        "resource:helm-charts-registry": 84,
-        "resource:khulnasoft-platform": 82,
-        "resource:knowledge-graph": 86,
-        "resource:repository-catalog": 81,
-        "resource:security-center": 80
-      }
-    },
-    {
-      "build": "2026-08-07T05:26:44Z",
-      "scores": {
-        "resource:ai-code-assistant": 79,
-        "resource:ai-runtime": 79,
-        "resource:api-gateway": 77,
-        "resource:context-fabric": 84,
-        "resource:deployment-runtime": 76,
-        "resource:helm-charts-registry": 84,
-        "resource:khulnasoft-platform": 82,
-        "resource:knowledge-graph": 86,
-        "resource:repository-catalog": 81,
-        "resource:security-center": 80
-      }
-    },
-    {
-      "build": "2026-08-07T05:26:44Z",
-      "scores": {
-        "resource:ai-code-assistant": 79,
-        "resource:ai-runtime": 79,
-        "resource:api-gateway": 77,
-        "resource:context-fabric": 84,
-        "resource:deployment-runtime": 76,
-        "resource:helm-charts-registry": 84,
-        "resource:khulnasoft-platform": 82,
-        "resource:knowledge-graph": 86,
-        "resource:repository-catalog": 81,
-        "resource:security-center": 80
-      }
-    },
-    {
-      "build": "2026-08-07T05:27:25Z",
-      "scores": {
-        "resource:ai-code-assistant": 79,
-        "resource:ai-runtime": 79,
-        "resource:api-gateway": 77,
-        "resource:context-fabric": 84,
-        "resource:deployment-runtime": 76,
-        "resource:helm-charts-registry": 84,
-        "resource:khulnasoft-platform": 82,
-        "resource:knowledge-graph": 86,
-        "resource:repository-catalog": 81,
-        "resource:security-center": 80
-      }
-    },
-    {
-      "build": "2026-08-07T05:29:10Z",
-      "scores": {
-        "resource:ai-code-assistant": 79,
-        "resource:ai-runtime": 79,
-        "resource:api-gateway": 77,
-        "resource:context-fabric": 84,
-        "resource:deployment-runtime": 76,
-        "resource:helm-charts-registry": 84,
-        "resource:khulnasoft-platform": 82,
-        "resource:knowledge-graph": 86,
-        "resource:repository-catalog": 81,
-        "resource:security-center": 80
-      }
-    },
-    {
-      "build": "2026-08-07T05:30:35Z",
-      "scores": {
-        "resource:ai-code-assistant": 85,
-        "resource:ai-runtime": 85,
-        "resource:api-gateway": 83,
-        "resource:context-fabric": 90,
-        "resource:deployment-runtime": 82,
-        "resource:helm-charts-registry": 91,
-        "resource:khulnasoft-platform": 89,
-        "resource:knowledge-graph": 93,
-        "resource:repository-catalog": 87,
-        "resource:security-center": 86
-      }
-    },
-    {
-      "build": "2026-08-07T05:30:56Z",
-      "scores": {
-        "resource:ai-code-assistant": 85,
-        "resource:ai-runtime": 85,
-        "resource:api-gateway": 83,
-        "resource:context-fabric": 90,
-        "resource:deployment-runtime": 82,
-        "resource:helm-charts-registry": 91,
-        "resource:khulnasoft-platform": 89,
-        "resource:knowledge-graph": 93,
-        "resource:repository-catalog": 87,
-        "resource:security-center": 86
-      }
-    },
-    {
-      "build": "2026-08-07T05:33:26Z",
+      "build": "2026-08-07T05:54:36Z",
       "scores": {
         "ai-code-assistant": 85,
-        "ai-runtime": 85,
-        "api-gateway": 83,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
         "context-fabric": 90,
-        "deployment-runtime": 82,
+        "deployment-runtime": 83,
         "helm-charts-registry": 91,
         "khulnasoft-platform": 89,
-        "knowledge-graph": 93,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
         "repository-catalog": 87,
         "security-center": 86
       }
     },
     {
-      "build": "2026-08-07T05:33:27Z",
+      "build": "2026-08-07T05:57:25Z",
       "scores": {
         "ai-code-assistant": 85,
-        "ai-runtime": 85,
-        "api-gateway": 83,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
         "context-fabric": 90,
-        "deployment-runtime": 82,
+        "deployment-runtime": 83,
         "helm-charts-registry": 91,
         "khulnasoft-platform": 89,
-        "knowledge-graph": 93,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
         "repository-catalog": 87,
         "security-center": 86
       }
     },
     {
-      "build": "2026-08-07T05:35:30Z",
+      "build": "2026-08-07T05:57:57Z",
       "scores": {
         "ai-code-assistant": 85,
-        "ai-runtime": 85,
-        "api-gateway": 83,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
         "context-fabric": 90,
-        "deployment-runtime": 82,
+        "deployment-runtime": 83,
         "helm-charts-registry": 91,
         "khulnasoft-platform": 89,
-        "knowledge-graph": 93,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
         "repository-catalog": 87,
         "security-center": 86
       }
@@ -165,6 +78,10 @@
     "api-gateway": {
       "slug": "api-gateway",
       "name": "api-gateway"
+    },
+    "checkout-service": {
+      "slug": "checkout-service",
+      "name": "checkout-service"
     },
     "context-fabric": {
       "slug": "context-fabric",
@@ -185,6 +102,26 @@
     "knowledge-graph": {
       "slug": "knowledge-graph",
       "name": "knowledge-graph"
+    },
+    "ledger-worker": {
+      "slug": "ledger-worker",
+      "name": "ledger-worker"
+    },
+    "orders-db": {
+      "slug": "orders-db",
+      "name": "orders-db"
+    },
+    "payment-events": {
+      "slug": "payment-events",
+      "name": "payment-events"
+    },
+    "platform-ingress": {
+      "slug": "platform-ingress",
+      "name": "platform-ingress"
+    },
+    "recommendation-model": {
+      "slug": "recommendation-model",
+      "name": "recommendation-model"
     },
     "repository-catalog": {
       "slug": "repository-catalog",

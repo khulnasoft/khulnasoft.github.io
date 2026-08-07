@@ -27,9 +27,21 @@ jobs:
           test -f site/impact.html
           test -f site/timeline.html
           test -f site/release.html
+          test -f site/data-lake.html
+          test -f site/analytics.html
+          test -f site/runtime.html
           test -f site/impact.json
           test -f site/release.json
           test -f site/history.json
+          test -f site/events.json
+          test -f site/event-index.json
+          test -f site/analytics.json
+          test -f site/runtime.json
+          test -f site/marketplace.html
+          test -f site/marketplace.json
+          test -f site/sdk-manifest.json
+          test -f site/sdks/aec.py
+          test -f site/sdks/aec.ts
           python3 -m py_compile scripts/serve_api.py
       - name: Upload site artifact
         uses: actions/upload-artifact@v4

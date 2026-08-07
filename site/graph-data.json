@@ -25,6 +25,14 @@
       "health": "healthy"
     },
     {
+      "id": "resource:checkout-service",
+      "label": "Checkout Service",
+      "slug": "checkout-service",
+      "kind": "service",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
       "id": "resource:context-fabric",
       "label": "Context Fabric",
       "slug": "context-fabric",
@@ -62,6 +70,46 @@
       "slug": "knowledge-graph",
       "kind": "graph",
       "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:ledger-worker",
+      "label": "Ledger Worker",
+      "slug": "ledger-worker",
+      "kind": "worker",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:orders-db",
+      "label": "Orders Database",
+      "slug": "orders-db",
+      "kind": "database",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:payment-events",
+      "label": "Payment Events",
+      "slug": "payment-events",
+      "kind": "queue",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:platform-ingress",
+      "label": "Platform Ingress",
+      "slug": "platform-ingress",
+      "kind": "ingress",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:recommendation-model",
+      "label": "Recommendation Model",
+      "slug": "recommendation-model",
+      "kind": "model",
+      "workspace": "ai",
       "health": "healthy"
     },
     {
@@ -103,6 +151,18 @@
     {
       "from": "resource:api-gateway",
       "to": "resource:ai-runtime",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:orders-db",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:payment-events",
       "type": "depends_on",
       "detail": ""
     },
@@ -152,6 +212,48 @@
       "from": "resource:knowledge-graph",
       "to": "resource:context-fabric",
       "type": "provides",
+      "detail": ""
+    },
+    {
+      "from": "resource:ledger-worker",
+      "to": "resource:payment-events",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:orders-db",
+      "to": "resource:checkout-service",
+      "type": "serves",
+      "detail": ""
+    },
+    {
+      "from": "resource:payment-events",
+      "to": "resource:ledger-worker",
+      "type": "consumed_by",
+      "detail": ""
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:api-gateway",
+      "type": "routes_to",
+      "detail": ""
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:khulnasoft-platform",
+      "type": "routes_to",
+      "detail": ""
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:ai-runtime",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:checkout-service",
+      "type": "serves",
       "detail": ""
     },
     {

@@ -1,0 +1,103 @@
+{
+  "resource": {
+    "id": "resource:platform-ingress",
+    "name": "Platform Ingress",
+    "slug": "platform-ingress",
+    "kind": "ingress"
+  },
+  "context": {
+    "metadata": {
+      "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+      "name": "Platform Ingress",
+      "kind": "ingress",
+      "owner": "Platform",
+      "team": "platform-infra",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "platform",
+        "networking"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "networking",
+        "routing",
+        "api"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "routes_to",
+          "target": "resource:api-gateway",
+          "detail": null
+        },
+        {
+          "type": "routes_to",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+      "owner": "Platform",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 89,
+      "status": "healthy",
+      "readiness": 87
+    }
+  },
+  "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

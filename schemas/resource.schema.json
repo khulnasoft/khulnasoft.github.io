@@ -71,6 +71,29 @@
         "readiness": { "type": "number" }
       }
     },
+    "apis": { "type": "array", "items": { "type": "string" }, "description": "Public endpoints the resource exposes." },
+    "exposes": { "type": "array", "items": { "type": "string" }, "description": "Interfaces, ports, or contracts the resource exposes." },
+    "observability": {
+      "type": "object",
+      "properties": {
+        "p99": { "type": "number", "description": "p99 latency in milliseconds." },
+        "p99_label": { "type": "string" },
+        "metrics": { "type": "boolean" },
+        "logs": { "type": "boolean" },
+        "traces": { "type": "boolean" },
+        "runbook": { "type": "string" },
+        "dashboard": { "type": "string" }
+      }
+    },
+    "workflows": { "type": "array", "items": { "type": "string" }, "description": "CI/CD workflow names." },
+    "ci": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "status": { "type": "string" },
+        "lastRun": { "type": "string" }
+      }
+    },
     "metrics": { "type": "object", "additionalProperties": { "type": "number" } },
     "metadata": { "type": "object", "additionalProperties": true },
     "updatedAt": { "type": "string", "format": "date-time" }

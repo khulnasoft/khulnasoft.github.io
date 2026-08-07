@@ -74,9 +74,9 @@
       "workspace": "core"
     },
     "health": {
-      "score": 93,
+      "score": 86,
       "status": "healthy",
-      "readiness": 93
+      "readiness": 86
     }
   },
   "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",

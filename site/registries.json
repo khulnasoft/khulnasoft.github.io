@@ -1,11 +1,17 @@
 {
   "capability": {
     "registry": "capability",
-    "count": 30,
+    "count": 41,
     "capabilities": {
       "agent-runtime": {
         "resources": [
           "resource:ai-runtime"
+        ],
+        "count": 1
+      },
+      "ai": {
+        "resources": [
+          "resource:recommendation-model"
         ],
         "count": 1
       },
@@ -17,9 +23,11 @@
       },
       "api": {
         "resources": [
-          "resource:api-gateway"
+          "resource:api-gateway",
+          "resource:checkout-service",
+          "resource:platform-ingress"
         ],
-        "count": 1
+        "count": 3
       },
       "assistant": {
         "resources": [
@@ -29,9 +37,10 @@
       },
       "automation": {
         "resources": [
-          "resource:deployment-runtime"
+          "resource:deployment-runtime",
+          "resource:ledger-worker"
         ],
-        "count": 1
+        "count": 2
       },
       "catalog": {
         "resources": [
@@ -59,6 +68,12 @@
         ],
         "count": 1
       },
+      "database": {
+        "resources": [
+          "resource:orders-db"
+        ],
+        "count": 1
+      },
       "deployment": {
         "resources": [
           "resource:deployment-runtime",
@@ -69,6 +84,12 @@
       "discovery": {
         "resources": [
           "resource:repository-catalog"
+        ],
+        "count": 1
+      },
+      "event-driven": {
+        "resources": [
+          "resource:payment-events"
         ],
         "count": 1
       },
@@ -115,9 +136,41 @@
         ],
         "count": 2
       },
+      "messaging": {
+        "resources": [
+          "resource:checkout-service",
+          "resource:ledger-worker",
+          "resource:payment-events"
+        ],
+        "count": 3
+      },
       "metadata": {
         "resources": [
           "resource:repository-catalog"
+        ],
+        "count": 1
+      },
+      "microservice": {
+        "resources": [
+          "resource:checkout-service"
+        ],
+        "count": 1
+      },
+      "model": {
+        "resources": [
+          "resource:recommendation-model"
+        ],
+        "count": 1
+      },
+      "networking": {
+        "resources": [
+          "resource:platform-ingress"
+        ],
+        "count": 1
+      },
+      "payment": {
+        "resources": [
+          "resource:checkout-service"
         ],
         "count": 1
       },
@@ -159,9 +212,10 @@
       },
       "routing": {
         "resources": [
-          "resource:api-gateway"
+          "resource:api-gateway",
+          "resource:platform-ingress"
         ],
-        "count": 1
+        "count": 2
       },
       "search": {
         "resources": [
@@ -181,17 +235,39 @@
         ],
         "count": 1
       },
+      "storage": {
+        "resources": [
+          "resource:orders-db"
+        ],
+        "count": 1
+      },
+      "vector-collection": {
+        "resources": [
+          "resource:recommendation-model"
+        ],
+        "count": 1
+      },
       "vulnerability": {
         "resources": [
           "resource:security-center"
         ],
         "count": 1
+      },
+      "worker": {
+        "resources": [
+          "resource:ledger-worker"
+        ],
+        "count": 1
       }
     },
     "top": [
+      "api",
+      "messaging",
       "context-fabric",
       "mcp",
+      "routing",
       "deployment",
+      "automation",
       "catalog",
       "ai-agent",
       "context-retrieval",
@@ -199,12 +275,11 @@
       "assistant",
       "agent-runtime",
       "prompt-registry",
-      "api",
-      "routing",
+      "microservice",
+      "payment",
       "layered-context",
       "selective-retrieval",
       "llms.txt",
-      "automation",
       "release",
       "helm-chart",
       "kubernetes",
@@ -214,6 +289,14 @@
       "knowledge-graph",
       "relationship-model",
       "search",
+      "worker",
+      "database",
+      "storage",
+      "event-driven",
+      "networking",
+      "ai",
+      "model",
+      "vector-collection",
       "discovery",
       "metadata",
       "security",
@@ -223,7 +306,7 @@
   },
   "platform": {
     "registry": "platform",
-    "count": 10,
+    "count": 16,
     "kinds": {
       "ai-agent": {
         "count": 1,
@@ -265,6 +348,16 @@
           }
         ]
       },
+      "database": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:orders-db",
+            "name": "Orders Database",
+            "slug": "orders-db"
+          }
+        ]
+      },
       "deployment": {
         "count": 1,
         "resources": [
@@ -295,6 +388,26 @@
           }
         ]
       },
+      "ingress": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:platform-ingress",
+            "name": "Platform Ingress",
+            "slug": "platform-ingress"
+          }
+        ]
+      },
+      "model": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:recommendation-model",
+            "name": "Recommendation Model",
+            "slug": "recommendation-model"
+          }
+        ]
+      },
       "platform": {
         "count": 1,
         "resources": [
@@ -302,6 +415,16 @@
             "id": "resource:khulnasoft-platform",
             "name": "KhulnaSoft Platform Core",
             "slug": "khulnasoft-platform"
+          }
+        ]
+      },
+      "queue": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:payment-events",
+            "name": "Payment Events",
+            "slug": "payment-events"
           }
         ]
       },
@@ -324,12 +447,32 @@
             "slug": "security-center"
           }
         ]
+      },
+      "service": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:checkout-service",
+            "name": "Checkout Service",
+            "slug": "checkout-service"
+          }
+        ]
+      },
+      "worker": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:ledger-worker",
+            "name": "Ledger Worker",
+            "slug": "ledger-worker"
+          }
+        ]
       }
     }
   },
   "service": {
     "registry": "service",
-    "count": 3,
+    "count": 4,
     "services": [
       {
         "id": "resource:api-gateway",
@@ -337,6 +480,13 @@
         "slug": "api-gateway",
         "kind": "api",
         "workspace": "core"
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "slug": "checkout-service",
+        "kind": "service",
+        "workspace": "commerce"
       },
       {
         "id": "resource:context-fabric",
@@ -356,16 +506,22 @@
   },
   "kind": {
     "registry": "kind",
-    "count": 10,
+    "count": 16,
     "coverage": {
       "ai-agent": 1,
       "ai-runtime": 1,
       "api": 1,
+      "service": 1,
       "component": 1,
       "deployment": 1,
       "helm-chart": 1,
       "platform": 1,
       "graph": 1,
+      "worker": 1,
+      "database": 1,
+      "queue": 1,
+      "ingress": 1,
+      "model": 1,
       "repository": 1,
       "security": 1
     }
@@ -414,12 +570,17 @@
   },
   "context": {
     "registry": "context",
-    "count": 4,
+    "count": 6,
     "resources": [
       {
         "id": "resource:ai-code-assistant",
         "name": "AI Code Assistant",
         "slug": "ai-code-assistant"
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "slug": "checkout-service"
       },
       {
         "id": "resource:context-fabric",
@@ -435,6 +596,150 @@
         "id": "resource:knowledge-graph",
         "name": "Engineering Knowledge Graph",
         "slug": "knowledge-graph"
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "slug": "recommendation-model"
+      }
+    ]
+  },
+  "model": {
+    "registry": "model",
+    "count": 2,
+    "models": [
+      {
+        "id": "resource:ai-code-assistant",
+        "name": "AI Code Assistant",
+        "slug": "ai-code-assistant",
+        "kind": "ai-agent",
+        "version": "0.9.2",
+        "owner": "AI Enablement",
+        "workspace": "ai",
+        "readiness": 88,
+        "capabilities": [
+          "ai-agent",
+          "context-retrieval",
+          "review",
+          "assistant"
+        ]
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "slug": "recommendation-model",
+        "kind": "model",
+        "version": "0.9.4",
+        "owner": "AI Enablement",
+        "workspace": "ai",
+        "readiness": 88,
+        "capabilities": [
+          "ai",
+          "model",
+          "vector-collection"
+        ]
+      }
+    ]
+  },
+  "tool": {
+    "registry": "tool",
+    "count": 4,
+    "tools": [
+      {
+        "id": "resource:ai-runtime",
+        "name": "AI Runtime Services",
+        "slug": "ai-runtime",
+        "kind": "ai-runtime",
+        "toolTypes": [
+          "mcp"
+        ]
+      },
+      {
+        "id": "resource:api-gateway",
+        "name": "API Gateway",
+        "slug": "api-gateway",
+        "kind": "api",
+        "toolTypes": [
+          "api",
+          "mcp"
+        ]
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "slug": "checkout-service",
+        "kind": "service",
+        "toolTypes": [
+          "api"
+        ]
+      },
+      {
+        "id": "resource:platform-ingress",
+        "name": "Platform Ingress",
+        "slug": "platform-ingress",
+        "kind": "ingress",
+        "toolTypes": [
+          "api"
+        ]
+      }
+    ]
+  },
+  "memory": {
+    "registry": "memory",
+    "count": 6,
+    "memories": [
+      {
+        "id": "resource:ai-runtime",
+        "name": "AI Runtime Services",
+        "slug": "ai-runtime",
+        "kind": "ai-runtime",
+        "access": [
+          "context-fabric"
+        ]
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "slug": "context-fabric",
+        "kind": "component",
+        "access": [
+          "context-fabric"
+        ]
+      },
+      {
+        "id": "resource:knowledge-graph",
+        "name": "Engineering Knowledge Graph",
+        "slug": "knowledge-graph",
+        "kind": "graph",
+        "access": [
+          "knowledge-graph",
+          "search"
+        ]
+      },
+      {
+        "id": "resource:orders-db",
+        "name": "Orders Database",
+        "slug": "orders-db",
+        "kind": "database",
+        "access": [
+          "database"
+        ]
+      },
+      {
+        "id": "resource:payment-events",
+        "name": "Payment Events",
+        "slug": "payment-events",
+        "kind": "queue",
+        "access": []
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "slug": "recommendation-model",
+        "kind": "model",
+        "access": [
+          "vector-collection"
+        ]
       }
     ]
   }
