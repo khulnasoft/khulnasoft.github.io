@@ -84,6 +84,35 @@
     "text": "api gateway api khulnasoft core the public entry point for context, catalog, and platform apis consumed by internal tools, cli clients, and ai agents. api mcp routing api routing agent"
   },
   {
+    "slug": "blueprint-templates",
+    "name": "Blueprint Templates",
+    "kind": "template",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 81,
+    "level": "deployable",
+    "capabilities": [
+      "template",
+      "blueprint",
+      "starter",
+      "scaffolding"
+    ],
+    "tags": [
+      "templates",
+      "blueprints",
+      "onboarding"
+    ],
+    "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+    "preview": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+    "relationships": [
+      "resource:repository-catalog",
+      "resource:ci-pipelines"
+    ],
+    "text": "blueprint templates template developer experience platform repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured. template blueprint starter scaffolding templates blueprints onboarding"
+  },
+  {
     "slug": "checkout-service",
     "name": "Checkout Service",
     "kind": "service",
@@ -110,6 +139,63 @@
       "resource:payment-events"
     ],
     "text": "checkout service service commerce commerce bff for checkout flows: cart orchestration, payment intent creation, and idempotent order placement. microservice api payment messaging commerce payments"
+  },
+  {
+    "slug": "ci-pipelines",
+    "name": "CI Pipelines",
+    "kind": "workflow",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "workflow",
+      "github-action",
+      "automation"
+    ],
+    "tags": [
+      "ci",
+      "automation",
+      "devops"
+    ],
+    "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+    "preview": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+    "relationships": [
+      "resource:khulnasoft-platform",
+      "resource:repository-catalog"
+    ],
+    "text": "ci pipelines workflow developer experience platform reusable github actions workflows for build, test, lint, and deploy used across repositories in the ecosystem. workflow github-action automation ci automation devops"
+  },
+  {
+    "slug": "container-registry",
+    "name": "Container Registry",
+    "kind": "image",
+    "owner": "Core Infrastructure",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 89,
+    "level": "ready",
+    "capabilities": [
+      "container",
+      "image",
+      "deployment",
+      "artifact"
+    ],
+    "tags": [
+      "container",
+      "registry",
+      "infra"
+    ],
+    "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+    "preview": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+    "relationships": [
+      "resource:deployment-runtime",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "container registry image core infrastructure core-infrastructure versioned oci container registry hosting images for services, workers, and the ai runtime with signed provenance. container image deployment artifact container registry infra"
   },
   {
     "slug": "context-fabric",
@@ -168,6 +254,60 @@
     "text": "deployment runtime deployment khulnasoft core the runtime layer that orchestrates deployment automation, health checks, and release coordination. deployment automation release deployment release automation"
   },
   {
+    "slug": "domains",
+    "name": "Public Domains",
+    "kind": "domain",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 91,
+    "level": "ready",
+    "capabilities": [
+      "domain",
+      "certificate",
+      "networking"
+    ],
+    "tags": [
+      "dns",
+      "tls",
+      "domains"
+    ],
+    "summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+    "preview": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+    "relationships": [
+      "resource:platform-ingress",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "public domains domain platform core managed public domains and tls certificates terminating traffic at the platform ingress. domain certificate networking dns tls domains"
+  },
+  {
+    "slug": "feature-flag-service",
+    "name": "Feature Flags",
+    "kind": "component",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 84,
+    "level": "deployable",
+    "capabilities": [
+      "feature-flag",
+      "api"
+    ],
+    "tags": [
+      "feature-flag",
+      "delivery"
+    ],
+    "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+    "preview": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+    "relationships": [
+      "resource:checkout-service",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "feature flags component platform core remote feature-flag service driving progressive delivery and kill-switches across services and the portal. feature-flag api feature-flag delivery"
+  },
+  {
     "slug": "helm-charts-registry",
     "name": "Helm Charts",
     "kind": "helm-chart",
@@ -196,6 +336,35 @@
     "text": "helm charts helm-chart core infrastructure core-infrastructure versioned helm charts packaging workhorse services and their deployment topology for kubernetes targets. helm-chart deployment kubernetes kubernetes deployment infra"
   },
   {
+    "slug": "identity-provider",
+    "name": "Identity Provider",
+    "kind": "service",
+    "owner": "Core Infrastructure",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 91,
+    "level": "ready",
+    "capabilities": [
+      "authentication",
+      "authorization",
+      "api",
+      "sdk"
+    ],
+    "tags": [
+      "identity",
+      "security",
+      "iam"
+    ],
+    "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+    "preview": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+    "relationships": [
+      "resource:api-gateway",
+      "resource:policy-engine"
+    ],
+    "text": "identity provider service core infrastructure core-infrastructure central oidc/oauth identity service issuing tokens, service accounts, and api keys for humans, automation, and agents across the platform. authentication authorization api sdk identity security iam"
+  },
+  {
     "slug": "khulnasoft-platform",
     "name": "KhulnaSoft Platform Core",
     "kind": "platform",
@@ -216,12 +385,12 @@
       "governance",
       "catalog"
     ],
-    "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
-    "preview": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+    "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
+    "preview": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
     "relationships": [
       "resource:ai-runtime"
     ],
-    "text": "khulnasoft platform core platform khulnasoft core the control-plane foundation for the ai-native engineering cloud, coordinating organizations, projects, policies, and engineering resources. control-plane catalog governance registry control-plane governance catalog"
+    "text": "khulnasoft platform core platform khulnasoft core the control-plane foundation for the khulnasoft engineering knowledge os, coordinating organizations, projects, policies, and engineering resources. control-plane catalog governance registry control-plane governance catalog"
   },
   {
     "slug": "knowledge-graph",
@@ -275,6 +444,34 @@
       "resource:payment-events"
     ],
     "text": "ledger worker worker commerce commerce consumes payment events and writes idempotent ledger entries, reconciling daily batches. worker messaging automation commerce events"
+  },
+  {
+    "slug": "metrics-platform",
+    "name": "Metrics Platform",
+    "kind": "observability",
+    "owner": "Observability",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 86,
+    "level": "ready",
+    "capabilities": [
+      "monitoring",
+      "observability",
+      "dashboard",
+      "alert"
+    ],
+    "tags": [
+      "observability",
+      "metrics"
+    ],
+    "summary": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+    "preview": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+    "relationships": [
+      "resource:api-gateway",
+      "resource:checkout-service"
+    ],
+    "text": "metrics platform observability observability core-infrastructure time-series metrics collection, dashboards, and alerting for services, infrastructure, and the ai runtime. monitoring observability dashboard alert observability metrics"
   },
   {
     "slug": "orders-db",
@@ -354,6 +551,33 @@
     "text": "platform ingress ingress platform core north-south ingress gateway routing external traffic to platform apis and the portal. networking routing api platform networking"
   },
   {
+    "slug": "policy-engine",
+    "name": "Policy Engine",
+    "kind": "component",
+    "owner": "Core Infrastructure",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 90,
+    "level": "ready",
+    "capabilities": [
+      "policy",
+      "governance",
+      "authorization"
+    ],
+    "tags": [
+      "governance",
+      "policy"
+    ],
+    "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+    "preview": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+    "relationships": [
+      "resource:security-center",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "policy engine component core infrastructure core-infrastructure opa-compatible policy decision point enforcing governance, rbac, and release policies for registries, workflows, and approvals. policy governance authorization governance policy"
+  },
+  {
     "slug": "recommendation-model",
     "name": "Recommendation Model",
     "kind": "model",
@@ -379,6 +603,34 @@
       "resource:checkout-service"
     ],
     "text": "recommendation model model ai enablement ai embedding-based product recommendation model served through the ai runtime with online feature updates. ai model vector-collection ai ml"
+  },
+  {
+    "slug": "release-artifacts",
+    "name": "Release Artifacts",
+    "kind": "release",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 83,
+    "level": "deployable",
+    "capabilities": [
+      "release",
+      "artifact",
+      "sdk"
+    ],
+    "tags": [
+      "release",
+      "artifacts",
+      "devops"
+    ],
+    "summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+    "preview": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+    "relationships": [
+      "resource:repository-catalog",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "release artifacts release developer experience platform versioned release artifacts, changelogs, and sboms published for every platform and service release. release artifact sdk release artifacts devops"
   },
   {
     "slug": "repository-catalog",
@@ -431,5 +683,34 @@
       "resource:repository-catalog"
     ],
     "text": "security center security khulnasoft core a security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud. security vulnerability policy security compliance"
+  },
+  {
+    "slug": "vector-store",
+    "name": "Vector Store",
+    "kind": "database",
+    "owner": "AI Enablement",
+    "workspace": "ai",
+    "lifecycle": "beta",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "ai",
+      "vector-collection",
+      "embedding-collection",
+      "search"
+    ],
+    "tags": [
+      "ai",
+      "vector",
+      "search"
+    ],
+    "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+    "preview": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+    "relationships": [
+      "resource:ai-runtime",
+      "resource:context-fabric"
+    ],
+    "text": "vector store database ai enablement ai vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence. ai vector-collection embedding-collection search ai vector search"
   }
 ]

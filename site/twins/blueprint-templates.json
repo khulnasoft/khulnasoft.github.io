@@ -1,0 +1,85 @@
+{
+  "resource": {
+    "id": "resource:blueprint-templates",
+    "kind": "template",
+    "name": "Blueprint Templates",
+    "slug": "blueprint-templates",
+    "owner": "Developer Experience",
+    "team": "dx",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "typescript",
+      "go",
+      "python"
+    ],
+    "frameworks": [
+      "copier",
+      "cookiecutter"
+    ],
+    "capabilities": [
+      "template",
+      "blueprint",
+      "starter",
+      "scaffolding"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "part_of",
+      "target": "resource:repository-catalog"
+    },
+    {
+      "type": "provides",
+      "target": "resource:ci-pipelines"
+    }
+  ],
+  "health": {
+    "score": 83,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 81,
+    "level": "deployable",
+    "scores": {
+      "architecture": 83,
+      "documentation": 83,
+      "security": 83,
+      "tests": 83,
+      "ci": 83,
+      "performance": 83,
+      "dependencies": 83,
+      "maintainability": 83,
+      "release": 83,
+      "compliance": 83,
+      "observability": 83,
+      "community": 83,
+      "ai_readiness": 50,
+      "production_readiness": 83
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

@@ -1,1 +1,1 @@
-"""KhulnaSoft AI-Native Engineering Cloud build engine."""
+"""KhulnaSoft Engineering Knowledge OS build engine."""

@@ -7,7 +7,7 @@
   },
   "context": {
     "metadata": {
-      "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+      "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
       "name": "KhulnaSoft Platform Core",
       "kind": "platform",
       "owner": "KhulnaSoft",
@@ -62,7 +62,7 @@
       }
     },
     "business": {
-      "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+      "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
       "owner": "KhulnaSoft",
       "workspace": "core"
     },
@@ -72,7 +72,7 @@
       "readiness": 89
     }
   },
-  "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+  "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
   "layers": [
     "metadata",
     "architecture",

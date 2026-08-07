@@ -1,0 +1,86 @@
+{
+  "resource": {
+    "id": "resource:feature-flag-service",
+    "kind": "component",
+    "name": "Feature Flags",
+    "slug": "feature-flag-service",
+    "owner": "Platform",
+    "team": "platform-eng",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.8.2",
+    "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [
+      "gin"
+    ],
+    "capabilities": [
+      "feature-flag",
+      "api"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "serves",
+      "target": "resource:checkout-service"
+    },
+    {
+      "type": "serves",
+      "target": "resource:khulnasoft-platform"
+    }
+  ],
+  "health": {
+    "score": 86,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 84,
+    "level": "deployable",
+    "scores": {
+      "architecture": 86,
+      "documentation": 86,
+      "security": 86,
+      "tests": 86,
+      "ci": 86,
+      "performance": 86,
+      "dependencies": 86,
+      "maintainability": 86,
+      "release": 86,
+      "compliance": 86,
+      "observability": 86,
+      "community": 86,
+      "ai_readiness": 50,
+      "production_readiness": 92
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "resource": {
+    "id": "resource:ci-pipelines",
+    "kind": "workflow",
+    "name": "CI Pipelines",
+    "slug": "ci-pipelines",
+    "owner": "Developer Experience",
+    "team": "dx",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "2.0.0",
+    "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "yaml"
+    ],
+    "frameworks": [
+      "github-actions"
+    ],
+    "capabilities": [
+      "workflow",
+      "github-action",
+      "automation"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "github-actions"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "deploys",
+      "target": "resource:khulnasoft-platform"
+    },
+    {
+      "type": "tracks",
+      "target": "resource:repository-catalog"
+    }
+  ],
+  "health": {
+    "score": 87,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 85,
+    "level": "ready",
+    "scores": {
+      "architecture": 87,
+      "documentation": 87,
+      "security": 87,
+      "tests": 87,
+      "ci": 87,
+      "performance": 87,
+      "dependencies": 87,
+      "maintainability": 87,
+      "release": 87,
+      "compliance": 87,
+      "observability": 87,
+      "community": 87,
+      "ai_readiness": 50,
+      "production_readiness": 93
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

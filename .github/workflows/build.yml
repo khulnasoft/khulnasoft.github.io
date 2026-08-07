@@ -44,6 +44,15 @@ jobs:
           test -f site/sdk-manifest.json
           test -f site/sdks/aec.py
           test -f site/sdks/aec.ts
+          test -f site/sdks/aec.go
+          test -f site/sdks/aec.rs
+          test -f site/sdks/AecClient.java
+          test -f site/sdks/AecClient.cs
+          test -f site/sdks/aec.php
+          test -f site/sdks/aec.rb
+          test -f site/sdks/AecClient.swift
+          test -f site/sdks/AecClient.kt
+          test -f site/sdks/aec.dart
           python3 -m py_compile scripts/serve_api.py
       - name: Upload site artifact
         uses: actions/upload-artifact@v4

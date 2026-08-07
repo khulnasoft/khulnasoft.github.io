@@ -1,0 +1,104 @@
+{
+  "resource": {
+    "id": "resource:ci-pipelines",
+    "name": "CI Pipelines",
+    "slug": "ci-pipelines",
+    "kind": "workflow"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+      "name": "CI Pipelines",
+      "kind": "workflow",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "2.0.0",
+      "tags": [
+        "ci",
+        "automation",
+        "devops"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "github-actions"
+      ],
+      "capabilities": [
+        "workflow",
+        "github-action",
+        "automation"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "deploys",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        },
+        {
+          "type": "tracks",
+          "target": "resource:repository-catalog",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "github-actions"
+        ]
+      },
+      "targets": [
+        "github-actions"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 87,
+      "status": "healthy",
+      "readiness": 85
+    }
+  },
+  "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

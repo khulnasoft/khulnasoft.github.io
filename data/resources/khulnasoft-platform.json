@@ -4,7 +4,7 @@
   "name": "KhulnaSoft Platform Core",
   "slug": "khulnasoft-platform",
   "owner": "KhulnaSoft",
-  "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+  "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
   "capabilities": ["control-plane", "catalog", "governance", "registry"],
   "health": {
     "score": 92,

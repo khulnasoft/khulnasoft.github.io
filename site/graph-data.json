@@ -25,11 +25,35 @@
       "health": "healthy"
     },
     {
+      "id": "resource:blueprint-templates",
+      "label": "Blueprint Templates",
+      "slug": "blueprint-templates",
+      "kind": "template",
+      "workspace": "platform",
+      "health": "healthy"
+    },
+    {
       "id": "resource:checkout-service",
       "label": "Checkout Service",
       "slug": "checkout-service",
       "kind": "service",
       "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:ci-pipelines",
+      "label": "CI Pipelines",
+      "slug": "ci-pipelines",
+      "kind": "workflow",
+      "workspace": "platform",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:container-registry",
+      "label": "Container Registry",
+      "slug": "container-registry",
+      "kind": "image",
+      "workspace": "core-infrastructure",
       "health": "healthy"
     },
     {
@@ -49,10 +73,34 @@
       "health": "healthy"
     },
     {
+      "id": "resource:domains",
+      "label": "Public Domains",
+      "slug": "domains",
+      "kind": "domain",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:feature-flag-service",
+      "label": "Feature Flags",
+      "slug": "feature-flag-service",
+      "kind": "component",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
       "id": "resource:helm-charts-registry",
       "label": "Helm Charts",
       "slug": "helm-charts-registry",
       "kind": "helm-chart",
+      "workspace": "core-infrastructure",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:identity-provider",
+      "label": "Identity Provider",
+      "slug": "identity-provider",
+      "kind": "service",
       "workspace": "core-infrastructure",
       "health": "healthy"
     },
@@ -81,6 +129,14 @@
       "health": "healthy"
     },
     {
+      "id": "resource:metrics-platform",
+      "label": "Metrics Platform",
+      "slug": "metrics-platform",
+      "kind": "observability",
+      "workspace": "core-infrastructure",
+      "health": "healthy"
+    },
+    {
       "id": "resource:orders-db",
       "label": "Orders Database",
       "slug": "orders-db",
@@ -105,11 +161,27 @@
       "health": "healthy"
     },
     {
+      "id": "resource:policy-engine",
+      "label": "Policy Engine",
+      "slug": "policy-engine",
+      "kind": "component",
+      "workspace": "core-infrastructure",
+      "health": "healthy"
+    },
+    {
       "id": "resource:recommendation-model",
       "label": "Recommendation Model",
       "slug": "recommendation-model",
       "kind": "model",
       "workspace": "ai",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:release-artifacts",
+      "label": "Release Artifacts",
+      "slug": "release-artifacts",
+      "kind": "release",
+      "workspace": "platform",
       "health": "healthy"
     },
     {
@@ -126,6 +198,14 @@
       "slug": "security-center",
       "kind": "security",
       "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:vector-store",
+      "label": "Vector Store",
+      "slug": "vector-store",
+      "kind": "database",
+      "workspace": "ai",
       "health": "healthy"
     }
   ],
@@ -155,6 +235,18 @@
       "detail": ""
     },
     {
+      "from": "resource:blueprint-templates",
+      "to": "resource:repository-catalog",
+      "type": "part_of",
+      "detail": ""
+    },
+    {
+      "from": "resource:blueprint-templates",
+      "to": "resource:ci-pipelines",
+      "type": "provides",
+      "detail": ""
+    },
+    {
       "from": "resource:checkout-service",
       "to": "resource:orders-db",
       "type": "depends_on",
@@ -164,6 +256,30 @@
       "from": "resource:checkout-service",
       "to": "resource:payment-events",
       "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:ci-pipelines",
+      "to": "resource:khulnasoft-platform",
+      "type": "deploys",
+      "detail": ""
+    },
+    {
+      "from": "resource:ci-pipelines",
+      "to": "resource:repository-catalog",
+      "type": "tracks",
+      "detail": ""
+    },
+    {
+      "from": "resource:container-registry",
+      "to": "resource:deployment-runtime",
+      "type": "provides",
+      "detail": ""
+    },
+    {
+      "from": "resource:container-registry",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of",
       "detail": ""
     },
     {
@@ -185,6 +301,30 @@
       "detail": ""
     },
     {
+      "from": "resource:domains",
+      "to": "resource:platform-ingress",
+      "type": "provides",
+      "detail": ""
+    },
+    {
+      "from": "resource:domains",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of",
+      "detail": ""
+    },
+    {
+      "from": "resource:feature-flag-service",
+      "to": "resource:checkout-service",
+      "type": "serves",
+      "detail": ""
+    },
+    {
+      "from": "resource:feature-flag-service",
+      "to": "resource:khulnasoft-platform",
+      "type": "serves",
+      "detail": ""
+    },
+    {
       "from": "resource:helm-charts-registry",
       "to": "resource:deployment-runtime",
       "type": "deploys",
@@ -194,6 +334,18 @@
       "from": "resource:helm-charts-registry",
       "to": "resource:khulnasoft-platform",
       "type": "part_of",
+      "detail": ""
+    },
+    {
+      "from": "resource:identity-provider",
+      "to": "resource:api-gateway",
+      "type": "provides",
+      "detail": ""
+    },
+    {
+      "from": "resource:identity-provider",
+      "to": "resource:policy-engine",
+      "type": "depends_on",
       "detail": ""
     },
     {
@@ -221,6 +373,18 @@
       "detail": ""
     },
     {
+      "from": "resource:metrics-platform",
+      "to": "resource:api-gateway",
+      "type": "monitors",
+      "detail": ""
+    },
+    {
+      "from": "resource:metrics-platform",
+      "to": "resource:checkout-service",
+      "type": "monitors",
+      "detail": ""
+    },
+    {
       "from": "resource:orders-db",
       "to": "resource:checkout-service",
       "type": "serves",
@@ -245,6 +409,18 @@
       "detail": ""
     },
     {
+      "from": "resource:policy-engine",
+      "to": "resource:security-center",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:policy-engine",
+      "to": "resource:khulnasoft-platform",
+      "type": "provides",
+      "detail": ""
+    },
+    {
       "from": "resource:recommendation-model",
       "to": "resource:ai-runtime",
       "type": "depends_on",
@@ -257,6 +433,18 @@
       "detail": ""
     },
     {
+      "from": "resource:release-artifacts",
+      "to": "resource:repository-catalog",
+      "type": "part_of",
+      "detail": ""
+    },
+    {
+      "from": "resource:release-artifacts",
+      "to": "resource:khulnasoft-platform",
+      "type": "tracks",
+      "detail": ""
+    },
+    {
       "from": "resource:repository-catalog",
       "to": "resource:khulnasoft-platform",
       "type": "depends_on",
@@ -266,6 +454,18 @@
       "from": "resource:security-center",
       "to": "resource:repository-catalog",
       "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:vector-store",
+      "to": "resource:ai-runtime",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:vector-store",
+      "to": "resource:context-fabric",
+      "type": "serves",
       "detail": ""
     }
   ]

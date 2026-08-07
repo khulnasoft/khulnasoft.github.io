@@ -1,7 +1,7 @@
-# KhulnaSoft AI-Native Engineering Cloud
+# KhulnaSoft Engineering Knowledge OS
 
-> Continuously updated control plane for engineering assets, AI-ready context,
-> and agent-friendly APIs.
+> Developer portal, AI context platform, and control plane: a living engineering knowledge OS for the ecosystem.
+> Continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.
 
 ## Resources
 
@@ -14,18 +14,36 @@
 - [API Gateway](https://khulnasoft.github.io/resources/api-gateway.html)
   - Context: `/context/api-gateway.json`
   - Twin: `/api/resources/api-gateway/twin`
+- [Blueprint Templates](https://khulnasoft.github.io/resources/blueprint-templates.html)
+  - Context: `/context/blueprint-templates.json`
+  - Twin: `/api/resources/blueprint-templates/twin`
 - [Checkout Service](https://khulnasoft.github.io/resources/checkout-service.html)
   - Context: `/context/checkout-service.json`
   - Twin: `/api/resources/checkout-service/twin`
+- [CI Pipelines](https://khulnasoft.github.io/resources/ci-pipelines.html)
+  - Context: `/context/ci-pipelines.json`
+  - Twin: `/api/resources/ci-pipelines/twin`
+- [Container Registry](https://khulnasoft.github.io/resources/container-registry.html)
+  - Context: `/context/container-registry.json`
+  - Twin: `/api/resources/container-registry/twin`
 - [Context Fabric](https://khulnasoft.github.io/resources/context-fabric.html)
   - Context: `/context/context-fabric.json`
   - Twin: `/api/resources/context-fabric/twin`
 - [Deployment Runtime](https://khulnasoft.github.io/resources/deployment-runtime.html)
   - Context: `/context/deployment-runtime.json`
   - Twin: `/api/resources/deployment-runtime/twin`
+- [Public Domains](https://khulnasoft.github.io/resources/domains.html)
+  - Context: `/context/domains.json`
+  - Twin: `/api/resources/domains/twin`
+- [Feature Flags](https://khulnasoft.github.io/resources/feature-flag-service.html)
+  - Context: `/context/feature-flag-service.json`
+  - Twin: `/api/resources/feature-flag-service/twin`
 - [Helm Charts](https://khulnasoft.github.io/resources/helm-charts-registry.html)
   - Context: `/context/helm-charts-registry.json`
   - Twin: `/api/resources/helm-charts-registry/twin`
+- [Identity Provider](https://khulnasoft.github.io/resources/identity-provider.html)
+  - Context: `/context/identity-provider.json`
+  - Twin: `/api/resources/identity-provider/twin`
 - [KhulnaSoft Platform Core](https://khulnasoft.github.io/resources/khulnasoft-platform.html)
   - Context: `/context/khulnasoft-platform.json`
   - Twin: `/api/resources/khulnasoft-platform/twin`
@@ -35,6 +53,9 @@
 - [Ledger Worker](https://khulnasoft.github.io/resources/ledger-worker.html)
   - Context: `/context/ledger-worker.json`
   - Twin: `/api/resources/ledger-worker/twin`
+- [Metrics Platform](https://khulnasoft.github.io/resources/metrics-platform.html)
+  - Context: `/context/metrics-platform.json`
+  - Twin: `/api/resources/metrics-platform/twin`
 - [Orders Database](https://khulnasoft.github.io/resources/orders-db.html)
   - Context: `/context/orders-db.json`
   - Twin: `/api/resources/orders-db/twin`
@@ -44,12 +65,21 @@
 - [Platform Ingress](https://khulnasoft.github.io/resources/platform-ingress.html)
   - Context: `/context/platform-ingress.json`
   - Twin: `/api/resources/platform-ingress/twin`
+- [Policy Engine](https://khulnasoft.github.io/resources/policy-engine.html)
+  - Context: `/context/policy-engine.json`
+  - Twin: `/api/resources/policy-engine/twin`
 - [Recommendation Model](https://khulnasoft.github.io/resources/recommendation-model.html)
   - Context: `/context/recommendation-model.json`
   - Twin: `/api/resources/recommendation-model/twin`
+- [Release Artifacts](https://khulnasoft.github.io/resources/release-artifacts.html)
+  - Context: `/context/release-artifacts.json`
+  - Twin: `/api/resources/release-artifacts/twin`
 - [Repository Catalog Service](https://khulnasoft.github.io/resources/repository-catalog.html)
   - Context: `/context/repository-catalog.json`
   - Twin: `/api/resources/repository-catalog/twin`
 - [Security Center](https://khulnasoft.github.io/resources/security-center.html)
   - Context: `/context/security-center.json`
   - Twin: `/api/resources/security-center/twin`
+- [Vector Store](https://khulnasoft.github.io/resources/vector-store.html)
+  - Context: `/context/vector-store.json`
+  - Twin: `/api/resources/vector-store/twin`

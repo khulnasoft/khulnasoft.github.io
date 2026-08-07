@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""KhulnaSoft AEC API server.
+"""KhulnaSoft Engineering Knowledge OS API server.
 
 Serves the canonical model and all derived layers over HTTP for humans, tools,
 and AI agents: resources, digital twins, layered context (selective), graph,
@@ -223,7 +223,7 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8001
     server = HTTPServer(("127.0.0.1", port), Handler)
-    print(f"KhulnaSoft AEC API on http://127.0.0.1:{port} (resources, twins, context, graph, registries, llms.txt, mcp.json)")
+    print(f"KhulnaSoft Knowledge OS API on http://127.0.0.1:{port} (resources, twins, context, graph, registries, llms.txt, mcp.json)")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

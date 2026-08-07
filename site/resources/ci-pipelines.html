@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CI Pipelines · Resource · KhulnaSoft Engineering Knowledge OS</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#07111f;color:#f5f7fb;line-height:1.5}
+a{color:#58c6dd}a:hover{text-decoration:underline}
+header.top{border-bottom:1px solid #1f3040;padding:.85rem 1.4rem;display:flex;align-items:center;gap:1rem;
+position:sticky;top:0;background:rgba(7,17,31,.95)}
+header.top .brand{font-weight:700;letter-spacing:.2px}
+header.top .accent{color:#58c6dd}
+header.top nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:.2rem}
+header.top nav a{color:#93a7bd;text-decoration:none;padding:.3rem .55rem;border-radius:8px;font-size:.82rem}
+header.top nav a:hover{color:#f5f7fb;background:#1f2f40}
+main{max-width:1140px;margin:0 auto;padding:1.6rem}
+h1{letter-spacing:-.03em;font-size:1.8rem}
+h2{color:#58c6dd;font-size:1.15rem;margin:1.5rem 0 .6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.card{background:#10202f;border:1px solid #1f3244;border-radius:12px;padding:1rem 1.1rem}
+.card.metric{text-align:center}
+.metric .value{font-size:1.9rem;font-weight:800;color:#58c6dd}
+.metric .label{color:#93a7bd;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;background:#14324f;color:#58c6dd;padding:.18rem .6rem;border-radius:999px;font-size:.75rem;margin:.15rem .25rem .15rem 0}
+.pill.kind{background:#14314a;color:#c5d5e8}
+.muted{color:#93a7bd}
+code{background:#0d1a28;padding:.1rem .35rem;border-radius:5px;font-size:.85rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:.42rem 0;border-bottom:1px solid #1f3244}
+ul.plain li:last-child{border-bottom:none}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:#93a7bd;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.4rem}
+td{padding:.45rem;border-top:1px solid #1f3244}
+.footer{border-top:1px solid #1f3244;margin-top:2rem;padding:1rem 1.4rem;color:#93a7bd;font-size:.8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.badge{display:inline-block;padding:.12rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600}
+.badge.ok{background:rgba(74,222,128,.16);color:#4ade80}
+.badge.warn{background:rgba(251,191,36,.16);color:#fbbf24}
+.badge.bad{background:rgba(248,113,113,.16);color:#f87171}
+</style></head>
+<body>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">Knowledge OS</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
+<main><p class="muted"><a href="catalog.html">← Catalog</a></p>
+<h1>CI Pipelines <span class="badge ok">healthy</span></h1>
+<p class="muted">Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+<div class="card"><strong>workflow</strong><br/><span class="muted">kind</span></div>
+<div class="card"><strong>Developer Experience</strong><br/><span class="muted">owner · dx</span></div>
+<div class="card"><strong>platform</strong><br/><span class="muted">workspace</span></div>
+<div class="card"><strong>87/100</strong><br/><span class="muted">health</span></div>
+<div class="card"><strong>85 · ready</strong><br/><span class="muted">readiness</span></div>
+</div>
+<h2>Capabilities</h2><div><span class="pill">workflow</span><span class="pill">github-action</span><span class="pill">automation</span></div>
+<h2>Relationships</h2><ul class="plain"><li>deploys → <code>resource:khulnasoft-platform</code></li><li>tracks → <code>resource:repository-catalog</code></li></ul>
+<h2>Context (selective)</h2>
+<p class="muted"><span class='muted'>No layered context.</span></p>
+<p><a href="context/ci-pipelines.json">full context bundle</a> · <a href="twins/ci-pipelines.json">digital twin</a></p>
+<h2>Readiness</h2><div class="card"><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">ai readiness</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:50%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>50</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">architecture</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">ci</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">community</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">compliance</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">dependencies</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">documentation</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">maintainability</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">observability</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">performance</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">production readiness</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:93%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>93</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">release</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">security</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div><div style="display:flex;align-items:center;gap:.6rem;margin:.25rem 0">
+<span style="width:110px" class="muted">tests</span>
+<div style="flex:1;background:#0d1a28;border-radius:6px;height:8px">
+<div style="width:87%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>87</span></div></div>
+<h2>Recommended actions</h2><ul class="plain"><li>Enable a context bundle and register a prompt for agent consumption.</li></ul>
+<h2>Digital twin</h2>
+<div class="card"><span class="muted">status</span> <code>active</code> ·
+<span class="muted">lifecycle</span> <code>supported</code> ·
+<span class="muted">visibility</span> <code>internal</code>
+<a href="twins/ci-pipelines.json" style="margin-left:.5rem">open twin</a></div></main>
+<footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
+<a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
+<a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
+</body></html>

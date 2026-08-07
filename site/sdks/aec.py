@@ -1,10 +1,10 @@
-"""KhulnaSoft AEC SDK (generated). Do not hand-edit."""
+"""KhulnaSoft Engineering Knowledge OS SDK (generated). Do not hand-edit."""
 
 from typing import Any
 
 
 class Client:
-    """Minimal typed client for the KhulnaSoft AI-Native Engineering Cloud."""
+    """Minimal typed client for the KhulnaSoft Engineering Knowledge OS."""
 
     def resources(self) -> dict:
         path = '/resources'

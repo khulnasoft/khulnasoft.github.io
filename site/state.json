@@ -3,7 +3,7 @@
     "id": "org:khulnasoft",
     "name": "KhulnaSoft",
     "slug": "khulnasoft",
-    "summary": "The engineering organization behind the AI-native Engineering Cloud: a continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.",
+    "summary": "The engineering organization behind the KhulnaSoft Engineering Knowledge OS: a continuously updated developer portal, AI context platform, and control plane for engineering assets, context, and automation.",
     "workspaces": [
       "platform",
       "ai",
@@ -155,29 +155,35 @@
     "updatedAt": "2026-08-07"
   },
   "metrics": {
-    "resource_count": 16,
+    "resource_count": 26,
     "kind_distribution": {
       "ai-agent": 1,
       "ai-runtime": 1,
       "api": 1,
-      "service": 1,
-      "component": 1,
+      "template": 1,
+      "service": 2,
+      "workflow": 1,
+      "image": 1,
+      "component": 3,
       "deployment": 1,
+      "domain": 1,
       "helm-chart": 1,
       "platform": 1,
       "graph": 1,
       "worker": 1,
-      "database": 1,
+      "observability": 1,
+      "database": 2,
       "queue": 1,
       "ingress": 1,
       "model": 1,
+      "release": 1,
       "repository": 1,
       "security": 1
     },
     "health_score": 88,
     "reliability_score": 88,
-    "automation_coverage": 6,
-    "context_coverage": 38,
+    "automation_coverage": 8,
+    "context_coverage": 31,
     "events": {
       "total_events": 4,
       "sources": {
@@ -198,7 +204,7 @@
   "registries": {
     "capability": {
       "registry": "capability",
-      "count": 41,
+      "count": 61,
       "capabilities": {
         "agent-runtime": {
           "resources": [
@@ -208,9 +214,10 @@
         },
         "ai": {
           "resources": [
-            "resource:recommendation-model"
+            "resource:recommendation-model",
+            "resource:vector-store"
           ],
-          "count": 1
+          "count": 2
         },
         "ai-agent": {
           "resources": [
@@ -218,13 +225,28 @@
           ],
           "count": 1
         },
+        "alert": {
+          "resources": [
+            "resource:metrics-platform"
+          ],
+          "count": 1
+        },
         "api": {
           "resources": [
             "resource:api-gateway",
             "resource:checkout-service",
+            "resource:feature-flag-service",
+            "resource:identity-provider",
             "resource:platform-ingress"
           ],
-          "count": 3
+          "count": 5
+        },
+        "artifact": {
+          "resources": [
+            "resource:container-registry",
+            "resource:release-artifacts"
+          ],
+          "count": 2
         },
         "assistant": {
           "resources": [
@@ -232,12 +254,32 @@
           ],
           "count": 1
         },
+        "authentication": {
+          "resources": [
+            "resource:identity-provider"
+          ],
+          "count": 1
+        },
+        "authorization": {
+          "resources": [
+            "resource:identity-provider",
+            "resource:policy-engine"
+          ],
+          "count": 2
+        },
         "automation": {
           "resources": [
+            "resource:ci-pipelines",
             "resource:deployment-runtime",
             "resource:ledger-worker"
           ],
-          "count": 2
+          "count": 3
+        },
+        "blueprint": {
+          "resources": [
+            "resource:blueprint-templates"
+          ],
+          "count": 1
         },
         "catalog": {
           "resources": [
@@ -245,6 +287,18 @@
             "resource:repository-catalog"
           ],
           "count": 2
+        },
+        "certificate": {
+          "resources": [
+            "resource:domains"
+          ],
+          "count": 1
+        },
+        "container": {
+          "resources": [
+            "resource:container-registry"
+          ],
+          "count": 1
         },
         "context-fabric": {
           "resources": [
@@ -265,6 +319,12 @@
           ],
           "count": 1
         },
+        "dashboard": {
+          "resources": [
+            "resource:metrics-platform"
+          ],
+          "count": 1
+        },
         "database": {
           "resources": [
             "resource:orders-db"
@@ -273,14 +333,27 @@
         },
         "deployment": {
           "resources": [
+            "resource:container-registry",
             "resource:deployment-runtime",
             "resource:helm-charts-registry"
           ],
-          "count": 2
+          "count": 3
         },
         "discovery": {
           "resources": [
             "resource:repository-catalog"
+          ],
+          "count": 1
+        },
+        "domain": {
+          "resources": [
+            "resource:domains"
+          ],
+          "count": 1
+        },
+        "embedding-collection": {
+          "resources": [
+            "resource:vector-store"
           ],
           "count": 1
         },
@@ -290,15 +363,34 @@
           ],
           "count": 1
         },
-        "governance": {
+        "feature-flag": {
           "resources": [
-            "resource:khulnasoft-platform"
+            "resource:feature-flag-service"
           ],
           "count": 1
+        },
+        "github-action": {
+          "resources": [
+            "resource:ci-pipelines"
+          ],
+          "count": 1
+        },
+        "governance": {
+          "resources": [
+            "resource:khulnasoft-platform",
+            "resource:policy-engine"
+          ],
+          "count": 2
         },
         "helm-chart": {
           "resources": [
             "resource:helm-charts-registry"
+          ],
+          "count": 1
+        },
+        "image": {
+          "resources": [
+            "resource:container-registry"
           ],
           "count": 1
         },
@@ -359,9 +451,22 @@
           ],
           "count": 1
         },
+        "monitoring": {
+          "resources": [
+            "resource:metrics-platform"
+          ],
+          "count": 1
+        },
         "networking": {
           "resources": [
+            "resource:domains",
             "resource:platform-ingress"
+          ],
+          "count": 2
+        },
+        "observability": {
+          "resources": [
+            "resource:metrics-platform"
           ],
           "count": 1
         },
@@ -373,9 +478,10 @@
         },
         "policy": {
           "resources": [
+            "resource:policy-engine",
             "resource:security-center"
           ],
-          "count": 1
+          "count": 2
         },
         "prompt-registry": {
           "resources": [
@@ -397,9 +503,10 @@
         },
         "release": {
           "resources": [
-            "resource:deployment-runtime"
+            "resource:deployment-runtime",
+            "resource:release-artifacts"
           ],
-          "count": 1
+          "count": 2
         },
         "review": {
           "resources": [
@@ -414,11 +521,25 @@
           ],
           "count": 2
         },
-        "search": {
+        "scaffolding": {
           "resources": [
-            "resource:knowledge-graph"
+            "resource:blueprint-templates"
           ],
           "count": 1
+        },
+        "sdk": {
+          "resources": [
+            "resource:identity-provider",
+            "resource:release-artifacts"
+          ],
+          "count": 2
+        },
+        "search": {
+          "resources": [
+            "resource:knowledge-graph",
+            "resource:vector-store"
+          ],
+          "count": 2
         },
         "security": {
           "resources": [
@@ -432,17 +553,30 @@
           ],
           "count": 1
         },
+        "starter": {
+          "resources": [
+            "resource:blueprint-templates"
+          ],
+          "count": 1
+        },
         "storage": {
           "resources": [
             "resource:orders-db"
           ],
           "count": 1
         },
-        "vector-collection": {
+        "template": {
           "resources": [
-            "resource:recommendation-model"
+            "resource:blueprint-templates"
           ],
           "count": 1
+        },
+        "vector-collection": {
+          "resources": [
+            "resource:recommendation-model",
+            "resource:vector-store"
+          ],
+          "count": 2
         },
         "vulnerability": {
           "resources": [
@@ -455,55 +589,81 @@
             "resource:ledger-worker"
           ],
           "count": 1
+        },
+        "workflow": {
+          "resources": [
+            "resource:ci-pipelines"
+          ],
+          "count": 1
         }
       },
       "top": [
         "api",
         "messaging",
+        "automation",
+        "deployment",
         "context-fabric",
         "mcp",
         "routing",
-        "deployment",
-        "automation",
+        "artifact",
+        "release",
+        "networking",
+        "authorization",
+        "sdk",
         "catalog",
+        "governance",
+        "search",
+        "policy",
+        "ai",
+        "vector-collection",
         "ai-agent",
         "context-retrieval",
         "review",
         "assistant",
         "agent-runtime",
         "prompt-registry",
+        "template",
+        "blueprint",
+        "starter",
+        "scaffolding",
         "microservice",
         "payment",
+        "workflow",
+        "github-action",
+        "container",
+        "image",
         "layered-context",
         "selective-retrieval",
         "llms.txt",
-        "release",
+        "domain",
+        "certificate",
+        "feature-flag",
         "helm-chart",
         "kubernetes",
+        "authentication",
         "control-plane",
-        "governance",
         "registry",
         "knowledge-graph",
         "relationship-model",
-        "search",
         "worker",
+        "monitoring",
+        "observability",
+        "dashboard",
+        "alert",
         "database",
         "storage",
         "event-driven",
-        "networking",
-        "ai",
         "model",
-        "vector-collection",
         "discovery",
         "metadata",
         "security",
         "vulnerability",
-        "policy"
+        "embedding-collection"
       ]
     },
     "platform": {
       "registry": "platform",
-      "count": 16,
+      "count": 26,
       "kinds": {
         "ai-agent": {
           "count": 1,
@@ -536,22 +696,37 @@
           ]
         },
         "component": {
-          "count": 1,
+          "count": 3,
           "resources": [
             {
               "id": "resource:context-fabric",
               "name": "Context Fabric",
               "slug": "context-fabric"
+            },
+            {
+              "id": "resource:feature-flag-service",
+              "name": "Feature Flags",
+              "slug": "feature-flag-service"
+            },
+            {
+              "id": "resource:policy-engine",
+              "name": "Policy Engine",
+              "slug": "policy-engine"
             }
           ]
         },
         "database": {
-          "count": 1,
+          "count": 2,
           "resources": [
             {
               "id": "resource:orders-db",
               "name": "Orders Database",
               "slug": "orders-db"
+            },
+            {
+              "id": "resource:vector-store",
+              "name": "Vector Store",
+              "slug": "vector-store"
             }
           ]
         },
@@ -562,6 +737,16 @@
               "id": "resource:deployment-runtime",
               "name": "Deployment Runtime",
               "slug": "deployment-runtime"
+            }
+          ]
+        },
+        "domain": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:domains",
+              "name": "Public Domains",
+              "slug": "domains"
             }
           ]
         },
@@ -585,6 +770,16 @@
             }
           ]
         },
+        "image": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:container-registry",
+              "name": "Container Registry",
+              "slug": "container-registry"
+            }
+          ]
+        },
         "ingress": {
           "count": 1,
           "resources": [
@@ -605,6 +800,16 @@
             }
           ]
         },
+        "observability": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:metrics-platform",
+              "name": "Metrics Platform",
+              "slug": "metrics-platform"
+            }
+          ]
+        },
         "platform": {
           "count": 1,
           "resources": [
@@ -622,6 +827,16 @@
               "id": "resource:payment-events",
               "name": "Payment Events",
               "slug": "payment-events"
+            }
+          ]
+        },
+        "release": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:release-artifacts",
+              "name": "Release Artifacts",
+              "slug": "release-artifacts"
             }
           ]
         },
@@ -646,12 +861,27 @@
           ]
         },
         "service": {
-          "count": 1,
+          "count": 2,
           "resources": [
             {
               "id": "resource:checkout-service",
               "name": "Checkout Service",
               "slug": "checkout-service"
+            },
+            {
+              "id": "resource:identity-provider",
+              "name": "Identity Provider",
+              "slug": "identity-provider"
+            }
+          ]
+        },
+        "template": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:blueprint-templates",
+              "name": "Blueprint Templates",
+              "slug": "blueprint-templates"
             }
           ]
         },
@@ -664,12 +894,22 @@
               "slug": "ledger-worker"
             }
           ]
+        },
+        "workflow": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:ci-pipelines",
+              "name": "CI Pipelines",
+              "slug": "ci-pipelines"
+            }
+          ]
         }
       }
     },
     "service": {
       "registry": "service",
-      "count": 4,
+      "count": 7,
       "services": [
         {
           "id": "resource:api-gateway",
@@ -693,32 +933,59 @@
           "workspace": "ai"
         },
         {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "slug": "feature-flag-service",
+          "kind": "component",
+          "workspace": "core"
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "slug": "identity-provider",
+          "kind": "service",
+          "workspace": "core-infrastructure"
+        },
+        {
           "id": "resource:khulnasoft-platform",
           "name": "KhulnaSoft Platform Core",
           "slug": "khulnasoft-platform",
           "kind": "platform",
           "workspace": "core"
+        },
+        {
+          "id": "resource:policy-engine",
+          "name": "Policy Engine",
+          "slug": "policy-engine",
+          "kind": "component",
+          "workspace": "core-infrastructure"
         }
       ]
     },
     "kind": {
       "registry": "kind",
-      "count": 16,
+      "count": 22,
       "coverage": {
         "ai-agent": 1,
         "ai-runtime": 1,
         "api": 1,
-        "service": 1,
-        "component": 1,
+        "template": 1,
+        "service": 2,
+        "workflow": 1,
+        "image": 1,
+        "component": 3,
         "deployment": 1,
+        "domain": 1,
         "helm-chart": 1,
         "platform": 1,
         "graph": 1,
         "worker": 1,
-        "database": 1,
+        "observability": 1,
+        "database": 2,
         "queue": 1,
         "ingress": 1,
         "model": 1,
+        "release": 1,
         "repository": 1,
         "security": 1
       }
@@ -767,7 +1034,7 @@
     },
     "context": {
       "registry": "context",
-      "count": 6,
+      "count": 8,
       "resources": [
         {
           "id": "resource:ai-code-assistant",
@@ -790,6 +1057,11 @@
           "slug": "helm-charts-registry"
         },
         {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "slug": "identity-provider"
+        },
+        {
           "id": "resource:knowledge-graph",
           "name": "Engineering Knowledge Graph",
           "slug": "knowledge-graph"
@@ -798,6 +1070,11 @@
           "id": "resource:recommendation-model",
           "name": "Recommendation Model",
           "slug": "recommendation-model"
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "slug": "vector-store"
         }
       ]
     },
@@ -840,7 +1117,7 @@
     },
     "tool": {
       "registry": "tool",
-      "count": 4,
+      "count": 8,
       "tools": [
         {
           "id": "resource:ai-runtime",
@@ -871,6 +1148,34 @@
           ]
         },
         {
+          "id": "resource:ci-pipelines",
+          "name": "CI Pipelines",
+          "slug": "ci-pipelines",
+          "kind": "workflow",
+          "toolTypes": [
+            "github-action"
+          ]
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "slug": "feature-flag-service",
+          "kind": "component",
+          "toolTypes": [
+            "api"
+          ]
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "slug": "identity-provider",
+          "kind": "service",
+          "toolTypes": [
+            "api",
+            "sdk"
+          ]
+        },
+        {
           "id": "resource:platform-ingress",
           "name": "Platform Ingress",
           "slug": "platform-ingress",
@@ -878,12 +1183,21 @@
           "toolTypes": [
             "api"
           ]
+        },
+        {
+          "id": "resource:release-artifacts",
+          "name": "Release Artifacts",
+          "slug": "release-artifacts",
+          "kind": "release",
+          "toolTypes": [
+            "sdk"
+          ]
         }
       ]
     },
     "memory": {
       "registry": "memory",
-      "count": 6,
+      "count": 7,
       "memories": [
         {
           "id": "resource:ai-runtime",
@@ -935,6 +1249,17 @@
           "slug": "recommendation-model",
           "kind": "model",
           "access": [
+            "vector-collection"
+          ]
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "slug": "vector-store",
+          "kind": "database",
+          "access": [
+            "embedding-collection",
+            "search",
             "vector-collection"
           ]
         }
@@ -992,6 +1317,23 @@
       ]
     },
     {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "slug": "blueprint-templates",
+      "kind": "template",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+      "health": {
+        "score": 83,
+        "status": "healthy"
+      },
+      "readiness": 81,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
       "id": "resource:checkout-service",
       "name": "Checkout Service",
       "slug": "checkout-service",
@@ -1005,6 +1347,40 @@
       },
       "readiness": 89,
       "recommendations": []
+    },
+    {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "slug": "ci-pipelines",
+      "kind": "workflow",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+      "health": {
+        "score": 87,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "slug": "container-registry",
+      "kind": "image",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+      "health": {
+        "score": 91,
+        "status": "healthy"
+      },
+      "readiness": 89,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
     },
     {
       "id": "resource:context-fabric",
@@ -1042,6 +1418,40 @@
       ]
     },
     {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "slug": "domains",
+      "kind": "domain",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+      "health": {
+        "score": 94,
+        "status": "healthy"
+      },
+      "readiness": 91,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "slug": "feature-flag-service",
+      "kind": "component",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+      "health": {
+        "score": 86,
+        "status": "healthy"
+      },
+      "readiness": 84,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
       "id": "resource:helm-charts-registry",
       "name": "Helm Charts",
       "slug": "helm-charts-registry",
@@ -1057,13 +1467,28 @@
       "recommendations": []
     },
     {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "slug": "identity-provider",
+      "kind": "service",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+      "health": {
+        "score": 90,
+        "status": "healthy"
+      },
+      "readiness": 91,
+      "recommendations": []
+    },
+    {
       "id": "resource:khulnasoft-platform",
       "name": "KhulnaSoft Platform Core",
       "slug": "khulnasoft-platform",
       "kind": "platform",
       "owner": "KhulnaSoft",
       "workspace": "core",
-      "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+      "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
       "health": {
         "score": 92,
         "status": "healthy"
@@ -1101,6 +1526,23 @@
         "status": "healthy"
       },
       "readiness": 82,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "slug": "metrics-platform",
+      "kind": "observability",
+      "owner": "Observability",
+      "workspace": "core-infrastructure",
+      "summary": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+      "health": {
+        "score": 88,
+        "status": "healthy"
+      },
+      "readiness": 86,
       "recommendations": [
         "Enable a context bundle and register a prompt for agent consumption."
       ]
@@ -1157,6 +1599,23 @@
       ]
     },
     {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "slug": "policy-engine",
+      "kind": "component",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+      "health": {
+        "score": 92,
+        "status": "healthy"
+      },
+      "readiness": 90,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
       "id": "resource:recommendation-model",
       "name": "Recommendation Model",
       "slug": "recommendation-model",
@@ -1170,6 +1629,23 @@
       },
       "readiness": 87,
       "recommendations": []
+    },
+    {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "slug": "release-artifacts",
+      "kind": "release",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+      "health": {
+        "score": 85,
+        "status": "healthy"
+      },
+      "readiness": 83,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
     },
     {
       "id": "resource:repository-catalog",
@@ -1204,6 +1680,21 @@
       "recommendations": [
         "Enable a context bundle and register a prompt for agent consumption."
       ]
+    },
+    {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "slug": "vector-store",
+      "kind": "database",
+      "owner": "AI Enablement",
+      "workspace": "ai",
+      "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+      "health": {
+        "score": 84,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": []
     }
   ]
 }

@@ -60,11 +60,68 @@
       ]
     },
     {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "slug": "blueprint-templates",
+      "kind": "template",
+      "endpoint": "mcp://khulnasoft/context/blueprint-templates",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
       "id": "resource:checkout-service",
       "name": "Checkout Service",
       "slug": "checkout-service",
       "kind": "service",
       "endpoint": "mcp://khulnasoft/context/checkout-service",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "slug": "ci-pipelines",
+      "kind": "workflow",
+      "endpoint": "mcp://khulnasoft/context/ci-pipelines",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "slug": "container-registry",
+      "kind": "image",
+      "endpoint": "mcp://khulnasoft/context/container-registry",
       "layers": [
         "metadata",
         "architecture",
@@ -117,11 +174,68 @@
       ]
     },
     {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "slug": "domains",
+      "kind": "domain",
+      "endpoint": "mcp://khulnasoft/context/domains",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "slug": "feature-flag-service",
+      "kind": "component",
+      "endpoint": "mcp://khulnasoft/context/feature-flag-service",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
       "id": "resource:helm-charts-registry",
       "name": "Helm Charts",
       "slug": "helm-charts-registry",
       "kind": "helm-chart",
       "endpoint": "mcp://khulnasoft/context/helm-charts-registry",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "slug": "identity-provider",
+      "kind": "service",
+      "endpoint": "mcp://khulnasoft/context/identity-provider",
       "layers": [
         "metadata",
         "architecture",
@@ -193,6 +307,25 @@
       ]
     },
     {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "slug": "metrics-platform",
+      "kind": "observability",
+      "endpoint": "mcp://khulnasoft/context/metrics-platform",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
       "id": "resource:orders-db",
       "name": "Orders Database",
       "slug": "orders-db",
@@ -250,11 +383,49 @@
       ]
     },
     {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "slug": "policy-engine",
+      "kind": "component",
+      "endpoint": "mcp://khulnasoft/context/policy-engine",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
       "id": "resource:recommendation-model",
       "name": "Recommendation Model",
       "slug": "recommendation-model",
       "kind": "model",
       "endpoint": "mcp://khulnasoft/context/recommendation-model",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "slug": "release-artifacts",
+      "kind": "release",
+      "endpoint": "mcp://khulnasoft/context/release-artifacts",
       "layers": [
         "metadata",
         "architecture",
@@ -293,6 +464,25 @@
       "slug": "security-center",
       "kind": "security",
       "endpoint": "mcp://khulnasoft/context/security-center",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "slug": "vector-store",
+      "kind": "database",
+      "endpoint": "mcp://khulnasoft/context/vector-store",
       "layers": [
         "metadata",
         "architecture",

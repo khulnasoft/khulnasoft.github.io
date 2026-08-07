@@ -1,4 +1,4 @@
-"""Model loading and normalization for the AEC.
+"""Model loading and normalization for the Engineering Knowledge OS.
 
 Loads the resource registry, organization model, manifests, prompts, and agent
 registrations from the canonical `data/` tree and normalizes them into a

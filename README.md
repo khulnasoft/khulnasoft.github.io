@@ -1,4 +1,6 @@
-# KhulnaSoft AI-Native Engineering Cloud
+# KhulnaSoft Engineering Knowledge OS
+
+This repository is the monorepo for the KhulnaSoft Engineering Knowledge OS: a living platform for the **Developer Portal**, **AI Context Platform**, and **Control Plane** across the entire ecosystem. It is not a normal documentation site; it is the shared operating layer for engineering knowledge, platform governance, agent-ready context, and developer workflows.
 
 A continuously updated **control plane** for engineering assets, **AI-ready context**, and **agent-friendly APIs** across organizations and platforms. The repository is a data-driven static portal and API generator: a canonical model is the single source of truth, and everything else (digital twins, knowledge graph, context fabric, registries, intelligence, portal) is a **derived layer**.
 

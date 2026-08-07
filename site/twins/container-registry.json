@@ -1,0 +1,89 @@
+{
+  "resource": {
+    "id": "resource:container-registry",
+    "kind": "image",
+    "name": "Container Registry",
+    "slug": "container-registry",
+    "owner": "Core Infrastructure",
+    "team": "core-infra",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "3.0.0",
+    "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "container",
+      "image",
+      "deployment",
+      "artifact"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "provides",
+      "target": "resource:deployment-runtime"
+    },
+    {
+      "type": "part_of",
+      "target": "resource:khulnasoft-platform"
+    }
+  ],
+  "health": {
+    "score": 91,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 89,
+    "level": "ready",
+    "scores": {
+      "architecture": 91,
+      "documentation": 91,
+      "security": 91,
+      "tests": 91,
+      "ci": 91,
+      "performance": 91,
+      "dependencies": 91,
+      "maintainability": 91,
+      "release": 91,
+      "compliance": 91,
+      "observability": 91,
+      "community": 91,
+      "ai_readiness": 50,
+      "production_readiness": 100
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

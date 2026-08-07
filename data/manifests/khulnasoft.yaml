@@ -2,7 +2,7 @@ repository:
   id: khulnasoft-platform
   slug: khulnasoft-platform
   title: KhulnaSoft Platform Core
-  summary: Control-plane foundation for the AI-native engineering cloud.
+  summary: Control-plane foundation for the KhulnaSoft Engineering Knowledge OS.
   owner: KhulnaSoft
   lifecycle: active
   visibility: public

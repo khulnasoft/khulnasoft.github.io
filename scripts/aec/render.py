@@ -59,11 +59,11 @@ def shell(title, body):
     nav = "".join(f'<a href="{href}">{label}</a>' for label, href in NAV)
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} · KhulnaSoft AEC</title><style>{CSS}</style></head>
+<title>{title} · KhulnaSoft Engineering Knowledge OS</title><style>{CSS}</style></head>
 <body>
-<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav>{nav}</nav></header>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">Knowledge OS</span></div><nav>{nav}</nav></header>
 <main>{body}</main>
-<footer class="footer"><span>KhulnaSoft AI-Native Engineering Cloud</span>
+<footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
 <a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
 <a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
 </body></html>"""
@@ -77,8 +77,8 @@ def render_index(resources, metrics):
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">{r['kind']}</span><span class="pill">{r.get('workspace','core')}</span></div>
 <div class="muted">{r['summary']}</div>
 <div style="margin-top:.6rem"><a href="context/{r['slug']}.json">bundle</a> · <a href="twins/{r['slug']}.json">twin</a></div></div>"""
-    body = f"""<h1>KhulnaSoft AI-Native Engineering Cloud</h1>
-<p class="muted">A continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.</p>
+    body = f"""<h1>KhulnaSoft Engineering Knowledge OS</h1>
+<p class="muted">The monorepo-scale operating layer for the Developer Portal, AI Context Platform, and Control Plane across the KhulnaSoft ecosystem.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
 """+("".join(f'<div class="card metric"><div class="value">{metrics[k]}</div><div class="label">{k.replace("_"," ")}</div></div>' for k, v in metrics.items()))+f"""</div>
 <h2>Resources</h2><div class="grid">{cards}</div>"""
@@ -233,7 +233,7 @@ def render_ai_control_plane(reg, layers):
     tools = "".join(f'<li><strong>{t["name"]}</strong> <span class="muted">[{", ".join(t["toolTypes"])}]</span></li>' for t in reg['tool']['tools'])
     memory = "".join(f'<li><strong>{m["name"]}</strong> <span class="muted">({m["kind"]})</span></li>' for m in reg['memory']['memories'])
     body = f"""<h1>AI Control Plane</h1>
-<p class="muted">Prompt registry, context registry, agent registry, model registry, tool registry, memory registry, and AI-safe metadata for agents and automation.</p>
+<p class="muted">Prompt registry, context registry, agent registry, model registry, tool registry, memory registry, and AI-safe metadata for agents and automation inside the Knowledge OS.</p>
 <h2>Context Registry ({reg['context']['count']})</h2><ul class="plain">
 {''.join(f'<li><strong>{r["name"]}</strong> <code>{r["slug"]}</code></li>' for r in reg['context']['resources'])}</ul>
 <h2>Prompt Registry ({reg['prompt']['count']})</h2><ul class="plain">
@@ -407,7 +407,7 @@ function visibleContext(){
 }
 function buildPrompt(){
  const st=findRes(window.cur.resource.slug), layers=Object.keys(visibleContext());
- const lines=[`You are operating the KhulnaSoft AI-Native Engineering Cloud.`];
+ const lines=[`You are operating the KhulnaSoft Engineering Knowledge OS.`];
  lines.push(`Inspect the resource "${st.name}" (${st.kind}).`);
  lines.push(`Active context layers: ${layers.join(', ')}.`);
  lines.push(`Readiness: ${st.readiness}.`);
@@ -621,8 +621,8 @@ def render_marketplace(items, sdk_artifacts):
 <div class="muted" style="margin:.3rem 0">{it['summary']}</div>
 <div>{tags}</div></div>
 <div style="margin-top:.6rem"><button class="install" data-id="{it['id']}">Install</button></div></div>"""
-    sdks = "".join(f"""<div class="card"><strong>{s['language']}</strong> · <code>{s['file']}</code> · {s['lines']} lines<br/>
-<a href="sdks/{s['file'].split('/')[-1]}" style="font-size:.85rem">view stub</a></div>""" for s in sdk_artifacts)
+    sdks = "".join(f"""<div class="card"><strong>{s['language']}</strong> · <code>{s['path']}</code> · {s['lines']} lines<br/>
+<a href="sdks/{s['path'].split('/')[-1]}" style="font-size:.85rem">view stub</a></div>""" for s in sdk_artifacts)
     body = f"""<h1>Marketplace &amp; SDKs</h1>
 <p class="muted">Reusable engineering assets (templates, prompt packs, policies, agents, workflows) installable from the portal, and generated SDK stubs derived from the canonical schema for consuming the platform programmatically.</p>
 <h2>SDKs (generated from resource.schema.json)</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">{sdks}</div>
@@ -659,7 +659,7 @@ def render_runtime_plane(runtime_state, resources):
 
 def render_architecture():
     body = """<h1>Platform Architecture</h1>
-<p class="muted">The AEC is a modular platform with six planes. All derived artifacts (twins, context, graph, registries, portal) are generated from a canonical model beneath those planes.</p>
+<p class="muted">The Engineering Knowledge OS is a modular platform with six planes. All derived artifacts (twins, context, graph, registries, portal) are generated from a canonical model beneath those planes.</p>
 <h2>Canonical model</h2>
 <div class="card"><code>organization → workspace → project → resource</code><br/><br/>
 <span class="muted">Manifest:</span> <code>khulnasoft.yaml</code> is the authoritative contract; twins and portals are a derived layer.</div>
@@ -691,6 +691,6 @@ def render_api():
 <li><code>GET /registries</code> — control-plane registries</li>
 <li><code>GET /llms.txt</code>, <code>/llms-full.txt</code>, <code>/mcp.json</code> — AI-ready</li>
 <li><code>GET /health</code> — live platform health</li>
-<li><code>sdks/aec.ts</code>, <code>sdks/aec.py</code> — generated typed clients</li>
+<li><code>sdks/aec.ts</code>, <code>sdks/aec.py</code> and 9 more generated typed clients (Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, Dart)</li>
 </ul>"""
     return shell("API", body)

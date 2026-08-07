@@ -112,10 +112,10 @@ def build_context(resource: dict, readiness: dict) -> dict:
 def build_llms(resources: list[dict]) -> str:
     """Generate llms.txt: a concise AI-consumable index of the ecosystem."""
     out = [
-        "# KhulnaSoft AI-Native Engineering Cloud",
+        "# KhulnaSoft Engineering Knowledge OS",
         "",
-        "> Continuously updated control plane for engineering assets, AI-ready context,",
-        "> and agent-friendly APIs.",
+        "> Developer portal, AI context platform, and control plane: a living engineering knowledge OS for the ecosystem.",
+        "> Continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.",
         "",
         "## Resources",
         "",
@@ -129,7 +129,7 @@ def build_llms(resources: list[dict]) -> str:
 
 def build_llms_full(resources: list[dict]) -> str:
     """Generate llms-full.txt: fully inlined AI-ready knowledge."""
-    out = ["# KhulnaSoft AI Engineering Cloud (full)", ""]
+    out = ["# KhulnaSoft Engineering Knowledge OS (full)", ""]
     for r in resources:
         out.append(f"## {r['name']} ({r['kind']})")
         out.append(f"- Summary: {r['summary']}")

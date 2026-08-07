@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""KhulnaSoft AI-Native Engineering Cloud build.
+"""KhulnaSoft Engineering Knowledge OS build.
 
 Loads the canonical model, derives the knowledge graph, intelligence, digital
 twins, context fabric, and control-plane registries, then renders the static
@@ -162,7 +162,7 @@ def main() -> int:
         ],
     })
 
-    print(f"✔ AEC build complete: {len(resources)} resources, "
+    print(f"✔ Knowledge OS build complete: {len(resources)} resources, "
           f"{len(graph['nodes'])} nodes, {len(graph['edges'])} relationships → {SITE}")
     return 0
 

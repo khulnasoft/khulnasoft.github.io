@@ -1,4 +1,4 @@
-# KhulnaSoft AI Engineering Cloud (full)
+# KhulnaSoft Engineering Knowledge OS (full)
 
 ## AI Code Assistant (ai-agent)
 - Summary: An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.
@@ -24,12 +24,36 @@
 - Health: 88/100 (healthy)
 - Rendering: 2026-08-07
 
+## Blueprint Templates (template)
+- Summary: Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: template, blueprint, starter, scaffolding
+- Relationships: part_of resource:repository-catalog; provides resource:ci-pipelines
+- Health: 83/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Checkout Service (service)
 - Summary: BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.
 - Owner: Commerce | Workspace: commerce | Lifecycle: supported
 - Capabilities: microservice, api, payment, messaging
 - Relationships: depends_on resource:orders-db; depends_on resource:payment-events
 - Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## CI Pipelines (workflow)
+- Summary: Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: workflow, github-action, automation
+- Relationships: deploys resource:khulnasoft-platform; tracks resource:repository-catalog
+- Health: 87/100 (healthy)
+- Rendering: 2026-08-07
+
+## Container Registry (image)
+- Summary: Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: container, image, deployment, artifact
+- Relationships: provides resource:deployment-runtime; part_of resource:khulnasoft-platform
+- Health: 91/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Context Fabric (component)
@@ -48,6 +72,22 @@
 - Health: 86/100 (healthy)
 - Rendering: 2026-08-07
 
+## Public Domains (domain)
+- Summary: Managed public domains and TLS certificates terminating traffic at the platform ingress.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: domain, certificate, networking
+- Relationships: provides resource:platform-ingress; part_of resource:khulnasoft-platform
+- Health: 94/100 (healthy)
+- Rendering: 2026-08-07
+
+## Feature Flags (component)
+- Summary: Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: feature-flag, api
+- Relationships: serves resource:checkout-service; serves resource:khulnasoft-platform
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Helm Charts (helm-chart)
 - Summary: Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.
 - Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
@@ -56,8 +96,16 @@
 - Health: 91/100 (healthy)
 - Rendering: 2026-08-07
 
+## Identity Provider (service)
+- Summary: Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: authentication, authorization, api, sdk
+- Relationships: provides resource:api-gateway; depends_on resource:policy-engine
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
 ## KhulnaSoft Platform Core (platform)
-- Summary: The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.
+- Summary: The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.
 - Owner: KhulnaSoft | Workspace: core | Lifecycle: active
 - Capabilities: control-plane, catalog, governance, registry
 - Relationships: depends_on resource:ai-runtime
@@ -78,6 +126,14 @@
 - Capabilities: worker, messaging, automation
 - Relationships: depends_on resource:payment-events
 - Health: 84/100 (healthy)
+- Rendering: 2026-08-07
+
+## Metrics Platform (observability)
+- Summary: Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.
+- Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: monitoring, observability, dashboard, alert
+- Relationships: monitors resource:api-gateway; monitors resource:checkout-service
+- Health: 88/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Orders Database (database)
@@ -104,12 +160,28 @@
 - Health: 89/100 (healthy)
 - Rendering: 2026-08-07
 
+## Policy Engine (component)
+- Summary: OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: policy, governance, authorization
+- Relationships: depends_on resource:security-center; provides resource:khulnasoft-platform
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Recommendation Model (model)
 - Summary: Embedding-based product recommendation model served through the AI runtime with online feature updates.
 - Owner: AI Enablement | Workspace: ai | Lifecycle: supported
 - Capabilities: ai, model, vector-collection
 - Relationships: depends_on resource:ai-runtime; serves resource:checkout-service
 - Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Release Artifacts (release)
+- Summary: Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: release, artifact, sdk
+- Relationships: part_of resource:repository-catalog; tracks resource:khulnasoft-platform
+- Health: 85/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Repository Catalog Service (repository)
@@ -126,5 +198,13 @@
 - Capabilities: security, vulnerability, policy
 - Relationships: depends_on resource:repository-catalog
 - Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## Vector Store (database)
+- Summary: Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: beta
+- Capabilities: ai, vector-collection, embedding-collection, search
+- Relationships: depends_on resource:ai-runtime; serves resource:context-fabric
+- Health: 84/100 (healthy)
 - Rendering: 2026-08-07
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AEC verification checklist (PLAN.md).
+"""Knowledge OS verification checklist (PLAN.md).
 
 Exercises the PLAN's five verification items against the live model and
 derived layers. Exit code 0 if all pass, non-zero otherwise.

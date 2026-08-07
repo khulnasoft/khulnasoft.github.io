@@ -1,9 +1,9 @@
-## Plan: KhulnaSoft AI-Native Engineering Cloud
+## Plan: KhulnaSoft Engineering Knowledge OS
 
-TL;DR: Evolve the repository from a documentation website into the KhulnaSoft AI-Native Engineering Cloud, a modular platform with separate experience, control, knowledge, intelligence, runtime, and infrastructure planes. The first milestone should establish a scalable control plane, a canonical engineering model, an engineering data lake, digital twins, a context fabric, and registry-driven automation for humans, services, and AI agents.
+TL;DR: Evolve the repository from a documentation website into the KhulnaSoft Engineering Knowledge OS, a monorepo-scale platform with separate experience, control, knowledge, intelligence, runtime, and infrastructure planes. The first milestone should establish a scalable control plane, a canonical engineering model, an engineering data lake, digital twins, a context fabric, and registry-driven automation for humans, services, and AI agents.
 
 ### Phase 0 — Platform architecture and governance
-1. Define the AEC mission, scope, and success metrics for the first release: one continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs across organizations and platforms.
+1. Define the mission, scope, and success metrics for the first release: one continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs across organizations and platforms.
 2. Establish the governance model for schemas, taxonomy, identity, RBAC, policies, approval flows, billing boundaries, audit trails, and change management across repositories, services, applications, APIs, packages, deployments, infrastructure, observability, and AI resources.
 3. Define the initial platform boundaries across the experience, control, knowledge, intelligence, runtime, and infrastructure planes.
 4. Agree on the canonical manifest format, with khulnasoft.yaml as the authoritative machine-readable contract for capabilities, ownership, runtime, deployment targets, observability, security, and AI metadata.

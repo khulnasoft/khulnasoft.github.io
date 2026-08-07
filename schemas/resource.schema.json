@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://khulnasoft.github.io/schemas/resource.schema.json",
   "title": "Universal engineering resource",
-  "description": "The canonical, first-class representation of every engineering asset in the KhulnaSoft AI-Native Engineering Cloud. Any ecosystem asset (repository, service, API, package, domain, deployment, AI model, etc.) is modeled as a resource on the control plane.",
+  "description": "The canonical, first-class representation of every engineering asset in the KhulnaSoft Engineering Knowledge OS. Any ecosystem asset (repository, service, API, package, domain, deployment, AI model, etc.) is modeled as a resource on the control plane.",
   "type": "object",
   "required": ["id", "kind", "name", "slug", "owner", "updatedAt"],
   "properties": {

@@ -1,0 +1,111 @@
+{
+  "resource": {
+    "id": "resource:metrics-platform",
+    "name": "Metrics Platform",
+    "slug": "metrics-platform",
+    "kind": "observability"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+      "name": "Metrics Platform",
+      "kind": "observability",
+      "owner": "Observability",
+      "team": "obs",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "2.4.0",
+      "tags": [
+        "observability",
+        "metrics"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go",
+        "typescript"
+      ],
+      "frameworks": [
+        "prometheus",
+        "grafana"
+      ],
+      "capabilities": [
+        "monitoring",
+        "observability",
+        "dashboard",
+        "alert"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "monitors",
+          "target": "resource:api-gateway",
+          "detail": null
+        },
+        {
+          "type": "monitors",
+          "target": "resource:checkout-service",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "observability": {
+      "metrics": true,
+      "logs": true,
+      "traces": true
+    },
+    "business": {
+      "summary": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+      "owner": "Observability",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 88,
+      "status": "healthy",
+      "readiness": 86
+    }
+  },
+  "summary": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

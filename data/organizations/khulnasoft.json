@@ -2,7 +2,7 @@
   "id": "org:khulnasoft",
   "name": "KhulnaSoft",
   "slug": "khulnasoft",
-  "summary": "The engineering organization behind the AI-native Engineering Cloud: a continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.",
+  "summary": "The engineering organization behind the KhulnaSoft Engineering Knowledge OS: a continuously updated developer portal, AI context platform, and control plane for engineering assets, context, and automation.",
   "workspaces": ["platform", "ai", "security", "core-infrastructure"],
   "hierarchy": {
     "organization": ["KhulnaSoft"],

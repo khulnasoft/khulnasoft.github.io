@@ -11,7 +11,7 @@
     "status": "active",
     "visibility": "internal",
     "version": null,
-    "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+    "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
     "source": "generated",
     "updatedAt": "2026-08-07"
   },
@@ -67,7 +67,7 @@
     "agentReady": false,
     "readiness": null
   },
-  "context_summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+  "context_summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
   "recommended_actions": [
     "Enable a context bundle and register a prompt for agent consumption."
   ]

@@ -1,4 +1,4 @@
-// KhulnaSoft AEC SDK (generated). Do not hand-edit.
+// KhulnaSoft Engineering Knowledge OS SDK (generated). Do not hand-edit.
 export class AecClient {
   base = "https://khulnasoft.github.io/api";
 

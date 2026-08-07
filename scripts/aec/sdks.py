@@ -6,6 +6,7 @@ analytics, release) so the platform is consumable via SDKs as well as HTTP/MCP.
 """
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -24,16 +25,18 @@ ENDPOINTS = [
     ("release", None, "/release"),
 ]
 
+BRAND = "KhulnaSoft Engineering Knowledge OS"
+
 
 def gen_python() -> str:
     lines = [
-        '"""KhulnaSoft AEC SDK (generated). Do not hand-edit."""',
+        f'"""{BRAND} SDK (generated). Do not hand-edit."""',
         "",
         "from typing import Any",
         "",
         "",
         "class Client:",
-        '    """Minimal typed client for the KhulnaSoft AI-Native Engineering Cloud."""',
+        f'    """Minimal typed client for the {BRAND}."""',
         "",
     ]
     for func, param, path in ENDPOINTS:
@@ -55,9 +58,8 @@ def gen_python() -> str:
 
 
 def gen_typescript() -> str:
-    import json
     lines = [
-        "// KhulnaSoft AEC SDK (generated). Do not hand-edit.",
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
         "export class AecClient {",
         "  base = \"https://khulnasoft.github.io/api\";",
         "",
@@ -78,16 +80,243 @@ def gen_typescript() -> str:
     return "\n".join(lines) + "\n"
 
 
+def gen_go() -> str:
+    lines = [
+        f"// Package khulnasoft is a minimal client for the {BRAND}.",
+        "// Generated. Do not hand-edit.",
+        "package khulnasoft",
+        "",
+        "import (",
+        '\t"fmt"',
+        '\t"net/http"',
+        ")",
+        "",
+        "const BaseURL = \"https://khulnasoft.github.io/api\"",
+        "",
+        "type Client struct { HTTP *http.Client }",
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"// {func} returns the resource identified by slug.")
+            lines.append(f"func (c *Client) {func.capitalize()}(slug string) (*http.Response, error) {{")
+            lines.append(f"\treturn c.HTTP.Get(fmt.Sprintf(\"%s{path.replace('{slug}', '%s')}\", BaseURL, slug))")
+        else:
+            lines.append(f"// {func} returns the API payload.")
+            lines.append(f"func (c *Client) {func.capitalize()}() (*http.Response, error) {{")
+            lines.append(f'\treturn c.HTTP.Get(BaseURL + "{path}")')
+        lines.append("}")
+        lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+def gen_rust() -> str:
+    lines = [
+        f"//! {BRAND} SDK (generated). Do not hand-edit.",
+        "",
+        "const BASE: &str = \"https://khulnasoft.github.io/api\";",
+        "",
+        "pub struct Client;",
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            # Replace the {slug} token with a positional {} so BASE and slug
+            # are passed as args, preserving any surrounding path segments.
+            fmt = "{}/" + path.lstrip("/").replace("{slug}", "{}")
+            lines.append(f"pub fn {func}(slug: &str) -> String {{")
+            lines.append(f'    format!("{fmt}", BASE, slug)')
+        else:
+            lines.append(f"pub fn {func}() -> String {{")
+            lines.append(f'    format!("{{}}{path}", BASE)')
+        lines.append("}")
+        lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+def gen_java() -> str:
+    lines = [
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
+        "package io.khulnasoft;",
+        "",
+        "public final class AecClient {",
+        "    private static final String BASE = \"https://khulnasoft.github.io/api\";",
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"    public static String {func}(String slug) {{")
+            lines.append(f'        return BASE + "{path}".replace("{{slug}}", slug);')
+        else:
+            lines.append(f"    public static String {func}() {{")
+            lines.append(f'        return BASE + "{path}";')
+        lines.append("    }")
+        lines.append("")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+def gen_csharp() -> str:
+    lines = [
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
+        "namespace KhulnaSoft;",
+        "",
+        "public static class AecClient",
+        "{",
+        '    private const string Base = "https://khulnasoft.github.io/api";',
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"    public static string {func.capitalize()}(string slug) {{")
+            lines.append(f'        return Base + "{path}".Replace("{{slug}}", slug);')
+        else:
+            lines.append(f"    public static string {func.capitalize()}() {{")
+            lines.append(f'        return Base + "{path}";')
+        lines.append("    }")
+        lines.append("")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+def gen_php() -> str:
+    lines = [
+        f"<?php",
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
+        "",
+        "final class AecClient",
+        "{",
+        "    private const BASE = 'https://khulnasoft.github.io/api';",
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"    public static function {func}(string $slug): string")
+            lines.append("    {")
+            lines.append(f"        return self::BASE . str_replace('{{slug}}', $slug, '{path}');")
+            lines.append("    }")
+        else:
+            lines.append(f"    public static function {func}(): string")
+            lines.append("    {")
+            lines.append(f"        return self::BASE . '{path}';")
+            lines.append("    }")
+        lines.append("")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+def gen_ruby() -> str:
+    lines = [
+        f"# {BRAND} SDK (generated). Do not hand-edit.",
+        "",
+        "module KhulnaSoft",
+        "  BASE = 'https://khulnasoft.github.io/api'.freeze",
+        "",
+        "  module_function",
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"  def {func}(slug)")
+            lines.append(f"    BASE + '{path}'.gsub('{{slug}}', slug)")
+            lines.append("  end")
+        else:
+            lines.append(f"  def {func}")
+            lines.append(f"    BASE + '{path}'")
+            lines.append("  end")
+        lines.append("")
+    lines.append("end")
+    return "\n".join(lines) + "\n"
+
+
+def gen_swift() -> str:
+    lines = [
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
+        "",
+        "public enum AecClient {",
+        '    public static let base = "https://khulnasoft.github.io/api"',
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"    public static func {func}(slug: String) -> String {{")
+            lines.append(f'        base + "{path}".replacingOccurrences(of: "{{slug}}", with: slug)')
+            lines.append("    }")
+        else:
+            lines.append(f"    public static func {func}() -> String {{")
+            lines.append(f'        base + "{path}"')
+            lines.append("    }")
+        lines.append("")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+def gen_kotlin() -> str:
+    lines = [
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
+        "",
+        "package io.khulnasoft",
+        "",
+        "object AecClient {",
+        "    const val BASE = \"https://khulnasoft.github.io/api\"",
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"    fun {func}(slug: String): String =")
+            lines.append(f'        BASE + "{path}".replace("{{slug}}", slug)')
+        else:
+            lines.append(f"    fun {func}(): String = BASE + \"{path}\"")
+        lines.append("")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+def gen_dart() -> str:
+    lines = [
+        f"// {BRAND} SDK (generated). Do not hand-edit.",
+        "",
+        "class AecClient {",
+        '  static const String base = "https://khulnasoft.github.io/api";',
+        "",
+    ]
+    for func, param, path in ENDPOINTS:
+        if param:
+            lines.append(f"  static String {func}(String slug) {{")
+            lines.append(f'    return base + "{path}".replaceAll("{{slug}}", slug);')
+            lines.append("  }")
+        else:
+            lines.append(f"  static String {func}() => base + \"{path}\";")
+        lines.append("")
+    lines.append("}")
+    return "\n".join(lines) + "\n"
+
+
+GENERATORS = {
+    "python": ("aec.py", gen_python),
+    "typescript": ("aec.ts", gen_typescript),
+    "go": ("aec.go", gen_go),
+    "rust": ("aec.rs", gen_rust),
+    "java": ("AecClient.java", gen_java),
+    "csharp": ("AecClient.cs", gen_csharp),
+    "php": ("aec.php", gen_php),
+    "ruby": ("aec.rb", gen_ruby),
+    "swift": ("AecClient.swift", gen_swift),
+    "kotlin": ("AecClient.kt", gen_kotlin),
+    "dart": ("aec.dart", gen_dart),
+}
+
+
 def generate_sdks() -> list[dict]:
     """Emit all client stubs and return metadata describing them."""
     SDK_DIR.mkdir(parents=True, exist_ok=True)
-    artifacts = [
-        {"language": "python", "path": "sdks/aec.py", "content": gen_python()},
-        {"language": "typescript", "path": "sdks/aec.ts", "content": gen_typescript()},
-    ]
-    for art in artifacts:
-        (SDK_DIR / art["path"].split("/")[-1]).write_text(art["content"], encoding="utf-8")
-    return [
-        {"language": a["language"], "file": a["path"], "lines": a["content"].count("\n")}
-        for a in artifacts
-    ]
+    artifacts = []
+    for language, (filename, gen) in GENERATORS.items():
+        content = gen()
+        (SDK_DIR / filename).write_text(content, encoding="utf-8")
+        artifacts.append({
+            "language": language,
+            "path": f"sdks/{filename}",
+            "lines": content.count("\n"),
+        })
+    return artifacts

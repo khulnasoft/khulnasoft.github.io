@@ -1,6 +1,6 @@
-# Agent guidance for KhulnaSoft AI-Native Engineering Cloud
+# Agent guidance for KhulnaSoft Engineering Knowledge OS
 
-This repository is a data-driven static portal and API generator for the KhulnaSoft AI-Native Engineering Cloud.
+This repository is a data-driven monorepo and platform generator for the KhulnaSoft Engineering Knowledge OS, serving as the Developer Portal, AI Context Platform, and Control Plane for the broader ecosystem.
 
 ## What matters most
 
