@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather Dashboard — KhulnaSoft</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-oHDEc8Xed0Z2k7nUqv1Qm3J5f6bQ5Vg6b1zKc5F5e1zY1X1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x1x==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; padding: 24px; background:#f7fafc; color:#0f172a }
+    .container { max-width:900px; margin:0 auto }
+    header { display:flex; align-items:center; gap:16px }
+    h1 { margin:0; font-size:20px }
+    .card { background:white; border-radius:8px; padding:16px; box-shadow:0 1px 4px rgba(2,6,23,0.06); margin-top:16px }
+    .search-row { display:flex; gap:8px; margin-bottom:8px }
+    input[type=text] { flex:1; padding:8px 12px; border-radius:6px; border:1px solid #e6eef6 }
+    button { padding:8px 12px; border-radius:6px; border:0; background:#0369a1; color:white; cursor:pointer }
+    .meta { display:flex; gap:16px; margin-top:12px }
+    .meta div { font-size:14px }
+    .small { color:#475569; font-size:13px }
+    #chart-wrap { margin-top:12px }
+    footer { margin-top:20px; font-size:13px; color:#64748b }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Weather Dashboard</h1>
+      <div class="small">Powered by Open-Meteo (no API key) and OpenStreetMap Nominatim</div>
+    </header>
+
+    <div class="card">
+      <div class="search-row">
+        <input id="query" type="text" placeholder="Enter city name or address (e.g. Dhaka, Bangladesh)" />
+        <button id="search">Search</button>
+      </div>
+      <div id="status" class="small">Try a city name and press Search.</div>
+
+      <div id="result" style="display:none">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+          <div>
+            <h2 id="place" style="margin:6px 0 0 0">—</h2>
+            <div id="summary" class="small">Current conditions</div>
+          </div>
+          <div style="text-align:right">
+            <div id="temp" style="font-size:28px; font-weight:600">--°C</div>
+            <div id="conds" class="small">--</div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div id="wind">Wind: — m/s</div>
+          <div id="time">Local time: —</div>
+          <div id="coords">Coords: —</div>
+        </div>
+
+        <div id="chart-wrap" class="card" style="padding:8px">
+          <canvas id="tempChart" height="120"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Note: This demo uses the free Open-Meteo API and OpenStreetMap Nominatim geocoding. Respect their usage policies and rate-limits. The dashboard runs entirely client-side.
+    </footer>
+  </div>
+
+  <script>
+    // Minimal weather dashboard using Nominatim + Open-Meteo
+    const searchBtn = document.getElementById('search')
+    const queryInput = document.getElementById('query')
+    const status = document.getElementById('status')
+    const result = document.getElementById('result')
+    const placeEl = document.getElementById('place')
+    const tempEl = document.getElementById('temp')
+    const condsEl = document.getElementById('conds')
+    const windEl = document.getElementById('wind')
+    const coordsEl = document.getElementById('coords')
+    const timeEl = document.getElementById('time')
+    const ctx = document.getElementById('tempChart').getContext('2d')
+    let chart = null
+
+    function setStatus(s) { status.textContent = s }
+
+    function weatherCodeToText(code) {
+      // simplified mapping from Open-Meteo weathercode
+      const map = {
+        0: 'Clear sky', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
+        45: 'Fog', 48: 'Depositing rime fog',
+        51: 'Light drizzle', 53: 'Moderate drizzle', 55: 'Dense drizzle',
+        61: 'Slight rain', 63: 'Moderate rain', 65: 'Heavy rain',
+        71: 'Slight snow', 73: 'Moderate snow', 75: 'Heavy snow',
+        95: 'Thunderstorm', 96: 'Thunderstorm with slight hail'
+      }
+      return map[code] || 'Unknown'
+    }
+
+    async function geocode(q) {
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&limit=5&addressdetails=1`
+      const resp = await fetch(url, {headers:{'Accept':'application/json'}})
+      if (!resp.ok) throw new Error('Geocoding failed')
+      const data = await resp.json()
+      return data
+    }
+
+    async function fetchWeather(lat, lon) {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,relativehumidity_2m&timezone=auto`
+      const resp = await fetch(url)
+      if (!resp.ok) throw new Error('Weather fetch failed')
+      return await resp.json()
+    }
+
+    function renderChart(times, temps) {
+      if (chart) chart.destroy()
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: times,
+          datasets: [{ label: 'Temperature (°C)', data: temps, borderColor: '#0369a1', backgroundColor: 'rgba(3,105,161,0.08)', tension:0.2 }]
+        },
+        options: {
+          scales: { x: { display: true, ticks: { maxRotation: 45, minRotation: 0 } }, y: { beginAtZero: false } },
+          plugins: { legend: { display: false } },
+          maintainAspectRatio: false
+        }
+      })
+    }
+
+    async function doSearch() {
+      const q = queryInput.value.trim()
+      if (!q) { setStatus('Please enter a city or address.'); return }
+      setStatus('Geocoding...')
+      result.style.display = 'none'
+      try {
+        const places = await geocode(q)
+        if (!places || places.length === 0) { setStatus('No location found. Try a different query.'); return }
+        const p = places[0]
+        const lat = parseFloat(p.lat)
+        const lon = parseFloat(p.lon)
+        placeEl.textContent = p.display_name
+        coordsEl.textContent = `Coords: ${lat.toFixed(4)}, ${lon.toFixed(4)}`
+        setStatus('Fetching weather...')
+        const w = await fetchWeather(lat, lon)
+        const cw = w.current_weather
+        tempEl.textContent = `${cw.temperature.toFixed(1)}°C`
+        condsEl.textContent = weatherCodeToText(cw.weathercode)
+        windEl.textContent = `Wind: ${cw.windspeed} m/s (dir ${cw.winddirection}°)`
+        // local time: Open-Meteo returns timestamps in timezone set by query (timezone=auto)
+        timeEl.textContent = `Local time: ${cw.time}`
+
+        // build hourly chart for next 24 hours
+        const times = w.hourly.time.slice(0,24)
+        const temps = w.hourly.temperature_2m.slice(0,24)
+        renderChart(times, temps)
+
+        result.style.display = ''
+        setStatus('')
+      } catch (err) {
+        console.error(err)
+        setStatus('Error: ' + err.message)
+      }
+    }
+
+    searchBtn.addEventListener('click', doSearch)
+    queryInput.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') doSearch() })
+
+    // optional: try a default city on load
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // prefill example
+      queryInput.value = 'Dhaka, Bangladesh'
+    })
+  </script>
+</body>
+</html>
