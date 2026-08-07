@@ -351,28 +351,28 @@
         {
           "check": "Documentation is release-grade",
           "required": ">= 70",
-          "actual": 87,
+          "actual": 88,
           "passed": true,
           "advice": "Publish an architecture doc and README for AI/agent discoverability."
         },
         {
           "check": "Security posture",
           "required": ">= 70 & clean scan",
-          "actual": "87/clean=True",
+          "actual": "88/clean=True",
           "passed": true,
           "advice": "Close open vulnerabilities and keep the scan clean."
         },
         {
           "check": "Test coverage",
           "required": ">= 70",
-          "actual": 87,
+          "actual": 88,
           "passed": true,
           "advice": "Improve test coverage and add release gating."
         },
         {
           "check": "Overall readiness",
           "required": ">= 70",
-          "actual": 88,
+          "actual": 89,
           "passed": true,
           "advice": "Raise readiness before shipping."
         },
@@ -939,28 +939,28 @@
         {
           "check": "Documentation is release-grade",
           "required": ">= 70",
-          "actual": 84,
+          "actual": 76,
           "passed": true,
           "advice": "Publish an architecture doc and README for AI/agent discoverability."
         },
         {
           "check": "Security posture",
           "required": ">= 70 & clean scan",
-          "actual": "84/clean=False",
+          "actual": "76/clean=False",
           "passed": false,
           "advice": "Close open vulnerabilities and keep the scan clean."
         },
         {
           "check": "Test coverage",
           "required": ">= 70",
-          "actual": 84,
+          "actual": 76,
           "passed": true,
           "advice": "Improve test coverage and add release gating."
         },
         {
           "check": "Overall readiness",
           "required": ">= 70",
-          "actual": 82,
+          "actual": 75,
           "passed": true,
           "advice": "Raise readiness before shipping."
         },
@@ -1135,28 +1135,28 @@
         {
           "check": "Documentation is release-grade",
           "required": ">= 70",
-          "actual": 92,
+          "actual": 85,
           "passed": true,
           "advice": "Publish an architecture doc and README for AI/agent discoverability."
         },
         {
           "check": "Security posture",
           "required": ">= 70 & clean scan",
-          "actual": "92/clean=True",
+          "actual": "85/clean=True",
           "passed": true,
           "advice": "Close open vulnerabilities and keep the scan clean."
         },
         {
           "check": "Test coverage",
           "required": ">= 70",
-          "actual": 92,
+          "actual": 85,
           "passed": true,
           "advice": "Improve test coverage and add release gating."
         },
         {
           "check": "Overall readiness",
           "required": ">= 70",
-          "actual": 90,
+          "actual": 83,
           "passed": true,
           "advice": "Raise readiness before shipping."
         },

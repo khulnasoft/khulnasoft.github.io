@@ -53,6 +53,7 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <li><code>GET /ai/services</code>, <code>/ai/evaluation</code>, <code>/ai/safety</code>, <code>/ai/telemetry</code> — AI control-plane services</li>
 <li><code>GET /llms.txt</code>, <code>/llms-full.txt</code>, <code>/mcp.json</code> — AI-ready</li>
 <li><code>GET /health</code> — live platform health</li>
+<li><code>POST /webhook/ingest</code> — accept a native webhook (GitHub/K8s/monitoring/etc.); set an <code>X-Source</code> header or <code>source</code> field to translate and persist a canonical event</li>
 <li><code>sdks/aec.ts</code>, <code>sdks/aec.py</code> and 9 more generated typed clients (Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, Dart)</li>
 </ul></main>
 <footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>

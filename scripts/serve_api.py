@@ -138,15 +138,30 @@ class Handler(BaseHTTPRequestHandler):
             length = int(self.headers.get("Content-Length", 0))
             raw = self.rfile.read(length) if length else b"{}"
             try:
-                evt = ingest.normalize_event(json.loads(raw.decode("utf-8")))
+                payload = json.loads(raw.decode("utf-8"))
             except Exception:
-                evt = None
+                return self.send_json({"error": "invalid JSON"}, status=400)
+            # Route by source header to translate native webhook formats into
+            # canonical events, then persist so the next build ingests them.
+            source = self.headers.get("X-Source") or payload.get("source")
+            try:
+                evt = ingest.route_event(payload, source)
+            except Exception:
+                evt = ingest.normalize_event(payload)
             if evt is None:
-                return self.send_json({"error": "invalid event"}, status=400)
+                return self.send_json({"error": "unrecognized event payload"}, status=400)
+            try:
+                ingest.persist_event(evt)
+            except Exception as exc:  # path may be read-only in preview
+                evt["persisted"] = False
+                evt["persistError"] = str(exc)
+            else:
+                evt["persisted"] = True
             touched = rtmod.resolve_touched(evt, MODEL["resources"])
             return self.send_json({
                 "accepted": True,
                 "event": evt["id"],
+                "persisted": evt["persisted"],
                 "target_refresh": touched,
                 "actions": [a["name"] for a in rtmod.load_automations() if a["event"] == evt["type"]],
             })

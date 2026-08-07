@@ -40,6 +40,8 @@ jobs:
           test -f site/events.json
           test -f site/event-index.json
           test -f site/analytics.json
+          python3 -c "import json; d=json.load(open('site/registries.json')); assert 'template' in d and 'model' in d"
+          python3 -c "import json; a=json.load(open('site/analytics.json')); assert 'drift_by_kind' in a['summary']"
           python3 -m py_compile scripts/serve_api.py
           test -f site/runtime.json
           test -f site/marketplace.html

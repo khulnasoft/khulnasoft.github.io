@@ -144,6 +144,25 @@ def main() -> int:
     check("7d. Duplicate-library detection groups by workspace+capabilities", ok7d,
           f"dups={dups}")
 
+    # 8. Data-lake ingestion adapters (Phase 3.3) normalize raw source payloads
+    # into canonical events covering distinct sources.
+    sources_seen = {e["source"] for e in ingest.load_events()}
+    ok8 = {"github", "monitoring", "kubernetes", "security"} <= sources_seen
+    check("8. Data lake collects events from GitHub, K8s, monitoring, security", ok8,
+          f"sources={sorted(sources_seen)}")
+    gh = ingest.github_to_event({"headers": {"X-GitHub-Event": "push"}, "ref": "refs/heads/main",
+                                 "commits": [{"timestamp": "2026-08-07T00:00:00Z"}],
+                                 "repository": {"full_name": "khulnasoft/platform"}})
+    k8s = ingest.kubernetes_to_event({"kind": "Deployment", "metadata": {"name": "api-gateway", "namespace": "prod"},
+                                     "status": {"readyReplicas": 3}})
+    mon = ingest.monitoring_to_event({"status": "firing", "resource": "resource:orders-db",
+                                     "labels": {"alertname": "HighLatency"}})
+    ok8b = (gh and gh["source"] == "github" and gh["type"] == "repository.push"
+            and k8s and k8s["source"] == "kubernetes" and k8s["scope"] == ["resource:api-gateway"]
+            and mon and mon["source"] == "monitoring" and mon["scope"] == ["resource:orders-db"])
+    check("8b. Source adapters normalize GitHub/K8s/monitoring into canonical events", ok8b,
+          f"gh={gh.get('type') if gh else None} k8s={k8s.get('type') if k8s else None}")
+
     print(f"\n{sum(1 for _, o in CHECKS if o)}/{len(CHECKS)} checks passed")
     if FAILURES:
         print("Failures:")

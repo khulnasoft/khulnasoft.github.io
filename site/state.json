@@ -194,25 +194,30 @@
       "environment": 1,
       "certificate": 1
     },
-    "health_score": 89,
-    "reliability_score": 89,
+    "health_score": 88,
+    "reliability_score": 88,
     "automation_coverage": 8,
     "context_coverage": 25,
     "events": {
-      "total_events": 4,
+      "total_events": 8,
       "sources": {
-        "kubernetes": 1,
+        "kubernetes": 2,
+        "documentation": 1,
         "github": 1,
-        "monitoring": 1,
+        "monitoring": 2,
+        "packages": 1,
         "security": 1
       },
       "types": {
+        "deployment.failure": 1,
         "deployment.success": 1,
+        "doc.updated": 1,
         "repository.push": 1,
-        "health.degraded": 1,
+        "health.degraded": 2,
+        "package.published": 1,
         "security.findings": 1
       },
-      "resources_touched": 4
+      "resources_touched": 7
     }
   },
   "registries": {
@@ -1754,10 +1759,10 @@
       "workspace": "platform",
       "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
       "health": {
-        "score": 87,
+        "score": 88,
         "status": "healthy"
       },
-      "readiness": 88,
+      "readiness": 89,
       "recommendations": [
         "Address engineering-intelligence signals before release."
       ]
@@ -1967,10 +1972,10 @@
       "workspace": "commerce",
       "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
       "health": {
-        "score": 84,
+        "score": 76,
         "status": "healthy"
       },
-      "readiness": 82,
+      "readiness": 75,
       "recommendations": [
         "Enable a context bundle and register a prompt for agent consumption.",
         "Address engineering-intelligence signals before release."
@@ -2039,10 +2044,10 @@
       "workspace": "commerce",
       "summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
       "health": {
-        "score": 92,
+        "score": 85,
         "status": "healthy"
       },
-      "readiness": 90,
+      "readiness": 83,
       "recommendations": [
         "Enable a context bundle and register a prompt for agent consumption.",
         "Address engineering-intelligence signals before release."

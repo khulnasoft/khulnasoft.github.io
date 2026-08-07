@@ -56,7 +56,7 @@ curl localhost:8001/search-index                              # enriched search 
 curl localhost:8001/events                                    # engineering data-lake events
 curl localhost:8001/analytics                                 # engineering intelligence/analyzers
 curl localhost:8001/registries                                # control-plane registries
-curl -X POST localhost:8001/webhook/ingest -d '{"id":"evt:x","type":"deployment.success","scope":["resource:api-gateway"]}'  # event-driven refresh
+curl -X POST localhost:8001/webhook/ingest -H 'X-Source: github' -d '{"ref":"refs/heads/main"}'  # translate + persist native webhook
 curl localhost:8001/llms.txt                                  # AI-ready index
 ```
 

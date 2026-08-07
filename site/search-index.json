@@ -176,7 +176,7 @@
     "workspace": "platform",
     "lifecycle": "supported",
     "health": "healthy",
-    "readiness": 88,
+    "readiness": 89,
     "level": "ready",
     "capabilities": [
       "sdk",
@@ -507,7 +507,7 @@
     "workspace": "commerce",
     "lifecycle": "supported",
     "health": "healthy",
-    "readiness": 82,
+    "readiness": 75,
     "level": "deployable",
     "capabilities": [
       "worker",
@@ -614,8 +614,8 @@
     "workspace": "commerce",
     "lifecycle": "supported",
     "health": "healthy",
-    "readiness": 90,
-    "level": "ready",
+    "readiness": 83,
+    "level": "deployable",
     "capabilities": [
       "database",
       "storage"

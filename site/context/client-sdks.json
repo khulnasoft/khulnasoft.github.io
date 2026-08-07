@@ -92,9 +92,9 @@
       "workspace": "platform"
     },
     "health": {
-      "score": 87,
+      "score": 88,
       "status": "healthy",
-      "readiness": 88
+      "readiness": 89
     }
   },
   "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",

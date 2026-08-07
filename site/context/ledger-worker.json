@@ -77,9 +77,9 @@
       "workspace": "commerce"
     },
     "health": {
-      "score": 84,
+      "score": 76,
       "status": "healthy",
-      "readiness": 82
+      "readiness": 75
     }
   },
   "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",

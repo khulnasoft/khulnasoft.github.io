@@ -1,0 +1,12 @@
+{
+  "id": "evt:2026-08-07-mon-alert",
+  "source": "monitoring",
+  "type": "health.degraded",
+  "happenedAt": "2026-08-07T11:20:00Z",
+  "scope": ["resource:orders-db"],
+  "payload": {
+    "alertname": "HighPG99Latency",
+    "severity": "warning",
+    "value": 520
+  }
+}

@@ -923,7 +923,9 @@
         "signal": null
       },
       "drift": {
-        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+        "infrastructure": "deployment failure recorded for this resource",
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource",
+        "configuration": "configuration changed since last baseline snapshot"
       }
     },
     "resource:logging-libraries": {
@@ -1114,7 +1116,8 @@
         "signal": null
       },
       "drift": {
-        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource",
+        "configuration": "configuration changed since last baseline snapshot"
       }
     },
     "resource:orders-migration": {
@@ -1975,14 +1978,14 @@
     "deprecated_resources": 0,
     "perf_regressions": 0,
     "drift_resources": 24,
-    "drift_items": 25,
+    "drift_items": 28,
     "drift_by_kind": {
       "architecture": 1,
       "dependency": 0,
       "security": 1,
-      "infrastructure": 0,
+      "infrastructure": 1,
       "documentation": 21,
-      "configuration": 2
+      "configuration": 4
     }
   },
   "duplicate_libraries": {}

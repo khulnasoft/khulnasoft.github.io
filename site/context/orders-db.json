@@ -81,9 +81,9 @@
       "workspace": "commerce"
     },
     "health": {
-      "score": 92,
+      "score": 85,
       "status": "healthy",
-      "readiness": 90
+      "readiness": 83
     }
   },
   "summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",

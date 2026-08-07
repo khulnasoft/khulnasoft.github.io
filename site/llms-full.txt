@@ -53,7 +53,7 @@
 - Owner: Developer Experience | Workspace: platform | Lifecycle: supported
 - Capabilities: sdk, library, api
 - Relationships: depends_on resource:api-gateway
-- Health: 87/100 (healthy)
+- Health: 88/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Container Registry (image)
@@ -149,7 +149,7 @@
 - Owner: Commerce | Workspace: commerce | Lifecycle: supported
 - Capabilities: worker, messaging, automation
 - Relationships: depends_on resource:payment-events
-- Health: 84/100 (healthy)
+- Health: 76/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Logging Libraries (library)
@@ -181,7 +181,7 @@
 - Owner: Commerce | Workspace: commerce | Lifecycle: supported
 - Capabilities: database, storage
 - Relationships: serves resource:checkout-service
-- Health: 92/100 (healthy)
+- Health: 85/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Orders Schema Migrations (migration)

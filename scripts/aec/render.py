@@ -605,7 +605,7 @@ def render_analytics(analyses):
 
 def render_data_lake():
     body = """<h1>Engineering Data Lake</h1>
-<p class="muted">A raw, event-driven log of engineering signals (GitHub, deploys, security findings, health degradation) that feeds the twins, graph, context, and intelligence below. Differently from a static catalog, the data lake keeps raw events separated from normalized state.</p>
+<p class="muted">A raw, event-driven log of engineering signals (GitHub, GitLab, CI/CD, Kubernetes, cloud, monitoring, security, packages, documentation, and AI sources) that feeds the twins, graph, context, and intelligence below. Differently from a static catalog, the data lake keeps raw events separated from normalized state; native webhooks are translated into canonical events by source adapters and persisted for the next targeted refresh.</p>
 <div id="summ" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"></div>
 <h2>Recent events</h2>
 <div class="card"><table id="tbl"><thead><tr><th>Event</th><th>Source</th><th>Type</th><th>Touched</th><th>Health effect</th></tr></thead><tbody></tbody></table></div>
@@ -737,6 +737,7 @@ def render_api():
 <li><code>GET /ai/services</code>, <code>/ai/evaluation</code>, <code>/ai/safety</code>, <code>/ai/telemetry</code> — AI control-plane services</li>
 <li><code>GET /llms.txt</code>, <code>/llms-full.txt</code>, <code>/mcp.json</code> — AI-ready</li>
 <li><code>GET /health</code> — live platform health</li>
+<li><code>POST /webhook/ingest</code> — accept a native webhook (GitHub/K8s/monitoring/etc.); set an <code>X-Source</code> header or <code>source</code> field to translate and persist a canonical event</li>
 <li><code>sdks/aec.ts</code>, <code>sdks/aec.py</code> and 9 more generated typed clients (Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, Dart)</li>
 </ul>"""
     return shell("API", body)

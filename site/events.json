@@ -1,21 +1,44 @@
 {
   "summary": {
-    "total_events": 4,
+    "total_events": 8,
     "sources": {
-      "kubernetes": 1,
+      "kubernetes": 2,
+      "documentation": 1,
       "github": 1,
-      "monitoring": 1,
+      "monitoring": 2,
+      "packages": 1,
       "security": 1
     },
     "types": {
+      "deployment.failure": 1,
       "deployment.success": 1,
+      "doc.updated": 1,
       "repository.push": 1,
-      "health.degraded": 1,
+      "health.degraded": 2,
+      "package.published": 1,
       "security.findings": 1
     },
-    "resources_touched": 4
+    "resources_touched": 7
   },
   "events": [
+    {
+      "id": "evt:2026-08-07-deploy-failure",
+      "source": "kubernetes",
+      "type": "deployment.failure",
+      "happenedAt": "2026-08-07T09:45:00Z",
+      "scope": [
+        "resource:ledger-worker"
+      ],
+      "payload": {
+        "namespace": "commerce",
+        "reason": "CrashLoopBackOff",
+        "unavailable": 2
+      },
+      "touched": [
+        "resource:ledger-worker"
+      ],
+      "healthEffect": -8
+    },
     {
       "id": "evt:2026-08-07-deploy-success",
       "source": "kubernetes",
@@ -35,6 +58,25 @@
         "resource:api-gateway"
       ],
       "healthEffect": 2
+    },
+    {
+      "id": "evt:2026-08-07-doc-update",
+      "source": "documentation",
+      "type": "doc.updated",
+      "happenedAt": "2026-08-07T08:00:00Z",
+      "scope": [
+        "resource:api-gateway"
+      ],
+      "payload": {
+        "doc": {
+          "title": "API Gateway reference",
+          "path": "docs/api-gateway.md"
+        }
+      },
+      "touched": [
+        "resource:api-gateway"
+      ],
+      "healthEffect": 0
     },
     {
       "id": "evt:2026-08-07-github-push",
@@ -74,6 +116,41 @@
         "resource:knowledge-graph"
       ],
       "healthEffect": -7
+    },
+    {
+      "id": "evt:2026-08-07-mon-alert",
+      "source": "monitoring",
+      "type": "health.degraded",
+      "happenedAt": "2026-08-07T11:20:00Z",
+      "scope": [
+        "resource:orders-db"
+      ],
+      "payload": {
+        "alertname": "HighPG99Latency",
+        "severity": "warning",
+        "value": 520
+      },
+      "touched": [
+        "resource:orders-db"
+      ],
+      "healthEffect": -7
+    },
+    {
+      "id": "evt:2026-08-07-pkg-publish",
+      "source": "packages",
+      "type": "package.published",
+      "happenedAt": "2026-08-07T12:00:00Z",
+      "scope": [
+        "resource:client-sdks"
+      ],
+      "payload": {
+        "package": "@khulnasoft/sdk",
+        "version": "1.1.0"
+      },
+      "touched": [
+        "resource:client-sdks"
+      ],
+      "healthEffect": 1
     },
     {
       "id": "evt:2026-08-07-scan-findings",
