@@ -91,13 +91,14 @@ def main() -> int:
     write(SITE / "llms-full.txt", ctxmod.build_llms_full(resources))
     write(SITE / "mcp.json", ctxmod.build_mcp_metadata(resources))
 
-    search_index = searchmod.build_index(resources)
+    blast_by_slug = {r["slug"]: impact["per_resource"][r["id"]]["blast_radius"] for r in resources}
+    search_index = searchmod.build_index(resources, readiness_by_id, blast_by_slug)
     write(SITE / "vectors.json", {
         "model": "tfidf-sparse",
         "vocab_size": search_index["vocab_size"],
         "vectors": search_index["vectors"],
     })
-    write(SITE / "search-index.json", searchmod.build_search_index(resources, readiness_by_id, search_index))
+    write(SITE / "search-index.json", searchmod.build_search_index(resources, readiness_by_id, search_index, blast_by_slug))
 
     # per-resource JSON (context bundles, twins)
     for r in resources:

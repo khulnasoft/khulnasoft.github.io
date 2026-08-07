@@ -47,7 +47,9 @@ def load_model() -> dict:
     data["metrics"] = graphmod._compute_metrics(resources)
     data["ai_services"] = aicontrol.build_ai_services(resources, data["agents"], data["prompts"], data["readiness"], data["org"])
     data["by_slug"] = {r["slug"]: r for r in resources}
-    data["search_index"] = searchmod.build_index(resources)
+    impact = data["impact"]
+    blast_by_slug = {r["slug"]: impact["per_resource"][r["id"]]["blast_radius"] for r in resources}
+    data["search_index"] = searchmod.build_index(resources, data["readiness"], blast_by_slug)
     data["marketplace"] = model.load_json(ROOT / "data" / "marketplace" / "items.json")
     by_id = {m["id"]: m for m in data["marketplace"]}
     data["marketplace_by_id"] = by_id

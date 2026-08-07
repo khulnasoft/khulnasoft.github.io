@@ -116,11 +116,28 @@ def keyword_score(query_terms: list[str], keyword_index: dict, doc_len: int) -> 
 
 
 def search(index: dict, query: str, mode: str = "hybrid", limit: int = 25) -> list[dict]:
-    """Rank resources for a query across keyword/semantic/hybrid modes."""
+    """Rank resources for a query across keyword/semantic/hybrid and specialty modes.
+
+    Specialty modes (Phase 9.3) select and score resources by a derived dimension
+    rather than full-text matching:
+      - capability: resources exposing the matched capability
+      - ownership: resources whose owner or workspace matches
+      - relationship: resources linked to or depended-on by the query
+      - security: resources flagged by security posture / scan status
+      - impact: resources ranked by downstream blast radius
+    """
     query_terms = tokenize(query)
-    if not query_terms:
+    if not query_terms and mode != "impact":
         return []
 
+    if mode in ("keyword", "semantic", "hybrid"):
+        return _lexical_search(index, query_terms, mode, limit)
+
+    docs = index["search_docs"]  # enriched per-resource documents
+    return _specialty_search(docs, query_terms, mode, index.get("blast_by_slug", {}), limit)
+
+
+def _lexical_search(index: dict, query_terms: list[str], mode: str, limit: int) -> list[dict]:
     idf_scores = index["idf"]
     keyword_index = index["keyword_index"]
     vectors = index["vectors"]
@@ -143,7 +160,68 @@ def search(index: dict, query: str, mode: str = "hybrid", limit: int = 25) -> li
     return results[:limit]
 
 
-def build_search_index(resources: list[dict], readiness_by_id: dict, index: dict) -> list[dict]:
+def _specialty_search(docs: dict, query_terms: list[str], mode: str, blast_by_slug: dict, limit: int) -> list[dict]:
+    """Score resources by a specialty dimension; higher score = stronger match."""
+    qset = set(query_terms)
+    results = []
+    for slug, doc in docs.items():
+        caps = [c.lower() for c in doc.get("capabilities", [])]
+        owner = (doc.get("owner") or "").lower()
+        workspace = (doc.get("workspace") or "").lower()
+        rels = doc.get("relationships", [])
+        kind = doc.get("kind", "").lower()
+        health_status = doc.get("health", "unknown")
+        scan = doc.get("scanStatus", "unknown")
+        readiness = doc.get("readiness", 0)
+        blast = blast_by_slug.get(slug, 0)
+
+        if mode == "capability":
+            matched = [c for c in caps if any(t in c for t in qset)]
+            score = len(matched)
+            if not matched and qset & {"api", "security", "observability", "deployment"}:
+                continue
+            score += readiness / 100.0
+        elif mode == "ownership":
+            matched = (qset & set(owner.split())) or (qset & set(workspace.split()))
+            if not matched and not (qset & set(f"{owner} {workspace}".split())):
+                continue
+            score = len(matched) + 0.1
+        elif mode == "relationship":
+            matched = sum(1 for t in rels if any(term in str(t).lower() for term in qset))
+            is_target = any(term in str(slug).lower() for term in qset)
+            score = matched + (1.0 if is_target else 0.0)
+            if not matched and not is_target:
+                continue
+        elif mode == "security":
+            # Match on security-related capability, posture, or scan status.
+            sec_terms = qset & {"security", "vulnerability", "clean", "audit", "policy", "compliance"}
+            if not sec_terms:
+                continue
+            bad = health_status in ("critical", "degraded", "warning") or scan != "clean"
+            score = (1.0 if bad else 0.5) + (readiness / 200.0)
+            if not bad and readiness >= 70:
+                score += 0.2
+        elif mode == "impact":
+            # Rank everything by downstream blast radius; an optional query
+            # term further weights resources whose identity matches it.
+            score = float(blast) + (readiness / 100.0)
+            if qset and not (qset & set(f"{doc.get('name','')} {kind} {owner} {workspace}".split())):
+                score -= 0.05
+            if score <= 0:
+                continue
+        else:
+            continue
+
+        if score > 0:
+            results.append({"slug": slug, "name": doc.get("name", slug), "score": round(score, 4),
+                            "mode": mode})
+
+    results.sort(key=lambda x: x["score"], reverse=True)
+    return results[:limit]
+
+
+def build_search_index(resources: list[dict], readiness_by_id: dict, index: dict,
+                        blast_by_slug: dict | None = None) -> list[dict]:
     """Emit the search-index.json document, enriched with the semantic vector."""
     out = []
     for r in resources:
@@ -152,17 +230,82 @@ def build_search_index(resources: list[dict], readiness_by_id: dict, index: dict
             "name": r["name"],
             "kind": r["kind"],
             "owner": r.get("owner"),
+            "team": r.get("team"),
             "workspace": r.get("workspace"),
             "lifecycle": r.get("lifecycle"),
             "health": r["health"]["status"],
+            "scanStatus": r.get("security", {}).get("scanStatus", "unknown"),
+            "posture": r.get("security", {}).get("posture", "unknown"),
             "readiness": readiness_by_id[r["id"]]["overall"],
             "level": readiness_by_id[r["id"]]["level"],
+            "blastRadius": blast_by_slug.get(r["slug"], 0) if blast_by_slug else 0,
             "capabilities": r.get("capabilities", []),
             "tags": r.get("tags", []),
             "summary": r["summary"],
             "preview": r["summary"][:220],
             "relationships": [rel["target"] for rel in r.get("relationships", [])],
             "vector": index["vectors"].get(r["slug"], {}),
-            "text": " ".join([r["name"], r["kind"], r.get("owner", ""), r.get("workspace", ""), r["summary"], *r.get("capabilities", []), *r.get("tags", [])]).lower(),
+            "text": " ".join([r["name"], r["kind"], r.get("owner", ""), r.get("workspace", ""),
+                              r["summary"], *r.get("capabilities", []), *r.get("tags", [])]).lower(),
         })
     return out
+
+
+def build_index(resources: list[dict], readiness_by_id: dict | None = None,
+                blast_by_slug: dict | None = None) -> dict:
+    """Build keyword index + TF-IDF vector model for all resources.
+
+    When `readiness_by_id` and `blast_by_slug` are provided, the returned index
+    also embeds enriched per-resource documents (`search_docs`) and blast-radius
+    data so the specialty search modes (capability/ownership/relationship/
+    security/impact) can rank resources without a separate lookup.
+    """
+    docs = [(r["slug"], tokenize(document_field(r))) for r in resources]
+    vocab = sorted({t for _, toks in docs for t in toks})
+    documents = [toks for _, toks in docs]
+    idf_scores = {t: idf(t, documents) for t in vocab}
+
+    # Sparse TF-IDF vectors per resource.
+    vectors = {}
+    for slug, toks in docs:
+        vec = {}
+        for t in toks:
+            w = tf(t, toks) * idf_scores[t]
+            if w:
+                vec[t] = vec.get(t, 0.0) + w
+        vectors[slug] = vec
+
+    # Keyword index: term -> list of (slug, tf)
+    keyword_index: dict[str, list[tuple[str, float]]] = {t: [] for t in vocab}
+    for slug, toks in docs:
+        for t in toks:
+            keyword_index[t].append((slug, tf(t, toks)))
+
+    search_docs: dict[str, dict] = {}
+    if readiness_by_id is not None:
+        for r in resources:
+            rid = r["id"]
+            rd = readiness_by_id.get(rid, {})
+            search_docs[r["slug"]] = {
+                "slug": r["slug"], "name": r["name"], "kind": r["kind"],
+                "owner": r.get("owner"), "workspace": r.get("workspace"),
+                "lifecycle": r.get("lifecycle"), "health": r["health"]["status"],
+                "scanStatus": r.get("security", {}).get("scanStatus", "unknown"),
+                "posture": r.get("security", {}).get("posture", "unknown"),
+                "readiness": rd.get("overall", 0), "level": rd.get("level", ""),
+                "blastRadius": (blast_by_slug or {}).get(r["slug"], 0),
+                "capabilities": r.get("capabilities", []),
+                "tags": r.get("tags", []),
+                "relationships": [rel["target"] for rel in r.get("relationships", [])],
+                "summary": r.get("summary", ""),
+            }
+
+    return {
+        "vocab_size": len(vocab),
+        "idf": idf_scores,
+        "vectors": vectors,            # sparse TF-IDF per resource (semantic model)
+        "keyword_index": keyword_index,
+        "documents": {slug: toks for slug, toks in docs},
+        "search_docs": search_docs,
+        "blast_by_slug": blast_by_slug or {},
+    }

@@ -55,8 +55,8 @@ def health_badge(status):
     return f'<span class="badge {cls}">{status}</span>'
 
 
-def shell(title, body):
-    nav = "".join(f'<a href="{href}">{label}</a>' for label, href in NAV)
+def shell(title, body, prefix=""):
+    nav = "".join(f'<a href="{prefix}{href}">{label}</a>' for label, href in NAV)
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} · KhulnaSoft Engineering Knowledge OS</title><style>{CSS}</style></head>
@@ -64,8 +64,8 @@ def shell(title, body):
 <header class="top"><div class="brand">KhulnaSoft <span class="accent">Knowledge OS</span></div><nav>{nav}</nav></header>
 <main>{body}</main>
 <footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
-<a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
-<a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
+<a href="{prefix}llms.txt">llms.txt</a><a href="{prefix}llms-full.txt">llms-full.txt</a><a href="{prefix}mcp.json">MCP</a>
+<a href="{prefix}manifests.json">manifests</a><a href="{prefix}graph-data.json">graph</a><a href="{prefix}search-index.json">search</a></footer>
 </body></html>"""
 
 
@@ -86,6 +86,7 @@ def render_index(resources, metrics):
 
 
 def render_resource(r, readiness, recommendations, graph):
+    prefix = "../"
     caps = "".join(f'<span class="pill">{c}</span>' for c in r.get("capabilities", [])) or "<span class='muted'>none</span>"
     rels = "".join(
         f'<li>{rel.get("type","related")} → <code>{rel.get("target")}</code>{(" · "+rel["detail"]) if rel.get("detail") else ""}</li>'
@@ -100,7 +101,7 @@ def render_resource(r, readiness, recommendations, graph):
 <div style="width:{val}%;background:#58c6dd;height:8px;border-radius:6px"></div></div><span>{val}</span></div>"""
         for dim, val in sorted(readiness.get("scores", {}).items())
     )
-    body = f"""<p class="muted"><a href="catalog.html">← Catalog</a></p>
+    body = f"""<p class="muted"><a href="{prefix}catalog.html">← Catalog</a></p>
 <h1>{r['name']} {health_badge(r['health']['status'])}</h1>
 <p class="muted">{r['summary']}</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
@@ -114,15 +115,15 @@ def render_resource(r, readiness, recommendations, graph):
 <h2>Relationships</h2><ul class="plain">{rels}</ul>
 <h2>Context (selective)</h2>
 <p class="muted">{syn}</p>
-<p><a href="context/{r['slug']}.json">full context bundle</a> · <a href="twins/{r['slug']}.json">digital twin</a></p>
+<p><a href="{prefix}context/{r['slug']}.json">full context bundle</a> · <a href="{prefix}twins/{r['slug']}.json">digital twin</a></p>
 <h2>Readiness</h2><div class="card">{meters}</div>
 <h2>Recommended actions</h2><ul class="plain">{recs}</ul>
 <h2>Digital twin</h2>
 <div class="card"><span class="muted">status</span> <code>{r.get('status')}</code> ·
 <span class="muted">lifecycle</span> <code>{r.get('lifecycle')}</code> ·
 <span class="muted">visibility</span> <code>{r.get('visibility')}</code>
-<a href="twins/{r['slug']}.json" style="margin-left:.5rem">open twin</a></div>"""
-    return shell(f"{r['name']} · Resource", body)
+<a href="{prefix}twins/{r['slug']}.json" style="margin-left:.5rem">open twin</a></div>"""
+    return shell(f"{r['name']} · Resource", body, prefix="../")
 
 
 def render_catalog(resources):
@@ -335,13 +336,14 @@ def render_dashboard(metrics):
 
 def render_search():
     body = """<h1>Ask the Portal</h1>
-<p class="muted">Hybrid search across the knowledge base: keyword + semantic (TF-IDF) ranking with live previews from each resource's context bundle. Pick a mode or let the default blend both.</p>
+<p class="muted">Search across the knowledge base. Three lexical modes (<code>hybrid</code>, <code>keyword</code>, <code>semantic</code>) rank by TF-IDF text match; the specialty modes (<code>capability</code>, <code>ownership</code>, <code>relationship</code>, <code>security</code>, <code>impact</code>) rank by a derived dimension of the model.</p>
 <div class="card">
 <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
-<input id="q" style="flex:1;min-width:220px;padding:.6rem;border-radius:8px;border:1px solid #1f3244;background:#0d1a28;color:#f5f7fb" placeholder="e.g. api agent gateway mcp" autofocus/>
-<select id="mode"><option value="hybrid">hybrid</option><option value="keyword">keyword</option><option value="semantic">semantic</option></select>
+<input id="q" style="flex:1;min-width:220px;padding:.6rem;border-radius:8px;border:1px solid #1f3244;background:#0d1a28;color:#f5f7fb" placeholder="e.g. api agent gateway mcp / capabilities security / ownership ai" autofocus/>
+<select id="mode"><option value="hybrid">hybrid</option><option value="keyword">keyword</option><option value="semantic">semantic</option><option value="capability">capability</option><option value="ownership">ownership</option><option value="relationship">relationship</option><option value="security">security</option><option value="impact">impact</option></select>
 <span class="muted" style="align-self:center" id="count"></span>
 </div>
+<div style="margin-top:.8rem" id="hint" class="muted"></div>
 <div id="facets" style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem"></div>
 <div id="out" style="margin-top:1rem"></div>
 </div>
@@ -349,48 +351,97 @@ def render_search():
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ranks=new Map();
 const toks=w=>w.toLowerCase().split(/[^\\w+#\\.-]+/).filter(Boolean);
-function score(item,q){
- const terms=toks(q);if(!terms.length)return 0;
- let s=0;
- for(const t of terms){
-   if(item.name&&item.name.toLowerCase().includes(t))s+=8;
-   if((item.text||'').includes(t))s+=3;
-   if(item.summary&&item.summary.toLowerCase().includes(t))s+=1;
-   if((item.capabilities||[]).some(c=>c.toLowerCase().includes(t)))s+=2;
- }
- return s;
+const SPECIALTY=[]; // modes handled by client-side specialty scoring
+function score(item,q,mode){
+  const terms=toks(q);
+  if(mode&&SPECIALTY.indexOf(mode)>=0){
+    return scoreSpecialty(item,terms,mode);
+  }
+  if(!terms.length)return 0;
+  let s=0;
+  for(const t of terms){
+    if(item.name&&item.name.toLowerCase().includes(t))s+=8;
+    if((item.text||'').includes(t))s+=3;
+    if(item.summary&&item.summary.toLowerCase().includes(t))s+=1;
+    if((item.capabilities||[]).some(c=>c.toLowerCase().includes(t)))s+=2;
+  }
+  return s;
 }
- function activeFacets(){return [...document.querySelectorAll('#facets input:checked')].map(i=>JSON.parse(i.dataset.f));}
+function scoreSpecialty(item,terms,mode){
+  if(!terms.length){
+    // impact ranking surfaces everything by blast radius when no query term
+    if(mode==='impact') return (item.blastRadius||0)+((item.readiness||0)/100);
+    return 0;
+  }
+  let s=0, matched=false;
+  const name=String(item.name||'').toLowerCase();
+  const kind=String(item.kind||'').toLowerCase();
+  const owner=String(item.owner||'').toLowerCase();
+  const workspace=String(item.workspace||'').toLowerCase();
+  if(mode==='capability'){
+    const caps=(item.capabilities||[]).map(c=>c.toLowerCase());
+    for(const c of caps) for(const t of terms) if(c.includes(t)){s+=3;matched=true;}
+    s+=((item.readiness||0)/100);
+  } else if(mode==='ownership'){
+    for(const t of terms){
+      if(owner.includes(t)||workspace.includes(t)){s+=4;matched=true;}
+      if(owner.split(' ').includes(t)||workspace.split(' ').includes(t)){s+=2;matched=true;}
+    }
+  } else if(mode==='relationship'){
+    const rels=(item.relationships||[]).map(String);
+    for(const r of rels) for(const t of terms) if(r.includes(t)){s+=3;matched=true;}
+    if(terms.some(t=>String(item.slug||'').includes(t))){s+=1;matched=true;}
+  } else if(mode==='security'){
+    const secTerms=['security','vulnerability','clean','audit','policy','compliance'];
+    if(!terms.some(t=>secTerms.includes(t)))return 0;
+    const bad=item.health==='critical'||item.health==='degraded'||item.health==='warning'||(item.scanStatus!==undefined&&item.scanStatus!=='clean');
+    s+=bad?1.0:0.5; s+=(item.readiness||0)/200; if(!bad&&(item.readiness||0)>=70)s+=0.2; matched=true;
+  } else if(mode==='impact'){
+    s=(item.blastRadius||0)+((item.readiness||0)/100); matched=true;
+  }
+  return matched?s:0;
+}
+  function activeFacets(){return [...document.querySelectorAll('#facets input:checked')].map(i=>JSON.stringify(i.dataset.f));}
 function render(d,q){
-  const faces=activeFacets();
-  let hits=(d||[]).map(it=>({it,r:ranks.get(it.slug)||0,sk:score(it,q)})).filter(x=>q?x.r>0||x.sk>0:true);
-  for(const f of faces){hits=hits.filter(x=>String(x.it[f.k]??'')===String(f.v));}
-  hits.sort((a,b)=>(b.r||b.sk)-(a.r||a.sk));
- const kinds=[...new Set((d||[]).map(i=>i.kind))];
- document.getElementById('facets').innerHTML=kinds.map(k=>
-  `<label style="background:#0d1a28;border:1px solid #1f3244;padding:.3rem .6rem;border-radius:8px;font-size:.8rem"><input type="checkbox" data-f='{"k":"kind","v":"${esc(k)}"}' class="fac" style="margin-right:.35rem">${esc(k)}</label>`).join('');
- document.getElementById('count').textContent=hits.length+' result(s)';
- document.getElementById('out').innerHTML=q||faces.length?(
-  hits.map(({it,r})=>`<div class="card" style="margin-bottom:.6rem">
+   const mode=document.getElementById('mode').value;
+   const faces=activeFacets();
+   let hits=(d||[]).map(it=>({it,r:ranks.get(it.slug)||0,sk:score(it,q,mode)})).filter(x=>!mode||SPECIALTY.indexOf(mode)<0?q?x.r>0||x.sk>0:true:x.sk>0);
+   for(const f of faces){const fj=JSON.parse(f);hits=hits.filter(x=>String(x.it[fj.k]??'')===String(fj.v));}
+   hits.sort((a,b)=>(mode&&SPECIALTY.indexOf(mode)>=0?b.sk:b.r||b.sk)-(mode&&SPECIALTY.indexOf(mode)>=0?a.sk:a.r||a.sk));
+   const kinds=[...new Set((d||[]).map(i=>i.kind))];
+   document.getElementById('facets').innerHTML=kinds.map(k=>
+   `<label style="background:#0d1a28;border:1px solid #1f3244;padding:.3rem .6rem;border-radius:8px;font-size:.8rem"><input type="checkbox" data-f='{"k":"kind","v":"${esc(k)}"}' class="fac" style="margin-right:.35rem">${esc(k)}</label>`).join('');
+   document.getElementById('count').textContent=hits.length+' result(s)';
+   const hintEl=document.getElementById('hint');
+   if(mode==='impact')hintEl.textContent='Ranking resources by downstream blast radius (dependents affected by a change).';
+   else if(mode==='capability')hintEl.textContent='Matching resources that expose the queried capability, scored by readiness.';
+   else if(mode==='ownership')hintEl.textContent='Matching resources by owner or workspace.';
+   else if(mode==='relationship')hintEl.textContent='Matching resources linked to or depended-on by the query.';
+   else if(mode==='security')hintEl.textContent='Surfacing resources with security drift, degraded health, or non-clean scans.';
+   else hintEl.textContent='';
+   document.getElementById('out').innerHTML=q||document.getElementById('mode').value!=='hybrid'||faces.length?(
+   hits.map(({it,r,sk})=>`<div class="card" style="margin-bottom:.6rem">
     <div style="display:flex;justify-content:space-between;align-items:center">
       <a style="font-weight:700" href="resources/${esc(it.slug)}.html">${esc(it.name)}</a>
       <span>${esc(it.kind)}</span></div>
     <div class="muted">${esc(it.summary)}</div>
     <div style="margin-top:.4rem"><span class="pill">readiness ${it.readiness}</span><span class="pill">${esc(it.workspace||'core')}</span><span class="pill">${esc(it.lifecycle||'active')}</span>
+    ${it.blastRadius!==undefined?`<span class="pill">impact ${it.blastRadius}</span>`:''}
     <a style="margin-left:.5rem" href="context/${esc(it.slug)}.json">bundle</a> · <a href="twins/${esc(it.slug)}.json">twin</a></div>
   </div>`).join('')||'<div class="muted">No matches.</div>':'<div class="muted">Type keywords or filter by facet above.</div>';
-}
-function go(d){
- const q=document.getElementById('q').value;
- ranks.clear();
- if(q){
+ }
+const SPECIALTY_MODES=['capability','ownership','relationship','security','impact'];
+  function go(d){
+  const q=document.getElementById('q').value;
   const m=document.getElementById('mode').value;
-  fetch('/search?q='+encodeURIComponent(q)+'&mode='+m).then(r=>r.json()).then(j=>{
-   (j.results||[]).forEach(rr=>ranks.set(rr.slug,rr.score));
-   render(d,q);
-  });
- } else { render(d,q); }
-}
+  ranks.clear();
+  if(!SPECIALTY_MODES.includes(m) && q){
+   fetch('/search?q='+encodeURIComponent(q)+'&mode='+m).then(r=>r.json()).then(j=>{
+    (j.results||[]).forEach(rr=>ranks.set(rr.slug,rr.score));
+    render(d,q);
+   });
+  } else { render(d,q); }
+ }
 function init(d){
  window.idx=d;
  document.getElementById('q').addEventListener('input',()=>go(d));
@@ -399,7 +450,7 @@ function init(d){
  render(d,'');
 }
 fetch('search-index.json').then(r=>r.json()).then(init);
- </script>"""
+  </script>"""
     return shell("Ask the Portal", body)
 
 
@@ -742,7 +793,7 @@ def render_architecture():
 <li><strong>Runtime</strong> — events, workers, deployment automation</li>
 <li><strong>Infrastructure</strong> — GitHub/Kubernetes/cloud integrations</li>
 </ul>"""
-    return shell("Architecture", body)
+    return shell("Architecture", body, prefix="../")
 
 
 def render_api():

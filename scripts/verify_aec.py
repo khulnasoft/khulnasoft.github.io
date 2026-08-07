@@ -166,8 +166,9 @@ def main() -> int:
     check("8b. Source adapters normalize GitHub/K8s/monitoring into canonical events", ok8b,
           f"gh={gh.get('type') if gh else None} k8s={k8s.get('type') if k8s else None}")
 
-    # 9. Phase 9.2/9.3 keyword + semantic (TF-IDF) + hybrid search.
-    idx = searchmod.build_index(resources)
+    # 9. Phase 9.2/9.3 keyword + semantic (TF-IDF) + hybrid search, plus the
+    # specialty search modes (capability/ownership/relationship/security/impact).
+    idx = searchmod.build_index(resources, readiness, {r["slug"]: graphmod.compute_impact(resources)["per_resource"][r["id"]]["blast_radius"] for r in resources})
     hybrid = searchmod.search(idx, "api gateway context", mode="hybrid")
     semantic = searchmod.search(idx, "api gateway context", mode="semantic")
     keyword = searchmod.search(idx, "api gateway context", mode="keyword")
@@ -180,6 +181,15 @@ def main() -> int:
     ok9b = vectors["model"] == "tfidf-sparse" and len(vectors["vectors"]) == len(resources)
     check("9b. Vector artifacts emitted for every resource", ok9b,
           f"model={vectors['model']} n={len(vectors['vectors'])}")
+    # Specialty modes surface queryable, dimension-based results.
+    cap = searchmod.search(idx, "security", mode="capability")
+    own = searchmod.search(idx, "ai", mode="ownership")
+    rel = searchmod.search(idx, "ai-runtime", mode="relationship")
+    sec = searchmod.search(idx, "security", mode="security")
+    imp = searchmod.search(idx, "", mode="impact")
+    ok9c = bool(cap) and bool(own) and bool(rel) and bool(sec) and bool(imp)
+    check("9c. Specialty search modes (capability/ownership/relationship/security/impact) return results", ok9c,
+          f"cap={len(cap)} own={len(own)} rel={len(rel)} sec={len(sec)} imp={len(imp)}")
 
     # 10. Phase 10.4 marketplace install/consumption API resolves assets to real artifacts.
     from serve_api import _resolve_asset
