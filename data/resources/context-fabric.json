@@ -1,0 +1,26 @@
+{
+  "id": "resource:context-fabric",
+  "kind": "component",
+  "name": "Context Fabric",
+  "slug": "context-fabric",
+  "owner": "AI Enablement",
+  "team": "ai-platform",
+  "workspace": "ai",
+  "lifecycle": "supported",
+  "status": "active",
+  "visibility": "internal",
+  "version": "1.4.0",
+  "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+  "capabilities": ["context-fabric", "layered-context", "selective-retrieval", "llms.txt"],
+  "languages": ["typescript", "python"],
+  "frameworks": ["node", "fastapi"],
+  "relationships": [
+    { "type": "provides", "target": "resource:khulnasoft-platform" },
+    { "type": "depends_on", "target": "resource:knowledge-graph" }
+  ],
+  "health": { "score": 90, "status": "healthy" },
+  "security": { "scanStatus": "clean", "posture": "good" },
+  "ai": { "contextBundle": true, "promptRegistry": true, "agentReady": true, "readiness": 92 },
+  "tags": ["context", "ai", "plane-knowledge"],
+  "updatedAt": "2026-08-07"
+}

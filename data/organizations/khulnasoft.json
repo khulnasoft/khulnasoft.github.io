@@ -1,0 +1,66 @@
+{
+  "id": "org:khulnasoft",
+  "name": "KhulnaSoft",
+  "slug": "khulnasoft",
+  "summary": "The engineering organization behind the AI-native Engineering Cloud: a continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.",
+  "workspaces": ["platform", "ai", "security", "core-infrastructure"],
+  "hierarchy": {
+    "organization": ["KhulnaSoft"],
+    "workspace": ["core", "ai", "security", "core-infrastructure"],
+    "project": ["platform-core", "ai-runtime", "security-center"],
+    "resource": "See the resource registry for the full taxonomy."
+  },
+  "planes": {
+    "experience": { "name": "Experience plane", "summary": "Portal, catalog views, dashboards, and consuming surfaces for humans and agents." },
+    "knowledge": { "name": "Knowledge plane", "summary": "Normalized metadata, knowledge graphs, vectors, search indexes, documentation, and engineering context." },
+    "control": { "name": "Control plane", "summary": "Orchestration and governance: organizations, workspaces, projects, policies, registries, workflows, events, approvals." },
+    "intelligence": { "name": "Intelligence plane", "summary": "Analyzers, scores, insights, health/readiness, recommendations, and technical-debt signals." },
+    "runtime": { "name": "Runtime plane", "summary": "GitHub apps, events, workers, actions, AI workflows, deployment automation, self-healing operations." },
+    "infrastructure": { "name": "Infrastructure plane", "summary": "Integrations for GitHub, GitLab, Kubernetes, cloud, data stores, and observability systems." }
+  },
+  "governance": {
+    "identity": {
+      "protocols": ["oauth", "oidc", "saml", "api-keys", "service-accounts"],
+      "external": ["github", "gitlab"],
+      "hub": "control-plane-identity"
+    },
+    "rbacRoles": ["owner", "admin", "maintainer", "developer", "operator", "security", "viewer"],
+    "policies": [
+      {
+        "id": "policy:production-readiness",
+        "name": "Production readiness",
+        "scope": "all production deployments",
+        "requiredSignals": ["health-checks", "observability", "rollback-plan", "runbook"],
+        "check": "blocking"
+      },
+      {
+        "id": "policy:supply-chain",
+        "name": "Supply chain security",
+        "scope": "all artifacts",
+        "requiredSignals": ["sca-scan", "dependency-pinning", "build-attestation"],
+        "check": "warn"
+      },
+      {
+        "id": "policy:ai-metadata",
+        "name": "AI metadata visibility",
+        "scope": "all resources",
+        "requiredSignals": ["context-bundle", "prompt-registry", "agent-ready"],
+        "check": "warn"
+      }
+    ],
+    "approvals": [
+      { "id": "approval:prod-release", "name": "Production release approval", "required": "maintainer or security", "enforced": true },
+      { "id": "approval:policy-change", "name": "Policy change approval", "required": "owner", "enforced": true }
+    ],
+    "auditTrail": ["resource-change", "policy-change", "registry-mutation", "configuration-change"],
+    "billingBoundaries": {
+      "meteringBy": "workspace",
+      "entities": ["repositories", "deployments", "AI-invocations", "storage", "runners"]
+    },
+    "changeManagement": {
+      "flow": "propose -> review -> approve -> apply -> notify",
+      "events": ["resource.created", "resource.updated", "resource.deprecated"]
+    }
+  },
+  "updatedAt": "2026-08-07"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "resource:repository-catalog",
+  "kind": "repository",
+  "name": "Repository Catalog Service",
+  "slug": "repository-catalog",
+  "owner": "KhulnaSoft",
+  "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+  "capabilities": ["catalog", "discovery", "metadata"],
+  "health": {
+    "score": 90,
+    "status": "healthy"
+  },
+  "tags": ["catalog", "governance"],
+  "relationships": [
+    { "type": "depends_on", "target": "resource:khulnasoft-platform" }
+  ],
+  "updatedAt": "2026-08-07"
+}

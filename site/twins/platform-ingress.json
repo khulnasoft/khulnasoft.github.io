@@ -1,0 +1,86 @@
+{
+  "resource": {
+    "id": "resource:platform-ingress",
+    "kind": "ingress",
+    "name": "Platform Ingress",
+    "slug": "platform-ingress",
+    "owner": "Platform",
+    "team": "platform-infra",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "networking",
+      "routing",
+      "api"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "routes_to",
+      "target": "resource:api-gateway"
+    },
+    {
+      "type": "routes_to",
+      "target": "resource:khulnasoft-platform"
+    }
+  ],
+  "health": {
+    "score": 89,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 87,
+    "level": "ready",
+    "scores": {
+      "architecture": 89,
+      "documentation": 89,
+      "security": 89,
+      "tests": 89,
+      "ci": 89,
+      "performance": 89,
+      "dependencies": 89,
+      "maintainability": 89,
+      "release": 89,
+      "compliance": 89,
+      "observability": 89,
+      "community": 89,
+      "ai_readiness": 50,
+      "production_readiness": 99
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

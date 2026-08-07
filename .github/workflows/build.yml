@@ -1,0 +1,52 @@
+name: Build AEC portal
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Build AEC portal
+        run: python3 scripts/build_aec.py
+      - name: Run PLAN verification checklist
+        run: python3 scripts/verify_aec.py
+      - name: Verify generated artifacts
+        run: |
+          test -f site/index.html
+          test -f site/llms.txt
+          test -f site/mcp.json
+          test -f site/playground.html
+          test -f site/impact.html
+          test -f site/timeline.html
+          test -f site/release.html
+          test -f site/data-lake.html
+          test -f site/analytics.html
+          test -f site/runtime.html
+          test -f site/impact.json
+          test -f site/release.json
+          test -f site/history.json
+          test -f site/events.json
+          test -f site/event-index.json
+          test -f site/analytics.json
+          test -f site/runtime.json
+          test -f site/marketplace.html
+          test -f site/marketplace.json
+          test -f site/sdk-manifest.json
+          test -f site/sdks/aec.py
+          test -f site/sdks/aec.ts
+          python3 -m py_compile scripts/serve_api.py
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site

@@ -1,0 +1,746 @@
+{
+  "capability": {
+    "registry": "capability",
+    "count": 41,
+    "capabilities": {
+      "agent-runtime": {
+        "resources": [
+          "resource:ai-runtime"
+        ],
+        "count": 1
+      },
+      "ai": {
+        "resources": [
+          "resource:recommendation-model"
+        ],
+        "count": 1
+      },
+      "ai-agent": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "api": {
+        "resources": [
+          "resource:api-gateway",
+          "resource:checkout-service",
+          "resource:platform-ingress"
+        ],
+        "count": 3
+      },
+      "assistant": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "automation": {
+        "resources": [
+          "resource:deployment-runtime",
+          "resource:ledger-worker"
+        ],
+        "count": 2
+      },
+      "catalog": {
+        "resources": [
+          "resource:khulnasoft-platform",
+          "resource:repository-catalog"
+        ],
+        "count": 2
+      },
+      "context-fabric": {
+        "resources": [
+          "resource:ai-runtime",
+          "resource:context-fabric"
+        ],
+        "count": 2
+      },
+      "context-retrieval": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "control-plane": {
+        "resources": [
+          "resource:khulnasoft-platform"
+        ],
+        "count": 1
+      },
+      "database": {
+        "resources": [
+          "resource:orders-db"
+        ],
+        "count": 1
+      },
+      "deployment": {
+        "resources": [
+          "resource:deployment-runtime",
+          "resource:helm-charts-registry"
+        ],
+        "count": 2
+      },
+      "discovery": {
+        "resources": [
+          "resource:repository-catalog"
+        ],
+        "count": 1
+      },
+      "event-driven": {
+        "resources": [
+          "resource:payment-events"
+        ],
+        "count": 1
+      },
+      "governance": {
+        "resources": [
+          "resource:khulnasoft-platform"
+        ],
+        "count": 1
+      },
+      "helm-chart": {
+        "resources": [
+          "resource:helm-charts-registry"
+        ],
+        "count": 1
+      },
+      "knowledge-graph": {
+        "resources": [
+          "resource:knowledge-graph"
+        ],
+        "count": 1
+      },
+      "kubernetes": {
+        "resources": [
+          "resource:helm-charts-registry"
+        ],
+        "count": 1
+      },
+      "layered-context": {
+        "resources": [
+          "resource:context-fabric"
+        ],
+        "count": 1
+      },
+      "llms.txt": {
+        "resources": [
+          "resource:context-fabric"
+        ],
+        "count": 1
+      },
+      "mcp": {
+        "resources": [
+          "resource:ai-runtime",
+          "resource:api-gateway"
+        ],
+        "count": 2
+      },
+      "messaging": {
+        "resources": [
+          "resource:checkout-service",
+          "resource:ledger-worker",
+          "resource:payment-events"
+        ],
+        "count": 3
+      },
+      "metadata": {
+        "resources": [
+          "resource:repository-catalog"
+        ],
+        "count": 1
+      },
+      "microservice": {
+        "resources": [
+          "resource:checkout-service"
+        ],
+        "count": 1
+      },
+      "model": {
+        "resources": [
+          "resource:recommendation-model"
+        ],
+        "count": 1
+      },
+      "networking": {
+        "resources": [
+          "resource:platform-ingress"
+        ],
+        "count": 1
+      },
+      "payment": {
+        "resources": [
+          "resource:checkout-service"
+        ],
+        "count": 1
+      },
+      "policy": {
+        "resources": [
+          "resource:security-center"
+        ],
+        "count": 1
+      },
+      "prompt-registry": {
+        "resources": [
+          "resource:ai-runtime"
+        ],
+        "count": 1
+      },
+      "registry": {
+        "resources": [
+          "resource:khulnasoft-platform"
+        ],
+        "count": 1
+      },
+      "relationship-model": {
+        "resources": [
+          "resource:knowledge-graph"
+        ],
+        "count": 1
+      },
+      "release": {
+        "resources": [
+          "resource:deployment-runtime"
+        ],
+        "count": 1
+      },
+      "review": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "routing": {
+        "resources": [
+          "resource:api-gateway",
+          "resource:platform-ingress"
+        ],
+        "count": 2
+      },
+      "search": {
+        "resources": [
+          "resource:knowledge-graph"
+        ],
+        "count": 1
+      },
+      "security": {
+        "resources": [
+          "resource:security-center"
+        ],
+        "count": 1
+      },
+      "selective-retrieval": {
+        "resources": [
+          "resource:context-fabric"
+        ],
+        "count": 1
+      },
+      "storage": {
+        "resources": [
+          "resource:orders-db"
+        ],
+        "count": 1
+      },
+      "vector-collection": {
+        "resources": [
+          "resource:recommendation-model"
+        ],
+        "count": 1
+      },
+      "vulnerability": {
+        "resources": [
+          "resource:security-center"
+        ],
+        "count": 1
+      },
+      "worker": {
+        "resources": [
+          "resource:ledger-worker"
+        ],
+        "count": 1
+      }
+    },
+    "top": [
+      "api",
+      "messaging",
+      "context-fabric",
+      "mcp",
+      "routing",
+      "deployment",
+      "automation",
+      "catalog",
+      "ai-agent",
+      "context-retrieval",
+      "review",
+      "assistant",
+      "agent-runtime",
+      "prompt-registry",
+      "microservice",
+      "payment",
+      "layered-context",
+      "selective-retrieval",
+      "llms.txt",
+      "release",
+      "helm-chart",
+      "kubernetes",
+      "control-plane",
+      "governance",
+      "registry",
+      "knowledge-graph",
+      "relationship-model",
+      "search",
+      "worker",
+      "database",
+      "storage",
+      "event-driven",
+      "networking",
+      "ai",
+      "model",
+      "vector-collection",
+      "discovery",
+      "metadata",
+      "security",
+      "vulnerability",
+      "policy"
+    ]
+  },
+  "platform": {
+    "registry": "platform",
+    "count": 16,
+    "kinds": {
+      "ai-agent": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:ai-code-assistant",
+            "name": "AI Code Assistant",
+            "slug": "ai-code-assistant"
+          }
+        ]
+      },
+      "ai-runtime": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:ai-runtime",
+            "name": "AI Runtime Services",
+            "slug": "ai-runtime"
+          }
+        ]
+      },
+      "api": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:api-gateway",
+            "name": "API Gateway",
+            "slug": "api-gateway"
+          }
+        ]
+      },
+      "component": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:context-fabric",
+            "name": "Context Fabric",
+            "slug": "context-fabric"
+          }
+        ]
+      },
+      "database": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:orders-db",
+            "name": "Orders Database",
+            "slug": "orders-db"
+          }
+        ]
+      },
+      "deployment": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:deployment-runtime",
+            "name": "Deployment Runtime",
+            "slug": "deployment-runtime"
+          }
+        ]
+      },
+      "graph": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:knowledge-graph",
+            "name": "Engineering Knowledge Graph",
+            "slug": "knowledge-graph"
+          }
+        ]
+      },
+      "helm-chart": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:helm-charts-registry",
+            "name": "Helm Charts",
+            "slug": "helm-charts-registry"
+          }
+        ]
+      },
+      "ingress": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:platform-ingress",
+            "name": "Platform Ingress",
+            "slug": "platform-ingress"
+          }
+        ]
+      },
+      "model": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:recommendation-model",
+            "name": "Recommendation Model",
+            "slug": "recommendation-model"
+          }
+        ]
+      },
+      "platform": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:khulnasoft-platform",
+            "name": "KhulnaSoft Platform Core",
+            "slug": "khulnasoft-platform"
+          }
+        ]
+      },
+      "queue": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:payment-events",
+            "name": "Payment Events",
+            "slug": "payment-events"
+          }
+        ]
+      },
+      "repository": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:repository-catalog",
+            "name": "Repository Catalog Service",
+            "slug": "repository-catalog"
+          }
+        ]
+      },
+      "security": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:security-center",
+            "name": "Security Center",
+            "slug": "security-center"
+          }
+        ]
+      },
+      "service": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:checkout-service",
+            "name": "Checkout Service",
+            "slug": "checkout-service"
+          }
+        ]
+      },
+      "worker": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:ledger-worker",
+            "name": "Ledger Worker",
+            "slug": "ledger-worker"
+          }
+        ]
+      }
+    }
+  },
+  "service": {
+    "registry": "service",
+    "count": 4,
+    "services": [
+      {
+        "id": "resource:api-gateway",
+        "name": "API Gateway",
+        "slug": "api-gateway",
+        "kind": "api",
+        "workspace": "core"
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "slug": "checkout-service",
+        "kind": "service",
+        "workspace": "commerce"
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "slug": "context-fabric",
+        "kind": "component",
+        "workspace": "ai"
+      },
+      {
+        "id": "resource:khulnasoft-platform",
+        "name": "KhulnaSoft Platform Core",
+        "slug": "khulnasoft-platform",
+        "kind": "platform",
+        "workspace": "core"
+      }
+    ]
+  },
+  "kind": {
+    "registry": "kind",
+    "count": 16,
+    "coverage": {
+      "ai-agent": 1,
+      "ai-runtime": 1,
+      "api": 1,
+      "service": 1,
+      "component": 1,
+      "deployment": 1,
+      "helm-chart": 1,
+      "platform": 1,
+      "graph": 1,
+      "worker": 1,
+      "database": 1,
+      "queue": 1,
+      "ingress": 1,
+      "model": 1,
+      "repository": 1,
+      "security": 1
+    }
+  },
+  "prompt": {
+    "registry": "prompt",
+    "count": 2,
+    "prompts": [
+      {
+        "id": "architecture",
+        "file": "architecture.md",
+        "body": "# Architecture Prompt\n\nDescribe the architecture of the target resource, including:\n- major components\n- boundaries\n- important relationships\n- deployment assumptions"
+      },
+      {
+        "id": "review",
+        "file": "review.md",
+        "body": "# Review Prompt\n\nReview the repository context and summarize:\n- architecture risks\n- dependency concerns\n- security posture\n- release readiness"
+      }
+    ]
+  },
+  "agent": {
+    "registry": "agent",
+    "count": 2,
+    "agents": [
+      {
+        "id": "agent:review",
+        "name": "Repository Review Agent",
+        "description": "Reviews repository posture, health, and release readiness.",
+        "capabilities": [
+          "review",
+          "risk-analysis"
+        ],
+        "prompt": "review"
+      },
+      {
+        "id": "agent:architecture",
+        "name": "Architecture Agent",
+        "description": "Explains architecture and component relationships.",
+        "capabilities": [
+          "architecture",
+          "context-composition"
+        ],
+        "prompt": "architecture"
+      }
+    ]
+  },
+  "context": {
+    "registry": "context",
+    "count": 6,
+    "resources": [
+      {
+        "id": "resource:ai-code-assistant",
+        "name": "AI Code Assistant",
+        "slug": "ai-code-assistant"
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "slug": "checkout-service"
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "slug": "context-fabric"
+      },
+      {
+        "id": "resource:helm-charts-registry",
+        "name": "Helm Charts",
+        "slug": "helm-charts-registry"
+      },
+      {
+        "id": "resource:knowledge-graph",
+        "name": "Engineering Knowledge Graph",
+        "slug": "knowledge-graph"
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "slug": "recommendation-model"
+      }
+    ]
+  },
+  "model": {
+    "registry": "model",
+    "count": 2,
+    "models": [
+      {
+        "id": "resource:ai-code-assistant",
+        "name": "AI Code Assistant",
+        "slug": "ai-code-assistant",
+        "kind": "ai-agent",
+        "version": "0.9.2",
+        "owner": "AI Enablement",
+        "workspace": "ai",
+        "readiness": 88,
+        "capabilities": [
+          "ai-agent",
+          "context-retrieval",
+          "review",
+          "assistant"
+        ]
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "slug": "recommendation-model",
+        "kind": "model",
+        "version": "0.9.4",
+        "owner": "AI Enablement",
+        "workspace": "ai",
+        "readiness": 88,
+        "capabilities": [
+          "ai",
+          "model",
+          "vector-collection"
+        ]
+      }
+    ]
+  },
+  "tool": {
+    "registry": "tool",
+    "count": 4,
+    "tools": [
+      {
+        "id": "resource:ai-runtime",
+        "name": "AI Runtime Services",
+        "slug": "ai-runtime",
+        "kind": "ai-runtime",
+        "toolTypes": [
+          "mcp"
+        ]
+      },
+      {
+        "id": "resource:api-gateway",
+        "name": "API Gateway",
+        "slug": "api-gateway",
+        "kind": "api",
+        "toolTypes": [
+          "api",
+          "mcp"
+        ]
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "slug": "checkout-service",
+        "kind": "service",
+        "toolTypes": [
+          "api"
+        ]
+      },
+      {
+        "id": "resource:platform-ingress",
+        "name": "Platform Ingress",
+        "slug": "platform-ingress",
+        "kind": "ingress",
+        "toolTypes": [
+          "api"
+        ]
+      }
+    ]
+  },
+  "memory": {
+    "registry": "memory",
+    "count": 6,
+    "memories": [
+      {
+        "id": "resource:ai-runtime",
+        "name": "AI Runtime Services",
+        "slug": "ai-runtime",
+        "kind": "ai-runtime",
+        "access": [
+          "context-fabric"
+        ]
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "slug": "context-fabric",
+        "kind": "component",
+        "access": [
+          "context-fabric"
+        ]
+      },
+      {
+        "id": "resource:knowledge-graph",
+        "name": "Engineering Knowledge Graph",
+        "slug": "knowledge-graph",
+        "kind": "graph",
+        "access": [
+          "knowledge-graph",
+          "search"
+        ]
+      },
+      {
+        "id": "resource:orders-db",
+        "name": "Orders Database",
+        "slug": "orders-db",
+        "kind": "database",
+        "access": [
+          "database"
+        ]
+      },
+      {
+        "id": "resource:payment-events",
+        "name": "Payment Events",
+        "slug": "payment-events",
+        "kind": "queue",
+        "access": []
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "slug": "recommendation-model",
+        "kind": "model",
+        "access": [
+          "vector-collection"
+        ]
+      }
+    ]
+  }
+}

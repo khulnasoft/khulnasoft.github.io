@@ -1,0 +1,26 @@
+[
+  {
+    "id": "automation:auto-reconcile-drift",
+    "name": "Auto-reconcile drift",
+    "event": "health.degraded",
+    "action": "Reconcile twin state against the canonical manifest",
+    "target": "knowledge-graph",
+    "enabled": true
+  },
+  {
+    "id": "automation:provision-context",
+    "name": "Provision AI context",
+    "event": "repository.push",
+    "action": "Compose and publish context bundle layers for affected resources",
+    "target": "context-fabric",
+    "enabled": true
+  },
+  {
+    "id": "automation:enforce-release-gate",
+    "name": "Enforce release gate",
+    "event": "release.published",
+    "action": "Block release if governance tally fails",
+    "target": "release",
+    "enabled": true
+  }
+]

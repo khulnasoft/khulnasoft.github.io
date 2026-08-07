@@ -1,0 +1,272 @@
+{
+  "nodes": [
+    {
+      "id": "resource:ai-code-assistant",
+      "label": "AI Code Assistant",
+      "slug": "ai-code-assistant",
+      "kind": "ai-agent",
+      "workspace": "ai",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:ai-runtime",
+      "label": "AI Runtime Services",
+      "slug": "ai-runtime",
+      "kind": "ai-runtime",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:api-gateway",
+      "label": "API Gateway",
+      "slug": "api-gateway",
+      "kind": "api",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:checkout-service",
+      "label": "Checkout Service",
+      "slug": "checkout-service",
+      "kind": "service",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:context-fabric",
+      "label": "Context Fabric",
+      "slug": "context-fabric",
+      "kind": "component",
+      "workspace": "ai",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:deployment-runtime",
+      "label": "Deployment Runtime",
+      "slug": "deployment-runtime",
+      "kind": "deployment",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:helm-charts-registry",
+      "label": "Helm Charts",
+      "slug": "helm-charts-registry",
+      "kind": "helm-chart",
+      "workspace": "core-infrastructure",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:khulnasoft-platform",
+      "label": "KhulnaSoft Platform Core",
+      "slug": "khulnasoft-platform",
+      "kind": "platform",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:knowledge-graph",
+      "label": "Engineering Knowledge Graph",
+      "slug": "knowledge-graph",
+      "kind": "graph",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:ledger-worker",
+      "label": "Ledger Worker",
+      "slug": "ledger-worker",
+      "kind": "worker",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:orders-db",
+      "label": "Orders Database",
+      "slug": "orders-db",
+      "kind": "database",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:payment-events",
+      "label": "Payment Events",
+      "slug": "payment-events",
+      "kind": "queue",
+      "workspace": "commerce",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:platform-ingress",
+      "label": "Platform Ingress",
+      "slug": "platform-ingress",
+      "kind": "ingress",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:recommendation-model",
+      "label": "Recommendation Model",
+      "slug": "recommendation-model",
+      "kind": "model",
+      "workspace": "ai",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:repository-catalog",
+      "label": "Repository Catalog Service",
+      "slug": "repository-catalog",
+      "kind": "repository",
+      "workspace": "core",
+      "health": "healthy"
+    },
+    {
+      "id": "resource:security-center",
+      "label": "Security Center",
+      "slug": "security-center",
+      "kind": "security",
+      "workspace": "core",
+      "health": "healthy"
+    }
+  ],
+  "edges": [
+    {
+      "from": "resource:ai-code-assistant",
+      "to": "resource:context-fabric",
+      "type": "uses",
+      "detail": ""
+    },
+    {
+      "from": "resource:ai-code-assistant",
+      "to": "resource:ai-runtime",
+      "type": "uses",
+      "detail": ""
+    },
+    {
+      "from": "resource:ai-runtime",
+      "to": "resource:khulnasoft-platform",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:api-gateway",
+      "to": "resource:ai-runtime",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:orders-db",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:payment-events",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:context-fabric",
+      "to": "resource:khulnasoft-platform",
+      "type": "provides",
+      "detail": ""
+    },
+    {
+      "from": "resource:context-fabric",
+      "to": "resource:knowledge-graph",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:deployment-runtime",
+      "to": "resource:api-gateway",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:helm-charts-registry",
+      "to": "resource:deployment-runtime",
+      "type": "deploys",
+      "detail": ""
+    },
+    {
+      "from": "resource:helm-charts-registry",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of",
+      "detail": ""
+    },
+    {
+      "from": "resource:khulnasoft-platform",
+      "to": "resource:ai-runtime",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:knowledge-graph",
+      "to": "resource:repository-catalog",
+      "type": "contains",
+      "detail": ""
+    },
+    {
+      "from": "resource:knowledge-graph",
+      "to": "resource:context-fabric",
+      "type": "provides",
+      "detail": ""
+    },
+    {
+      "from": "resource:ledger-worker",
+      "to": "resource:payment-events",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:orders-db",
+      "to": "resource:checkout-service",
+      "type": "serves",
+      "detail": ""
+    },
+    {
+      "from": "resource:payment-events",
+      "to": "resource:ledger-worker",
+      "type": "consumed_by",
+      "detail": ""
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:api-gateway",
+      "type": "routes_to",
+      "detail": ""
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:khulnasoft-platform",
+      "type": "routes_to",
+      "detail": ""
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:ai-runtime",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:checkout-service",
+      "type": "serves",
+      "detail": ""
+    },
+    {
+      "from": "resource:repository-catalog",
+      "to": "resource:khulnasoft-platform",
+      "type": "depends_on",
+      "detail": ""
+    },
+    {
+      "from": "resource:security-center",
+      "to": "resource:repository-catalog",
+      "type": "depends_on",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,435 @@
+[
+  {
+    "slug": "ai-code-assistant",
+    "name": "AI Code Assistant",
+    "kind": "ai-agent",
+    "owner": "AI Enablement",
+    "workspace": "ai",
+    "lifecycle": "beta",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "ai-agent",
+      "context-retrieval",
+      "review",
+      "assistant"
+    ],
+    "tags": [
+      "ai",
+      "agent",
+      "assistant"
+    ],
+    "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+    "preview": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+    "relationships": [
+      "resource:context-fabric",
+      "resource:ai-runtime"
+    ],
+    "text": "ai code assistant ai-agent ai enablement ai an ai agent that navigates the context fabric and control plane to summarize architecture, review posture, and answer engineering questions. ai-agent context-retrieval review assistant ai agent assistant"
+  },
+  {
+    "slug": "ai-runtime",
+    "name": "AI Runtime Services",
+    "kind": "ai-runtime",
+    "owner": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 80,
+    "level": "deployable",
+    "capabilities": [
+      "context-fabric",
+      "agent-runtime",
+      "prompt-registry",
+      "mcp"
+    ],
+    "tags": [
+      "ai",
+      "agents",
+      "context"
+    ],
+    "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+    "preview": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+    "relationships": [
+      "resource:khulnasoft-platform"
+    ],
+    "text": "ai runtime services ai-runtime khulnasoft core runtime services that compose context, invoke agents, and provide reusable ai capabilities across the engineering cloud. context-fabric agent-runtime prompt-registry mcp ai agents context"
+  },
+  {
+    "slug": "api-gateway",
+    "name": "API Gateway",
+    "kind": "api",
+    "owner": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "api",
+      "mcp",
+      "routing"
+    ],
+    "tags": [
+      "api",
+      "routing",
+      "agent"
+    ],
+    "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+    "preview": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+    "relationships": [
+      "resource:ai-runtime"
+    ],
+    "text": "api gateway api khulnasoft core the public entry point for context, catalog, and platform apis consumed by internal tools, cli clients, and ai agents. api mcp routing api routing agent"
+  },
+  {
+    "slug": "checkout-service",
+    "name": "Checkout Service",
+    "kind": "service",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 89,
+    "level": "ready",
+    "capabilities": [
+      "microservice",
+      "api",
+      "payment",
+      "messaging"
+    ],
+    "tags": [
+      "commerce",
+      "payments"
+    ],
+    "summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+    "preview": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+    "relationships": [
+      "resource:orders-db",
+      "resource:payment-events"
+    ],
+    "text": "checkout service service commerce commerce bff for checkout flows: cart orchestration, payment intent creation, and idempotent order placement. microservice api payment messaging commerce payments"
+  },
+  {
+    "slug": "context-fabric",
+    "name": "Context Fabric",
+    "kind": "component",
+    "owner": "AI Enablement",
+    "workspace": "ai",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 90,
+    "level": "ready",
+    "capabilities": [
+      "context-fabric",
+      "layered-context",
+      "selective-retrieval",
+      "llms.txt"
+    ],
+    "tags": [
+      "context",
+      "ai",
+      "plane-knowledge"
+    ],
+    "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+    "preview": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+    "relationships": [
+      "resource:khulnasoft-platform",
+      "resource:knowledge-graph"
+    ],
+    "text": "context fabric component ai enablement ai composes layered, ai-ready context by metadata, architecture, dependency, api, deployment, runtime, observability, security, and business layers, supporting selective retrieval. context-fabric layered-context selective-retrieval llms.txt context ai plane-knowledge"
+  },
+  {
+    "slug": "deployment-runtime",
+    "name": "Deployment Runtime",
+    "kind": "deployment",
+    "owner": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 83,
+    "level": "deployable",
+    "capabilities": [
+      "deployment",
+      "automation",
+      "release"
+    ],
+    "tags": [
+      "deployment",
+      "release",
+      "automation"
+    ],
+    "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+    "preview": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+    "relationships": [
+      "resource:api-gateway"
+    ],
+    "text": "deployment runtime deployment khulnasoft core the runtime layer that orchestrates deployment automation, health checks, and release coordination. deployment automation release deployment release automation"
+  },
+  {
+    "slug": "helm-charts-registry",
+    "name": "Helm Charts",
+    "kind": "helm-chart",
+    "owner": "Core Infrastructure",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 91,
+    "level": "ready",
+    "capabilities": [
+      "helm-chart",
+      "deployment",
+      "kubernetes"
+    ],
+    "tags": [
+      "kubernetes",
+      "deployment",
+      "infra"
+    ],
+    "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+    "preview": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+    "relationships": [
+      "resource:deployment-runtime",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "helm charts helm-chart core infrastructure core-infrastructure versioned helm charts packaging workhorse services and their deployment topology for kubernetes targets. helm-chart deployment kubernetes kubernetes deployment infra"
+  },
+  {
+    "slug": "khulnasoft-platform",
+    "name": "KhulnaSoft Platform Core",
+    "kind": "platform",
+    "owner": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 89,
+    "level": "ready",
+    "capabilities": [
+      "control-plane",
+      "catalog",
+      "governance",
+      "registry"
+    ],
+    "tags": [
+      "control-plane",
+      "governance",
+      "catalog"
+    ],
+    "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+    "preview": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+    "relationships": [
+      "resource:ai-runtime"
+    ],
+    "text": "khulnasoft platform core platform khulnasoft core the control-plane foundation for the ai-native engineering cloud, coordinating organizations, projects, policies, and engineering resources. control-plane catalog governance registry control-plane governance catalog"
+  },
+  {
+    "slug": "knowledge-graph",
+    "name": "Engineering Knowledge Graph",
+    "kind": "graph",
+    "owner": "Platform Core",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 86,
+    "level": "ready",
+    "capabilities": [
+      "knowledge-graph",
+      "relationship-model",
+      "search"
+    ],
+    "tags": [
+      "graph",
+      "knowledge-plane"
+    ],
+    "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+    "preview": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+    "relationships": [
+      "resource:repository-catalog",
+      "resource:context-fabric"
+    ],
+    "text": "engineering knowledge graph graph platform core core the derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth. knowledge-graph relationship-model search graph knowledge-plane"
+  },
+  {
+    "slug": "ledger-worker",
+    "name": "Ledger Worker",
+    "kind": "worker",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 82,
+    "level": "deployable",
+    "capabilities": [
+      "worker",
+      "messaging",
+      "automation"
+    ],
+    "tags": [
+      "commerce",
+      "events"
+    ],
+    "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+    "preview": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+    "relationships": [
+      "resource:payment-events"
+    ],
+    "text": "ledger worker worker commerce commerce consumes payment events and writes idempotent ledger entries, reconciling daily batches. worker messaging automation commerce events"
+  },
+  {
+    "slug": "orders-db",
+    "name": "Orders Database",
+    "kind": "database",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 90,
+    "level": "ready",
+    "capabilities": [
+      "database",
+      "storage"
+    ],
+    "tags": [
+      "commerce",
+      "data"
+    ],
+    "summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+    "preview": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+    "relationships": [
+      "resource:checkout-service"
+    ],
+    "text": "orders database database commerce commerce primary transactional store for orders and payment state, backed by postgres with wal-based replication. database storage commerce data"
+  },
+  {
+    "slug": "payment-events",
+    "name": "Payment Events",
+    "kind": "queue",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 88,
+    "level": "ready",
+    "capabilities": [
+      "messaging",
+      "event-driven"
+    ],
+    "tags": [
+      "commerce",
+      "events"
+    ],
+    "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+    "preview": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+    "relationships": [
+      "resource:ledger-worker"
+    ],
+    "text": "payment events queue commerce commerce event topic for payment lifecycle events consumed by ledger, notifications, and analytics. messaging event-driven commerce events"
+  },
+  {
+    "slug": "platform-ingress",
+    "name": "Platform Ingress",
+    "kind": "ingress",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "networking",
+      "routing",
+      "api"
+    ],
+    "tags": [
+      "platform",
+      "networking"
+    ],
+    "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+    "preview": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+    "relationships": [
+      "resource:api-gateway",
+      "resource:khulnasoft-platform"
+    ],
+    "text": "platform ingress ingress platform core north-south ingress gateway routing external traffic to platform apis and the portal. networking routing api platform networking"
+  },
+  {
+    "slug": "recommendation-model",
+    "name": "Recommendation Model",
+    "kind": "model",
+    "owner": "AI Enablement",
+    "workspace": "ai",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "ai",
+      "model",
+      "vector-collection"
+    ],
+    "tags": [
+      "ai",
+      "ml"
+    ],
+    "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+    "preview": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+    "relationships": [
+      "resource:ai-runtime",
+      "resource:checkout-service"
+    ],
+    "text": "recommendation model model ai enablement ai embedding-based product recommendation model served through the ai runtime with online feature updates. ai model vector-collection ai ml"
+  },
+  {
+    "slug": "repository-catalog",
+    "name": "Repository Catalog Service",
+    "kind": "repository",
+    "owner": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "catalog",
+      "discovery",
+      "metadata"
+    ],
+    "tags": [
+      "catalog",
+      "governance"
+    ],
+    "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+    "preview": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+    "relationships": [
+      "resource:khulnasoft-platform"
+    ],
+    "text": "repository catalog service repository khulnasoft core a registry service for discovering repositories, owners, metadata, and health signals across the organization. catalog discovery metadata catalog governance"
+  },
+  {
+    "slug": "security-center",
+    "name": "Security Center",
+    "kind": "security",
+    "owner": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "health": "healthy",
+    "readiness": 86,
+    "level": "ready",
+    "capabilities": [
+      "security",
+      "vulnerability",
+      "policy"
+    ],
+    "tags": [
+      "security",
+      "compliance"
+    ],
+    "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+    "preview": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+    "relationships": [
+      "resource:repository-catalog"
+    ],
+    "text": "security center security khulnasoft core a security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud. security vulnerability policy security compliance"
+  }
+]

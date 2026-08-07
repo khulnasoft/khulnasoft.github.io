@@ -1,0 +1,157 @@
+{
+  "updatedAt": "2026-08-07T06:06:05Z",
+  "max_snapshots": 50,
+  "history": [
+    {
+      "build": "2026-08-07T05:54:36Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T05:57:25Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T05:57:57Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    },
+    {
+      "build": "2026-08-07T06:06:05Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "checkout-service": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "helm-charts-registry": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "recommendation-model": 87,
+        "repository-catalog": 87,
+        "security-center": 86
+      }
+    }
+  ],
+  "resources": {
+    "ai-code-assistant": {
+      "slug": "ai-code-assistant",
+      "name": "ai-code-assistant"
+    },
+    "ai-runtime": {
+      "slug": "ai-runtime",
+      "name": "ai-runtime"
+    },
+    "api-gateway": {
+      "slug": "api-gateway",
+      "name": "api-gateway"
+    },
+    "checkout-service": {
+      "slug": "checkout-service",
+      "name": "checkout-service"
+    },
+    "context-fabric": {
+      "slug": "context-fabric",
+      "name": "context-fabric"
+    },
+    "deployment-runtime": {
+      "slug": "deployment-runtime",
+      "name": "deployment-runtime"
+    },
+    "helm-charts-registry": {
+      "slug": "helm-charts-registry",
+      "name": "helm-charts-registry"
+    },
+    "khulnasoft-platform": {
+      "slug": "khulnasoft-platform",
+      "name": "khulnasoft-platform"
+    },
+    "knowledge-graph": {
+      "slug": "knowledge-graph",
+      "name": "knowledge-graph"
+    },
+    "ledger-worker": {
+      "slug": "ledger-worker",
+      "name": "ledger-worker"
+    },
+    "orders-db": {
+      "slug": "orders-db",
+      "name": "orders-db"
+    },
+    "payment-events": {
+      "slug": "payment-events",
+      "name": "payment-events"
+    },
+    "platform-ingress": {
+      "slug": "platform-ingress",
+      "name": "platform-ingress"
+    },
+    "recommendation-model": {
+      "slug": "recommendation-model",
+      "name": "recommendation-model"
+    },
+    "repository-catalog": {
+      "slug": "repository-catalog",
+      "name": "repository-catalog"
+    },
+    "security-center": {
+      "slug": "security-center",
+      "name": "security-center"
+    }
+  },
+  "drift": {}
+}

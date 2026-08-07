@@ -1,0 +1,105 @@
+{
+  "resource": {
+    "id": "resource:helm-charts-registry",
+    "name": "Helm Charts",
+    "slug": "helm-charts-registry",
+    "kind": "helm-chart"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+      "name": "Helm Charts",
+      "kind": "helm-chart",
+      "owner": "Core Infrastructure",
+      "team": "core-infrastructure",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "public",
+      "version": "2.1.3",
+      "tags": [
+        "kubernetes",
+        "deployment",
+        "infra"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "helm",
+        "kubernetes"
+      ],
+      "capabilities": [
+        "helm-chart",
+        "deployment",
+        "kubernetes"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "deploys",
+          "target": "resource:deployment-runtime",
+          "detail": null
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "targets": [
+          "kubernetes"
+        ],
+        "environment": "production",
+        "status": "active"
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "production"
+      }
+    },
+    "business": {
+      "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 91,
+      "status": "healthy",
+      "readiness": 91
+    }
+  },
+  "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

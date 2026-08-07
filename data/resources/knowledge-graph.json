@@ -1,0 +1,24 @@
+{
+  "id": "resource:knowledge-graph",
+  "kind": "graph",
+  "name": "Engineering Knowledge Graph",
+  "slug": "knowledge-graph",
+  "owner": "Platform Core",
+  "team": "platform-core",
+  "workspace": "core",
+  "lifecycle": "supported",
+  "status": "active",
+  "visibility": "internal",
+  "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+  "capabilities": ["knowledge-graph", "relationship-model", "search"],
+  "languages": ["python"],
+  "frameworks": ["networkx-compatible"],
+  "relationships": [
+    { "type": "contains", "target": "resource:repository-catalog" },
+    { "type": "provides", "target": "resource:context-fabric" }
+  ],
+  "health": { "score": 93, "status": "healthy" },
+  "ai": { "contextBundle": true, "promptRegistry": true, "agentReady": true, "readiness": 90 },
+  "tags": ["graph", "knowledge-plane"],
+  "updatedAt": "2026-08-07"
+}

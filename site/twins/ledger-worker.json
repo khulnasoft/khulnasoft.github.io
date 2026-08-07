@@ -1,0 +1,83 @@
+{
+  "resource": {
+    "id": "resource:ledger-worker",
+    "kind": "worker",
+    "name": "Ledger Worker",
+    "slug": "ledger-worker",
+    "owner": "Commerce",
+    "team": "commerce-data",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "2.1.0",
+    "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "python"
+    ],
+    "frameworks": [
+      "fastapi"
+    ],
+    "capabilities": [
+      "worker",
+      "messaging",
+      "automation"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:payment-events"
+    }
+  ],
+  "health": {
+    "score": 84,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 82,
+    "level": "deployable",
+    "scores": {
+      "architecture": 84,
+      "documentation": 84,
+      "security": 84,
+      "tests": 84,
+      "ci": 84,
+      "performance": 84,
+      "dependencies": 84,
+      "maintainability": 84,
+      "release": 84,
+      "compliance": 84,
+      "observability": 84,
+      "community": 84,
+      "ai_readiness": 50,
+      "production_readiness": 90
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Twins · KhulnaSoft AEC</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#07111f;color:#f5f7fb;line-height:1.5}
+a{color:#58c6dd}a:hover{text-decoration:underline}
+header.top{border-bottom:1px solid #1f3040;padding:.85rem 1.4rem;display:flex;align-items:center;gap:1rem;
+position:sticky;top:0;background:rgba(7,17,31,.95)}
+header.top .brand{font-weight:700;letter-spacing:.2px}
+header.top .accent{color:#58c6dd}
+header.top nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:.2rem}
+header.top nav a{color:#93a7bd;text-decoration:none;padding:.3rem .55rem;border-radius:8px;font-size:.82rem}
+header.top nav a:hover{color:#f5f7fb;background:#1f2f40}
+main{max-width:1140px;margin:0 auto;padding:1.6rem}
+h1{letter-spacing:-.03em;font-size:1.8rem}
+h2{color:#58c6dd;font-size:1.15rem;margin:1.5rem 0 .6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.card{background:#10202f;border:1px solid #1f3244;border-radius:12px;padding:1rem 1.1rem}
+.card.metric{text-align:center}
+.metric .value{font-size:1.9rem;font-weight:800;color:#58c6dd}
+.metric .label{color:#93a7bd;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;background:#14324f;color:#58c6dd;padding:.18rem .6rem;border-radius:999px;font-size:.75rem;margin:.15rem .25rem .15rem 0}
+.pill.kind{background:#14314a;color:#c5d5e8}
+.muted{color:#93a7bd}
+code{background:#0d1a28;padding:.1rem .35rem;border-radius:5px;font-size:.85rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:.42rem 0;border-bottom:1px solid #1f3244}
+ul.plain li:last-child{border-bottom:none}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:#93a7bd;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.4rem}
+td{padding:.45rem;border-top:1px solid #1f3244}
+.footer{border-top:1px solid #1f3244;margin-top:2rem;padding:1rem 1.4rem;color:#93a7bd;font-size:.8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.badge{display:inline-block;padding:.12rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600}
+.badge.ok{background:rgba(74,222,128,.16);color:#4ade80}
+.badge.warn{background:rgba(251,191,36,.16);color:#fbbf24}
+.badge.bad{background:rgba(248,113,113,.16);color:#f87171}
+</style></head>
+<body>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
+<main><h1>Engineering Digital Twins</h1>
+<p class="muted">Each twin is the canonical, continuously updated representation of a resource: metadata, source state, readiness, dependencies, and AI context in one place.</p>
+<div class="grid"><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/ai-code-assistant.html">AI Code Assistant</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-agent</span>ai</div>
+<div class="muted">An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.</div>
+<div class="muted" style="margin:.45rem 0">health <code>85</code> · readiness <code>85</code> · lifecycle <code>beta</code></div>
+<a href="twins/ai-code-assistant.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/ai-runtime.html">AI Runtime Services</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-runtime</span>core</div>
+<div class="muted">Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.</div>
+<div class="muted" style="margin:.45rem 0">health <code>82</code> · readiness <code>80</code> · lifecycle <code>active</code></div>
+<a href="twins/ai-runtime.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/api-gateway.html">API Gateway</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">api</span>core</div>
+<div class="muted">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
+<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>85</code> · lifecycle <code>active</code></div>
+<a href="twins/api-gateway.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/checkout-service.html">Checkout Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">service</span>commerce</div>
+<div class="muted">BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.</div>
+<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>89</code> · lifecycle <code>supported</code></div>
+<a href="twins/checkout-service.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/context-fabric.html">Context Fabric</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span>ai</div>
+<div class="muted">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
+<a href="twins/context-fabric.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/deployment-runtime.html">Deployment Runtime</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">deployment</span>core</div>
+<div class="muted">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>83</code> · lifecycle <code>active</code></div>
+<a href="twins/deployment-runtime.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/helm-charts-registry.html">Helm Charts</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">helm-chart</span>core-infrastructure</div>
+<div class="muted">Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.</div>
+<div class="muted" style="margin:.45rem 0">health <code>91</code> · readiness <code>91</code> · lifecycle <code>supported</code></div>
+<a href="twins/helm-charts-registry.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/khulnasoft-platform.html">KhulnaSoft Platform Core</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">platform</span>core</div>
+<div class="muted">The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.</div>
+<div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>89</code> · lifecycle <code>active</code></div>
+<a href="twins/khulnasoft-platform.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/knowledge-graph.html">Engineering Knowledge Graph</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">graph</span>core</div>
+<div class="muted">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>86</code> · lifecycle <code>supported</code></div>
+<a href="twins/knowledge-graph.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/ledger-worker.html">Ledger Worker</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">worker</span>commerce</div>
+<div class="muted">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
+<div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>82</code> · lifecycle <code>supported</code></div>
+<a href="twins/ledger-worker.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/orders-db.html">Orders Database</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span>commerce</div>
+<div class="muted">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
+<div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
+<a href="twins/orders-db.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/payment-events.html">Payment Events</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">queue</span>commerce</div>
+<div class="muted">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>88</code> · lifecycle <code>supported</code></div>
+<a href="twins/payment-events.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/platform-ingress.html">Platform Ingress</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ingress</span>core</div>
+<div class="muted">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
+<div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>87</code> · lifecycle <code>supported</code></div>
+<a href="twins/platform-ingress.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/recommendation-model.html">Recommendation Model</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">model</span>ai</div>
+<div class="muted">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>87</code> · lifecycle <code>supported</code></div>
+<a href="twins/recommendation-model.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span>core</div>
+<div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>87</code> · lifecycle <code>active</code></div>
+<a href="twins/repository-catalog.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/security-center.html">Security Center</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">security</span>core</div>
+<div class="muted">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>
+<div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>86</code> · lifecycle <code>active</code></div>
+<a href="twins/security-center.json">open twin</a></div></div></main>
+<footer class="footer"><span>KhulnaSoft AI-Native Engineering Cloud</span>
+<a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
+<a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
+</body></html>

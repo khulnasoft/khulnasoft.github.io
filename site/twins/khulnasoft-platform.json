@@ -1,0 +1,74 @@
+{
+  "resource": {
+    "id": "resource:khulnasoft-platform",
+    "kind": "platform",
+    "name": "KhulnaSoft Platform Core",
+    "slug": "khulnasoft-platform",
+    "owner": "KhulnaSoft",
+    "team": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "control-plane",
+      "catalog",
+      "governance",
+      "registry"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:ai-runtime"
+    }
+  ],
+  "health": {
+    "score": 92,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 89,
+    "level": "ready",
+    "scores": {
+      "architecture": 92,
+      "documentation": 92,
+      "security": 92,
+      "tests": 92,
+      "ci": 92,
+      "performance": 92,
+      "dependencies": 92,
+      "maintainability": 92,
+      "release": 92,
+      "compliance": 92,
+      "observability": 92,
+      "community": 92,
+      "ai_readiness": 50,
+      "production_readiness": 92
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

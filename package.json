@@ -1,0 +1,12 @@
+{
+  "name": "khulnasoft-ai-native-engineering-cloud",
+  "version": "0.2.0",
+  "private": true,
+  "description": "KhulnaSoft AI-Native Engineering Cloud: a control plane for engineering assets, AI-ready context, and agent-friendly APIs.",
+  "scripts": {
+    "build": "python3 scripts/build_aec.py",
+    "start": "python3 -m http.server 8000 --directory site",
+    "api": "python3 scripts/serve_api.py",
+    "api:dev": "python3 scripts/serve_api.py 8002"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "resource": {
+    "id": "resource:context-fabric",
+    "kind": "component",
+    "name": "Context Fabric",
+    "slug": "context-fabric",
+    "owner": "AI Enablement",
+    "team": "ai-platform",
+    "workspace": "ai",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.4.0",
+    "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "frameworks": [
+      "node",
+      "fastapi"
+    ],
+    "capabilities": [
+      "context-fabric",
+      "layered-context",
+      "selective-retrieval",
+      "llms.txt"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "provides",
+      "target": "resource:khulnasoft-platform"
+    },
+    {
+      "type": "depends_on",
+      "target": "resource:knowledge-graph"
+    }
+  ],
+  "health": {
+    "score": 90,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 90,
+    "level": "ready",
+    "scores": {
+      "architecture": 90,
+      "documentation": 90,
+      "security": 90,
+      "tests": 90,
+      "ci": 90,
+      "performance": 90,
+      "dependencies": 90,
+      "maintainability": 90,
+      "release": 90,
+      "compliance": 90,
+      "observability": 90,
+      "community": 90,
+      "ai_readiness": 92,
+      "production_readiness": 94
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": true,
+    "agentReady": true,
+    "readiness": 92
+  },
+  "context_summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+  "recommended_actions": []
+}

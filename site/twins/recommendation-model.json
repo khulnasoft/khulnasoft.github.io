@@ -1,0 +1,88 @@
+{
+  "resource": {
+    "id": "resource:recommendation-model",
+    "kind": "model",
+    "name": "Recommendation Model",
+    "slug": "recommendation-model",
+    "owner": "AI Enablement",
+    "team": "ai-ml",
+    "workspace": "ai",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "0.9.4",
+    "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "python"
+    ],
+    "frameworks": [
+      "fastapi"
+    ],
+    "capabilities": [
+      "ai",
+      "model",
+      "vector-collection"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:ai-runtime"
+    },
+    {
+      "type": "serves",
+      "target": "resource:checkout-service"
+    }
+  ],
+  "health": {
+    "score": 86,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 87,
+    "level": "ready",
+    "scores": {
+      "architecture": 86,
+      "documentation": 86,
+      "security": 86,
+      "tests": 86,
+      "ci": 86,
+      "performance": 86,
+      "dependencies": 86,
+      "maintainability": 86,
+      "release": 86,
+      "compliance": 86,
+      "observability": 86,
+      "community": 86,
+      "ai_readiness": 88,
+      "production_readiness": 96
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": false,
+    "agentReady": true,
+    "readiness": 88
+  },
+  "context_summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+  "recommended_actions": []
+}

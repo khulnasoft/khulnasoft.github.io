@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://khulnasoft.github.io/schemas/organization.schema.json",
+  "title": "KhulnaSoft organization, governance, and planes model",
+  "description": "Describes the platform hierarchy (organization -> workspace -> project), the modular plane boundaries (experience, control, knowledge, intelligence, runtime, infrastructure), and the governance model (identity, RBAC, policies, approval flows, billing boundaries, audit).",
+  "type": "object",
+  "required": ["id", "name", "slug", "hierarchy", "planes", "governance"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "slug": { "type": "string" },
+    "summary": { "type": "string" },
+    "workspaces": { "type": "array", "items": { "type": "string" } },
+    "hierarchy": {
+      "type": "object",
+      "description": "The canonical model order: organization -> workspace -> project -> repository -> service -> component -> package -> API -> runtime -> deployment -> infrastructure -> observability -> security -> AI.",
+      "properties": {
+        "organization": { "type": "array", "items": { "type": "string" } },
+        "workspace": { "type": "array", "items": { "type": "string" } },
+        "project": { "type": "array", "items": { "type": "string" } },
+        "resource": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "planes": {
+      "description": "Modular plane boundaries.",
+      "type": "object",
+      "properties": {
+        "experience": { "type": "object" },
+        "knowledge": { "type": "object" },
+        "control": { "type": "object" },
+        "intelligence": { "type": "object" },
+        "runtime": { "type": "object" },
+        "infrastructure": { "type": "object" }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "identity": { "type": "object", "description": "OAuth, OIDC, SAML, API keys, service accounts." },
+        "policies": { "type": "array", "items": { "type": "object" } },
+        "approvals": { "type": "array", "items": { "type": "object" } },
+        "auditTrail": { "type": "array", "items": { "type": "object" } },
+        "changeManagement": { "type": "object" },
+        "rbacRoles": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "updatedAt": { "type": "string" }
+  },
+  "additionalProperties": true
+}
