@@ -1,0 +1,102 @@
+{
+  "resource": {
+    "id": "resource:feature-flag-service",
+    "name": "Feature Flags",
+    "slug": "feature-flag-service",
+    "kind": "component"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+      "name": "Feature Flags",
+      "kind": "component",
+      "owner": "Platform",
+      "team": "platform-eng",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.8.2",
+      "tags": [
+        "feature-flag",
+        "delivery"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "capabilities": [
+        "feature-flag",
+        "api"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "serves",
+          "target": "resource:checkout-service",
+          "detail": null
+        },
+        {
+          "type": "serves",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+      "owner": "Platform",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 86,
+      "status": "healthy",
+      "readiness": 84
+    }
+  },
+  "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

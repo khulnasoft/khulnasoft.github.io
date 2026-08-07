@@ -1,0 +1,87 @@
+{
+  "resource": {
+    "id": "resource:orders-schema",
+    "name": "Orders Schema",
+    "slug": "orders-schema",
+    "kind": "schema"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+      "name": "Orders Schema",
+      "kind": "schema",
+      "owner": "Commerce",
+      "team": "commerce-data",
+      "workspace": "commerce",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "4.2.0",
+      "tags": [
+        "schema",
+        "database"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "schema",
+        "database"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:orders-db",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+      "owner": "Commerce",
+      "workspace": "commerce"
+    },
+    "health": {
+      "score": 93,
+      "status": "healthy",
+      "readiness": 90
+    }
+  },
+  "summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

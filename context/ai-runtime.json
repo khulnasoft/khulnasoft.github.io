@@ -1,0 +1,88 @@
+{
+  "resource": {
+    "id": "resource:ai-runtime",
+    "name": "AI Runtime Services",
+    "slug": "ai-runtime",
+    "kind": "ai-runtime"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+      "name": "AI Runtime Services",
+      "kind": "ai-runtime",
+      "owner": "KhulnaSoft",
+      "team": "KhulnaSoft",
+      "workspace": "core",
+      "lifecycle": "active",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "ai",
+        "agents",
+        "context"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "context-fabric",
+        "agent-runtime",
+        "prompt-registry",
+        "mcp"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+      "owner": "KhulnaSoft",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 82,
+      "status": "healthy",
+      "readiness": 80
+    }
+  },
+  "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

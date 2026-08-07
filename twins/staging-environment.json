@@ -1,0 +1,88 @@
+{
+  "resource": {
+    "id": "resource:staging-environment",
+    "kind": "environment",
+    "name": "Staging Environment",
+    "slug": "staging-environment",
+    "owner": "Platform",
+    "team": "platform-infra",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "yaml"
+    ],
+    "frameworks": [
+      "kubernetes",
+      "terraform"
+    ],
+    "capabilities": [
+      "environment",
+      "deployment"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "staging",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "part_of",
+      "target": "resource:khulnasoft-platform"
+    },
+    {
+      "type": "hosts",
+      "target": "resource:checkout-service"
+    }
+  ],
+  "health": {
+    "score": 89,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 87,
+    "level": "ready",
+    "scores": {
+      "architecture": 89,
+      "documentation": 89,
+      "security": 89,
+      "tests": 89,
+      "ci": 89,
+      "performance": 89,
+      "dependencies": 89,
+      "maintainability": 89,
+      "release": 89,
+      "compliance": 89,
+      "observability": 89,
+      "community": 89,
+      "ai_readiness": 50,
+      "production_readiness": 95
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

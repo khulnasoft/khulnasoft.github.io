@@ -1,0 +1,91 @@
+{
+  "resource": {
+    "id": "resource:oncall-alerts",
+    "name": "On-call Alerts",
+    "slug": "oncall-alerts",
+    "kind": "alert"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+      "name": "On-call Alerts",
+      "kind": "alert",
+      "owner": "Observability",
+      "team": "obs",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "alerts",
+        "on-call"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "prometheus",
+        "pagerduty"
+      ],
+      "capabilities": [
+        "alert",
+        "monitoring",
+        "observability"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:metrics-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+      "owner": "Observability",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 87,
+      "status": "healthy",
+      "readiness": 84
+    }
+  },
+  "summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

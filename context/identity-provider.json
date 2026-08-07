@@ -1,0 +1,112 @@
+{
+  "resource": {
+    "id": "resource:identity-provider",
+    "name": "Identity Provider",
+    "slug": "identity-provider",
+    "kind": "service"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+      "name": "Identity Provider",
+      "kind": "service",
+      "owner": "Core Infrastructure",
+      "team": "core-platform",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "5.2.0",
+      "tags": [
+        "identity",
+        "security",
+        "iam"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "capabilities": [
+        "authentication",
+        "authorization",
+        "api",
+        "sdk"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "provides",
+          "target": "resource:api-gateway",
+          "detail": null
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:policy-engine",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "observability": {
+      "p99": 85
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 90,
+      "status": "healthy",
+      "readiness": 91
+    }
+  },
+  "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

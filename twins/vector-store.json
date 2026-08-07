@@ -1,0 +1,89 @@
+{
+  "resource": {
+    "id": "resource:vector-store",
+    "kind": "database",
+    "name": "Vector Store",
+    "slug": "vector-store",
+    "owner": "AI Enablement",
+    "team": "ai-platform",
+    "workspace": "ai",
+    "lifecycle": "beta",
+    "status": "active",
+    "visibility": "internal",
+    "version": "0.7.0",
+    "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "ai",
+      "vector-collection",
+      "embedding-collection",
+      "search"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:ai-runtime"
+    },
+    {
+      "type": "serves",
+      "target": "resource:context-fabric"
+    }
+  ],
+  "health": {
+    "score": 84,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 85,
+    "level": "ready",
+    "scores": {
+      "architecture": 84,
+      "documentation": 84,
+      "security": 84,
+      "tests": 84,
+      "ci": 84,
+      "performance": 84,
+      "dependencies": 84,
+      "maintainability": 84,
+      "release": 84,
+      "compliance": 84,
+      "observability": 84,
+      "community": 84,
+      "ai_readiness": 86,
+      "production_readiness": 94
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": false,
+    "agentReady": true,
+    "readiness": 86
+  },
+  "context_summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
+}

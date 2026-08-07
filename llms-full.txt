@@ -1,0 +1,322 @@
+# KhulnaSoft Engineering Knowledge OS (full)
+
+## AI Code Assistant (ai-agent)
+- Summary: An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: beta
+- Capabilities: ai-agent, context-retrieval, review, assistant
+- Relationships: uses resource:context-fabric; uses resource:ai-runtime
+- Health: 85/100 (healthy)
+- Rendering: 2026-08-07
+
+## AI Runtime Services (ai-runtime)
+- Summary: Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: context-fabric, agent-runtime, prompt-registry, mcp
+- Relationships: depends_on resource:khulnasoft-platform
+- Health: 82/100 (healthy)
+- Rendering: 2026-08-07
+
+## API Gateway (api)
+- Summary: The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: api, mcp, routing
+- Relationships: depends_on resource:ai-runtime
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## Blueprint Templates (template)
+- Summary: Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: template, blueprint, starter, scaffolding
+- Relationships: part_of resource:repository-catalog; provides resource:ci-pipelines
+- Health: 83/100 (healthy)
+- Rendering: 2026-08-07
+
+## Checkout Service (service)
+- Summary: BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: microservice, api, payment, messaging
+- Relationships: depends_on resource:orders-db; depends_on resource:payment-events
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## CI Pipelines (workflow)
+- Summary: Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: workflow, github-action, automation
+- Relationships: deploys resource:khulnasoft-platform; tracks resource:repository-catalog
+- Health: 87/100 (healthy)
+- Rendering: 2026-08-07
+
+## Client SDKs (sdk)
+- Summary: Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: sdk, library, api
+- Relationships: depends_on resource:api-gateway
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## Container Registry (image)
+- Summary: Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: container, image, deployment, artifact
+- Relationships: provides resource:deployment-runtime; part_of resource:khulnasoft-platform
+- Health: 91/100 (healthy)
+- Rendering: 2026-08-07
+
+## Context Fabric (component)
+- Summary: Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: supported
+- Capabilities: context-fabric, layered-context, selective-retrieval, llms.txt
+- Relationships: provides resource:khulnasoft-platform; depends_on resource:knowledge-graph
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Deployment Runtime (deployment)
+- Summary: The runtime layer that orchestrates deployment automation, health checks, and release coordination.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: deployment, automation, release
+- Relationships: depends_on resource:api-gateway
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Public Domains (domain)
+- Summary: Managed public domains and TLS certificates terminating traffic at the platform ingress.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: domain, certificate, networking
+- Relationships: provides resource:platform-ingress; part_of resource:khulnasoft-platform
+- Health: 94/100 (healthy)
+- Rendering: 2026-08-07
+
+## Platform Event Bus (event)
+- Summary: Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: messaging, event-driven, event
+- Relationships: depends_on resource:khulnasoft-platform; provides resource:payment-events
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
+## Feature Flags (component)
+- Summary: Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: feature-flag, api
+- Relationships: serves resource:checkout-service; serves resource:khulnasoft-platform
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Grafana Dashboards (dashboard)
+- Summary: Operational dashboards for services, infrastructure, the AI runtime, and the data lake.
+- Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: dashboard, observability, monitoring
+- Relationships: part_of resource:metrics-platform
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## Helm Charts (helm-chart)
+- Summary: Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: helm-chart, deployment, kubernetes
+- Relationships: deploys resource:deployment-runtime; part_of resource:khulnasoft-platform
+- Health: 91/100 (healthy)
+- Rendering: 2026-08-07
+
+## Identity Provider (service)
+- Summary: Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: authentication, authorization, api, sdk
+- Relationships: provides resource:api-gateway; depends_on resource:policy-engine
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## KhulnaSoft Platform Core (platform)
+- Summary: The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: control-plane, catalog, governance, registry
+- Relationships: depends_on resource:ai-runtime
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
+## Engineering Knowledge Graph (graph)
+- Summary: The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.
+- Owner: Platform Core | Workspace: core | Lifecycle: supported
+- Capabilities: knowledge-graph, relationship-model, search
+- Relationships: contains resource:repository-catalog; provides resource:context-fabric
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Ledger Worker (worker)
+- Summary: Consumes payment events and writes idempotent ledger entries, reconciling daily batches.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: worker, messaging, automation
+- Relationships: depends_on resource:payment-events
+- Health: 76/100 (healthy)
+- Rendering: 2026-08-07
+
+## Logging Libraries (library)
+- Summary: Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: library, observability, logging
+- Relationships: used_by resource:checkout-service; used_by resource:ledger-worker
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Metrics Platform (observability)
+- Summary: Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.
+- Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: monitoring, observability, dashboard, alert
+- Relationships: monitors resource:api-gateway; monitors resource:checkout-service
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## On-call Alerts (alert)
+- Summary: Alert routing, paging, and escalation policies bound to service SLOs and health signals.
+- Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: alert, monitoring, observability
+- Relationships: depends_on resource:metrics-platform
+- Health: 87/100 (healthy)
+- Rendering: 2026-08-07
+
+## Orders Database (database)
+- Summary: Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: database, storage
+- Relationships: serves resource:checkout-service
+- Health: 85/100 (healthy)
+- Rendering: 2026-08-07
+
+## Orders Schema Migrations (migration)
+- Summary: Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: migration, database, automation
+- Relationships: part_of resource:orders-schema; deploys resource:orders-db
+- Health: 91/100 (healthy)
+- Rendering: 2026-08-07
+
+## Orders Schema (schema)
+- Summary: Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: schema, database
+- Relationships: part_of resource:orders-db
+- Health: 93/100 (healthy)
+- Rendering: 2026-08-07
+
+## Payment Events (queue)
+- Summary: Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: messaging, event-driven
+- Relationships: consumed_by resource:ledger-worker
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Platform Blueprints (blueprint)
+- Summary: Reference architectures and guardrail blueprints for services, agents, and data workloads.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: blueprint, template, governance
+- Relationships: part_of resource:blueprint-templates
+- Health: 85/100 (healthy)
+- Rendering: 2026-08-07
+
+## Platform Ingress (ingress)
+- Summary: North-south ingress gateway routing external traffic to platform APIs and the portal.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: networking, routing, api
+- Relationships: routes_to resource:api-gateway; routes_to resource:khulnasoft-platform
+- Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## Policy Engine (component)
+- Summary: OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: policy, governance, authorization
+- Relationships: depends_on resource:security-center; provides resource:khulnasoft-platform
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
+## Production Cluster (cluster)
+- Summary: Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: kubernetes, cluster, deployment
+- Relationships: hosts resource:checkout-service; hosts resource:ai-runtime; hosts resource:api-gateway
+- Health: 94/100 (healthy)
+- Rendering: 2026-08-07
+
+## Recommendation Model (model)
+- Summary: Embedding-based product recommendation model served through the AI runtime with online feature updates.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: supported
+- Capabilities: ai, model, vector-collection
+- Relationships: depends_on resource:ai-runtime; serves resource:checkout-service
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Release Artifacts (release)
+- Summary: Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: release, artifact, sdk
+- Relationships: part_of resource:repository-catalog; tracks resource:khulnasoft-platform
+- Health: 85/100 (healthy)
+- Rendering: 2026-08-07
+
+## Release Pipeline (pipeline)
+- Summary: End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: pipeline, release, automation, governance
+- Relationships: depends_on resource:ci-pipelines; provides resource:release-artifacts
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Repository Catalog Service (repository)
+- Summary: A registry service for discovering repositories, owners, metadata, and health signals across the organization.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: catalog, discovery, metadata
+- Relationships: depends_on resource:khulnasoft-platform
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Runbook Library (knowledge)
+- Summary: Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: knowledge, documentation, discovery
+- Relationships: provides resource:security-center; provides resource:oncall-alerts
+- Health: 84/100 (healthy)
+- Rendering: 2026-08-07
+
+## Secrets Vault (secret)
+- Summary: Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: secret, security, certificate
+- Relationships: depends_on resource:identity-provider; provides resource:deployment-runtime
+- Health: 95/100 (healthy)
+- Rendering: 2026-08-07
+
+## Security Center (security)
+- Summary: A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: security, vulnerability, policy
+- Relationships: depends_on resource:repository-catalog
+- Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## Staging Environment (environment)
+- Summary: Pre-production environment mirroring prod topology for integration testing and release validation.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: environment, deployment
+- Relationships: part_of resource:khulnasoft-platform; hosts resource:checkout-service
+- Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## TLS Certificates (certificate)
+- Summary: Managed TLS certificates for public domains, with automated renewal and expiry alerting.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: certificate, security, networking
+- Relationships: provides resource:domains; provides resource:platform-ingress
+- Health: 96/100 (healthy)
+- Rendering: 2026-08-07
+
+## Vector Store (database)
+- Summary: Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: beta
+- Capabilities: ai, vector-collection, embedding-collection, search
+- Relationships: depends_on resource:ai-runtime; serves resource:context-fabric
+- Health: 84/100 (healthy)
+- Rendering: 2026-08-07
+

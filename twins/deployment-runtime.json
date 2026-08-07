@@ -1,0 +1,76 @@
+{
+  "resource": {
+    "id": "resource:deployment-runtime",
+    "kind": "deployment",
+    "name": "Deployment Runtime",
+    "slug": "deployment-runtime",
+    "owner": "KhulnaSoft",
+    "team": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "deployment",
+      "automation",
+      "release"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:api-gateway"
+    }
+  ],
+  "health": {
+    "score": 86,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 83,
+    "level": "deployable",
+    "scores": {
+      "architecture": 86,
+      "documentation": 86,
+      "security": 86,
+      "tests": 86,
+      "ci": 86,
+      "performance": 86,
+      "dependencies": 86,
+      "maintainability": 86,
+      "release": 86,
+      "compliance": 86,
+      "observability": 86,
+      "community": 86,
+      "ai_readiness": 50,
+      "production_readiness": 86
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+  "recommended_actions": [
+    "Review release runbooks weekly",
+    "Tune automated rollback thresholds",
+    "Keep deployment health checks current",
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

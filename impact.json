@@ -1,0 +1,1978 @@
+{
+  "nodes": [
+    {
+      "id": "resource:ai-code-assistant",
+      "name": "AI Code Assistant",
+      "kind": "ai-agent",
+      "slug": "ai-code-assistant"
+    },
+    {
+      "id": "resource:ai-runtime",
+      "name": "AI Runtime Services",
+      "kind": "ai-runtime",
+      "slug": "ai-runtime"
+    },
+    {
+      "id": "resource:api-gateway",
+      "name": "API Gateway",
+      "kind": "api",
+      "slug": "api-gateway"
+    },
+    {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "kind": "template",
+      "slug": "blueprint-templates"
+    },
+    {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "kind": "service",
+      "slug": "checkout-service"
+    },
+    {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "kind": "workflow",
+      "slug": "ci-pipelines"
+    },
+    {
+      "id": "resource:client-sdks",
+      "name": "Client SDKs",
+      "kind": "sdk",
+      "slug": "client-sdks"
+    },
+    {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "kind": "image",
+      "slug": "container-registry"
+    },
+    {
+      "id": "resource:context-fabric",
+      "name": "Context Fabric",
+      "kind": "component",
+      "slug": "context-fabric"
+    },
+    {
+      "id": "resource:deployment-runtime",
+      "name": "Deployment Runtime",
+      "kind": "deployment",
+      "slug": "deployment-runtime"
+    },
+    {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "kind": "domain",
+      "slug": "domains"
+    },
+    {
+      "id": "resource:event-bus",
+      "name": "Platform Event Bus",
+      "kind": "event",
+      "slug": "event-bus"
+    },
+    {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "kind": "component",
+      "slug": "feature-flag-service"
+    },
+    {
+      "id": "resource:grafana-dashboards",
+      "name": "Grafana Dashboards",
+      "kind": "dashboard",
+      "slug": "grafana-dashboards"
+    },
+    {
+      "id": "resource:helm-charts-registry",
+      "name": "Helm Charts",
+      "kind": "helm-chart",
+      "slug": "helm-charts-registry"
+    },
+    {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "kind": "service",
+      "slug": "identity-provider"
+    },
+    {
+      "id": "resource:khulnasoft-platform",
+      "name": "KhulnaSoft Platform Core",
+      "kind": "platform",
+      "slug": "khulnasoft-platform"
+    },
+    {
+      "id": "resource:knowledge-graph",
+      "name": "Engineering Knowledge Graph",
+      "kind": "graph",
+      "slug": "knowledge-graph"
+    },
+    {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "kind": "worker",
+      "slug": "ledger-worker"
+    },
+    {
+      "id": "resource:logging-libraries",
+      "name": "Logging Libraries",
+      "kind": "library",
+      "slug": "logging-libraries"
+    },
+    {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "kind": "observability",
+      "slug": "metrics-platform"
+    },
+    {
+      "id": "resource:oncall-alerts",
+      "name": "On-call Alerts",
+      "kind": "alert",
+      "slug": "oncall-alerts"
+    },
+    {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "kind": "database",
+      "slug": "orders-db"
+    },
+    {
+      "id": "resource:orders-migration",
+      "name": "Orders Schema Migrations",
+      "kind": "migration",
+      "slug": "orders-migration"
+    },
+    {
+      "id": "resource:orders-schema",
+      "name": "Orders Schema",
+      "kind": "schema",
+      "slug": "orders-schema"
+    },
+    {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "kind": "queue",
+      "slug": "payment-events"
+    },
+    {
+      "id": "resource:platform-blueprints",
+      "name": "Platform Blueprints",
+      "kind": "blueprint",
+      "slug": "platform-blueprints"
+    },
+    {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "kind": "ingress",
+      "slug": "platform-ingress"
+    },
+    {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "kind": "component",
+      "slug": "policy-engine"
+    },
+    {
+      "id": "resource:prod-cluster",
+      "name": "Production Cluster",
+      "kind": "cluster",
+      "slug": "prod-cluster"
+    },
+    {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "kind": "model",
+      "slug": "recommendation-model"
+    },
+    {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "kind": "release",
+      "slug": "release-artifacts"
+    },
+    {
+      "id": "resource:release-pipeline",
+      "name": "Release Pipeline",
+      "kind": "pipeline",
+      "slug": "release-pipeline"
+    },
+    {
+      "id": "resource:repository-catalog",
+      "name": "Repository Catalog Service",
+      "kind": "repository",
+      "slug": "repository-catalog"
+    },
+    {
+      "id": "resource:runbooks",
+      "name": "Runbook Library",
+      "kind": "knowledge",
+      "slug": "runbooks"
+    },
+    {
+      "id": "resource:secrets-vault",
+      "name": "Secrets Vault",
+      "kind": "secret",
+      "slug": "secrets-vault"
+    },
+    {
+      "id": "resource:security-center",
+      "name": "Security Center",
+      "kind": "security",
+      "slug": "security-center"
+    },
+    {
+      "id": "resource:staging-environment",
+      "name": "Staging Environment",
+      "kind": "environment",
+      "slug": "staging-environment"
+    },
+    {
+      "id": "resource:tls-certificates",
+      "name": "TLS Certificates",
+      "kind": "certificate",
+      "slug": "tls-certificates"
+    },
+    {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "kind": "database",
+      "slug": "vector-store"
+    }
+  ],
+  "edges": [
+    {
+      "from": "resource:ai-code-assistant",
+      "to": "resource:context-fabric",
+      "type": "uses"
+    },
+    {
+      "from": "resource:ai-code-assistant",
+      "to": "resource:ai-runtime",
+      "type": "uses"
+    },
+    {
+      "from": "resource:ai-runtime",
+      "to": "resource:khulnasoft-platform",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:api-gateway",
+      "to": "resource:ai-runtime",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:blueprint-templates",
+      "to": "resource:repository-catalog",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:blueprint-templates",
+      "to": "resource:ci-pipelines",
+      "type": "provides"
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:orders-db",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:checkout-service",
+      "to": "resource:payment-events",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:ci-pipelines",
+      "to": "resource:khulnasoft-platform",
+      "type": "deploys"
+    },
+    {
+      "from": "resource:ci-pipelines",
+      "to": "resource:repository-catalog",
+      "type": "tracks"
+    },
+    {
+      "from": "resource:client-sdks",
+      "to": "resource:api-gateway",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:container-registry",
+      "to": "resource:deployment-runtime",
+      "type": "provides"
+    },
+    {
+      "from": "resource:container-registry",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:context-fabric",
+      "to": "resource:khulnasoft-platform",
+      "type": "provides"
+    },
+    {
+      "from": "resource:context-fabric",
+      "to": "resource:knowledge-graph",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:deployment-runtime",
+      "to": "resource:api-gateway",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:domains",
+      "to": "resource:platform-ingress",
+      "type": "provides"
+    },
+    {
+      "from": "resource:domains",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:event-bus",
+      "to": "resource:khulnasoft-platform",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:event-bus",
+      "to": "resource:payment-events",
+      "type": "provides"
+    },
+    {
+      "from": "resource:feature-flag-service",
+      "to": "resource:checkout-service",
+      "type": "serves"
+    },
+    {
+      "from": "resource:feature-flag-service",
+      "to": "resource:khulnasoft-platform",
+      "type": "serves"
+    },
+    {
+      "from": "resource:grafana-dashboards",
+      "to": "resource:metrics-platform",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:helm-charts-registry",
+      "to": "resource:deployment-runtime",
+      "type": "deploys"
+    },
+    {
+      "from": "resource:helm-charts-registry",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:identity-provider",
+      "to": "resource:api-gateway",
+      "type": "provides"
+    },
+    {
+      "from": "resource:identity-provider",
+      "to": "resource:policy-engine",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:khulnasoft-platform",
+      "to": "resource:ai-runtime",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:knowledge-graph",
+      "to": "resource:repository-catalog",
+      "type": "contains"
+    },
+    {
+      "from": "resource:knowledge-graph",
+      "to": "resource:context-fabric",
+      "type": "provides"
+    },
+    {
+      "from": "resource:ledger-worker",
+      "to": "resource:payment-events",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:logging-libraries",
+      "to": "resource:checkout-service",
+      "type": "used_by"
+    },
+    {
+      "from": "resource:logging-libraries",
+      "to": "resource:ledger-worker",
+      "type": "used_by"
+    },
+    {
+      "from": "resource:metrics-platform",
+      "to": "resource:api-gateway",
+      "type": "monitors"
+    },
+    {
+      "from": "resource:metrics-platform",
+      "to": "resource:checkout-service",
+      "type": "monitors"
+    },
+    {
+      "from": "resource:oncall-alerts",
+      "to": "resource:metrics-platform",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:orders-db",
+      "to": "resource:checkout-service",
+      "type": "serves"
+    },
+    {
+      "from": "resource:orders-migration",
+      "to": "resource:orders-schema",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:orders-migration",
+      "to": "resource:orders-db",
+      "type": "deploys"
+    },
+    {
+      "from": "resource:orders-schema",
+      "to": "resource:orders-db",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:payment-events",
+      "to": "resource:ledger-worker",
+      "type": "consumed_by"
+    },
+    {
+      "from": "resource:platform-blueprints",
+      "to": "resource:blueprint-templates",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:api-gateway",
+      "type": "routes_to"
+    },
+    {
+      "from": "resource:platform-ingress",
+      "to": "resource:khulnasoft-platform",
+      "type": "routes_to"
+    },
+    {
+      "from": "resource:policy-engine",
+      "to": "resource:security-center",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:policy-engine",
+      "to": "resource:khulnasoft-platform",
+      "type": "provides"
+    },
+    {
+      "from": "resource:prod-cluster",
+      "to": "resource:checkout-service",
+      "type": "hosts"
+    },
+    {
+      "from": "resource:prod-cluster",
+      "to": "resource:ai-runtime",
+      "type": "hosts"
+    },
+    {
+      "from": "resource:prod-cluster",
+      "to": "resource:api-gateway",
+      "type": "hosts"
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:ai-runtime",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:recommendation-model",
+      "to": "resource:checkout-service",
+      "type": "serves"
+    },
+    {
+      "from": "resource:release-artifacts",
+      "to": "resource:repository-catalog",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:release-artifacts",
+      "to": "resource:khulnasoft-platform",
+      "type": "tracks"
+    },
+    {
+      "from": "resource:release-pipeline",
+      "to": "resource:ci-pipelines",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:release-pipeline",
+      "to": "resource:release-artifacts",
+      "type": "provides"
+    },
+    {
+      "from": "resource:repository-catalog",
+      "to": "resource:khulnasoft-platform",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:runbooks",
+      "to": "resource:security-center",
+      "type": "provides"
+    },
+    {
+      "from": "resource:runbooks",
+      "to": "resource:oncall-alerts",
+      "type": "provides"
+    },
+    {
+      "from": "resource:secrets-vault",
+      "to": "resource:identity-provider",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:secrets-vault",
+      "to": "resource:deployment-runtime",
+      "type": "provides"
+    },
+    {
+      "from": "resource:security-center",
+      "to": "resource:repository-catalog",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:staging-environment",
+      "to": "resource:khulnasoft-platform",
+      "type": "part_of"
+    },
+    {
+      "from": "resource:staging-environment",
+      "to": "resource:checkout-service",
+      "type": "hosts"
+    },
+    {
+      "from": "resource:tls-certificates",
+      "to": "resource:domains",
+      "type": "provides"
+    },
+    {
+      "from": "resource:tls-certificates",
+      "to": "resource:platform-ingress",
+      "type": "provides"
+    },
+    {
+      "from": "resource:vector-store",
+      "to": "resource:ai-runtime",
+      "type": "depends_on"
+    },
+    {
+      "from": "resource:vector-store",
+      "to": "resource:context-fabric",
+      "type": "serves"
+    }
+  ],
+  "per_resource": {
+    "resource:ai-code-assistant": {
+      "id": "resource:ai-code-assistant",
+      "name": "AI Code Assistant",
+      "kind": "ai-agent",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:ai-runtime": {
+      "id": "resource:ai-runtime",
+      "name": "AI Runtime Services",
+      "kind": "ai-runtime",
+      "blast_radius": 32,
+      "impacted": [
+        {
+          "id": "resource:khulnasoft-platform",
+          "name": "KhulnaSoft Platform Core",
+          "kind": "platform",
+          "depth": 1
+        },
+        {
+          "id": "resource:api-gateway",
+          "name": "API Gateway",
+          "kind": "api",
+          "depth": -1
+        },
+        {
+          "id": "resource:repository-catalog",
+          "name": "Repository Catalog Service",
+          "kind": "repository",
+          "depth": -1
+        },
+        {
+          "id": "resource:deployment-runtime",
+          "name": "Deployment Runtime",
+          "kind": "deployment",
+          "depth": -1
+        },
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:security-center",
+          "name": "Security Center",
+          "kind": "security",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "kind": "ingress",
+          "depth": -1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:ci-pipelines",
+          "name": "CI Pipelines",
+          "kind": "workflow",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-artifacts",
+          "name": "Release Artifacts",
+          "kind": "release",
+          "depth": -1
+        },
+        {
+          "id": "resource:domains",
+          "name": "Public Domains",
+          "kind": "domain",
+          "depth": -1
+        },
+        {
+          "id": "resource:policy-engine",
+          "name": "Policy Engine",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:knowledge-graph",
+          "name": "Engineering Knowledge Graph",
+          "kind": "graph",
+          "depth": -1
+        },
+        {
+          "id": "resource:blueprint-templates",
+          "name": "Blueprint Templates",
+          "kind": "template",
+          "depth": -1
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:tls-certificates",
+          "name": "TLS Certificates",
+          "kind": "certificate",
+          "depth": -1
+        },
+        {
+          "id": "resource:staging-environment",
+          "name": "Staging Environment",
+          "kind": "environment",
+          "depth": -1
+        },
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-pipeline",
+          "name": "Release Pipeline",
+          "kind": "pipeline",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:event-bus",
+          "name": "Platform Event Bus",
+          "kind": "event",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-blueprints",
+          "name": "Platform Blueprints",
+          "kind": "blueprint",
+          "depth": -1
+        },
+        {
+          "id": "resource:helm-charts-registry",
+          "name": "Helm Charts",
+          "kind": "helm-chart",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:container-registry",
+          "name": "Container Registry",
+          "kind": "image",
+          "depth": -1
+        },
+        {
+          "id": "resource:client-sdks",
+          "name": "Client SDKs",
+          "kind": "sdk",
+          "depth": -1
+        },
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "kind": "ai-agent",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:api-gateway": {
+      "id": "resource:api-gateway",
+      "name": "API Gateway",
+      "kind": "api",
+      "blast_radius": 14,
+      "impacted": [
+        {
+          "id": "resource:deployment-runtime",
+          "name": "Deployment Runtime",
+          "kind": "deployment",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "kind": "ingress",
+          "depth": -1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:domains",
+          "name": "Public Domains",
+          "kind": "domain",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:tls-certificates",
+          "name": "TLS Certificates",
+          "kind": "certificate",
+          "depth": -1
+        },
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:helm-charts-registry",
+          "name": "Helm Charts",
+          "kind": "helm-chart",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:container-registry",
+          "name": "Container Registry",
+          "kind": "image",
+          "depth": -1
+        },
+        {
+          "id": "resource:client-sdks",
+          "name": "Client SDKs",
+          "kind": "sdk",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:blueprint-templates": {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "kind": "template",
+      "blast_radius": 1,
+      "impacted": [
+        {
+          "id": "resource:platform-blueprints",
+          "name": "Platform Blueprints",
+          "kind": "blueprint",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:checkout-service": {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "kind": "service",
+      "blast_radius": 12,
+      "impacted": [
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "kind": "database",
+          "depth": 1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-schema",
+          "name": "Orders Schema",
+          "kind": "schema",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:staging-environment",
+          "name": "Staging Environment",
+          "kind": "environment",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-migration",
+          "name": "Orders Schema Migrations",
+          "kind": "migration",
+          "depth": -1
+        },
+        {
+          "id": "resource:logging-libraries",
+          "name": "Logging Libraries",
+          "kind": "library",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "kind": "component",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:ci-pipelines": {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "kind": "workflow",
+      "blast_radius": 3,
+      "impacted": [
+        {
+          "id": "resource:blueprint-templates",
+          "name": "Blueprint Templates",
+          "kind": "template",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-pipeline",
+          "name": "Release Pipeline",
+          "kind": "pipeline",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-blueprints",
+          "name": "Platform Blueprints",
+          "kind": "blueprint",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:client-sdks": {
+      "id": "resource:client-sdks",
+      "name": "Client SDKs",
+      "kind": "sdk",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:container-registry": {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "kind": "image",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:context-fabric": {
+      "id": "resource:context-fabric",
+      "name": "Context Fabric",
+      "kind": "component",
+      "blast_radius": 3,
+      "impacted": [
+        {
+          "id": "resource:knowledge-graph",
+          "name": "Engineering Knowledge Graph",
+          "kind": "graph",
+          "depth": 1
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "kind": "ai-agent",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:deployment-runtime": {
+      "id": "resource:deployment-runtime",
+      "name": "Deployment Runtime",
+      "kind": "deployment",
+      "blast_radius": 3,
+      "impacted": [
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        },
+        {
+          "id": "resource:helm-charts-registry",
+          "name": "Helm Charts",
+          "kind": "helm-chart",
+          "depth": -1
+        },
+        {
+          "id": "resource:container-registry",
+          "name": "Container Registry",
+          "kind": "image",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:domains": {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "kind": "domain",
+      "blast_radius": 1,
+      "impacted": [
+        {
+          "id": "resource:tls-certificates",
+          "name": "TLS Certificates",
+          "kind": "certificate",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:event-bus": {
+      "id": "resource:event-bus",
+      "name": "Platform Event Bus",
+      "kind": "event",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:feature-flag-service": {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "kind": "component",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:grafana-dashboards": {
+      "id": "resource:grafana-dashboards",
+      "name": "Grafana Dashboards",
+      "kind": "dashboard",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:helm-charts-registry": {
+      "id": "resource:helm-charts-registry",
+      "name": "Helm Charts",
+      "kind": "helm-chart",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:identity-provider": {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "kind": "service",
+      "blast_radius": 1,
+      "impacted": [
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:khulnasoft-platform": {
+      "id": "resource:khulnasoft-platform",
+      "name": "KhulnaSoft Platform Core",
+      "kind": "platform",
+      "blast_radius": 32,
+      "impacted": [
+        {
+          "id": "resource:api-gateway",
+          "name": "API Gateway",
+          "kind": "api",
+          "depth": -1
+        },
+        {
+          "id": "resource:ai-runtime",
+          "name": "AI Runtime Services",
+          "kind": "ai-runtime",
+          "depth": 1
+        },
+        {
+          "id": "resource:repository-catalog",
+          "name": "Repository Catalog Service",
+          "kind": "repository",
+          "depth": -1
+        },
+        {
+          "id": "resource:deployment-runtime",
+          "name": "Deployment Runtime",
+          "kind": "deployment",
+          "depth": -1
+        },
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:security-center",
+          "name": "Security Center",
+          "kind": "security",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "kind": "ingress",
+          "depth": -1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:ci-pipelines",
+          "name": "CI Pipelines",
+          "kind": "workflow",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-artifacts",
+          "name": "Release Artifacts",
+          "kind": "release",
+          "depth": -1
+        },
+        {
+          "id": "resource:domains",
+          "name": "Public Domains",
+          "kind": "domain",
+          "depth": -1
+        },
+        {
+          "id": "resource:policy-engine",
+          "name": "Policy Engine",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:knowledge-graph",
+          "name": "Engineering Knowledge Graph",
+          "kind": "graph",
+          "depth": -1
+        },
+        {
+          "id": "resource:blueprint-templates",
+          "name": "Blueprint Templates",
+          "kind": "template",
+          "depth": -1
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:tls-certificates",
+          "name": "TLS Certificates",
+          "kind": "certificate",
+          "depth": -1
+        },
+        {
+          "id": "resource:staging-environment",
+          "name": "Staging Environment",
+          "kind": "environment",
+          "depth": -1
+        },
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-pipeline",
+          "name": "Release Pipeline",
+          "kind": "pipeline",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:event-bus",
+          "name": "Platform Event Bus",
+          "kind": "event",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-blueprints",
+          "name": "Platform Blueprints",
+          "kind": "blueprint",
+          "depth": -1
+        },
+        {
+          "id": "resource:helm-charts-registry",
+          "name": "Helm Charts",
+          "kind": "helm-chart",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:container-registry",
+          "name": "Container Registry",
+          "kind": "image",
+          "depth": -1
+        },
+        {
+          "id": "resource:client-sdks",
+          "name": "Client SDKs",
+          "kind": "sdk",
+          "depth": -1
+        },
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "kind": "ai-agent",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:knowledge-graph": {
+      "id": "resource:knowledge-graph",
+      "name": "Engineering Knowledge Graph",
+      "kind": "graph",
+      "blast_radius": 3,
+      "impacted": [
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "kind": "component",
+          "depth": 1
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "kind": "ai-agent",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:ledger-worker": {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "kind": "worker",
+      "blast_radius": 15,
+      "impacted": [
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:payment-events",
+          "name": "Payment Events",
+          "kind": "queue",
+          "depth": 1
+        },
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-schema",
+          "name": "Orders Schema",
+          "kind": "schema",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:staging-environment",
+          "name": "Staging Environment",
+          "kind": "environment",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:event-bus",
+          "name": "Platform Event Bus",
+          "kind": "event",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-migration",
+          "name": "Orders Schema Migrations",
+          "kind": "migration",
+          "depth": -1
+        },
+        {
+          "id": "resource:logging-libraries",
+          "name": "Logging Libraries",
+          "kind": "library",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "kind": "component",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:logging-libraries": {
+      "id": "resource:logging-libraries",
+      "name": "Logging Libraries",
+      "kind": "library",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:metrics-platform": {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "kind": "observability",
+      "blast_radius": 3,
+      "impacted": [
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:oncall-alerts": {
+      "id": "resource:oncall-alerts",
+      "name": "On-call Alerts",
+      "kind": "alert",
+      "blast_radius": 1,
+      "impacted": [
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:orders-db": {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "kind": "database",
+      "blast_radius": 12,
+      "impacted": [
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "kind": "service",
+          "depth": 1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-schema",
+          "name": "Orders Schema",
+          "kind": "schema",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:staging-environment",
+          "name": "Staging Environment",
+          "kind": "environment",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-migration",
+          "name": "Orders Schema Migrations",
+          "kind": "migration",
+          "depth": -1
+        },
+        {
+          "id": "resource:logging-libraries",
+          "name": "Logging Libraries",
+          "kind": "library",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "kind": "component",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:orders-migration": {
+      "id": "resource:orders-migration",
+      "name": "Orders Schema Migrations",
+      "kind": "migration",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:orders-schema": {
+      "id": "resource:orders-schema",
+      "name": "Orders Schema",
+      "kind": "schema",
+      "blast_radius": 1,
+      "impacted": [
+        {
+          "id": "resource:orders-migration",
+          "name": "Orders Schema Migrations",
+          "kind": "migration",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:payment-events": {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "kind": "queue",
+      "blast_radius": 15,
+      "impacted": [
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:metrics-platform",
+          "name": "Metrics Platform",
+          "kind": "observability",
+          "depth": -1
+        },
+        {
+          "id": "resource:ledger-worker",
+          "name": "Ledger Worker",
+          "kind": "worker",
+          "depth": 1
+        },
+        {
+          "id": "resource:orders-schema",
+          "name": "Orders Schema",
+          "kind": "schema",
+          "depth": -1
+        },
+        {
+          "id": "resource:oncall-alerts",
+          "name": "On-call Alerts",
+          "kind": "alert",
+          "depth": -1
+        },
+        {
+          "id": "resource:staging-environment",
+          "name": "Staging Environment",
+          "kind": "environment",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "kind": "model",
+          "depth": -1
+        },
+        {
+          "id": "resource:prod-cluster",
+          "name": "Production Cluster",
+          "kind": "cluster",
+          "depth": -1
+        },
+        {
+          "id": "resource:event-bus",
+          "name": "Platform Event Bus",
+          "kind": "event",
+          "depth": -1
+        },
+        {
+          "id": "resource:orders-migration",
+          "name": "Orders Schema Migrations",
+          "kind": "migration",
+          "depth": -1
+        },
+        {
+          "id": "resource:logging-libraries",
+          "name": "Logging Libraries",
+          "kind": "library",
+          "depth": -1
+        },
+        {
+          "id": "resource:grafana-dashboards",
+          "name": "Grafana Dashboards",
+          "kind": "dashboard",
+          "depth": -1
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "kind": "component",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:platform-blueprints": {
+      "id": "resource:platform-blueprints",
+      "name": "Platform Blueprints",
+      "kind": "blueprint",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:platform-ingress": {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "kind": "ingress",
+      "blast_radius": 2,
+      "impacted": [
+        {
+          "id": "resource:domains",
+          "name": "Public Domains",
+          "kind": "domain",
+          "depth": -1
+        },
+        {
+          "id": "resource:tls-certificates",
+          "name": "TLS Certificates",
+          "kind": "certificate",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:policy-engine": {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "kind": "component",
+      "blast_radius": 2,
+      "impacted": [
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:prod-cluster": {
+      "id": "resource:prod-cluster",
+      "name": "Production Cluster",
+      "kind": "cluster",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:recommendation-model": {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "kind": "model",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:release-artifacts": {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "kind": "release",
+      "blast_radius": 1,
+      "impacted": [
+        {
+          "id": "resource:release-pipeline",
+          "name": "Release Pipeline",
+          "kind": "pipeline",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:release-pipeline": {
+      "id": "resource:release-pipeline",
+      "name": "Release Pipeline",
+      "kind": "pipeline",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:repository-catalog": {
+      "id": "resource:repository-catalog",
+      "name": "Repository Catalog Service",
+      "kind": "repository",
+      "blast_radius": 14,
+      "impacted": [
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:security-center",
+          "name": "Security Center",
+          "kind": "security",
+          "depth": -1
+        },
+        {
+          "id": "resource:ci-pipelines",
+          "name": "CI Pipelines",
+          "kind": "workflow",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-artifacts",
+          "name": "Release Artifacts",
+          "kind": "release",
+          "depth": -1
+        },
+        {
+          "id": "resource:policy-engine",
+          "name": "Policy Engine",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:knowledge-graph",
+          "name": "Engineering Knowledge Graph",
+          "kind": "graph",
+          "depth": -1
+        },
+        {
+          "id": "resource:blueprint-templates",
+          "name": "Blueprint Templates",
+          "kind": "template",
+          "depth": -1
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "kind": "database",
+          "depth": -1
+        },
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        },
+        {
+          "id": "resource:release-pipeline",
+          "name": "Release Pipeline",
+          "kind": "pipeline",
+          "depth": -1
+        },
+        {
+          "id": "resource:platform-blueprints",
+          "name": "Platform Blueprints",
+          "kind": "blueprint",
+          "depth": -1
+        },
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "kind": "ai-agent",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:runbooks": {
+      "id": "resource:runbooks",
+      "name": "Runbook Library",
+      "kind": "knowledge",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:secrets-vault": {
+      "id": "resource:secrets-vault",
+      "name": "Secrets Vault",
+      "kind": "secret",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:security-center": {
+      "id": "resource:security-center",
+      "name": "Security Center",
+      "kind": "security",
+      "blast_radius": 4,
+      "impacted": [
+        {
+          "id": "resource:policy-engine",
+          "name": "Policy Engine",
+          "kind": "component",
+          "depth": -1
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "kind": "service",
+          "depth": -1
+        },
+        {
+          "id": "resource:secrets-vault",
+          "name": "Secrets Vault",
+          "kind": "secret",
+          "depth": -1
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "kind": "knowledge",
+          "depth": -1
+        }
+      ],
+      "is_dependency": true
+    },
+    "resource:staging-environment": {
+      "id": "resource:staging-environment",
+      "name": "Staging Environment",
+      "kind": "environment",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:tls-certificates": {
+      "id": "resource:tls-certificates",
+      "name": "TLS Certificates",
+      "kind": "certificate",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    },
+    "resource:vector-store": {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "kind": "database",
+      "blast_radius": 0,
+      "impacted": [],
+      "is_dependency": true
+    }
+  },
+  "total": 40,
+  "max_blast_radius": 32,
+  "avg_blast_radius": 4
+}

@@ -1,0 +1,81 @@
+{
+  "resource": {
+    "id": "resource:knowledge-graph",
+    "kind": "graph",
+    "name": "Engineering Knowledge Graph",
+    "slug": "knowledge-graph",
+    "owner": "Platform Core",
+    "team": "platform-core",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "python"
+    ],
+    "frameworks": [
+      "networkx-compatible"
+    ],
+    "capabilities": [
+      "knowledge-graph",
+      "relationship-model",
+      "search"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "resource:repository-catalog"
+    },
+    {
+      "type": "provides",
+      "target": "resource:context-fabric"
+    }
+  ],
+  "health": {
+    "score": 86,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 86,
+    "level": "ready",
+    "scores": {
+      "architecture": 86,
+      "documentation": 86,
+      "security": 86,
+      "tests": 86,
+      "ci": 86,
+      "performance": 86,
+      "dependencies": 86,
+      "maintainability": 86,
+      "release": 86,
+      "compliance": 86,
+      "observability": 86,
+      "community": 86,
+      "ai_readiness": 90,
+      "production_readiness": 86
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": true,
+    "agentReady": true,
+    "readiness": 90
+  },
+  "context_summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
+}

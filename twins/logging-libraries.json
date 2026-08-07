@@ -1,0 +1,82 @@
+{
+  "resource": {
+    "id": "resource:logging-libraries",
+    "kind": "library",
+    "name": "Logging Libraries",
+    "slug": "logging-libraries",
+    "owner": "Developer Experience",
+    "team": "dx",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "2.0.0",
+    "summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go",
+      "python",
+      "typescript"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "library",
+      "observability",
+      "logging"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "used_by",
+      "target": "resource:checkout-service"
+    },
+    {
+      "type": "used_by",
+      "target": "resource:ledger-worker"
+    }
+  ],
+  "health": {
+    "score": 90,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 87,
+    "level": "ready",
+    "scores": {
+      "architecture": 90,
+      "documentation": 90,
+      "security": 90,
+      "tests": 90,
+      "ci": 90,
+      "performance": 90,
+      "dependencies": 90,
+      "maintainability": 90,
+      "release": 90,
+      "compliance": 90,
+      "observability": 90,
+      "community": 90,
+      "ai_readiness": 50,
+      "production_readiness": 90
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

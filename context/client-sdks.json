@@ -1,0 +1,113 @@
+{
+  "resource": {
+    "id": "resource:client-sdks",
+    "name": "Client SDKs",
+    "slug": "client-sdks",
+    "kind": "sdk"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+      "name": "Client SDKs",
+      "kind": "sdk",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "public",
+      "version": "1.1.0",
+      "tags": [
+        "sdk",
+        "client",
+        "developer-experience"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "typescript",
+        "python",
+        "go",
+        "rust",
+        "java",
+        "c#",
+        "php",
+        "ruby",
+        "swift",
+        "kotlin",
+        "dart"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "sdk",
+        "library",
+        "api"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:api-gateway",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "npm",
+          "pypi"
+        ]
+      },
+      "targets": [
+        "npm",
+        "pypi"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 88,
+      "status": "healthy",
+      "readiness": 89
+    }
+  },
+  "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

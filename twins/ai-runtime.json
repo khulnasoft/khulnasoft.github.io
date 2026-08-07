@@ -1,0 +1,75 @@
+{
+  "resource": {
+    "id": "resource:ai-runtime",
+    "kind": "ai-runtime",
+    "name": "AI Runtime Services",
+    "slug": "ai-runtime",
+    "owner": "KhulnaSoft",
+    "team": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "context-fabric",
+      "agent-runtime",
+      "prompt-registry",
+      "mcp"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:khulnasoft-platform"
+    }
+  ],
+  "health": {
+    "score": 82,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 80,
+    "level": "deployable",
+    "scores": {
+      "architecture": 82,
+      "documentation": 82,
+      "security": 82,
+      "tests": 82,
+      "ci": 82,
+      "performance": 82,
+      "dependencies": 82,
+      "maintainability": 82,
+      "release": 82,
+      "compliance": 82,
+      "observability": 82,
+      "community": 82,
+      "ai_readiness": 50,
+      "production_readiness": 82
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

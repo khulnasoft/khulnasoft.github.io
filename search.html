@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ask the Portal · KhulnaSoft Engineering Knowledge OS</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#07111f;color:#f5f7fb;line-height:1.5}
+a{color:#58c6dd}a:hover{text-decoration:underline}
+header.top{border-bottom:1px solid #1f3040;padding:.85rem 1.4rem;display:flex;align-items:center;gap:1rem;
+position:sticky;top:0;background:rgba(7,17,31,.95)}
+header.top .brand{font-weight:700;letter-spacing:.2px}
+header.top .accent{color:#58c6dd}
+header.top nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:.2rem}
+header.top nav a{color:#93a7bd;text-decoration:none;padding:.3rem .55rem;border-radius:8px;font-size:.82rem}
+header.top nav a:hover{color:#f5f7fb;background:#1f2f40}
+main{max-width:1140px;margin:0 auto;padding:1.6rem}
+h1{letter-spacing:-.03em;font-size:1.8rem}
+h2{color:#58c6dd;font-size:1.15rem;margin:1.5rem 0 .6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.card{background:#10202f;border:1px solid #1f3244;border-radius:12px;padding:1rem 1.1rem}
+.card.metric{text-align:center}
+.metric .value{font-size:1.9rem;font-weight:800;color:#58c6dd}
+.metric .label{color:#93a7bd;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;background:#14324f;color:#58c6dd;padding:.18rem .6rem;border-radius:999px;font-size:.75rem;margin:.15rem .25rem .15rem 0}
+.pill.kind{background:#14314a;color:#c5d5e8}
+.muted{color:#93a7bd}
+code{background:#0d1a28;padding:.1rem .35rem;border-radius:5px;font-size:.85rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:.42rem 0;border-bottom:1px solid #1f3244}
+ul.plain li:last-child{border-bottom:none}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:#93a7bd;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.4rem}
+td{padding:.45rem;border-top:1px solid #1f3244}
+.footer{border-top:1px solid #1f3244;margin-top:2rem;padding:1rem 1.4rem;color:#93a7bd;font-size:.8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.badge{display:inline-block;padding:.12rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600}
+.badge.ok{background:rgba(74,222,128,.16);color:#4ade80}
+.badge.warn{background:rgba(251,191,36,.16);color:#fbbf24}
+.badge.bad{background:rgba(248,113,113,.16);color:#f87171}
+</style></head>
+<body>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">Knowledge OS</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
+<main><h1>Ask the Portal</h1>
+<p class="muted">Search across the knowledge base. Three lexical modes (<code>hybrid</code>, <code>keyword</code>, <code>semantic</code>) rank by TF-IDF text match; the specialty modes (<code>capability</code>, <code>ownership</code>, <code>relationship</code>, <code>security</code>, <code>impact</code>) rank by a derived dimension of the model.</p>
+<div class="card">
+<div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+<input id="q" style="flex:1;min-width:220px;padding:.6rem;border-radius:8px;border:1px solid #1f3244;background:#0d1a28;color:#f5f7fb" placeholder="e.g. api agent gateway mcp / capabilities security / ownership ai" autofocus/>
+<select id="mode"><option value="hybrid">hybrid</option><option value="keyword">keyword</option><option value="semantic">semantic</option><option value="capability">capability</option><option value="ownership">ownership</option><option value="relationship">relationship</option><option value="security">security</option><option value="impact">impact</option></select>
+<span class="muted" style="align-self:center" id="count"></span>
+</div>
+<div style="margin-top:.8rem" id="hint" class="muted"></div>
+<div id="facets" style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem"></div>
+<div id="out" style="margin-top:1rem"></div>
+</div>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ranks=new Map();
+const toks=w=>w.toLowerCase().split(/[^\w+#\.-]+/).filter(Boolean);
+const SPECIALTY=[]; // modes handled by client-side specialty scoring
+function score(item,q,mode){
+  const terms=toks(q);
+  if(mode&&SPECIALTY.indexOf(mode)>=0){
+    return scoreSpecialty(item,terms,mode);
+  }
+  if(!terms.length)return 0;
+  let s=0;
+  for(const t of terms){
+    if(item.name&&item.name.toLowerCase().includes(t))s+=8;
+    if((item.text||'').includes(t))s+=3;
+    if(item.summary&&item.summary.toLowerCase().includes(t))s+=1;
+    if((item.capabilities||[]).some(c=>c.toLowerCase().includes(t)))s+=2;
+  }
+  return s;
+}
+function scoreSpecialty(item,terms,mode){
+  if(!terms.length){
+    // impact ranking surfaces everything by blast radius when no query term
+    if(mode==='impact') return (item.blastRadius||0)+((item.readiness||0)/100);
+    return 0;
+  }
+  let s=0, matched=false;
+  const name=String(item.name||'').toLowerCase();
+  const kind=String(item.kind||'').toLowerCase();
+  const owner=String(item.owner||'').toLowerCase();
+  const workspace=String(item.workspace||'').toLowerCase();
+  if(mode==='capability'){
+    const caps=(item.capabilities||[]).map(c=>c.toLowerCase());
+    for(const c of caps) for(const t of terms) if(c.includes(t)){s+=3;matched=true;}
+    s+=((item.readiness||0)/100);
+  } else if(mode==='ownership'){
+    for(const t of terms){
+      if(owner.includes(t)||workspace.includes(t)){s+=4;matched=true;}
+      if(owner.split(' ').includes(t)||workspace.split(' ').includes(t)){s+=2;matched=true;}
+    }
+  } else if(mode==='relationship'){
+    const rels=(item.relationships||[]).map(String);
+    for(const r of rels) for(const t of terms) if(r.includes(t)){s+=3;matched=true;}
+    if(terms.some(t=>String(item.slug||'').includes(t))){s+=1;matched=true;}
+  } else if(mode==='security'){
+    const secTerms=['security','vulnerability','clean','audit','policy','compliance'];
+    if(!terms.some(t=>secTerms.includes(t)))return 0;
+    const bad=item.health==='critical'||item.health==='degraded'||item.health==='warning'||(item.scanStatus!==undefined&&item.scanStatus!=='clean');
+    s+=bad?1.0:0.5; s+=(item.readiness||0)/200; if(!bad&&(item.readiness||0)>=70)s+=0.2; matched=true;
+  } else if(mode==='impact'){
+    s=(item.blastRadius||0)+((item.readiness||0)/100); matched=true;
+  }
+  return matched?s:0;
+}
+  function activeFacets(){return [...document.querySelectorAll('#facets input:checked')].map(i=>JSON.stringify(i.dataset.f));}
+function render(d,q){
+   const mode=document.getElementById('mode').value;
+   const faces=activeFacets();
+   let hits=(d||[]).map(it=>({it,r:ranks.get(it.slug)||0,sk:score(it,q,mode)})).filter(x=>!mode||SPECIALTY.indexOf(mode)<0?q?x.r>0||x.sk>0:true:x.sk>0);
+   for(const f of faces){const fj=JSON.parse(f);hits=hits.filter(x=>String(x.it[fj.k]??'')===String(fj.v));}
+   hits.sort((a,b)=>(mode&&SPECIALTY.indexOf(mode)>=0?b.sk:b.r||b.sk)-(mode&&SPECIALTY.indexOf(mode)>=0?a.sk:a.r||a.sk));
+   const kinds=[...new Set((d||[]).map(i=>i.kind))];
+   document.getElementById('facets').innerHTML=kinds.map(k=>
+   `<label style="background:#0d1a28;border:1px solid #1f3244;padding:.3rem .6rem;border-radius:8px;font-size:.8rem"><input type="checkbox" data-f='{"k":"kind","v":"${esc(k)}"}' class="fac" style="margin-right:.35rem">${esc(k)}</label>`).join('');
+   document.getElementById('count').textContent=hits.length+' result(s)';
+   const hintEl=document.getElementById('hint');
+   if(mode==='impact')hintEl.textContent='Ranking resources by downstream blast radius (dependents affected by a change).';
+   else if(mode==='capability')hintEl.textContent='Matching resources that expose the queried capability, scored by readiness.';
+   else if(mode==='ownership')hintEl.textContent='Matching resources by owner or workspace.';
+   else if(mode==='relationship')hintEl.textContent='Matching resources linked to or depended-on by the query.';
+   else if(mode==='security')hintEl.textContent='Surfacing resources with security drift, degraded health, or non-clean scans.';
+   else hintEl.textContent='';
+   document.getElementById('out').innerHTML=q||document.getElementById('mode').value!=='hybrid'||faces.length?(
+   hits.map(({it,r,sk})=>`<div class="card" style="margin-bottom:.6rem">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <a style="font-weight:700" href="resources/${esc(it.slug)}.html">${esc(it.name)}</a>
+      <span>${esc(it.kind)}</span></div>
+    <div class="muted">${esc(it.summary)}</div>
+    <div style="margin-top:.4rem"><span class="pill">readiness ${it.readiness}</span><span class="pill">${esc(it.workspace||'core')}</span><span class="pill">${esc(it.lifecycle||'active')}</span>
+    ${it.blastRadius!==undefined?`<span class="pill">impact ${it.blastRadius}</span>`:''}
+    <a style="margin-left:.5rem" href="context/${esc(it.slug)}.json">bundle</a> · <a href="twins/${esc(it.slug)}.json">twin</a></div>
+  </div>`).join('')||'<div class="muted">No matches.</div>':'<div class="muted">Type keywords or filter by facet above.</div>';
+ }
+const SPECIALTY_MODES=['capability','ownership','relationship','security','impact'];
+  function go(d){
+  const q=document.getElementById('q').value;
+  const m=document.getElementById('mode').value;
+  ranks.clear();
+  if(!SPECIALTY_MODES.includes(m) && q){
+   fetch('/search?q='+encodeURIComponent(q)+'&mode='+m).then(r=>r.json()).then(j=>{
+    (j.results||[]).forEach(rr=>ranks.set(rr.slug,rr.score));
+    render(d,q);
+   });
+  } else { render(d,q); }
+ }
+function init(d){
+ window.idx=d;
+ document.getElementById('q').addEventListener('input',()=>go(d));
+ document.getElementById('mode').addEventListener('change',()=>go(d));
+ document.getElementById('facets').addEventListener('change',()=>render(d,document.getElementById('q').value));
+ render(d,'');
+}
+fetch('search-index.json').then(r=>r.json()).then(init);
+  </script></main>
+<footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
+<a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
+<a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
+</body></html>

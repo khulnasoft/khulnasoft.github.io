@@ -1,0 +1,105 @@
+{
+  "resource": {
+    "id": "resource:policy-engine",
+    "name": "Policy Engine",
+    "slug": "policy-engine",
+    "kind": "component"
+  },
+  "context": {
+    "metadata": {
+      "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+      "name": "Policy Engine",
+      "kind": "component",
+      "owner": "Core Infrastructure",
+      "team": "core-platform",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.4.1",
+      "tags": [
+        "governance",
+        "policy"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "policy",
+        "governance",
+        "authorization"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:security-center",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 92,
+      "status": "healthy",
+      "readiness": 90
+    }
+  },
+  "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

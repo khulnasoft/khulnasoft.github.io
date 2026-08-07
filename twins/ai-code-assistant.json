@@ -1,0 +1,82 @@
+{
+  "resource": {
+    "id": "resource:ai-code-assistant",
+    "kind": "ai-agent",
+    "name": "AI Code Assistant",
+    "slug": "ai-code-assistant",
+    "owner": "AI Enablement",
+    "team": "ai-platform",
+    "workspace": "ai",
+    "lifecycle": "beta",
+    "status": "active",
+    "visibility": "internal",
+    "version": "0.9.2",
+    "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "typescript"
+    ],
+    "frameworks": [
+      "node"
+    ],
+    "capabilities": [
+      "ai-agent",
+      "context-retrieval",
+      "review",
+      "assistant"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "uses",
+      "target": "resource:context-fabric"
+    },
+    {
+      "type": "uses",
+      "target": "resource:ai-runtime"
+    }
+  ],
+  "health": {
+    "score": 85,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 85,
+    "level": "ready",
+    "scores": {
+      "architecture": 85,
+      "documentation": 85,
+      "security": 85,
+      "tests": 85,
+      "ci": 85,
+      "performance": 85,
+      "dependencies": 85,
+      "maintainability": 85,
+      "release": 85,
+      "compliance": 85,
+      "observability": 85,
+      "community": 85,
+      "ai_readiness": 88,
+      "production_readiness": 85
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": true,
+    "agentReady": true,
+    "readiness": 88
+  },
+  "context_summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "resource": {
+    "id": "resource:tls-certificates",
+    "kind": "certificate",
+    "name": "TLS Certificates",
+    "slug": "tls-certificates",
+    "owner": "Platform",
+    "team": "platform-infra",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "2026-07",
+    "summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "yaml"
+    ],
+    "frameworks": [
+      "cert-manager"
+    ],
+    "capabilities": [
+      "certificate",
+      "security",
+      "networking"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "provides",
+      "target": "resource:domains"
+    },
+    {
+      "type": "provides",
+      "target": "resource:platform-ingress"
+    }
+  ],
+  "health": {
+    "score": 96,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 93,
+    "level": "ready",
+    "scores": {
+      "architecture": 96,
+      "documentation": 96,
+      "security": 96,
+      "tests": 96,
+      "ci": 96,
+      "performance": 96,
+      "dependencies": 96,
+      "maintainability": 96,
+      "release": 96,
+      "compliance": 96,
+      "observability": 96,
+      "community": 96,
+      "ai_readiness": 50,
+      "production_readiness": 100
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

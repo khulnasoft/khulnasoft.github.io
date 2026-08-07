@@ -1,0 +1,89 @@
+{
+  "resource": {
+    "id": "resource:policy-engine",
+    "kind": "component",
+    "name": "Policy Engine",
+    "slug": "policy-engine",
+    "owner": "Core Infrastructure",
+    "team": "core-platform",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.4.1",
+    "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "policy",
+      "governance",
+      "authorization"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:security-center"
+    },
+    {
+      "type": "provides",
+      "target": "resource:khulnasoft-platform"
+    }
+  ],
+  "health": {
+    "score": 92,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 90,
+    "level": "ready",
+    "scores": {
+      "architecture": 92,
+      "documentation": 92,
+      "security": 92,
+      "tests": 92,
+      "ci": 92,
+      "performance": 92,
+      "dependencies": 92,
+      "maintainability": 92,
+      "release": 92,
+      "compliance": 92,
+      "observability": 92,
+      "community": 92,
+      "ai_readiness": 50,
+      "production_readiness": 100
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

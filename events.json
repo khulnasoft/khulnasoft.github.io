@@ -1,0 +1,174 @@
+{
+  "summary": {
+    "total_events": 8,
+    "sources": {
+      "kubernetes": 2,
+      "documentation": 1,
+      "github": 1,
+      "monitoring": 2,
+      "packages": 1,
+      "security": 1
+    },
+    "types": {
+      "deployment.failure": 1,
+      "deployment.success": 1,
+      "doc.updated": 1,
+      "repository.push": 1,
+      "health.degraded": 2,
+      "package.published": 1,
+      "security.findings": 1
+    },
+    "resources_touched": 7
+  },
+  "events": [
+    {
+      "id": "evt:2026-08-07-deploy-failure",
+      "source": "kubernetes",
+      "type": "deployment.failure",
+      "happenedAt": "2026-08-07T09:45:00Z",
+      "scope": [
+        "resource:ledger-worker"
+      ],
+      "payload": {
+        "namespace": "commerce",
+        "reason": "CrashLoopBackOff",
+        "unavailable": 2
+      },
+      "touched": [
+        "resource:ledger-worker"
+      ],
+      "healthEffect": -8
+    },
+    {
+      "id": "evt:2026-08-07-deploy-success",
+      "source": "kubernetes",
+      "type": "deployment.success",
+      "happenedAt": "2026-08-07T09:30:00Z",
+      "scope": [
+        "resource:deployment-runtime",
+        "resource:api-gateway"
+      ],
+      "payload": {
+        "revision": "rev-142",
+        "rolling": true,
+        "replicas": 3
+      },
+      "touched": [
+        "resource:deployment-runtime",
+        "resource:api-gateway"
+      ],
+      "healthEffect": 2
+    },
+    {
+      "id": "evt:2026-08-07-doc-update",
+      "source": "documentation",
+      "type": "doc.updated",
+      "happenedAt": "2026-08-07T08:00:00Z",
+      "scope": [
+        "resource:api-gateway"
+      ],
+      "payload": {
+        "doc": {
+          "title": "API Gateway reference",
+          "path": "docs/api-gateway.md"
+        }
+      },
+      "touched": [
+        "resource:api-gateway"
+      ],
+      "healthEffect": 0
+    },
+    {
+      "id": "evt:2026-08-07-github-push",
+      "source": "github",
+      "type": "repository.push",
+      "happenedAt": "2026-08-07T08:15:00Z",
+      "scope": [
+        "resource:api-gateway"
+      ],
+      "payload": {
+        "ref": "refs/heads/main",
+        "commit": "a1b2c3d",
+        "changed_files": [
+          "src/router.ts",
+          "openapi.yaml"
+        ]
+      },
+      "touched": [
+        "resource:api-gateway"
+      ],
+      "healthEffect": 0
+    },
+    {
+      "id": "evt:2026-08-07-health-degrade",
+      "source": "monitoring",
+      "type": "health.degraded",
+      "happenedAt": "2026-08-07T11:40:00Z",
+      "scope": [
+        "resource:knowledge-graph"
+      ],
+      "payload": {
+        "signal": "latency_p99_high",
+        "severity": "warning",
+        "metric": 412
+      },
+      "touched": [
+        "resource:knowledge-graph"
+      ],
+      "healthEffect": -7
+    },
+    {
+      "id": "evt:2026-08-07-mon-alert",
+      "source": "monitoring",
+      "type": "health.degraded",
+      "happenedAt": "2026-08-07T11:20:00Z",
+      "scope": [
+        "resource:orders-db"
+      ],
+      "payload": {
+        "alertname": "HighPG99Latency",
+        "severity": "warning",
+        "value": 520
+      },
+      "touched": [
+        "resource:orders-db"
+      ],
+      "healthEffect": -7
+    },
+    {
+      "id": "evt:2026-08-07-pkg-publish",
+      "source": "packages",
+      "type": "package.published",
+      "happenedAt": "2026-08-07T12:00:00Z",
+      "scope": [
+        "resource:client-sdks"
+      ],
+      "payload": {
+        "package": "@khulnasoft/sdk",
+        "version": "1.1.0"
+      },
+      "touched": [
+        "resource:client-sdks"
+      ],
+      "healthEffect": 1
+    },
+    {
+      "id": "evt:2026-08-07-scan-findings",
+      "source": "security",
+      "type": "security.findings",
+      "happenedAt": "2026-08-07T10:05:00Z",
+      "scope": [
+        "resource:ai-runtime"
+      ],
+      "payload": {
+        "critical": 0,
+        "high": 2,
+        "open_vulns": 2
+      },
+      "touched": [
+        "resource:ai-runtime"
+      ],
+      "healthEffect": -6
+    }
+  ]
+}

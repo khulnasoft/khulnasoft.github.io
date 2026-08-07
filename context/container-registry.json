@@ -1,0 +1,107 @@
+{
+  "resource": {
+    "id": "resource:container-registry",
+    "name": "Container Registry",
+    "slug": "container-registry",
+    "kind": "image"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+      "name": "Container Registry",
+      "kind": "image",
+      "owner": "Core Infrastructure",
+      "team": "core-infra",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "3.0.0",
+      "tags": [
+        "container",
+        "registry",
+        "infra"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "container",
+        "image",
+        "deployment",
+        "artifact"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "provides",
+          "target": "resource:deployment-runtime",
+          "detail": null
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 91,
+      "status": "healthy",
+      "readiness": 89
+    }
+  },
+  "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}
