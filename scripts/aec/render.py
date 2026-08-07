@@ -576,9 +576,11 @@ def render_analytics(analyses):
 <div class="muted" style="margin:.3rem 0">lang: {', '.join(a['languages']) or '—'} · frameworks: {', '.join(a['frameworks']) or '—'}</div>
 <div class="muted">arch: {', '.join(a['architecture'])} · api: {'yes' if a['api'] else 'no'}</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>{debt}</code></div>
-{('<span class="badge bad">deprecated</span> ' if a['deprecation']['deprecated'] else '')}
-{('<span class="badge warn">perf regression</span>' if a['perfRegression']['regression'] else '')}
-{"".join(f'<span class="badge warn">drift: {k}</span>' for k in a['drift'])}
+ {('<span class="badge bad">deprecated</span> ' if a['deprecation']['deprecated'] else '')}
+ {('<span class="badge warn">perf regression</span>' if a['perfRegression']['regression'] else '')}
+ {''.join(f'<span class="badge warn">drift: {k}</span>' for k in a['drift'])}
+ {('<span class="badge warn">compat risk</span>' if a['apiCompatibility']['risk'] == 'unversioned' else '')}
+ {''.join(f'<span class="badge warn">cost</span>' for _ in a['costOptimization'])}
 </div>"""
     body = f"""<h1>Engineering Intelligence</h1>
 <p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, performance regressions, and drift detection across architecture, dependencies, security, infrastructure, documentation, and configuration.</p>
@@ -589,8 +591,14 @@ def render_analytics(analyses):
 <div class="card metric"><div class="value">{s['deprecated_resources']}</div><div class="label">deprecated</div></div>
 <div class="card metric"><div class="value">{s['perf_regressions']}</div><div class="label">perf regressions</div></div>
 <div class="card metric"><div class="value">{s['drift_items']}</div><div class="label">drift signals</div></div>
+<div class="card metric"><div class="value">{s['api_compatibility_risk']}</div><div class="label">api compat risk</div></div>
+<div class="card metric"><div class="value">{s['migration_suggestions']}</div><div class="label">migration hints</div></div>
+<div class="card metric"><div class="value">{s['cost_optimization_opportunities']}</div><div class="label">cost opts</div></div>
+<div class="card metric"><div class="value">{s['unused_components']}</div><div class="label">unused</div></div>
+<div class="card metric"><div class="value">{s['duplicate_libraries']}</div><div class="label">duplicate libs</div></div>
 </div>
 {s['drift_by_kind'] and '<h2>Drift by kind</h2><div class="grid">' + ''.join(f'<div class="card"><strong>{k}</strong> — {v}</div>' for k, v in s['drift_by_kind'].items() if v) + '</div>' or ''}
+{analyses.get('duplicate_libraries') and analyses['duplicate_libraries'] and '<h2>Duplicate libraries</h2><div class="grid">' + ''.join(f'<div class="card"><code>{k}</code> — {", ".join(x["name"] for x in v)}</div>' for k, v in analyses['duplicate_libraries'].items()) + '</div>' or ''}
 <h2>Analyses</h2><div class="grid">{cards}</div>"""
     return shell("Engineering Intelligence", body)
 

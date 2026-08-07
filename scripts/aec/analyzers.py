@@ -88,7 +88,82 @@ def detect_perf_regression(resource: dict) -> dict:
     health = resource.get("health", {})
     obs = resource.get("observability", {})
     degraded = health.get("status") in ("degraded", "warning", "critical") or obs.get("p99", 0) > 400
-    return {"regression": bool(degraded), "signal": obs.get("p99_label") or ("health {status}".format(status=health.get("status")) if degraded else None)}
+    label = obs.get("p99_label") or (f"health {health.get('status')}" if degraded else None)
+    return {"regression": bool(degraded), "signal": label}
+
+
+# ---------------------------------------------------------------------------
+# Phase 6.2 — additional engineering-intelligence analyzers.
+# ---------------------------------------------------------------------------
+
+
+def detect_api_compatibility(resource: dict) -> dict:
+    """Surface API compatibility risk for resources exposing interfaces.
+
+    A versioned API contract is required before an API can be surfaced to
+    consumers; un-versioned APIs imply a compatibility risk.
+    """
+    exposes_api = resource.get("apis") or resource.get("exposes") or any(
+        c.lower() == "api" for c in resource.get("capabilities", [])
+    )
+    if not exposes_api:
+        return {"risk": "none", "versioned": False, "note": "resource does not expose an API"}
+    versioned = bool(resource.get("version"))
+    return {
+        "risk": "unversioned" if not versioned else "none",
+        "versioned": versioned,
+        "note": "API must carry a version to guarantee compatibility" if not versioned else "API is versioned",
+    }
+
+
+def detect_migration_suggestions(resource: dict, resources_by_id: dict) -> list[str]:
+    """Suggest a migration target for deprecated resources when a capable successor exists."""
+    if resource.get("lifecycle") != "deprecated":
+        return []
+    caps = {c.lower() for c in resource.get("capabilities", [])}
+    successors = []
+    for r in resources_by_id.values():
+        if r["id"] == resource["id"] or r.get("lifecycle") == "retired":
+            continue
+        rc = {c.lower() for c in r.get("capabilities", [])}
+        if caps & rc and r.get("lifecycle") in ("supported", "stable", "active"):
+            successors.append(r)
+    suggestions = [f"Migrate to {s['name']} ({s['id']})" for s in successors[:3]]
+    if not suggestions:
+        suggestions.append("No direct successor found in the registry — plan a replacement.")
+    return suggestions
+
+
+def detect_cost_optimization(resource: dict, readiness: dict) -> list[str]:
+    """Flag cost-optimization opportunities on deployed, low-readiness assets."""
+    opts = []
+    targets = resource.get("deployment", {}).get("targets", [])
+    if targets and readiness.get("overall", 100) < 60:
+        opts.append(f"Downgrade or re-evaluate {resource['deployment'].get('environment', 'this')} deployment — readiness {readiness.get('overall')} is below threshold")
+    if resource.get("health", {}).get("score", 100) < 60 and targets:
+        opts.append("Resource is unhealthy in a live deployment — investigate and right-size")
+    if not resource.get("relationships"):
+        opts.append("No incoming relationships — confirm the resource is still needed")
+    return opts
+
+
+def detect_unused_components(resource: dict, incoming: dict[str, int]) -> bool:
+    """A component is unused when no other resource depends on it and it has no
+    outbound relationships of its own (an orphan leaf)."""
+    deps = {rel.get("target") for rel in resource.get("relationships", [])}
+    return (not incoming.get(resource["id"], 0)) and (not deps)
+
+
+def detect_duplicate_libraries(resources: list[dict]) -> dict:
+    """Detect libraries with overlapping capabilities in the same workspace."""
+    seen: dict[tuple, list[dict]] = {}
+    for r in resources:
+        if r["kind"] not in ("library", "sdk"):
+            continue
+        key = (r.get("workspace", "core"), tuple(sorted({c.lower() for c in r.get("capabilities", [])})))
+        seen.setdefault(key, []).append({"id": r["id"], "name": r.get("name", r.get("slug")), "kind": r["kind"], "workspace": r.get("workspace")})
+    duplicates = {f"{k[0]}:{','.join(k[1])}": v for k, v in seen.items() if len(v) > 1}
+    return {"duplicates": duplicates, "count": len(duplicates)}
 
 
 # Drift signal types surfaced by the drift analyzers (Phase 6.2).
@@ -163,11 +238,13 @@ def detect_drifts(resource: dict, events: Iterable[dict]) -> dict:
     return drifts
 
 
-def analyze(resource: dict, readiness: dict, events: Iterable[dict] | None = None) -> dict:
+def analyze(resource: dict, readiness: dict, events: Iterable[dict] | None = None,
+           readiness_by_id: dict | None = None) -> dict:
     """Run every analyzer for a single resource and return a normalized report."""
     resource = dict(resource)  # don't mutate input
     # Pre-resolve dependent health for dependency drift detection.
     resource["_dep_graph"] = resource.get("_dep_graph", [])
+    by_id = readiness_by_id or {}
     return {
         "id": resource["id"],
         "slug": resource["slug"],
@@ -175,10 +252,13 @@ def analyze(resource: dict, readiness: dict, events: Iterable[dict] | None = Non
         "frameworks": detect_frameworks(resource.get("frameworks")),
         "architecture": detect_architecture(resource),
         "api": detect_api(resource),
+        "apiCompatibility": detect_api_compatibility(resource),
         "dependencies": resolve_dependencies(resource),
         "security": detect_security(resource),
         "techDebt": tech_debt(resource, readiness),
         "deprecation": detect_deprecation(resource),
+        "migrationSuggestions": detect_migration_suggestions(resource, by_id),
+        "costOptimization": detect_cost_optimization(resource, readiness),
         "perfRegression": detect_perf_regression(resource),
         "drift": detect_drifts(resource, events or []),
     }
@@ -191,25 +271,45 @@ def build_analyses(resources: list[dict], readiness_by_id: dict[str, dict], even
     api_count = 0
     total_drift = 0
     drift_by_kind: dict[str, int] = {k: 0 for k in DRIFT_KINDS}
+    incompat = 0
+    migration_count = 0
+    cost_opts = 0
+    unused = 0
     # Index dependent health so dependency-drift detection can read target state.
     by_id = {r["id"]: r for r in resources}
+
+    # Count incoming edges per resource for unused-component detection.
+    incoming: dict[str, int] = {r["id"]: 0 for r in resources}
+    for r in resources:
+        for rel in r.get("relationships", []):
+            target = rel.get("target")
+            if target in incoming:
+                incoming[target] = incoming.get(target, 0) + 1
+
     for r in resources:
         r = dict(r)
         r["_dep_graph"] = [
             {"id": rel.get("target"), "health": by_id.get(rel.get("target"), {}).get("health", {})}
             for rel in r.get("relationships", [])
         ]
-        a = analyze(r, readiness_by_id[r["id"]], events)
+        a = analyze(r, readiness_by_id[r["id"]], events, by_id)
         per[r["id"]] = a
         total_debt += 0 if a["techDebt"] == ["none detected"] else len([d for d in a["techDebt"] if d != "none detected"])
         deps += len(a["dependencies"])
         api_count += int(a["api"])
+        if a["apiCompatibility"]["risk"] == "unversioned":
+            incompat += 1
+        migration_count += len(a["migrationSuggestions"])
+        cost_opts += len(a["costOptimization"])
+        if detect_unused_components(r, incoming):
+            unused += 1
         for kind in DRIFT_KINDS:
             if kind in a["drift"]:
                 total_drift += 1
                 drift_by_kind[kind] += 1
     tech_debt_resources = sum(1 for a in per.values() if a["techDebt"] != ["none detected"])
     drift_resources = sum(1 for a in per.values() if a["drift"])
+    duplicates = detect_duplicate_libraries(resources)
     return {
         "per_resource": per,
         "summary": {
@@ -217,6 +317,11 @@ def build_analyses(resources: list[dict], readiness_by_id: dict[str, dict], even
             "framework_count": sorted({fw for a in per.values() for fw in a["frameworks"]}),
             "relationship_count": deps,
             "api_resources": api_count,
+            "api_compatibility_risk": incompat,
+            "migration_suggestions": migration_count,
+            "cost_optimization_opportunities": cost_opts,
+            "unused_components": unused,
+            "duplicate_libraries": duplicates["count"],
             "tech_debt_resources": tech_debt_resources,
             "tech_debt_items": total_debt,
             "deprecated_resources": sum(1 for a in per.values() if a["deprecation"]["deprecated"]),
@@ -225,4 +330,5 @@ def build_analyses(resources: list[dict], readiness_by_id: dict[str, dict], even
             "drift_items": total_drift,
             "drift_by_kind": drift_by_kind,
         },
+        "duplicate_libraries": duplicates["duplicates"],
     }

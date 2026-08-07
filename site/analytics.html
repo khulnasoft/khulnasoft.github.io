@@ -45,368 +45,454 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="card metric"><div class="value">0</div><div class="label">deprecated</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">perf regressions</div></div>
 <div class="card metric"><div class="value">25</div><div class="label">drift signals</div></div>
+<div class="card metric"><div class="value">1</div><div class="label">api compat risk</div></div>
+<div class="card metric"><div class="value">0</div><div class="label">migration hints</div></div>
+<div class="card metric"><div class="value">0</div><div class="label">cost opts</div></div>
+<div class="card metric"><div class="value">0</div><div class="label">unused</div></div>
+<div class="card metric"><div class="value">0</div><div class="label">duplicate libs</div></div>
 </div>
 <h2>Drift by kind</h2><div class="grid"><div class="card"><strong>architecture</strong> — 1</div><div class="card"><strong>security</strong> — 1</div><div class="card"><strong>documentation</strong> — 21</div><div class="card"><strong>configuration</strong> — 2</div></div>
+
 <h2>Analyses</h2><div class="grid"><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ai-code-assistant.html">ai-code-assistant</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript · frameworks: node</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ai-runtime.html">ai-runtime</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: security</span><span class="badge warn">drift: configuration</span>
+ 
+ 
+ <span class="badge warn">drift: security</span><span class="badge warn">drift: configuration</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/api-gateway.html">api-gateway</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: yes</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: architecture</span>
+ 
+ 
+ <span class="badge warn">drift: architecture</span>
+ <span class="badge warn">compat risk</span>
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/blueprint-templates.html">blueprint-templates</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript, go, python · frameworks: copier, cookiecutter</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/checkout-service.html">checkout-service</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: gin</div>
 <div class="muted">arch: microservice · api: yes</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ci-pipelines.html">ci-pipelines</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: github-actions</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/client-sdks.html">client-sdks</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript, python, go, rust, java, c#, php, ruby, swift, kotlin, dart · frameworks: —</div>
 <div class="muted">arch: layered · api: yes</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/container-registry.html">container-registry</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/context-fabric.html">context-fabric</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript, python · frameworks: node, fastapi</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/deployment-runtime.html">deployment-runtime</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/domains.html">domains</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: terraform</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/event-bus.html">event-bus</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: kafka</div>
 <div class="muted">arch: event-driven · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/feature-flag-service.html">feature-flag-service</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: gin</div>
 <div class="muted">arch: layered · api: yes</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/grafana-dashboards.html">grafana-dashboards</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: json · frameworks: grafana</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/helm-charts-registry.html">helm-charts-registry</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: helm, kubernetes</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/identity-provider.html">identity-provider</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: gin</div>
 <div class="muted">arch: layered · api: yes</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/khulnasoft-platform.html">khulnasoft-platform</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/knowledge-graph.html">knowledge-graph</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: python · frameworks: networkx-compatible</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: configuration</span>
+ 
+ 
+ <span class="badge warn">drift: configuration</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ledger-worker.html">ledger-worker</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: python · frameworks: fastapi</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/logging-libraries.html">logging-libraries</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go, python, typescript · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/metrics-platform.html">metrics-platform</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go, typescript · frameworks: prometheus, grafana</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/oncall-alerts.html">oncall-alerts</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: prometheus, pagerduty</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-db.html">orders-db</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-migration.html">orders-migration</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-schema.html">orders-schema</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/payment-events.html">payment-events</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
 <div class="muted">arch: event-driven · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/platform-blueprints.html">platform-blueprints</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml, markdown · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/platform-ingress.html">platform-ingress</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: yes</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/policy-engine.html">policy-engine</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/prod-cluster.html">prod-cluster</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: kubernetes</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/recommendation-model.html">recommendation-model</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: python · frameworks: fastapi</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/release-artifacts.html">release-artifacts</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml, json · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/release-pipeline.html">release-pipeline</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: github-actions</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/repository-catalog.html">repository-catalog</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/runbooks.html">runbooks</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: markdown · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/secrets-vault.html">secrets-vault</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/security-center.html">security-center</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/staging-environment.html">staging-environment</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: kubernetes, terraform</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/tls-certificates.html">tls-certificates</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: cert-manager</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-
+ 
+ 
+ 
+ 
+ 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/vector-store.html">vector-store</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
-
-
-<span class="badge warn">drift: documentation</span>
+ 
+ 
+ <span class="badge warn">drift: documentation</span>
+ 
+ 
 </div></div></main>
 <footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
 <a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>

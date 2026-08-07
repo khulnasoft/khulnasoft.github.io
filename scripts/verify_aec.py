@@ -105,6 +105,45 @@ def main() -> int:
     check("6c. Infrastructure drift fires on degraded runtime", ok6c,
           f"drift={infra_drift}")
 
+    # 6.2 Intelligence-plane analyzers for compatibility, migration, cost, waste,
+    # and duplicate libraries all produce structured, queryable signals.
+    summary = analyses["summary"]
+    ok7 = all(k in summary for k in ("api_compatibility_risk", "migration_suggestions",
+                                     "cost_optimization_opportunities", "unused_components",
+                                     "duplicate_libraries")) and "duplicate_libraries" in analyses
+    check("7. Phase 6.2 intelligence analyzers are wired and queryable", ok7,
+          f"keys={list(summary)}")
+    # API compatibility fires on an unversioned exposed API.
+    unversioned_api_res = {
+        "id": "resource:synth-api", "kind": "api", "name": "Synth API", "slug": "synth-api",
+        "apis": ["GET /health"], "capabilities": ["api"],
+    }
+    ok7a = analyzers.detect_api_compatibility(unversioned_api_res)["risk"] == "unversioned"
+    check("7a. API compatibility flags unversioned APIs", ok7a,
+          "")
+    # Migration suggestions fire for deprecated resources with a successor.
+    dep_res = {
+        "id": "resource:old", "kind": "library", "name": "Old Lib", "slug": "old-lib", "lifecycle": "deprecated",
+        "capabilities": ["sdk", "library"],
+    }
+    succ_res = {"id": "resource:new", "kind": "library", "name": "New Lib", "slug": "new-lib", "lifecycle": "supported", "capabilities": ["sdk", "library"]}
+    ok7b = analyzers.detect_migration_suggestions(dep_res, {dep_res["id"]: dep_res, succ_res["id"]: succ_res})
+    check("7b. Migration suggestions fire for deprecated resources", bool(ok7b),
+          f"suggestions={ok7b}")
+    # Unused component: orphan leaf with no incoming edges and no deps.
+    orphan = {"id": "resource:orphan", "kind": "component", "name": "Orphan", "slug": "orphan",
+              "relationships": []}
+    ok7c = analyzers.detect_unused_components(orphan, {"resource:orphan": 0})
+    check("7c. Unused-component detection flags orphan leaves", bool(ok7c), "")
+    # Duplicate libraries sharing a workspace and capability set.
+    dups = analyzers.detect_duplicate_libraries([
+        {"id": "resource:lib-a", "kind": "library", "name": "Lib A", "workspace": "ws", "capabilities": ["logging"]},
+        {"id": "resource:lib-b", "kind": "library", "name": "Lib B", "workspace": "ws", "capabilities": ["logging"]},
+    ])
+    ok7d = dups["count"] == 1
+    check("7d. Duplicate-library detection groups by workspace+capabilities", ok7d,
+          f"dups={dups}")
+
     print(f"\n{sum(1 for _, o in CHECKS if o)}/{len(CHECKS)} checks passed")
     if FAILURES:
         print("Failures:")
