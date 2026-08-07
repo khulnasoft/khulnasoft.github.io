@@ -89,5 +89,7 @@
     "readiness": 86
   },
   "context_summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

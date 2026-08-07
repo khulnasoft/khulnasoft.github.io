@@ -82,6 +82,7 @@
   },
   "context_summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

@@ -130,6 +130,8 @@ def compute_recommendations(resource: dict, readiness: dict) -> list[str]:
             recommendations.append(prompts[dim])
     if readiness.get("drift"):
         recommendations.append("Reconcile drift against the canonical manifest before the next release.")
+    if readiness.get("signals"):
+        recommendations.append("Address engineering-intelligence signals before release.")
     return recommendations
 
 

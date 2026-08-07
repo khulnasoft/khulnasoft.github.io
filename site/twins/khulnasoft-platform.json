@@ -69,6 +69,7 @@
   },
   "context_summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

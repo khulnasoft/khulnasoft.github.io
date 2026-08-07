@@ -82,6 +82,7 @@
   },
   "context_summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

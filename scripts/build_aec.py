@@ -66,7 +66,7 @@ def main() -> int:
         r["id"]: intelligence.compute_recommendations(r, readiness_by_id[r["id"]])
         for r in resources
     }
-    analyses = analyzers.build_analyses(resources, readiness_by_id)
+    analyses = analyzers.build_analyses(resources, readiness_by_id, events)
     ctx_by_id = {r["id"]: ctxmod.build_context(r, readiness_by_id[r["id"]]) for r in resources}
     twins_all = twinsmod.build_all_twins(resources, insights, recs_by_id, ctx_by_id)
     marketplace = model.load_json(ROOT / "data" / "marketplace" / "items.json")

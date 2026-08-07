@@ -78,6 +78,7 @@
   },
   "context_summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

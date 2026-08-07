@@ -80,6 +80,7 @@
   },
   "context_summary": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

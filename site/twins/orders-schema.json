@@ -69,6 +69,7 @@
   },
   "context_summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

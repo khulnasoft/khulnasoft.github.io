@@ -85,5 +85,7 @@
     "readiness": 88
   },
   "context_summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

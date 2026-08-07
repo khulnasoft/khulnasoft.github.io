@@ -40,7 +40,7 @@ def main() -> int:
     twins = twinsmod.build_all_twins(resources, insights, recs, context_bundles)
     reg = registries.build_registries(resources, prompts, agents,
                                       model.load_json(ROOT / "data" / "marketplace" / "items.json"))
-    analyses = analyzers.build_analyses(resources, readiness)
+    analyses = analyzers.build_analyses(resources, readiness, events=ingest.load_events())
     graph = graphmod.build_graph(resources)
 
     # 1. Ingest a sample repository -> structured digital twin without manual intervention.
@@ -75,6 +75,35 @@ def main() -> int:
           insights["per_resource"][sample["id"]]["overall"] is not None)
     check("5. Agent-facing context/recommendations/insights present for a resource", ok5,
           f"recs={recs[sample['id']]} readiness={insights['per_resource'][sample['id']]['overall']}")
+
+    # 6. Drift analyzers (Phase 6.2) surface drift across drift kinds and fire
+    # on synthetic degraded-dependency / degraded-deployment scenarios.
+    ok6 = analyses["summary"]["drift_items"] >= 1 and all(
+        k in analyses["summary"]["drift_by_kind"] for k in analyzers.DRIFT_KINDS
+    )
+    check("6. Drift analyzers cover all drift kinds", ok6,
+          f"found={analyses['summary']['drift_by_kind']}")
+    # Dependency drift: a dependency whose health is degraded.
+    dep_resource = {
+        "id": "resource:synth-dep", "kind": "service", "name": "Synth", "slug": "synth-dep",
+        "health": {"score": 88, "status": "healthy"},
+        "relationships": [{"type": "depends_on", "target": "resource:dep-down"}],
+        "_dep_graph": [{"id": "resource:dep-down", "health": {"score": 20, "status": "degraded"}}],
+    }
+    dep_drift = analyzers.detect_drifts(dep_resource, [])
+    ok6b = "dependency" in dep_drift and "not healthy" in dep_drift["dependency"]
+    check("6b. Dependency drift fires on degraded dependency", ok6b,
+          f"drift={dep_drift}")
+    # Infrastructure drift: a deployed resource whose runtime health degraded.
+    infra_resource = {
+        "id": "resource:synth-infra", "kind": "service", "name": "SynthInfra", "slug": "synth-infra",
+        "health": {"score": 40, "status": "degraded"},
+        "deployment": {"status": "active", "environment": "prod"},
+    }
+    infra_drift = analyzers.detect_drifts(infra_resource, [{"type": "deployment.failure", "scope": ["resource:synth-infra"], "id": "e:1"}])
+    ok6c = "infrastructure" in infra_drift
+    check("6c. Infrastructure drift fires on degraded runtime", ok6c,
+          f"drift={infra_drift}")
 
     print(f"\n{sum(1 for _, o in CHECKS if o)}/{len(CHECKS)} checks passed")
     if FAILURES:

@@ -68,6 +68,7 @@
   },
   "context_summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

@@ -85,5 +85,7 @@
     "readiness": 90
   },
   "context_summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

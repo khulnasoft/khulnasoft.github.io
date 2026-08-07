@@ -73,5 +73,7 @@
     "readiness": 82
   },
   "context_summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

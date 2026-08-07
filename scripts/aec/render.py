@@ -578,16 +578,19 @@ def render_analytics(analyses):
 <div class="muted" style="margin-top:.3rem">tech debt: <code>{debt}</code></div>
 {('<span class="badge bad">deprecated</span> ' if a['deprecation']['deprecated'] else '')}
 {('<span class="badge warn">perf regression</span>' if a['perfRegression']['regression'] else '')}
+{"".join(f'<span class="badge warn">drift: {k}</span>' for k in a['drift'])}
 </div>"""
     body = f"""<h1>Engineering Intelligence</h1>
-<p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, and performance regressions.</p>
+<p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, performance regressions, and drift detection across architecture, dependencies, security, infrastructure, documentation, and configuration.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
 <div class="card metric"><div class="value">{s['relationship_count']}</div><div class="label">relationships</div></div>
 <div class="card metric"><div class="value">{s['api_resources']}</div><div class="label">api resources</div></div>
 <div class="card metric"><div class="value">{s['tech_debt_items']}</div><div class="label">debt items</div></div>
 <div class="card metric"><div class="value">{s['deprecated_resources']}</div><div class="label">deprecated</div></div>
 <div class="card metric"><div class="value">{s['perf_regressions']}</div><div class="label">perf regressions</div></div>
+<div class="card metric"><div class="value">{s['drift_items']}</div><div class="label">drift signals</div></div>
 </div>
+{s['drift_by_kind'] and '<h2>Drift by kind</h2><div class="grid">' + ''.join(f'<div class="card"><strong>{k}</strong> — {v}</div>' for k, v in s['drift_by_kind'].items() if v) + '</div>' or ''}
 <h2>Analyses</h2><div class="grid">{cards}</div>"""
     return shell("Engineering Intelligence", body)
 

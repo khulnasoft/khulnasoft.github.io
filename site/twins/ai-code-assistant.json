@@ -76,5 +76,7 @@
     "readiness": 88
   },
   "context_summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

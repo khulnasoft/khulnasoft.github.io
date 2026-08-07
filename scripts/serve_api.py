@@ -43,7 +43,7 @@ def load_model() -> dict:
     data["impact"] = graphmod.compute_impact(resources)
     data["release"] = governance.evaluate_release(resources, data["readiness"], data["org"])
     data["events"] = ingest.load_events()
-    data["analytics"] = analyzers.build_analyses(resources, data["readiness"])
+    data["analytics"] = analyzers.build_analyses(resources, data["readiness"], data["events"])
     data["metrics"] = graphmod._compute_metrics(resources)
     data["ai_services"] = aicontrol.build_ai_services(resources, data["agents"], data["prompts"], data["readiness"], data["org"])
     data["by_slug"] = {r["slug"]: r for r in resources}

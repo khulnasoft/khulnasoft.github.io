@@ -83,5 +83,7 @@
     "readiness": 86
   },
   "context_summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

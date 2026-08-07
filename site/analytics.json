@@ -39,7 +39,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:ai-runtime": {
       "id": "resource:ai-runtime",
@@ -72,6 +73,10 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "security": "new security findings event recorded (open vulnerabilities)",
+        "configuration": "configuration changed since last baseline snapshot"
       }
     },
     "resource:api-gateway": {
@@ -105,6 +110,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "architecture": "api capability not backed by an active deployment"
       }
     },
     "resource:blueprint-templates": {
@@ -149,7 +157,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:checkout-service": {
       "id": "resource:checkout-service",
@@ -190,6 +199,9 @@
       "perfRegression": {
         "regression": false,
         "signal": "210ms"
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:ci-pipelines": {
@@ -231,6 +243,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:client-sdks": {
@@ -276,6 +291,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:container-registry": {
@@ -315,6 +333,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:context-fabric": {
@@ -358,7 +379,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:deployment-runtime": {
       "id": "resource:deployment-runtime",
@@ -391,7 +413,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:domains": {
       "id": "resource:domains",
@@ -432,6 +455,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:event-bus": {
@@ -473,6 +499,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:feature-flag-service": {
@@ -514,6 +543,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:grafana-dashboards": {
@@ -551,7 +583,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:helm-charts-registry": {
       "id": "resource:helm-charts-registry",
@@ -593,6 +626,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:identity-provider": {
@@ -634,6 +670,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:khulnasoft-platform": {
@@ -667,7 +706,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:knowledge-graph": {
       "id": "resource:knowledge-graph",
@@ -708,6 +748,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "configuration": "configuration changed since last baseline snapshot"
       }
     },
     "resource:ledger-worker": {
@@ -745,6 +788,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:logging-libraries": {
@@ -786,7 +832,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:metrics-platform": {
       "id": "resource:metrics-platform",
@@ -829,7 +876,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:oncall-alerts": {
       "id": "resource:oncall-alerts",
@@ -867,7 +915,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:orders-db": {
       "id": "resource:orders-db",
@@ -902,6 +951,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:orders-migration": {
@@ -941,6 +993,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:orders-schema": {
@@ -976,7 +1031,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:payment-events": {
       "id": "resource:payment-events",
@@ -1011,6 +1067,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:platform-blueprints": {
@@ -1047,7 +1106,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:platform-ingress": {
       "id": "resource:platform-ingress",
@@ -1084,6 +1144,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:policy-engine": {
@@ -1123,6 +1186,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:prod-cluster": {
@@ -1168,6 +1234,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:recommendation-model": {
@@ -1209,6 +1278,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:release-artifacts": {
@@ -1249,7 +1321,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:release-pipeline": {
       "id": "resource:release-pipeline",
@@ -1290,6 +1363,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:repository-catalog": {
@@ -1323,7 +1399,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:runbooks": {
       "id": "resource:runbooks",
@@ -1362,7 +1439,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:secrets-vault": {
       "id": "resource:secrets-vault",
@@ -1401,6 +1479,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:security-center": {
@@ -1434,7 +1515,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:staging-environment": {
       "id": "resource:staging-environment",
@@ -1476,6 +1558,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     },
     "resource:tls-certificates": {
@@ -1517,7 +1602,8 @@
       "perfRegression": {
         "regression": false,
         "signal": null
-      }
+      },
+      "drift": {}
     },
     "resource:vector-store": {
       "id": "resource:vector-store",
@@ -1556,6 +1642,9 @@
       "perfRegression": {
         "regression": false,
         "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
       }
     }
   },
@@ -1599,6 +1688,16 @@
     "tech_debt_resources": 0,
     "tech_debt_items": 0,
     "deprecated_resources": 0,
-    "perf_regressions": 0
+    "perf_regressions": 0,
+    "drift_resources": 24,
+    "drift_items": 25,
+    "drift_by_kind": {
+      "architecture": 1,
+      "dependency": 0,
+      "security": 1,
+      "infrastructure": 0,
+      "documentation": 21,
+      "configuration": 2
+    }
   }
 }

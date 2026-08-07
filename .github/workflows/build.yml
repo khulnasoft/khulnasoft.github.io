@@ -16,7 +16,7 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: pip install pyyaml
-      - name: Build AEC portal
+      - name: Build Knowledge OS portal
         run: python3 scripts/build_aec.py
       - name: Run PLAN verification checklist
         run: python3 scripts/verify_aec.py
@@ -40,6 +40,7 @@ jobs:
           test -f site/events.json
           test -f site/event-index.json
           test -f site/analytics.json
+          python3 -m py_compile scripts/serve_api.py
           test -f site/runtime.json
           test -f site/marketplace.html
           test -f site/marketplace.json
@@ -55,7 +56,6 @@ jobs:
           test -f site/sdks/AecClient.swift
           test -f site/sdks/AecClient.kt
           test -f site/sdks/aec.dart
-          python3 -m py_compile scripts/serve_api.py
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:

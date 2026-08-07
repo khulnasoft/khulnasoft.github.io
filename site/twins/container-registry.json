@@ -84,6 +84,7 @@
   },
   "context_summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

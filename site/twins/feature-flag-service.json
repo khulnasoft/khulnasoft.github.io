@@ -81,6 +81,7 @@
   },
   "context_summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

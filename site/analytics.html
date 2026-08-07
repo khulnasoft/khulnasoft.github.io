@@ -37,20 +37,23 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <body>
 <header class="top"><div class="brand">KhulnaSoft <span class="accent">Knowledge OS</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
 <main><h1>Engineering Intelligence</h1>
-<p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, and performance regressions.</p>
+<p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, performance regressions, and drift detection across architecture, dependencies, security, infrastructure, documentation, and configuration.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
 <div class="card metric"><div class="value">67</div><div class="label">relationships</div></div>
 <div class="card metric"><div class="value">6</div><div class="label">api resources</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">debt items</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">deprecated</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">perf regressions</div></div>
+<div class="card metric"><div class="value">25</div><div class="label">drift signals</div></div>
 </div>
+<h2>Drift by kind</h2><div class="grid"><div class="card"><strong>architecture</strong> — 1</div><div class="card"><strong>security</strong> — 1</div><div class="card"><strong>documentation</strong> — 21</div><div class="card"><strong>configuration</strong> — 2</div></div>
 <h2>Analyses</h2><div class="grid"><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ai-code-assistant.html">ai-code-assistant</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript · frameworks: node</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -61,6 +64,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: security</span><span class="badge warn">drift: configuration</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/api-gateway.html">api-gateway</a>
 badge ok</div>
@@ -69,12 +73,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: architecture</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/blueprint-templates.html">blueprint-templates</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript, go, python · frameworks: copier, cookiecutter</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -85,6 +91,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ci-pipelines.html">ci-pipelines</a>
 badge ok</div>
@@ -93,6 +100,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/client-sdks.html">client-sdks</a>
 badge ok</div>
@@ -101,6 +109,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/container-registry.html">container-registry</a>
 badge ok</div>
@@ -109,12 +118,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/context-fabric.html">context-fabric</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: typescript, python · frameworks: node, fastapi</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -125,6 +136,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/domains.html">domains</a>
 badge ok</div>
@@ -133,6 +145,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/event-bus.html">event-bus</a>
 badge ok</div>
@@ -141,6 +154,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/feature-flag-service.html">feature-flag-service</a>
 badge ok</div>
@@ -149,12 +163,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/grafana-dashboards.html">grafana-dashboards</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: json · frameworks: grafana</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -165,6 +181,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/identity-provider.html">identity-provider</a>
 badge ok</div>
@@ -173,12 +190,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/khulnasoft-platform.html">khulnasoft-platform</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -189,6 +208,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: configuration</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/ledger-worker.html">ledger-worker</a>
 badge ok</div>
@@ -197,12 +217,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/logging-libraries.html">logging-libraries</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go, python, typescript · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -213,12 +235,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/oncall-alerts.html">oncall-alerts</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: prometheus, pagerduty</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -229,6 +253,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-migration.html">orders-migration</a>
 badge ok</div>
@@ -237,12 +262,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-schema.html">orders-schema</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -253,12 +280,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/platform-blueprints.html">platform-blueprints</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml, markdown · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -269,6 +298,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/policy-engine.html">policy-engine</a>
 badge ok</div>
@@ -277,6 +307,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/prod-cluster.html">prod-cluster</a>
 badge ok</div>
@@ -285,6 +316,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/recommendation-model.html">recommendation-model</a>
 badge ok</div>
@@ -293,12 +325,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/release-artifacts.html">release-artifacts</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml, json · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -309,12 +343,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/repository-catalog.html">repository-catalog</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -325,6 +361,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/secrets-vault.html">secrets-vault</a>
 badge ok</div>
@@ -333,12 +370,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/security-center.html">security-center</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -349,12 +388,14 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/tls-certificates.html">tls-certificates</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: cert-manager</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
@@ -365,6 +406,7 @@ badge ok</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
+<span class="badge warn">drift: documentation</span>
 </div></div></main>
 <footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
 <a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>

@@ -73,6 +73,7 @@
   },
   "context_summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

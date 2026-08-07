@@ -82,5 +82,7 @@
     "readiness": 84
   },
   "context_summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

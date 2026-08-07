@@ -84,5 +84,7 @@
     "readiness": 88
   },
   "context_summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
-  "recommended_actions": []
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
 }

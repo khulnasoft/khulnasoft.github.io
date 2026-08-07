@@ -80,6 +80,7 @@
   },
   "context_summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

@@ -83,6 +83,7 @@
   },
   "context_summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

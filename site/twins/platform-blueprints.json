@@ -71,6 +71,7 @@
   },
   "context_summary": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

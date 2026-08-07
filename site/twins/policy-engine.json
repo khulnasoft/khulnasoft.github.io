@@ -83,6 +83,7 @@
   },
   "context_summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

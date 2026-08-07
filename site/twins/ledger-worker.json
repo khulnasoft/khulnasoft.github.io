@@ -78,6 +78,7 @@
   },
   "context_summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

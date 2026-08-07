@@ -1652,7 +1652,9 @@
         "status": "healthy"
       },
       "readiness": 85,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:ai-runtime",
@@ -1668,7 +1670,8 @@
       },
       "readiness": 80,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1685,7 +1688,8 @@
       },
       "readiness": 85,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1702,7 +1706,8 @@
       },
       "readiness": 81,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1718,7 +1723,9 @@
         "status": "healthy"
       },
       "readiness": 89,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:ci-pipelines",
@@ -1734,7 +1741,8 @@
       },
       "readiness": 85,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1750,7 +1758,9 @@
         "status": "healthy"
       },
       "readiness": 88,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:container-registry",
@@ -1766,7 +1776,8 @@
       },
       "readiness": 89,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1782,7 +1793,9 @@
         "status": "healthy"
       },
       "readiness": 90,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:deployment-runtime",
@@ -1818,7 +1831,8 @@
       },
       "readiness": 91,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1835,7 +1849,8 @@
       },
       "readiness": 89,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1852,7 +1867,8 @@
       },
       "readiness": 84,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1869,7 +1885,8 @@
       },
       "readiness": 85,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1885,7 +1902,9 @@
         "status": "healthy"
       },
       "readiness": 91,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:identity-provider",
@@ -1900,7 +1919,9 @@
         "status": "healthy"
       },
       "readiness": 91,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:khulnasoft-platform",
@@ -1916,7 +1937,8 @@
       },
       "readiness": 89,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1932,7 +1954,9 @@
         "status": "healthy"
       },
       "readiness": 86,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:ledger-worker",
@@ -1948,7 +1972,8 @@
       },
       "readiness": 82,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1965,7 +1990,8 @@
       },
       "readiness": 87,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1982,7 +2008,8 @@
       },
       "readiness": 86,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -1999,7 +2026,8 @@
       },
       "readiness": 84,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2016,7 +2044,8 @@
       },
       "readiness": 90,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2033,7 +2062,8 @@
       },
       "readiness": 88,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2050,7 +2080,8 @@
       },
       "readiness": 90,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2067,7 +2098,8 @@
       },
       "readiness": 88,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2084,7 +2116,8 @@
       },
       "readiness": 82,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2101,7 +2134,8 @@
       },
       "readiness": 87,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2118,7 +2152,8 @@
       },
       "readiness": 90,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2135,7 +2170,8 @@
       },
       "readiness": 91,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2151,7 +2187,9 @@
         "status": "healthy"
       },
       "readiness": 87,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:release-artifacts",
@@ -2167,7 +2205,8 @@
       },
       "readiness": 83,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2184,7 +2223,8 @@
       },
       "readiness": 84,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2201,7 +2241,8 @@
       },
       "readiness": 87,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2217,7 +2258,9 @@
         "status": "healthy"
       },
       "readiness": 84,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     },
     {
       "id": "resource:secrets-vault",
@@ -2233,7 +2276,8 @@
       },
       "readiness": 92,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2250,7 +2294,8 @@
       },
       "readiness": 86,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2267,7 +2312,8 @@
       },
       "readiness": 87,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2284,7 +2330,8 @@
       },
       "readiness": 93,
       "recommendations": [
-        "Enable a context bundle and register a prompt for agent consumption."
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
       ]
     },
     {
@@ -2300,7 +2347,9 @@
         "status": "healthy"
       },
       "readiness": 85,
-      "recommendations": []
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
     }
   ]
 }

@@ -82,6 +82,7 @@
   },
   "context_summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

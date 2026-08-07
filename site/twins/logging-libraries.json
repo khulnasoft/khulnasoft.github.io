@@ -76,6 +76,7 @@
   },
   "context_summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

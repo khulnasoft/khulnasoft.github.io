@@ -85,6 +85,7 @@
   },
   "context_summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }

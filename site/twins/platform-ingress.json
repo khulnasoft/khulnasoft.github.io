@@ -81,6 +81,7 @@
   },
   "context_summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
   "recommended_actions": [
-    "Enable a context bundle and register a prompt for agent consumption."
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
   ]
 }
