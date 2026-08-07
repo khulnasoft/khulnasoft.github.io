@@ -1,0 +1,18 @@
+{
+  "id": "resource:khulnasoft-platform",
+  "kind": "platform",
+  "name": "KhulnaSoft Platform Core",
+  "slug": "khulnasoft-platform",
+  "owner": "KhulnaSoft",
+  "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
+  "capabilities": ["control-plane", "catalog", "governance", "registry"],
+  "health": {
+    "score": 92,
+    "status": "healthy"
+  },
+  "tags": ["control-plane", "governance", "catalog"],
+  "relationships": [
+    { "type": "depends_on", "target": "resource:ai-runtime" }
+  ],
+  "updatedAt": "2026-08-07"
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "language": "python",
+    "path": "sdks/aec.py",
+    "lines": 59
+  },
+  {
+    "language": "typescript",
+    "path": "sdks/aec.ts",
+    "lines": 21
+  },
+  {
+    "language": "go",
+    "path": "sdks/aec.go",
+    "lines": 76
+  },
+  {
+    "language": "rust",
+    "path": "sdks/aec.rs",
+    "lines": 46
+  },
+  {
+    "language": "java",
+    "path": "sdks/AecClient.java",
+    "lines": 56
+  },
+  {
+    "language": "csharp",
+    "path": "sdks/AecClient.cs",
+    "lines": 48
+  },
+  {
+    "language": "php",
+    "path": "sdks/aec.php",
+    "lines": 58
+  },
+  {
+    "language": "ruby",
+    "path": "sdks/aec.rb",
+    "lines": 48
+  },
+  {
+    "language": "swift",
+    "path": "sdks/AecClient.swift",
+    "lines": 46
+  },
+  {
+    "language": "kotlin",
+    "path": "sdks/AecClient.kt",
+    "lines": 32
+  },
+  {
+    "language": "dart",
+    "path": "sdks/aec.dart",
+    "lines": 34
+  }
+]

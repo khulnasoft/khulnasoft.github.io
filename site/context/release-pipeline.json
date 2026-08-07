@@ -1,0 +1,104 @@
+{
+  "resource": {
+    "id": "resource:release-pipeline",
+    "name": "Release Pipeline",
+    "slug": "release-pipeline",
+    "kind": "pipeline"
+  },
+  "context": {
+    "metadata": {
+      "summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+      "name": "Release Pipeline",
+      "kind": "pipeline",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "pipeline",
+        "release"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "github-actions"
+      ],
+      "capabilities": [
+        "pipeline",
+        "release",
+        "automation",
+        "governance"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:ci-pipelines",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:release-artifacts",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "github-actions"
+        ]
+      },
+      "targets": [
+        "github-actions"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 86,
+      "status": "healthy",
+      "readiness": 84
+    }
+  },
+  "summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

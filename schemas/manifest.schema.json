@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://khulnasoft.github.io/schemas/manifest.schema.json",
+  "title": "KhulnaSoft canonical manifest",
+  "description": "The authoritative machine-readable contract (khulnasoft.yaml) for a repository: capabilities, ownership, runtime, deployment targets, observability, security, and AI metadata. Generated content (twins, context, portals) is always a derived layer beneath this contract.",
+  "type": "object",
+  "required": ["repository"],
+  "properties": {
+    "repository": {
+      "type": "object",
+      "required": ["id", "name", "summary"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "summary": { "type": "string" },
+        "owner": { "type": "string" },
+        "team": { "type": "string" },
+        "workspace": { "type": "string" },
+        "lifecycle": { "type": "string" },
+        "visibility": { "type": "string" },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "frameworks": { "type": "array", "items": { "type": "string" } },
+        "capabilities": { "type": "array", "items": { "type": "string" } },
+        "services": { "type": "array", "items": { "type": "string" } },
+        "deployment": { "type": "object" },
+        "observability": { "type": "object" },
+        "security": { "type": "object" },
+        "documentation": { "type": "object" },
+        "ai": { "type": "object" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "relationships": { "type": "array", "items": { "type": "object" } }
+      }
+    }
+  },
+  "additionalProperties": true
+}

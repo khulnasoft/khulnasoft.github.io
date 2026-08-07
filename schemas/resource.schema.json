@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://khulnasoft.github.io/schemas/resource.schema.json",
+  "title": "Universal engineering resource",
+  "description": "The canonical, first-class representation of every engineering asset in the KhulnaSoft Engineering Knowledge OS. Any ecosystem asset (repository, service, API, package, domain, deployment, AI model, etc.) is modeled as a resource on the control plane.",
+  "type": "object",
+  "required": ["id", "kind", "name", "slug", "owner", "updatedAt"],
+  "properties": {
+    "id": { "type": "string", "description": "Globally stable identifier, e.g. resource:khulnasoft-platform." },
+    "kind": { "description": "One of the resource taxonomy kinds defined by this schema." },
+    "name": { "type": "string" },
+    "slug": { "type": "string", "description": "URL-safe unique name within the organization." },
+    "version": { "type": "string", "description": "Current semver of the artifact, if versioned." },
+    "owner": { "type": "string", "description": "Human or team owning the resource." },
+    "team": { "type": "string" },
+    "parent": { "type": "string", "description": "Higher-level resource id this belongs to, forming the organization hierarchy." },
+    "workspace": { "type": "string", "description": "Workspace the resource belongs to (control-plane scoping)." },
+    "lifecycle": { "enum": ["experimental", "alpha", "beta", "supported", "deprecated", "retired"] },
+    "status": { "enum": ["active", "pending", "warning", "error", "paused", "unknown"] },
+    "visibility": { "enum": ["internal", "private", "public"] },
+    "summary": { "type": "string" },
+    "source": { "type": "string", "description": "Canonical manifest/source of truth path (e.g. khulnasoft.yaml)." },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "labels": { "type": "object", "additionalProperties": { "type": "string" } },
+    "capabilities": { "type": "array", "items": { "type": "string" }, "description": "Capabilities the resource inherits from and exposes via twins." },
+    "languages": { "type": "array", "items": { "type": "string" } },
+    "frameworks": { "type": "array", "items": { "type": "string" } },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "target"],
+        "properties": {
+          "type": { "enum": ["depends_on", "implies", "part_of", "deploys", "exposes", "tracks", "provides", "contains", "uses", "related"] },
+          "target": { "type": "string", "description": "Target resource id." },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "health": {
+      "type": "object",
+      "required": ["score", "status"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "status": { "enum": ["healthy", "degraded", "warning", "critical"] },
+        "drift": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "security": {
+      "type": "object",
+      "properties": {
+        "vulnerabilities": { "type": "array", "items": { "type": "string" } },
+        "scanStatus": { "type": "string" },
+        "posture": { "type": "string" }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "targets": { "type": "array", "items": { "type": "string" } },
+        "environment": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    },
+    "ai": {
+      "type": "object",
+      "properties": {
+        "contextBundle": { "type": "boolean" },
+        "promptRegistry": { "type": "boolean" },
+        "agentReady": { "type": "boolean" },
+        "readiness": { "type": "number" }
+      }
+    },
+    "apis": { "type": "array", "items": { "type": "string" }, "description": "Public endpoints the resource exposes." },
+    "exposes": { "type": "array", "items": { "type": "string" }, "description": "Interfaces, ports, or contracts the resource exposes." },
+    "observability": {
+      "type": "object",
+      "properties": {
+        "p99": { "type": "number", "description": "p99 latency in milliseconds." },
+        "p99_label": { "type": "string" },
+        "metrics": { "type": "boolean" },
+        "logs": { "type": "boolean" },
+        "traces": { "type": "boolean" },
+        "runbook": { "type": "string" },
+        "dashboard": { "type": "string" }
+      }
+    },
+    "workflows": { "type": "array", "items": { "type": "string" }, "description": "CI/CD workflow names." },
+    "ci": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "status": { "type": "string" },
+        "lastRun": { "type": "string" }
+      }
+    },
+    "metrics": { "type": "object", "additionalProperties": { "type": "number" } },
+    "metadata": { "type": "object", "additionalProperties": true },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

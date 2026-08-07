@@ -1,0 +1,99 @@
+{
+  "resource": {
+    "id": "resource:release-artifacts",
+    "name": "Release Artifacts",
+    "slug": "release-artifacts",
+    "kind": "release"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+      "name": "Release Artifacts",
+      "kind": "release",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "0.12.0",
+      "tags": [
+        "release",
+        "artifacts",
+        "devops"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml",
+        "json"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "release",
+        "artifact",
+        "sdk"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:repository-catalog",
+          "detail": null
+        },
+        {
+          "type": "tracks",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 85,
+      "status": "healthy",
+      "readiness": 83
+    }
+  },
+  "summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

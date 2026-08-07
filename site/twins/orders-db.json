@@ -1,0 +1,84 @@
+{
+  "resource": {
+    "id": "resource:orders-db",
+    "kind": "database",
+    "name": "Orders Database",
+    "slug": "orders-db",
+    "owner": "Commerce",
+    "team": "commerce-data",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "14.3",
+    "summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "sql"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "database",
+      "storage"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "serves",
+      "target": "resource:checkout-service"
+    }
+  ],
+  "health": {
+    "score": 85,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 83,
+    "level": "deployable",
+    "scores": {
+      "architecture": 85,
+      "documentation": 85,
+      "security": 85,
+      "tests": 85,
+      "ci": 85,
+      "performance": 85,
+      "dependencies": 85,
+      "maintainability": 85,
+      "release": 85,
+      "compliance": 85,
+      "observability": 85,
+      "community": 85,
+      "ai_readiness": 50,
+      "production_readiness": 95
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

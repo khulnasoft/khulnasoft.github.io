@@ -1,0 +1,107 @@
+{
+  "resource": {
+    "id": "resource:vector-store",
+    "name": "Vector Store",
+    "slug": "vector-store",
+    "kind": "database"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+      "name": "Vector Store",
+      "kind": "database",
+      "owner": "AI Enablement",
+      "team": "ai-platform",
+      "workspace": "ai",
+      "lifecycle": "beta",
+      "status": "active",
+      "visibility": "internal",
+      "version": "0.7.0",
+      "tags": [
+        "ai",
+        "vector",
+        "search"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "ai",
+        "vector-collection",
+        "embedding-collection",
+        "search"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime",
+          "detail": null
+        },
+        {
+          "type": "serves",
+          "target": "resource:context-fabric",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+      "owner": "AI Enablement",
+      "workspace": "ai"
+    },
+    "health": {
+      "score": 84,
+      "status": "healthy",
+      "readiness": 85
+    }
+  },
+  "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

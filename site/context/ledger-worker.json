@@ -1,0 +1,98 @@
+{
+  "resource": {
+    "id": "resource:ledger-worker",
+    "name": "Ledger Worker",
+    "slug": "ledger-worker",
+    "kind": "worker"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+      "name": "Ledger Worker",
+      "kind": "worker",
+      "owner": "Commerce",
+      "team": "commerce-data",
+      "workspace": "commerce",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "2.1.0",
+      "tags": [
+        "commerce",
+        "events"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "fastapi"
+      ],
+      "capabilities": [
+        "worker",
+        "messaging",
+        "automation"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:payment-events",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+      "owner": "Commerce",
+      "workspace": "commerce"
+    },
+    "health": {
+      "score": 76,
+      "status": "healthy",
+      "readiness": 75
+    }
+  },
+  "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

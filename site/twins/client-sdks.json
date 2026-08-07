@@ -1,0 +1,95 @@
+{
+  "resource": {
+    "id": "resource:client-sdks",
+    "kind": "sdk",
+    "name": "Client SDKs",
+    "slug": "client-sdks",
+    "owner": "Developer Experience",
+    "team": "dx",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "public",
+    "version": "1.1.0",
+    "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "typescript",
+      "python",
+      "go",
+      "rust",
+      "java",
+      "c#",
+      "php",
+      "ruby",
+      "swift",
+      "kotlin",
+      "dart"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "sdk",
+      "library",
+      "api"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "npm",
+        "pypi"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:api-gateway"
+    }
+  ],
+  "health": {
+    "score": 88,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 89,
+    "level": "ready",
+    "scores": {
+      "architecture": 88,
+      "documentation": 88,
+      "security": 88,
+      "tests": 88,
+      "ci": 88,
+      "performance": 88,
+      "dependencies": 88,
+      "maintainability": 88,
+      "release": 88,
+      "compliance": 88,
+      "observability": 88,
+      "community": 88,
+      "ai_readiness": 86,
+      "production_readiness": 98
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": 86
+  },
+  "context_summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
+}

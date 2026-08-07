@@ -1,0 +1,37 @@
+repository:
+  id: khulnasoft-platform
+  slug: khulnasoft-platform
+  title: KhulnaSoft Platform Core
+  summary: Control-plane foundation for the KhulnaSoft Engineering Knowledge OS.
+  owner: KhulnaSoft
+  lifecycle: active
+  visibility: public
+  languages:
+    - python
+    - yaml
+    - json
+  frameworks:
+    - static-site
+  capabilities:
+    - control-plane
+    - catalog
+    - governance
+    - registry
+  services:
+    - portal
+    - catalog
+    - context-bundles
+  deployment:
+    targets:
+      - github-pages
+  security:
+    review_required: true
+    supply_chain: true
+  documentation:
+    readme: true
+    architecture: true
+    roadmap: false
+  ai:
+    context_bundle: true
+    prompt_registry: true
+    agent_ready: true

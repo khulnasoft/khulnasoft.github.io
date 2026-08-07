@@ -1,0 +1,95 @@
+{
+  "resource": {
+    "id": "resource:prod-cluster",
+    "kind": "cluster",
+    "name": "Production Cluster",
+    "slug": "prod-cluster",
+    "owner": "Core Infrastructure",
+    "team": "core-infra",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.29.0",
+    "summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "yaml"
+    ],
+    "frameworks": [
+      "kubernetes"
+    ],
+    "capabilities": [
+      "kubernetes",
+      "cluster",
+      "deployment"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "hosts",
+      "target": "resource:checkout-service"
+    },
+    {
+      "type": "hosts",
+      "target": "resource:ai-runtime"
+    },
+    {
+      "type": "hosts",
+      "target": "resource:api-gateway"
+    }
+  ],
+  "health": {
+    "score": 94,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 91,
+    "level": "ready",
+    "scores": {
+      "architecture": 94,
+      "documentation": 94,
+      "security": 94,
+      "tests": 94,
+      "ci": 94,
+      "performance": 94,
+      "dependencies": 94,
+      "maintainability": 94,
+      "release": 94,
+      "compliance": 94,
+      "observability": 94,
+      "community": 94,
+      "ai_readiness": 50,
+      "production_readiness": 100
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

@@ -1,0 +1,2006 @@
+{
+  "governance_gates": [
+    {
+      "check": "Policy: Production readiness",
+      "required": "blocking",
+      "actual": "-",
+      "passed": true,
+      "advice": ""
+    },
+    {
+      "check": "Policy: Supply chain security",
+      "required": "warn",
+      "actual": "-",
+      "passed": true,
+      "advice": ""
+    },
+    {
+      "check": "Policy: AI metadata visibility",
+      "required": "warn",
+      "actual": "-",
+      "passed": true,
+      "advice": ""
+    }
+  ],
+  "approval_gates": [
+    {
+      "check": "Approval: Production release approval",
+      "required": "maintainer or security",
+      "actual": "maintainer or security",
+      "passed": true,
+      "advice": "Obtain required approval sign-off."
+    },
+    {
+      "check": "Approval: Policy change approval",
+      "required": "owner",
+      "actual": "owner",
+      "passed": true,
+      "advice": "Obtain required approval sign-off."
+    }
+  ],
+  "total_resources": 40,
+  "releaseable": 15,
+  "blocked": 25,
+  "per_resource": {
+    "resource:ai-code-assistant": {
+      "id": "resource:ai-code-assistant",
+      "name": "AI Code Assistant",
+      "slug": "ai-code-assistant",
+      "kind": "ai-agent",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "85/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:ai-runtime": {
+      "id": "resource:ai-runtime",
+      "name": "AI Runtime Services",
+      "slug": "ai-runtime",
+      "kind": "ai-runtime",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 82,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "82/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 82,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 80,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:api-gateway": {
+      "id": "resource:api-gateway",
+      "name": "API Gateway",
+      "slug": "api-gateway",
+      "kind": "api",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "88/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:blueprint-templates": {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "slug": "blueprint-templates",
+      "kind": "template",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 83,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "83/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 83,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 81,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:checkout-service": {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "slug": "checkout-service",
+      "kind": "service",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "88/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:ci-pipelines": {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "slug": "ci-pipelines",
+      "kind": "workflow",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "87/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:client-sdks": {
+      "id": "resource:client-sdks",
+      "name": "Client SDKs",
+      "slug": "client-sdks",
+      "kind": "sdk",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "88/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:container-registry": {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "slug": "container-registry",
+      "kind": "image",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "91/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:context-fabric": {
+      "id": "resource:context-fabric",
+      "name": "Context Fabric",
+      "slug": "context-fabric",
+      "kind": "component",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "90/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:deployment-runtime": {
+      "id": "resource:deployment-runtime",
+      "name": "Deployment Runtime",
+      "slug": "deployment-runtime",
+      "kind": "deployment",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "86/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 83,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:domains": {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "slug": "domains",
+      "kind": "domain",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 94,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "94/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 94,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:event-bus": {
+      "id": "resource:event-bus",
+      "name": "Platform Event Bus",
+      "slug": "event-bus",
+      "kind": "event",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "92/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:feature-flag-service": {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "slug": "feature-flag-service",
+      "kind": "component",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "86/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:grafana-dashboards": {
+      "id": "resource:grafana-dashboards",
+      "name": "Grafana Dashboards",
+      "slug": "grafana-dashboards",
+      "kind": "dashboard",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "88/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:helm-charts-registry": {
+      "id": "resource:helm-charts-registry",
+      "name": "Helm Charts",
+      "slug": "helm-charts-registry",
+      "kind": "helm-chart",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "91/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:identity-provider": {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "slug": "identity-provider",
+      "kind": "service",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "90/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:khulnasoft-platform": {
+      "id": "resource:khulnasoft-platform",
+      "name": "KhulnaSoft Platform Core",
+      "slug": "khulnasoft-platform",
+      "kind": "platform",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "92/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:knowledge-graph": {
+      "id": "resource:knowledge-graph",
+      "name": "Engineering Knowledge Graph",
+      "slug": "knowledge-graph",
+      "kind": "graph",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "86/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:ledger-worker": {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "slug": "ledger-worker",
+      "kind": "worker",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 76,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "76/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 76,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 75,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:logging-libraries": {
+      "id": "resource:logging-libraries",
+      "name": "Logging Libraries",
+      "slug": "logging-libraries",
+      "kind": "library",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "90/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:metrics-platform": {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "slug": "metrics-platform",
+      "kind": "observability",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "88/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:oncall-alerts": {
+      "id": "resource:oncall-alerts",
+      "name": "On-call Alerts",
+      "slug": "oncall-alerts",
+      "kind": "alert",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "87/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:orders-db": {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "slug": "orders-db",
+      "kind": "database",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "85/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 83,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:orders-migration": {
+      "id": "resource:orders-migration",
+      "name": "Orders Schema Migrations",
+      "slug": "orders-migration",
+      "kind": "migration",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "91/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:orders-schema": {
+      "id": "resource:orders-schema",
+      "name": "Orders Schema",
+      "slug": "orders-schema",
+      "kind": "schema",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 93,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "93/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 93,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:payment-events": {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "slug": "payment-events",
+      "kind": "queue",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "90/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 88,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:platform-blueprints": {
+      "id": "resource:platform-blueprints",
+      "name": "Platform Blueprints",
+      "slug": "platform-blueprints",
+      "kind": "blueprint",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "85/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 82,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:platform-ingress": {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "slug": "platform-ingress",
+      "kind": "ingress",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "89/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:policy-engine": {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "slug": "policy-engine",
+      "kind": "component",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "92/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:prod-cluster": {
+      "id": "resource:prod-cluster",
+      "name": "Production Cluster",
+      "slug": "prod-cluster",
+      "kind": "cluster",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 94,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "94/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 94,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 91,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:recommendation-model": {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "slug": "recommendation-model",
+      "kind": "model",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "86/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:release-artifacts": {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "slug": "release-artifacts",
+      "kind": "release",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "85/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 83,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:release-pipeline": {
+      "id": "resource:release-pipeline",
+      "name": "Release Pipeline",
+      "slug": "release-pipeline",
+      "kind": "pipeline",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "86/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:repository-catalog": {
+      "id": "resource:repository-catalog",
+      "name": "Repository Catalog Service",
+      "slug": "repository-catalog",
+      "kind": "repository",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "90/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 90,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:runbooks": {
+      "id": "resource:runbooks",
+      "name": "Runbook Library",
+      "slug": "runbooks",
+      "kind": "knowledge",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "84/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:secrets-vault": {
+      "id": "resource:secrets-vault",
+      "name": "Secrets Vault",
+      "slug": "secrets-vault",
+      "kind": "secret",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 95,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "95/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 95,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 92,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:security-center": {
+      "id": "resource:security-center",
+      "name": "Security Center",
+      "slug": "security-center",
+      "kind": "security",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "89/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 86,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:staging-environment": {
+      "id": "resource:staging-environment",
+      "name": "Staging Environment",
+      "slug": "staging-environment",
+      "kind": "environment",
+      "decision": {
+        "verdict": "block",
+        "passed": 4,
+        "total": 5,
+        "score": 80
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "89/clean=False",
+          "passed": false,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 89,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 87,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:tls-certificates": {
+      "id": "resource:tls-certificates",
+      "name": "TLS Certificates",
+      "slug": "tls-certificates",
+      "kind": "certificate",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 96,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "96/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 96,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 93,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    },
+    "resource:vector-store": {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "slug": "vector-store",
+      "kind": "database",
+      "decision": {
+        "verdict": "approve",
+        "passed": 5,
+        "total": 5,
+        "score": 100
+      },
+      "gates": [
+        {
+          "check": "Documentation is release-grade",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Publish an architecture doc and README for AI/agent discoverability."
+        },
+        {
+          "check": "Security posture",
+          "required": ">= 70 & clean scan",
+          "actual": "84/clean=True",
+          "passed": true,
+          "advice": "Close open vulnerabilities and keep the scan clean."
+        },
+        {
+          "check": "Test coverage",
+          "required": ">= 70",
+          "actual": 84,
+          "passed": true,
+          "advice": "Improve test coverage and add release gating."
+        },
+        {
+          "check": "Overall readiness",
+          "required": ">= 70",
+          "actual": 85,
+          "passed": true,
+          "advice": "Raise readiness before shipping."
+        },
+        {
+          "check": "Active deployment",
+          "required": "active",
+          "actual": true,
+          "passed": true,
+          "advice": "Set deployment status to active before release."
+        }
+      ]
+    }
+  }
+}

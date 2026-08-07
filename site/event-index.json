@@ -1,0 +1,51 @@
+{
+  "evt:2026-08-07-deploy-failure": {
+    "type": "deployment.failure",
+    "touched": [
+      "resource:ledger-worker"
+    ]
+  },
+  "evt:2026-08-07-deploy-success": {
+    "type": "deployment.success",
+    "touched": [
+      "resource:deployment-runtime",
+      "resource:api-gateway"
+    ]
+  },
+  "evt:2026-08-07-doc-update": {
+    "type": "doc.updated",
+    "touched": [
+      "resource:api-gateway"
+    ]
+  },
+  "evt:2026-08-07-github-push": {
+    "type": "repository.push",
+    "touched": [
+      "resource:api-gateway"
+    ]
+  },
+  "evt:2026-08-07-health-degrade": {
+    "type": "health.degraded",
+    "touched": [
+      "resource:knowledge-graph"
+    ]
+  },
+  "evt:2026-08-07-mon-alert": {
+    "type": "health.degraded",
+    "touched": [
+      "resource:orders-db"
+    ]
+  },
+  "evt:2026-08-07-pkg-publish": {
+    "type": "package.published",
+    "touched": [
+      "resource:client-sdks"
+    ]
+  },
+  "evt:2026-08-07-scan-findings": {
+    "type": "security.findings",
+    "touched": [
+      "resource:ai-runtime"
+    ]
+  }
+}

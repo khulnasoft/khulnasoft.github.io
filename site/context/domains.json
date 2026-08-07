@@ -1,0 +1,108 @@
+{
+  "resource": {
+    "id": "resource:domains",
+    "name": "Public Domains",
+    "slug": "domains",
+    "kind": "domain"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+      "name": "Public Domains",
+      "kind": "domain",
+      "owner": "Platform",
+      "team": "platform-infra",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "public",
+      "version": "1.0.0",
+      "tags": [
+        "dns",
+        "tls",
+        "domains"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "terraform"
+      ],
+      "capabilities": [
+        "domain",
+        "certificate",
+        "networking"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "provides",
+          "target": "resource:platform-ingress",
+          "detail": null
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+      "owner": "Platform",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 94,
+      "status": "healthy",
+      "readiness": 91
+    }
+  },
+  "summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

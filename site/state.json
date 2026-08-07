@@ -1,0 +1,2360 @@
+{
+  "organization": {
+    "id": "org:khulnasoft",
+    "name": "KhulnaSoft",
+    "slug": "khulnasoft",
+    "summary": "The engineering organization behind the KhulnaSoft Engineering Knowledge OS: a continuously updated developer portal, AI context platform, and control plane for engineering assets, context, and automation.",
+    "workspaces": [
+      "platform",
+      "ai",
+      "security",
+      "core-infrastructure"
+    ],
+    "hierarchy": {
+      "organization": [
+        "KhulnaSoft"
+      ],
+      "workspace": [
+        "core",
+        "ai",
+        "security",
+        "core-infrastructure"
+      ],
+      "project": [
+        "platform-core",
+        "ai-runtime",
+        "security-center"
+      ],
+      "resource": "See the resource registry for the full taxonomy."
+    },
+    "planes": {
+      "experience": {
+        "name": "Experience plane",
+        "summary": "Portal, catalog views, dashboards, and consuming surfaces for humans and agents."
+      },
+      "knowledge": {
+        "name": "Knowledge plane",
+        "summary": "Normalized metadata, knowledge graphs, vectors, search indexes, documentation, and engineering context."
+      },
+      "control": {
+        "name": "Control plane",
+        "summary": "Orchestration and governance: organizations, workspaces, projects, policies, registries, workflows, events, approvals."
+      },
+      "intelligence": {
+        "name": "Intelligence plane",
+        "summary": "Analyzers, scores, insights, health/readiness, recommendations, and technical-debt signals."
+      },
+      "runtime": {
+        "name": "Runtime plane",
+        "summary": "GitHub apps, events, workers, actions, AI workflows, deployment automation, self-healing operations."
+      },
+      "infrastructure": {
+        "name": "Infrastructure plane",
+        "summary": "Integrations for GitHub, GitLab, Kubernetes, cloud, data stores, and observability systems."
+      }
+    },
+    "governance": {
+      "identity": {
+        "protocols": [
+          "oauth",
+          "oidc",
+          "saml",
+          "api-keys",
+          "service-accounts"
+        ],
+        "external": [
+          "github",
+          "gitlab"
+        ],
+        "hub": "control-plane-identity"
+      },
+      "rbacRoles": [
+        "owner",
+        "admin",
+        "maintainer",
+        "developer",
+        "operator",
+        "security",
+        "viewer"
+      ],
+      "policies": [
+        {
+          "id": "policy:production-readiness",
+          "name": "Production readiness",
+          "scope": "all production deployments",
+          "requiredSignals": [
+            "health-checks",
+            "observability",
+            "rollback-plan",
+            "runbook"
+          ],
+          "check": "blocking"
+        },
+        {
+          "id": "policy:supply-chain",
+          "name": "Supply chain security",
+          "scope": "all artifacts",
+          "requiredSignals": [
+            "sca-scan",
+            "dependency-pinning",
+            "build-attestation"
+          ],
+          "check": "warn"
+        },
+        {
+          "id": "policy:ai-metadata",
+          "name": "AI metadata visibility",
+          "scope": "all resources",
+          "requiredSignals": [
+            "context-bundle",
+            "prompt-registry",
+            "agent-ready"
+          ],
+          "check": "warn"
+        }
+      ],
+      "approvals": [
+        {
+          "id": "approval:prod-release",
+          "name": "Production release approval",
+          "required": "maintainer or security",
+          "enforced": true
+        },
+        {
+          "id": "approval:policy-change",
+          "name": "Policy change approval",
+          "required": "owner",
+          "enforced": true
+        }
+      ],
+      "auditTrail": [
+        "resource-change",
+        "policy-change",
+        "registry-mutation",
+        "configuration-change"
+      ],
+      "billingBoundaries": {
+        "meteringBy": "workspace",
+        "entities": [
+          "repositories",
+          "deployments",
+          "AI-invocations",
+          "storage",
+          "runners"
+        ]
+      },
+      "changeManagement": {
+        "flow": "propose -> review -> approve -> apply -> notify",
+        "events": [
+          "resource.created",
+          "resource.updated",
+          "resource.deprecated"
+        ]
+      }
+    },
+    "updatedAt": "2026-08-07"
+  },
+  "metrics": {
+    "resource_count": 40,
+    "kind_distribution": {
+      "ai-agent": 1,
+      "ai-runtime": 1,
+      "api": 1,
+      "template": 1,
+      "service": 2,
+      "workflow": 1,
+      "sdk": 1,
+      "image": 1,
+      "component": 3,
+      "deployment": 1,
+      "domain": 1,
+      "event": 1,
+      "dashboard": 1,
+      "helm-chart": 1,
+      "platform": 1,
+      "graph": 1,
+      "worker": 1,
+      "library": 1,
+      "observability": 1,
+      "alert": 1,
+      "database": 2,
+      "migration": 1,
+      "schema": 1,
+      "queue": 1,
+      "blueprint": 1,
+      "ingress": 1,
+      "cluster": 1,
+      "model": 1,
+      "release": 1,
+      "pipeline": 1,
+      "repository": 1,
+      "knowledge": 1,
+      "secret": 1,
+      "security": 1,
+      "environment": 1,
+      "certificate": 1
+    },
+    "health_score": 88,
+    "reliability_score": 88,
+    "automation_coverage": 8,
+    "context_coverage": 25,
+    "events": {
+      "total_events": 8,
+      "sources": {
+        "kubernetes": 2,
+        "documentation": 1,
+        "github": 1,
+        "monitoring": 2,
+        "packages": 1,
+        "security": 1
+      },
+      "types": {
+        "deployment.failure": 1,
+        "deployment.success": 1,
+        "doc.updated": 1,
+        "repository.push": 1,
+        "health.degraded": 2,
+        "package.published": 1,
+        "security.findings": 1
+      },
+      "resources_touched": 7
+    }
+  },
+  "registries": {
+    "capability": {
+      "registry": "capability",
+      "count": 72,
+      "capabilities": {
+        "agent-runtime": {
+          "resources": [
+            "resource:ai-runtime"
+          ],
+          "count": 1
+        },
+        "ai": {
+          "resources": [
+            "resource:recommendation-model",
+            "resource:vector-store"
+          ],
+          "count": 2
+        },
+        "ai-agent": {
+          "resources": [
+            "resource:ai-code-assistant"
+          ],
+          "count": 1
+        },
+        "alert": {
+          "resources": [
+            "resource:metrics-platform",
+            "resource:oncall-alerts"
+          ],
+          "count": 2
+        },
+        "api": {
+          "resources": [
+            "resource:api-gateway",
+            "resource:checkout-service",
+            "resource:client-sdks",
+            "resource:feature-flag-service",
+            "resource:identity-provider",
+            "resource:platform-ingress"
+          ],
+          "count": 6
+        },
+        "artifact": {
+          "resources": [
+            "resource:container-registry",
+            "resource:release-artifacts"
+          ],
+          "count": 2
+        },
+        "assistant": {
+          "resources": [
+            "resource:ai-code-assistant"
+          ],
+          "count": 1
+        },
+        "authentication": {
+          "resources": [
+            "resource:identity-provider"
+          ],
+          "count": 1
+        },
+        "authorization": {
+          "resources": [
+            "resource:identity-provider",
+            "resource:policy-engine"
+          ],
+          "count": 2
+        },
+        "automation": {
+          "resources": [
+            "resource:ci-pipelines",
+            "resource:deployment-runtime",
+            "resource:ledger-worker",
+            "resource:orders-migration",
+            "resource:release-pipeline"
+          ],
+          "count": 5
+        },
+        "blueprint": {
+          "resources": [
+            "resource:blueprint-templates",
+            "resource:platform-blueprints"
+          ],
+          "count": 2
+        },
+        "catalog": {
+          "resources": [
+            "resource:khulnasoft-platform",
+            "resource:repository-catalog"
+          ],
+          "count": 2
+        },
+        "certificate": {
+          "resources": [
+            "resource:domains",
+            "resource:secrets-vault",
+            "resource:tls-certificates"
+          ],
+          "count": 3
+        },
+        "cluster": {
+          "resources": [
+            "resource:prod-cluster"
+          ],
+          "count": 1
+        },
+        "container": {
+          "resources": [
+            "resource:container-registry"
+          ],
+          "count": 1
+        },
+        "context-fabric": {
+          "resources": [
+            "resource:ai-runtime",
+            "resource:context-fabric"
+          ],
+          "count": 2
+        },
+        "context-retrieval": {
+          "resources": [
+            "resource:ai-code-assistant"
+          ],
+          "count": 1
+        },
+        "control-plane": {
+          "resources": [
+            "resource:khulnasoft-platform"
+          ],
+          "count": 1
+        },
+        "dashboard": {
+          "resources": [
+            "resource:grafana-dashboards",
+            "resource:metrics-platform"
+          ],
+          "count": 2
+        },
+        "database": {
+          "resources": [
+            "resource:orders-db",
+            "resource:orders-migration",
+            "resource:orders-schema"
+          ],
+          "count": 3
+        },
+        "deployment": {
+          "resources": [
+            "resource:container-registry",
+            "resource:deployment-runtime",
+            "resource:helm-charts-registry",
+            "resource:prod-cluster",
+            "resource:staging-environment"
+          ],
+          "count": 5
+        },
+        "discovery": {
+          "resources": [
+            "resource:repository-catalog",
+            "resource:runbooks"
+          ],
+          "count": 2
+        },
+        "documentation": {
+          "resources": [
+            "resource:runbooks"
+          ],
+          "count": 1
+        },
+        "domain": {
+          "resources": [
+            "resource:domains"
+          ],
+          "count": 1
+        },
+        "embedding-collection": {
+          "resources": [
+            "resource:vector-store"
+          ],
+          "count": 1
+        },
+        "environment": {
+          "resources": [
+            "resource:staging-environment"
+          ],
+          "count": 1
+        },
+        "event": {
+          "resources": [
+            "resource:event-bus"
+          ],
+          "count": 1
+        },
+        "event-driven": {
+          "resources": [
+            "resource:event-bus",
+            "resource:payment-events"
+          ],
+          "count": 2
+        },
+        "feature-flag": {
+          "resources": [
+            "resource:feature-flag-service"
+          ],
+          "count": 1
+        },
+        "github-action": {
+          "resources": [
+            "resource:ci-pipelines"
+          ],
+          "count": 1
+        },
+        "governance": {
+          "resources": [
+            "resource:khulnasoft-platform",
+            "resource:platform-blueprints",
+            "resource:policy-engine",
+            "resource:release-pipeline"
+          ],
+          "count": 4
+        },
+        "helm-chart": {
+          "resources": [
+            "resource:helm-charts-registry"
+          ],
+          "count": 1
+        },
+        "image": {
+          "resources": [
+            "resource:container-registry"
+          ],
+          "count": 1
+        },
+        "knowledge": {
+          "resources": [
+            "resource:runbooks"
+          ],
+          "count": 1
+        },
+        "knowledge-graph": {
+          "resources": [
+            "resource:knowledge-graph"
+          ],
+          "count": 1
+        },
+        "kubernetes": {
+          "resources": [
+            "resource:helm-charts-registry",
+            "resource:prod-cluster"
+          ],
+          "count": 2
+        },
+        "layered-context": {
+          "resources": [
+            "resource:context-fabric"
+          ],
+          "count": 1
+        },
+        "library": {
+          "resources": [
+            "resource:client-sdks",
+            "resource:logging-libraries"
+          ],
+          "count": 2
+        },
+        "llms.txt": {
+          "resources": [
+            "resource:context-fabric"
+          ],
+          "count": 1
+        },
+        "logging": {
+          "resources": [
+            "resource:logging-libraries"
+          ],
+          "count": 1
+        },
+        "mcp": {
+          "resources": [
+            "resource:ai-runtime",
+            "resource:api-gateway"
+          ],
+          "count": 2
+        },
+        "messaging": {
+          "resources": [
+            "resource:checkout-service",
+            "resource:event-bus",
+            "resource:ledger-worker",
+            "resource:payment-events"
+          ],
+          "count": 4
+        },
+        "metadata": {
+          "resources": [
+            "resource:repository-catalog"
+          ],
+          "count": 1
+        },
+        "microservice": {
+          "resources": [
+            "resource:checkout-service"
+          ],
+          "count": 1
+        },
+        "migration": {
+          "resources": [
+            "resource:orders-migration"
+          ],
+          "count": 1
+        },
+        "model": {
+          "resources": [
+            "resource:recommendation-model"
+          ],
+          "count": 1
+        },
+        "monitoring": {
+          "resources": [
+            "resource:grafana-dashboards",
+            "resource:metrics-platform",
+            "resource:oncall-alerts"
+          ],
+          "count": 3
+        },
+        "networking": {
+          "resources": [
+            "resource:domains",
+            "resource:platform-ingress",
+            "resource:tls-certificates"
+          ],
+          "count": 3
+        },
+        "observability": {
+          "resources": [
+            "resource:grafana-dashboards",
+            "resource:logging-libraries",
+            "resource:metrics-platform",
+            "resource:oncall-alerts"
+          ],
+          "count": 4
+        },
+        "payment": {
+          "resources": [
+            "resource:checkout-service"
+          ],
+          "count": 1
+        },
+        "pipeline": {
+          "resources": [
+            "resource:release-pipeline"
+          ],
+          "count": 1
+        },
+        "policy": {
+          "resources": [
+            "resource:policy-engine",
+            "resource:security-center"
+          ],
+          "count": 2
+        },
+        "prompt-registry": {
+          "resources": [
+            "resource:ai-runtime"
+          ],
+          "count": 1
+        },
+        "registry": {
+          "resources": [
+            "resource:khulnasoft-platform"
+          ],
+          "count": 1
+        },
+        "relationship-model": {
+          "resources": [
+            "resource:knowledge-graph"
+          ],
+          "count": 1
+        },
+        "release": {
+          "resources": [
+            "resource:deployment-runtime",
+            "resource:release-artifacts",
+            "resource:release-pipeline"
+          ],
+          "count": 3
+        },
+        "review": {
+          "resources": [
+            "resource:ai-code-assistant"
+          ],
+          "count": 1
+        },
+        "routing": {
+          "resources": [
+            "resource:api-gateway",
+            "resource:platform-ingress"
+          ],
+          "count": 2
+        },
+        "scaffolding": {
+          "resources": [
+            "resource:blueprint-templates"
+          ],
+          "count": 1
+        },
+        "schema": {
+          "resources": [
+            "resource:orders-schema"
+          ],
+          "count": 1
+        },
+        "sdk": {
+          "resources": [
+            "resource:client-sdks",
+            "resource:identity-provider",
+            "resource:release-artifacts"
+          ],
+          "count": 3
+        },
+        "search": {
+          "resources": [
+            "resource:knowledge-graph",
+            "resource:vector-store"
+          ],
+          "count": 2
+        },
+        "secret": {
+          "resources": [
+            "resource:secrets-vault"
+          ],
+          "count": 1
+        },
+        "security": {
+          "resources": [
+            "resource:secrets-vault",
+            "resource:security-center",
+            "resource:tls-certificates"
+          ],
+          "count": 3
+        },
+        "selective-retrieval": {
+          "resources": [
+            "resource:context-fabric"
+          ],
+          "count": 1
+        },
+        "starter": {
+          "resources": [
+            "resource:blueprint-templates"
+          ],
+          "count": 1
+        },
+        "storage": {
+          "resources": [
+            "resource:orders-db"
+          ],
+          "count": 1
+        },
+        "template": {
+          "resources": [
+            "resource:blueprint-templates",
+            "resource:platform-blueprints"
+          ],
+          "count": 2
+        },
+        "vector-collection": {
+          "resources": [
+            "resource:recommendation-model",
+            "resource:vector-store"
+          ],
+          "count": 2
+        },
+        "vulnerability": {
+          "resources": [
+            "resource:security-center"
+          ],
+          "count": 1
+        },
+        "worker": {
+          "resources": [
+            "resource:ledger-worker"
+          ],
+          "count": 1
+        },
+        "workflow": {
+          "resources": [
+            "resource:ci-pipelines"
+          ],
+          "count": 1
+        }
+      },
+      "top": [
+        "api",
+        "automation",
+        "deployment",
+        "messaging",
+        "observability",
+        "governance",
+        "sdk",
+        "release",
+        "certificate",
+        "networking",
+        "monitoring",
+        "database",
+        "security",
+        "context-fabric",
+        "mcp",
+        "routing",
+        "template",
+        "blueprint",
+        "library",
+        "artifact",
+        "event-driven",
+        "dashboard",
+        "kubernetes",
+        "authorization",
+        "catalog",
+        "search",
+        "alert",
+        "policy",
+        "ai",
+        "vector-collection",
+        "discovery",
+        "ai-agent",
+        "context-retrieval",
+        "review",
+        "assistant",
+        "agent-runtime",
+        "prompt-registry",
+        "starter",
+        "scaffolding",
+        "microservice",
+        "payment",
+        "workflow",
+        "github-action",
+        "container",
+        "image",
+        "layered-context",
+        "selective-retrieval",
+        "llms.txt",
+        "domain",
+        "event",
+        "feature-flag",
+        "helm-chart",
+        "authentication",
+        "control-plane",
+        "registry",
+        "knowledge-graph",
+        "relationship-model",
+        "worker",
+        "logging",
+        "storage",
+        "migration",
+        "schema",
+        "cluster",
+        "model",
+        "pipeline",
+        "metadata",
+        "knowledge",
+        "documentation",
+        "secret",
+        "vulnerability",
+        "environment",
+        "embedding-collection"
+      ]
+    },
+    "platform": {
+      "registry": "platform",
+      "count": 40,
+      "kinds": {
+        "ai-agent": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:ai-code-assistant",
+              "name": "AI Code Assistant",
+              "slug": "ai-code-assistant"
+            }
+          ]
+        },
+        "ai-runtime": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:ai-runtime",
+              "name": "AI Runtime Services",
+              "slug": "ai-runtime"
+            }
+          ]
+        },
+        "alert": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:oncall-alerts",
+              "name": "On-call Alerts",
+              "slug": "oncall-alerts"
+            }
+          ]
+        },
+        "api": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:api-gateway",
+              "name": "API Gateway",
+              "slug": "api-gateway"
+            }
+          ]
+        },
+        "blueprint": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:platform-blueprints",
+              "name": "Platform Blueprints",
+              "slug": "platform-blueprints"
+            }
+          ]
+        },
+        "certificate": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:tls-certificates",
+              "name": "TLS Certificates",
+              "slug": "tls-certificates"
+            }
+          ]
+        },
+        "cluster": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:prod-cluster",
+              "name": "Production Cluster",
+              "slug": "prod-cluster"
+            }
+          ]
+        },
+        "component": {
+          "count": 3,
+          "resources": [
+            {
+              "id": "resource:context-fabric",
+              "name": "Context Fabric",
+              "slug": "context-fabric"
+            },
+            {
+              "id": "resource:feature-flag-service",
+              "name": "Feature Flags",
+              "slug": "feature-flag-service"
+            },
+            {
+              "id": "resource:policy-engine",
+              "name": "Policy Engine",
+              "slug": "policy-engine"
+            }
+          ]
+        },
+        "dashboard": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:grafana-dashboards",
+              "name": "Grafana Dashboards",
+              "slug": "grafana-dashboards"
+            }
+          ]
+        },
+        "database": {
+          "count": 2,
+          "resources": [
+            {
+              "id": "resource:orders-db",
+              "name": "Orders Database",
+              "slug": "orders-db"
+            },
+            {
+              "id": "resource:vector-store",
+              "name": "Vector Store",
+              "slug": "vector-store"
+            }
+          ]
+        },
+        "deployment": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:deployment-runtime",
+              "name": "Deployment Runtime",
+              "slug": "deployment-runtime"
+            }
+          ]
+        },
+        "domain": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:domains",
+              "name": "Public Domains",
+              "slug": "domains"
+            }
+          ]
+        },
+        "environment": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:staging-environment",
+              "name": "Staging Environment",
+              "slug": "staging-environment"
+            }
+          ]
+        },
+        "event": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:event-bus",
+              "name": "Platform Event Bus",
+              "slug": "event-bus"
+            }
+          ]
+        },
+        "graph": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:knowledge-graph",
+              "name": "Engineering Knowledge Graph",
+              "slug": "knowledge-graph"
+            }
+          ]
+        },
+        "helm-chart": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:helm-charts-registry",
+              "name": "Helm Charts",
+              "slug": "helm-charts-registry"
+            }
+          ]
+        },
+        "image": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:container-registry",
+              "name": "Container Registry",
+              "slug": "container-registry"
+            }
+          ]
+        },
+        "ingress": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:platform-ingress",
+              "name": "Platform Ingress",
+              "slug": "platform-ingress"
+            }
+          ]
+        },
+        "knowledge": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:runbooks",
+              "name": "Runbook Library",
+              "slug": "runbooks"
+            }
+          ]
+        },
+        "library": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:logging-libraries",
+              "name": "Logging Libraries",
+              "slug": "logging-libraries"
+            }
+          ]
+        },
+        "migration": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:orders-migration",
+              "name": "Orders Schema Migrations",
+              "slug": "orders-migration"
+            }
+          ]
+        },
+        "model": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:recommendation-model",
+              "name": "Recommendation Model",
+              "slug": "recommendation-model"
+            }
+          ]
+        },
+        "observability": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:metrics-platform",
+              "name": "Metrics Platform",
+              "slug": "metrics-platform"
+            }
+          ]
+        },
+        "pipeline": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:release-pipeline",
+              "name": "Release Pipeline",
+              "slug": "release-pipeline"
+            }
+          ]
+        },
+        "platform": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:khulnasoft-platform",
+              "name": "KhulnaSoft Platform Core",
+              "slug": "khulnasoft-platform"
+            }
+          ]
+        },
+        "queue": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:payment-events",
+              "name": "Payment Events",
+              "slug": "payment-events"
+            }
+          ]
+        },
+        "release": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:release-artifacts",
+              "name": "Release Artifacts",
+              "slug": "release-artifacts"
+            }
+          ]
+        },
+        "repository": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:repository-catalog",
+              "name": "Repository Catalog Service",
+              "slug": "repository-catalog"
+            }
+          ]
+        },
+        "schema": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:orders-schema",
+              "name": "Orders Schema",
+              "slug": "orders-schema"
+            }
+          ]
+        },
+        "sdk": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:client-sdks",
+              "name": "Client SDKs",
+              "slug": "client-sdks"
+            }
+          ]
+        },
+        "secret": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:secrets-vault",
+              "name": "Secrets Vault",
+              "slug": "secrets-vault"
+            }
+          ]
+        },
+        "security": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:security-center",
+              "name": "Security Center",
+              "slug": "security-center"
+            }
+          ]
+        },
+        "service": {
+          "count": 2,
+          "resources": [
+            {
+              "id": "resource:checkout-service",
+              "name": "Checkout Service",
+              "slug": "checkout-service"
+            },
+            {
+              "id": "resource:identity-provider",
+              "name": "Identity Provider",
+              "slug": "identity-provider"
+            }
+          ]
+        },
+        "template": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:blueprint-templates",
+              "name": "Blueprint Templates",
+              "slug": "blueprint-templates"
+            }
+          ]
+        },
+        "worker": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:ledger-worker",
+              "name": "Ledger Worker",
+              "slug": "ledger-worker"
+            }
+          ]
+        },
+        "workflow": {
+          "count": 1,
+          "resources": [
+            {
+              "id": "resource:ci-pipelines",
+              "name": "CI Pipelines",
+              "slug": "ci-pipelines"
+            }
+          ]
+        }
+      }
+    },
+    "service": {
+      "registry": "service",
+      "count": 7,
+      "services": [
+        {
+          "id": "resource:api-gateway",
+          "name": "API Gateway",
+          "slug": "api-gateway",
+          "kind": "api",
+          "workspace": "core"
+        },
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "slug": "checkout-service",
+          "kind": "service",
+          "workspace": "commerce"
+        },
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "slug": "context-fabric",
+          "kind": "component",
+          "workspace": "ai"
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "slug": "feature-flag-service",
+          "kind": "component",
+          "workspace": "core"
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "slug": "identity-provider",
+          "kind": "service",
+          "workspace": "core-infrastructure"
+        },
+        {
+          "id": "resource:khulnasoft-platform",
+          "name": "KhulnaSoft Platform Core",
+          "slug": "khulnasoft-platform",
+          "kind": "platform",
+          "workspace": "core"
+        },
+        {
+          "id": "resource:policy-engine",
+          "name": "Policy Engine",
+          "slug": "policy-engine",
+          "kind": "component",
+          "workspace": "core-infrastructure"
+        }
+      ]
+    },
+    "kind": {
+      "registry": "kind",
+      "count": 36,
+      "coverage": {
+        "ai-agent": 1,
+        "ai-runtime": 1,
+        "api": 1,
+        "template": 1,
+        "service": 2,
+        "workflow": 1,
+        "sdk": 1,
+        "image": 1,
+        "component": 3,
+        "deployment": 1,
+        "domain": 1,
+        "event": 1,
+        "dashboard": 1,
+        "helm-chart": 1,
+        "platform": 1,
+        "graph": 1,
+        "worker": 1,
+        "library": 1,
+        "observability": 1,
+        "alert": 1,
+        "database": 2,
+        "migration": 1,
+        "schema": 1,
+        "queue": 1,
+        "blueprint": 1,
+        "ingress": 1,
+        "cluster": 1,
+        "model": 1,
+        "release": 1,
+        "pipeline": 1,
+        "repository": 1,
+        "knowledge": 1,
+        "secret": 1,
+        "security": 1,
+        "environment": 1,
+        "certificate": 1
+      }
+    },
+    "template": {
+      "registry": "template",
+      "count": 4,
+      "resources": [
+        {
+          "id": "resource:blueprint-templates",
+          "name": "Blueprint Templates",
+          "slug": "blueprint-templates",
+          "kind": "template",
+          "workspace": "platform",
+          "capabilities": [
+            "template",
+            "blueprint",
+            "starter",
+            "scaffolding"
+          ],
+          "source": "resource"
+        },
+        {
+          "id": "resource:platform-blueprints",
+          "name": "Platform Blueprints",
+          "slug": "platform-blueprints",
+          "kind": "blueprint",
+          "workspace": "platform",
+          "capabilities": [
+            "blueprint",
+            "template",
+            "governance"
+          ],
+          "source": "resource"
+        }
+      ],
+      "marketplace": [
+        {
+          "id": "asset:service-template-go",
+          "name": "Go service template",
+          "type": "template",
+          "summary": "Opinionated Go microservice with health checks, structured logging, and a khulnasoft.yaml contract.",
+          "tags": [
+            "service",
+            "go",
+            "microservice"
+          ],
+          "source": "marketplace"
+        },
+        {
+          "id": "asset:prompt-pack-context",
+          "name": "Context composition prompt pack",
+          "type": "prompt-pack",
+          "summary": "Prompts that compose layered context and selective retrieval for agent tasks.",
+          "tags": [
+            "ai",
+            "context",
+            "prompts"
+          ],
+          "source": "marketplace"
+        }
+      ]
+    },
+    "prompt": {
+      "registry": "prompt",
+      "count": 2,
+      "prompts": [
+        {
+          "id": "architecture",
+          "file": "architecture.md",
+          "body": "# Architecture Prompt\n\nDescribe the architecture of the target resource, including:\n- major components\n- boundaries\n- important relationships\n- deployment assumptions"
+        },
+        {
+          "id": "review",
+          "file": "review.md",
+          "body": "# Review Prompt\n\nReview the repository context and summarize:\n- architecture risks\n- dependency concerns\n- security posture\n- release readiness"
+        }
+      ]
+    },
+    "agent": {
+      "registry": "agent",
+      "count": 2,
+      "agents": [
+        {
+          "id": "agent:review",
+          "name": "Repository Review Agent",
+          "description": "Reviews repository posture, health, and release readiness.",
+          "capabilities": [
+            "review",
+            "risk-analysis"
+          ],
+          "prompt": "review"
+        },
+        {
+          "id": "agent:architecture",
+          "name": "Architecture Agent",
+          "description": "Explains architecture and component relationships.",
+          "capabilities": [
+            "architecture",
+            "context-composition"
+          ],
+          "prompt": "architecture"
+        }
+      ]
+    },
+    "context": {
+      "registry": "context",
+      "count": 10,
+      "resources": [
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "slug": "ai-code-assistant"
+        },
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "slug": "checkout-service"
+        },
+        {
+          "id": "resource:client-sdks",
+          "name": "Client SDKs",
+          "slug": "client-sdks"
+        },
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "slug": "context-fabric"
+        },
+        {
+          "id": "resource:helm-charts-registry",
+          "name": "Helm Charts",
+          "slug": "helm-charts-registry"
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "slug": "identity-provider"
+        },
+        {
+          "id": "resource:knowledge-graph",
+          "name": "Engineering Knowledge Graph",
+          "slug": "knowledge-graph"
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "slug": "recommendation-model"
+        },
+        {
+          "id": "resource:runbooks",
+          "name": "Runbook Library",
+          "slug": "runbooks"
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "slug": "vector-store"
+        }
+      ]
+    },
+    "model": {
+      "registry": "model",
+      "count": 2,
+      "models": [
+        {
+          "id": "resource:ai-code-assistant",
+          "name": "AI Code Assistant",
+          "slug": "ai-code-assistant",
+          "kind": "ai-agent",
+          "version": "0.9.2",
+          "owner": "AI Enablement",
+          "workspace": "ai",
+          "readiness": 88,
+          "capabilities": [
+            "ai-agent",
+            "context-retrieval",
+            "review",
+            "assistant"
+          ]
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "slug": "recommendation-model",
+          "kind": "model",
+          "version": "0.9.4",
+          "owner": "AI Enablement",
+          "workspace": "ai",
+          "readiness": 88,
+          "capabilities": [
+            "ai",
+            "model",
+            "vector-collection"
+          ]
+        }
+      ]
+    },
+    "tool": {
+      "registry": "tool",
+      "count": 9,
+      "tools": [
+        {
+          "id": "resource:ai-runtime",
+          "name": "AI Runtime Services",
+          "slug": "ai-runtime",
+          "kind": "ai-runtime",
+          "toolTypes": [
+            "mcp"
+          ]
+        },
+        {
+          "id": "resource:api-gateway",
+          "name": "API Gateway",
+          "slug": "api-gateway",
+          "kind": "api",
+          "toolTypes": [
+            "api",
+            "mcp"
+          ]
+        },
+        {
+          "id": "resource:checkout-service",
+          "name": "Checkout Service",
+          "slug": "checkout-service",
+          "kind": "service",
+          "toolTypes": [
+            "api"
+          ]
+        },
+        {
+          "id": "resource:ci-pipelines",
+          "name": "CI Pipelines",
+          "slug": "ci-pipelines",
+          "kind": "workflow",
+          "toolTypes": [
+            "github-action"
+          ]
+        },
+        {
+          "id": "resource:client-sdks",
+          "name": "Client SDKs",
+          "slug": "client-sdks",
+          "kind": "sdk",
+          "toolTypes": [
+            "api",
+            "sdk"
+          ]
+        },
+        {
+          "id": "resource:feature-flag-service",
+          "name": "Feature Flags",
+          "slug": "feature-flag-service",
+          "kind": "component",
+          "toolTypes": [
+            "api"
+          ]
+        },
+        {
+          "id": "resource:identity-provider",
+          "name": "Identity Provider",
+          "slug": "identity-provider",
+          "kind": "service",
+          "toolTypes": [
+            "api",
+            "sdk"
+          ]
+        },
+        {
+          "id": "resource:platform-ingress",
+          "name": "Platform Ingress",
+          "slug": "platform-ingress",
+          "kind": "ingress",
+          "toolTypes": [
+            "api"
+          ]
+        },
+        {
+          "id": "resource:release-artifacts",
+          "name": "Release Artifacts",
+          "slug": "release-artifacts",
+          "kind": "release",
+          "toolTypes": [
+            "sdk"
+          ]
+        }
+      ]
+    },
+    "memory": {
+      "registry": "memory",
+      "count": 9,
+      "memories": [
+        {
+          "id": "resource:ai-runtime",
+          "name": "AI Runtime Services",
+          "slug": "ai-runtime",
+          "kind": "ai-runtime",
+          "access": [
+            "context-fabric"
+          ]
+        },
+        {
+          "id": "resource:context-fabric",
+          "name": "Context Fabric",
+          "slug": "context-fabric",
+          "kind": "component",
+          "access": [
+            "context-fabric"
+          ]
+        },
+        {
+          "id": "resource:knowledge-graph",
+          "name": "Engineering Knowledge Graph",
+          "slug": "knowledge-graph",
+          "kind": "graph",
+          "access": [
+            "knowledge-graph",
+            "search"
+          ]
+        },
+        {
+          "id": "resource:orders-db",
+          "name": "Orders Database",
+          "slug": "orders-db",
+          "kind": "database",
+          "access": [
+            "database"
+          ]
+        },
+        {
+          "id": "resource:orders-migration",
+          "name": "Orders Schema Migrations",
+          "slug": "orders-migration",
+          "kind": "migration",
+          "access": [
+            "database"
+          ]
+        },
+        {
+          "id": "resource:orders-schema",
+          "name": "Orders Schema",
+          "slug": "orders-schema",
+          "kind": "schema",
+          "access": [
+            "database"
+          ]
+        },
+        {
+          "id": "resource:payment-events",
+          "name": "Payment Events",
+          "slug": "payment-events",
+          "kind": "queue",
+          "access": []
+        },
+        {
+          "id": "resource:recommendation-model",
+          "name": "Recommendation Model",
+          "slug": "recommendation-model",
+          "kind": "model",
+          "access": [
+            "vector-collection"
+          ]
+        },
+        {
+          "id": "resource:vector-store",
+          "name": "Vector Store",
+          "slug": "vector-store",
+          "kind": "database",
+          "access": [
+            "embedding-collection",
+            "search",
+            "vector-collection"
+          ]
+        }
+      ]
+    }
+  },
+  "resources": [
+    {
+      "id": "resource:ai-code-assistant",
+      "name": "AI Code Assistant",
+      "slug": "ai-code-assistant",
+      "kind": "ai-agent",
+      "owner": "AI Enablement",
+      "workspace": "ai",
+      "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+      "health": {
+        "score": 85,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:ai-runtime",
+      "name": "AI Runtime Services",
+      "slug": "ai-runtime",
+      "kind": "ai-runtime",
+      "owner": "KhulnaSoft",
+      "workspace": "core",
+      "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+      "health": {
+        "score": 82,
+        "status": "healthy"
+      },
+      "readiness": 80,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:api-gateway",
+      "name": "API Gateway",
+      "slug": "api-gateway",
+      "kind": "api",
+      "owner": "KhulnaSoft",
+      "workspace": "core",
+      "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+      "health": {
+        "score": 88,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "slug": "blueprint-templates",
+      "kind": "template",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+      "health": {
+        "score": 83,
+        "status": "healthy"
+      },
+      "readiness": 81,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "slug": "checkout-service",
+      "kind": "service",
+      "owner": "Commerce",
+      "workspace": "commerce",
+      "summary": "BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.",
+      "health": {
+        "score": 88,
+        "status": "healthy"
+      },
+      "readiness": 89,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "slug": "ci-pipelines",
+      "kind": "workflow",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.",
+      "health": {
+        "score": 87,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:client-sdks",
+      "name": "Client SDKs",
+      "slug": "client-sdks",
+      "kind": "sdk",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+      "health": {
+        "score": 88,
+        "status": "healthy"
+      },
+      "readiness": 89,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "slug": "container-registry",
+      "kind": "image",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.",
+      "health": {
+        "score": 91,
+        "status": "healthy"
+      },
+      "readiness": 89,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:context-fabric",
+      "name": "Context Fabric",
+      "slug": "context-fabric",
+      "kind": "component",
+      "owner": "AI Enablement",
+      "workspace": "ai",
+      "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+      "health": {
+        "score": 90,
+        "status": "healthy"
+      },
+      "readiness": 90,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:deployment-runtime",
+      "name": "Deployment Runtime",
+      "slug": "deployment-runtime",
+      "kind": "deployment",
+      "owner": "KhulnaSoft",
+      "workspace": "core",
+      "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+      "health": {
+        "score": 86,
+        "status": "healthy"
+      },
+      "readiness": 83,
+      "recommendations": [
+        "Review release runbooks weekly",
+        "Tune automated rollback thresholds",
+        "Keep deployment health checks current",
+        "Enable a context bundle and register a prompt for agent consumption."
+      ]
+    },
+    {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "slug": "domains",
+      "kind": "domain",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Managed public domains and TLS certificates terminating traffic at the platform ingress.",
+      "health": {
+        "score": 94,
+        "status": "healthy"
+      },
+      "readiness": 91,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:event-bus",
+      "name": "Platform Event Bus",
+      "slug": "event-bus",
+      "kind": "event",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+      "health": {
+        "score": 92,
+        "status": "healthy"
+      },
+      "readiness": 89,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "slug": "feature-flag-service",
+      "kind": "component",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.",
+      "health": {
+        "score": 86,
+        "status": "healthy"
+      },
+      "readiness": 84,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:grafana-dashboards",
+      "name": "Grafana Dashboards",
+      "slug": "grafana-dashboards",
+      "kind": "dashboard",
+      "owner": "Observability",
+      "workspace": "core-infrastructure",
+      "summary": "Operational dashboards for services, infrastructure, the AI runtime, and the data lake.",
+      "health": {
+        "score": 88,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:helm-charts-registry",
+      "name": "Helm Charts",
+      "slug": "helm-charts-registry",
+      "kind": "helm-chart",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.",
+      "health": {
+        "score": 91,
+        "status": "healthy"
+      },
+      "readiness": 91,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "slug": "identity-provider",
+      "kind": "service",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+      "health": {
+        "score": 90,
+        "status": "healthy"
+      },
+      "readiness": 91,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:khulnasoft-platform",
+      "name": "KhulnaSoft Platform Core",
+      "slug": "khulnasoft-platform",
+      "kind": "platform",
+      "owner": "KhulnaSoft",
+      "workspace": "core",
+      "summary": "The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.",
+      "health": {
+        "score": 92,
+        "status": "healthy"
+      },
+      "readiness": 89,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:knowledge-graph",
+      "name": "Engineering Knowledge Graph",
+      "slug": "knowledge-graph",
+      "kind": "graph",
+      "owner": "Platform Core",
+      "workspace": "core",
+      "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+      "health": {
+        "score": 86,
+        "status": "healthy"
+      },
+      "readiness": 86,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "slug": "ledger-worker",
+      "kind": "worker",
+      "owner": "Commerce",
+      "workspace": "commerce",
+      "summary": "Consumes payment events and writes idempotent ledger entries, reconciling daily batches.",
+      "health": {
+        "score": 76,
+        "status": "healthy"
+      },
+      "readiness": 75,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:logging-libraries",
+      "name": "Logging Libraries",
+      "slug": "logging-libraries",
+      "kind": "library",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+      "health": {
+        "score": 90,
+        "status": "healthy"
+      },
+      "readiness": 87,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "slug": "metrics-platform",
+      "kind": "observability",
+      "owner": "Observability",
+      "workspace": "core-infrastructure",
+      "summary": "Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.",
+      "health": {
+        "score": 88,
+        "status": "healthy"
+      },
+      "readiness": 86,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:oncall-alerts",
+      "name": "On-call Alerts",
+      "slug": "oncall-alerts",
+      "kind": "alert",
+      "owner": "Observability",
+      "workspace": "core-infrastructure",
+      "summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+      "health": {
+        "score": 87,
+        "status": "healthy"
+      },
+      "readiness": 84,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "slug": "orders-db",
+      "kind": "database",
+      "owner": "Commerce",
+      "workspace": "commerce",
+      "summary": "Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.",
+      "health": {
+        "score": 85,
+        "status": "healthy"
+      },
+      "readiness": 83,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:orders-migration",
+      "name": "Orders Schema Migrations",
+      "slug": "orders-migration",
+      "kind": "migration",
+      "owner": "Commerce",
+      "workspace": "commerce",
+      "summary": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
+      "health": {
+        "score": 91,
+        "status": "healthy"
+      },
+      "readiness": 88,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:orders-schema",
+      "name": "Orders Schema",
+      "slug": "orders-schema",
+      "kind": "schema",
+      "owner": "Commerce",
+      "workspace": "commerce",
+      "summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+      "health": {
+        "score": 93,
+        "status": "healthy"
+      },
+      "readiness": 90,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "slug": "payment-events",
+      "kind": "queue",
+      "owner": "Commerce",
+      "workspace": "commerce",
+      "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+      "health": {
+        "score": 90,
+        "status": "healthy"
+      },
+      "readiness": 88,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:platform-blueprints",
+      "name": "Platform Blueprints",
+      "slug": "platform-blueprints",
+      "kind": "blueprint",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
+      "health": {
+        "score": 85,
+        "status": "healthy"
+      },
+      "readiness": 82,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "slug": "platform-ingress",
+      "kind": "ingress",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "North-south ingress gateway routing external traffic to platform APIs and the portal.",
+      "health": {
+        "score": 89,
+        "status": "healthy"
+      },
+      "readiness": 87,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "slug": "policy-engine",
+      "kind": "component",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.",
+      "health": {
+        "score": 92,
+        "status": "healthy"
+      },
+      "readiness": 90,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:prod-cluster",
+      "name": "Production Cluster",
+      "slug": "prod-cluster",
+      "kind": "cluster",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+      "health": {
+        "score": 94,
+        "status": "healthy"
+      },
+      "readiness": 91,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "slug": "recommendation-model",
+      "kind": "model",
+      "owner": "AI Enablement",
+      "workspace": "ai",
+      "summary": "Embedding-based product recommendation model served through the AI runtime with online feature updates.",
+      "health": {
+        "score": 86,
+        "status": "healthy"
+      },
+      "readiness": 87,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "slug": "release-artifacts",
+      "kind": "release",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.",
+      "health": {
+        "score": 85,
+        "status": "healthy"
+      },
+      "readiness": 83,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:release-pipeline",
+      "name": "Release Pipeline",
+      "slug": "release-pipeline",
+      "kind": "pipeline",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+      "health": {
+        "score": 86,
+        "status": "healthy"
+      },
+      "readiness": 84,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:repository-catalog",
+      "name": "Repository Catalog Service",
+      "slug": "repository-catalog",
+      "kind": "repository",
+      "owner": "KhulnaSoft",
+      "workspace": "core",
+      "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+      "health": {
+        "score": 90,
+        "status": "healthy"
+      },
+      "readiness": 87,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:runbooks",
+      "name": "Runbook Library",
+      "slug": "runbooks",
+      "kind": "knowledge",
+      "owner": "Developer Experience",
+      "workspace": "platform",
+      "summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+      "health": {
+        "score": 84,
+        "status": "healthy"
+      },
+      "readiness": 84,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:secrets-vault",
+      "name": "Secrets Vault",
+      "slug": "secrets-vault",
+      "kind": "secret",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure",
+      "summary": "Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.",
+      "health": {
+        "score": 95,
+        "status": "healthy"
+      },
+      "readiness": 92,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:security-center",
+      "name": "Security Center",
+      "slug": "security-center",
+      "kind": "security",
+      "owner": "KhulnaSoft",
+      "workspace": "core",
+      "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+      "health": {
+        "score": 89,
+        "status": "healthy"
+      },
+      "readiness": 86,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:staging-environment",
+      "name": "Staging Environment",
+      "slug": "staging-environment",
+      "kind": "environment",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+      "health": {
+        "score": 89,
+        "status": "healthy"
+      },
+      "readiness": 87,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:tls-certificates",
+      "name": "TLS Certificates",
+      "slug": "tls-certificates",
+      "kind": "certificate",
+      "owner": "Platform",
+      "workspace": "core",
+      "summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+      "health": {
+        "score": 96,
+        "status": "healthy"
+      },
+      "readiness": 93,
+      "recommendations": [
+        "Enable a context bundle and register a prompt for agent consumption.",
+        "Address engineering-intelligence signals before release."
+      ]
+    },
+    {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "slug": "vector-store",
+      "kind": "database",
+      "owner": "AI Enablement",
+      "workspace": "ai",
+      "summary": "Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.",
+      "health": {
+        "score": 84,
+        "status": "healthy"
+      },
+      "readiness": 85,
+      "recommendations": [
+        "Address engineering-intelligence signals before release."
+      ]
+    }
+  ]
+}

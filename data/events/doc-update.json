@@ -1,0 +1,13 @@
+{
+  "id": "evt:2026-08-07-doc-update",
+  "source": "documentation",
+  "type": "doc.updated",
+  "happenedAt": "2026-08-07T08:00:00Z",
+  "scope": ["resource:api-gateway"],
+  "payload": {
+    "doc": {
+      "title": "API Gateway reference",
+      "path": "docs/api-gateway.md"
+    }
+  }
+}

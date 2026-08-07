@@ -1,0 +1,834 @@
+{
+  "protocol": "model-context-protocol",
+  "server": "khulnasoft-aec",
+  "resources": [
+    {
+      "id": "resource:ai-code-assistant",
+      "name": "AI Code Assistant",
+      "slug": "ai-code-assistant",
+      "kind": "ai-agent",
+      "endpoint": "mcp://khulnasoft/context/ai-code-assistant",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:ai-runtime",
+      "name": "AI Runtime Services",
+      "slug": "ai-runtime",
+      "kind": "ai-runtime",
+      "endpoint": "mcp://khulnasoft/context/ai-runtime",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:api-gateway",
+      "name": "API Gateway",
+      "slug": "api-gateway",
+      "kind": "api",
+      "endpoint": "mcp://khulnasoft/context/api-gateway",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:blueprint-templates",
+      "name": "Blueprint Templates",
+      "slug": "blueprint-templates",
+      "kind": "template",
+      "endpoint": "mcp://khulnasoft/context/blueprint-templates",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:checkout-service",
+      "name": "Checkout Service",
+      "slug": "checkout-service",
+      "kind": "service",
+      "endpoint": "mcp://khulnasoft/context/checkout-service",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:ci-pipelines",
+      "name": "CI Pipelines",
+      "slug": "ci-pipelines",
+      "kind": "workflow",
+      "endpoint": "mcp://khulnasoft/context/ci-pipelines",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:client-sdks",
+      "name": "Client SDKs",
+      "slug": "client-sdks",
+      "kind": "sdk",
+      "endpoint": "mcp://khulnasoft/context/client-sdks",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:container-registry",
+      "name": "Container Registry",
+      "slug": "container-registry",
+      "kind": "image",
+      "endpoint": "mcp://khulnasoft/context/container-registry",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:context-fabric",
+      "name": "Context Fabric",
+      "slug": "context-fabric",
+      "kind": "component",
+      "endpoint": "mcp://khulnasoft/context/context-fabric",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:deployment-runtime",
+      "name": "Deployment Runtime",
+      "slug": "deployment-runtime",
+      "kind": "deployment",
+      "endpoint": "mcp://khulnasoft/context/deployment-runtime",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:domains",
+      "name": "Public Domains",
+      "slug": "domains",
+      "kind": "domain",
+      "endpoint": "mcp://khulnasoft/context/domains",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:event-bus",
+      "name": "Platform Event Bus",
+      "slug": "event-bus",
+      "kind": "event",
+      "endpoint": "mcp://khulnasoft/context/event-bus",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:feature-flag-service",
+      "name": "Feature Flags",
+      "slug": "feature-flag-service",
+      "kind": "component",
+      "endpoint": "mcp://khulnasoft/context/feature-flag-service",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:grafana-dashboards",
+      "name": "Grafana Dashboards",
+      "slug": "grafana-dashboards",
+      "kind": "dashboard",
+      "endpoint": "mcp://khulnasoft/context/grafana-dashboards",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:helm-charts-registry",
+      "name": "Helm Charts",
+      "slug": "helm-charts-registry",
+      "kind": "helm-chart",
+      "endpoint": "mcp://khulnasoft/context/helm-charts-registry",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:identity-provider",
+      "name": "Identity Provider",
+      "slug": "identity-provider",
+      "kind": "service",
+      "endpoint": "mcp://khulnasoft/context/identity-provider",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:khulnasoft-platform",
+      "name": "KhulnaSoft Platform Core",
+      "slug": "khulnasoft-platform",
+      "kind": "platform",
+      "endpoint": "mcp://khulnasoft/context/khulnasoft-platform",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:knowledge-graph",
+      "name": "Engineering Knowledge Graph",
+      "slug": "knowledge-graph",
+      "kind": "graph",
+      "endpoint": "mcp://khulnasoft/context/knowledge-graph",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:ledger-worker",
+      "name": "Ledger Worker",
+      "slug": "ledger-worker",
+      "kind": "worker",
+      "endpoint": "mcp://khulnasoft/context/ledger-worker",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:logging-libraries",
+      "name": "Logging Libraries",
+      "slug": "logging-libraries",
+      "kind": "library",
+      "endpoint": "mcp://khulnasoft/context/logging-libraries",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:metrics-platform",
+      "name": "Metrics Platform",
+      "slug": "metrics-platform",
+      "kind": "observability",
+      "endpoint": "mcp://khulnasoft/context/metrics-platform",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:oncall-alerts",
+      "name": "On-call Alerts",
+      "slug": "oncall-alerts",
+      "kind": "alert",
+      "endpoint": "mcp://khulnasoft/context/oncall-alerts",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:orders-db",
+      "name": "Orders Database",
+      "slug": "orders-db",
+      "kind": "database",
+      "endpoint": "mcp://khulnasoft/context/orders-db",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:orders-migration",
+      "name": "Orders Schema Migrations",
+      "slug": "orders-migration",
+      "kind": "migration",
+      "endpoint": "mcp://khulnasoft/context/orders-migration",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:orders-schema",
+      "name": "Orders Schema",
+      "slug": "orders-schema",
+      "kind": "schema",
+      "endpoint": "mcp://khulnasoft/context/orders-schema",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:payment-events",
+      "name": "Payment Events",
+      "slug": "payment-events",
+      "kind": "queue",
+      "endpoint": "mcp://khulnasoft/context/payment-events",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:platform-blueprints",
+      "name": "Platform Blueprints",
+      "slug": "platform-blueprints",
+      "kind": "blueprint",
+      "endpoint": "mcp://khulnasoft/context/platform-blueprints",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:platform-ingress",
+      "name": "Platform Ingress",
+      "slug": "platform-ingress",
+      "kind": "ingress",
+      "endpoint": "mcp://khulnasoft/context/platform-ingress",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:policy-engine",
+      "name": "Policy Engine",
+      "slug": "policy-engine",
+      "kind": "component",
+      "endpoint": "mcp://khulnasoft/context/policy-engine",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:prod-cluster",
+      "name": "Production Cluster",
+      "slug": "prod-cluster",
+      "kind": "cluster",
+      "endpoint": "mcp://khulnasoft/context/prod-cluster",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:recommendation-model",
+      "name": "Recommendation Model",
+      "slug": "recommendation-model",
+      "kind": "model",
+      "endpoint": "mcp://khulnasoft/context/recommendation-model",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:release-artifacts",
+      "name": "Release Artifacts",
+      "slug": "release-artifacts",
+      "kind": "release",
+      "endpoint": "mcp://khulnasoft/context/release-artifacts",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:release-pipeline",
+      "name": "Release Pipeline",
+      "slug": "release-pipeline",
+      "kind": "pipeline",
+      "endpoint": "mcp://khulnasoft/context/release-pipeline",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:repository-catalog",
+      "name": "Repository Catalog Service",
+      "slug": "repository-catalog",
+      "kind": "repository",
+      "endpoint": "mcp://khulnasoft/context/repository-catalog",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:runbooks",
+      "name": "Runbook Library",
+      "slug": "runbooks",
+      "kind": "knowledge",
+      "endpoint": "mcp://khulnasoft/context/runbooks",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:secrets-vault",
+      "name": "Secrets Vault",
+      "slug": "secrets-vault",
+      "kind": "secret",
+      "endpoint": "mcp://khulnasoft/context/secrets-vault",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:security-center",
+      "name": "Security Center",
+      "slug": "security-center",
+      "kind": "security",
+      "endpoint": "mcp://khulnasoft/context/security-center",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:staging-environment",
+      "name": "Staging Environment",
+      "slug": "staging-environment",
+      "kind": "environment",
+      "endpoint": "mcp://khulnasoft/context/staging-environment",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:tls-certificates",
+      "name": "TLS Certificates",
+      "slug": "tls-certificates",
+      "kind": "certificate",
+      "endpoint": "mcp://khulnasoft/context/tls-certificates",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:vector-store",
+      "name": "Vector Store",
+      "slug": "vector-store",
+      "kind": "database",
+      "endpoint": "mcp://khulnasoft/context/vector-store",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "tool:install-marketplace-asset",
+      "name": "installMarketplaceAsset",
+      "description": "Install a reusable engineering asset (template, prompt pack, policy, agent, workflow) from the marketplace into the calling project/workspace.",
+      "endpoint": "mcp://khulnasoft/tool/install-marketplace-asset",
+      "input": {
+        "id": "asset:<id>",
+        "target": "optional resource target"
+      },
+      "output": {
+        "accepted": true,
+        "type": "<asset type>",
+        "resolved": "<model artifact>"
+      }
+    },
+    {
+      "id": "tool:consume-resolved-artifact",
+      "name": "consumeResolvedArtifact",
+      "description": "Fetch the consumable artifact resolved from an installed marketplace asset (resource twin+context bundle, prompt bundle, policy, or agent).",
+      "endpoint": "mcp://khulnasoft/tool/consume-resolved-artifact",
+      "input": {
+        "id": "asset:<id>"
+      },
+      "output": {
+        "kind": "resource|prompt|policy|agent|asset",
+        "payload": "<model artifact>"
+      }
+    },
+    {
+      "id": "tool:list-runtime-automations",
+      "name": "listRuntimeAutomations",
+      "description": "List runtime-plane automations and the events each one reacts to.",
+      "endpoint": "mcp://khulnasoft/tool/list-runtime-automations",
+      "input": {},
+      "output": {
+        "automations": "<automation[]>",
+        "automation_by_event": "<event->count map>"
+      }
+    },
+    {
+      "id": "tool:route-event",
+      "name": "routeEvent",
+      "description": "Route a native webhook/event payload into the canonical event model and resolve its downstream blast radius (resources to refresh).",
+      "endpoint": "mcp://khulnasoft/tool/route-event",
+      "input": {
+        "payload": "<native event body>",
+        "source": "<github|kubernetes|monitoring|security>"
+      },
+      "output": {
+        "event": "<canonical event>",
+        "touched": "<resources to refresh>"
+      }
+    }
+  ],
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ],
+  "selective": true
+}

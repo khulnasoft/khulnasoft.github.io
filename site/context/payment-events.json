@@ -1,0 +1,90 @@
+{
+  "resource": {
+    "id": "resource:payment-events",
+    "name": "Payment Events",
+    "slug": "payment-events",
+    "kind": "queue"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+      "name": "Payment Events",
+      "kind": "queue",
+      "owner": "Commerce",
+      "team": "commerce-payments",
+      "workspace": "commerce",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "commerce",
+        "events"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "messaging",
+        "event-driven"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "consumed_by",
+          "target": "resource:ledger-worker",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod"
+      },
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+      "owner": "Commerce",
+      "workspace": "commerce"
+    },
+    "health": {
+      "score": 90,
+      "status": "healthy",
+      "readiness": 88
+    }
+  },
+  "summary": "Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

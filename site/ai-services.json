@@ -1,0 +1,221 @@
+{
+  "evaluation": {
+    "service": "evaluation",
+    "count": 11,
+    "agentCount": 2,
+    "promptCount": 2,
+    "resources": [
+      {
+        "id": "resource:ai-code-assistant",
+        "name": "AI Code Assistant",
+        "kind": "ai-agent",
+        "promptRegistry": true,
+        "contextBundle": true,
+        "agentReady": true,
+        "aiReadiness": 88,
+        "health": 85,
+        "ready": "ready",
+        "evaluationScore": 100
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "kind": "component",
+        "promptRegistry": true,
+        "contextBundle": true,
+        "agentReady": true,
+        "aiReadiness": 92,
+        "health": 90,
+        "ready": "ready",
+        "evaluationScore": 100
+      },
+      {
+        "id": "resource:helm-charts-registry",
+        "name": "Helm Charts",
+        "kind": "helm-chart",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": true,
+        "aiReadiness": 84,
+        "health": 91,
+        "ready": "ready",
+        "evaluationScore": 100
+      },
+      {
+        "id": "resource:knowledge-graph",
+        "name": "Engineering Knowledge Graph",
+        "kind": "graph",
+        "promptRegistry": true,
+        "contextBundle": true,
+        "agentReady": true,
+        "aiReadiness": 90,
+        "health": 86,
+        "ready": "ready",
+        "evaluationScore": 100
+      },
+      {
+        "id": "resource:recommendation-model",
+        "name": "Recommendation Model",
+        "kind": "model",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": true,
+        "aiReadiness": 88,
+        "health": 86,
+        "ready": "ready",
+        "evaluationScore": 100
+      },
+      {
+        "id": "resource:vector-store",
+        "name": "Vector Store",
+        "kind": "database",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": true,
+        "aiReadiness": 86,
+        "health": 84,
+        "ready": "ready",
+        "evaluationScore": 100
+      },
+      {
+        "id": "resource:checkout-service",
+        "name": "Checkout Service",
+        "kind": "service",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": false,
+        "aiReadiness": 90,
+        "health": 88,
+        "ready": "ready",
+        "evaluationScore": 96
+      },
+      {
+        "id": "resource:identity-provider",
+        "name": "Identity Provider",
+        "kind": "service",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": false,
+        "aiReadiness": 88,
+        "health": 90,
+        "ready": "ready",
+        "evaluationScore": 95
+      },
+      {
+        "id": "resource:client-sdks",
+        "name": "Client SDKs",
+        "kind": "sdk",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": false,
+        "aiReadiness": 86,
+        "health": 88,
+        "ready": "ready",
+        "evaluationScore": 94
+      },
+      {
+        "id": "resource:runbooks",
+        "name": "Runbook Library",
+        "kind": "knowledge",
+        "promptRegistry": false,
+        "contextBundle": true,
+        "agentReady": false,
+        "aiReadiness": 82,
+        "health": 84,
+        "ready": "deployable",
+        "evaluationScore": 93
+      },
+      {
+        "id": "resource:ai-runtime",
+        "name": "AI Runtime Services",
+        "kind": "ai-runtime",
+        "promptRegistry": false,
+        "contextBundle": false,
+        "agentReady": false,
+        "aiReadiness": null,
+        "health": 82,
+        "ready": "deployable",
+        "evaluationScore": 40
+      }
+    ],
+    "avgEvaluationScore": 93
+  },
+  "safety": {
+    "service": "safety",
+    "policyCount": 3,
+    "guardrails": [
+      {
+        "id": "policy:production-readiness",
+        "name": "Production readiness",
+        "scope": "all production deployments",
+        "check": "blocking",
+        "requiredSignals": [
+          "health-checks",
+          "observability",
+          "rollback-plan",
+          "runbook"
+        ]
+      },
+      {
+        "id": "policy:supply-chain",
+        "name": "Supply chain security",
+        "scope": "all artifacts",
+        "check": "warn",
+        "requiredSignals": [
+          "sca-scan",
+          "dependency-pinning",
+          "build-attestation"
+        ]
+      },
+      {
+        "id": "policy:ai-metadata",
+        "name": "AI metadata visibility",
+        "scope": "all resources",
+        "check": "warn",
+        "requiredSignals": [
+          "context-bundle",
+          "prompt-registry",
+          "agent-ready"
+        ]
+      }
+    ],
+    "security": {
+      "cleanScans": 15,
+      "total": 40,
+      "deprecatedCount": 0
+    },
+    "aiPosture": {
+      "aiResources": 3,
+      "agentReady": 2,
+      "agentReadyPct": 67
+    }
+  },
+  "telemetry": {
+    "service": "telemetry",
+    "aiResources": 10,
+    "agents": 2,
+    "prompts": 2,
+    "contextBundles": 10,
+    "promptRegistryEnabled": 3,
+    "agentReady": 6,
+    "contextCoveragePct": 25,
+    "registries": [
+      "prompt",
+      "context",
+      "agent",
+      "memory",
+      "model",
+      "tool",
+      "template"
+    ],
+    "operations": {
+      "serving": "resource-context",
+      "modes": [
+        "selective",
+        "layered",
+        "llms.txt",
+        "mcp"
+      ]
+    }
+  }
+}

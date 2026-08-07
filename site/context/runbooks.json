@@ -1,0 +1,93 @@
+{
+  "resource": {
+    "id": "resource:runbooks",
+    "name": "Runbook Library",
+    "slug": "runbooks",
+    "kind": "knowledge"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+      "name": "Runbook Library",
+      "kind": "knowledge",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "runbooks",
+        "documentation"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "markdown"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "knowledge",
+        "documentation",
+        "discovery"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "provides",
+          "target": "resource:security-center",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:oncall-alerts",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 84,
+      "status": "healthy",
+      "readiness": 84
+    }
+  },
+  "summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

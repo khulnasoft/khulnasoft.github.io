@@ -1,0 +1,86 @@
+{
+  "resource": {
+    "id": "resource:security-center",
+    "name": "Security Center",
+    "slug": "security-center",
+    "kind": "security"
+  },
+  "context": {
+    "metadata": {
+      "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+      "name": "Security Center",
+      "kind": "security",
+      "owner": "KhulnaSoft",
+      "team": "KhulnaSoft",
+      "workspace": "core",
+      "lifecycle": "active",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "security",
+        "compliance"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "security",
+        "vulnerability",
+        "policy"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:repository-catalog",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+      "owner": "KhulnaSoft",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 89,
+      "status": "healthy",
+      "readiness": 86
+    }
+  },
+  "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}
