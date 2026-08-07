@@ -22,8 +22,13 @@ TMPDIR_GH="$(mktemp -d)"
 cp -r site/* "$TMPDIR_GH/"
 
 echo "==> Creating/refresing gh-pages branch..."
+
+# Remove site/ from the working tree before switching so git checkout
+# does not choke on modified generated files tracked on the source branch.
+rm -rf site/
+
 if git rev-parse --verify gh-pages >/dev/null 2>&1; then
-  git checkout gh-pages
+  git checkout --force gh-pages
 else
   git checkout --orphan gh-pages
 fi
