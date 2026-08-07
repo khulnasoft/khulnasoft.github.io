@@ -77,11 +77,24 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div><span class="pill">runtime</span><span class="pill">automation</span><span class="pill">onboarding</span></div></div>
 <div style="margin-top:.6rem"><button class="install" data-id="asset:workflow-onboarding">Install</button></div></div></div>
 <div id="toast" class="muted" style="margin-top:.8rem"></div>
+<div id="resolved" style="margin-top:.8rem"></div>
 <script>
-document.addEventListener('click',ev=>{
- const b=ev.target.closest('.install'); if(!b)return;
- const d=document.getElementById('toast'); d.textContent='Installed '+b.dataset.id+' ✔'; 
- setTimeout(()=>d.textContent='',2200);
+document.addEventListener('click', ev => {
+  const b = ev.target.closest('.install'); if (!b) return;
+  const d = document.getElementById('toast'); d.textContent = 'Installing ' + b.dataset.id + '…';
+  fetch('/marketplace/install', {method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({id: b.dataset.id})})
+    .then(r => r.json()).then(j => {
+      d.textContent = 'Installed ' + b.dataset.id + ' ✔';
+      let html = '<div class="card"><strong>Resolved:</strong> ' + j.type + ' → ' + j.resolved.kind +
+                 ' (' + j.resolved.id + ')';
+      if (j.resolved.twin) {
+        html += '<br/><span class="muted">twin: ' + j.resolved.twin.resource.name +
+                ' readiness ' + j.resolved.twin.readiness.overall + '</span>';
+      }
+      document.getElementById('resolved').innerHTML = html + '</div>';
+    }).catch(e => { d.textContent = 'Install failed'; console.error(e); });
+  setTimeout(() => d.textContent = '', 2200);
 });
 </script></main>
 <footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>

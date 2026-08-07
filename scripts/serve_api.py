@@ -48,10 +48,72 @@ def load_model() -> dict:
     data["ai_services"] = aicontrol.build_ai_services(resources, data["agents"], data["prompts"], data["readiness"], data["org"])
     data["by_slug"] = {r["slug"]: r for r in resources}
     data["search_index"] = searchmod.build_index(resources)
+    data["marketplace"] = model.load_json(ROOT / "data" / "marketplace" / "items.json")
+    by_id = {m["id"]: m for m in data["marketplace"]}
+    data["marketplace_by_id"] = by_id
     return data
 
 
 MODEL = load_model()
+
+
+def _resolve_asset(asset: dict, target: str, model: dict) -> dict:
+    """Resolve a marketplace asset to a concrete consumable artifact.
+
+    Resolution is deterministic and derived from the canonical model:
+      - template/blueprint → the matching resource twin+context bundle
+      - prompt-pack → the prompt registry entry
+      - policy → the governance policy from the organization
+      - agent → the matching registered agent
+      - everything else → the asset descriptor itself
+    """
+    atype = asset.get("type", "")
+    resources = model["resources"]
+    twins = model["twins"]
+    context = model["context"]
+    agents = model["agents"]
+    prompts = model["prompts"]
+
+    if atype in ("template", "blueprint", "starter"):
+        match = next((r for r in resources if r["kind"] in ("template", "blueprint") and
+                      any(t in r.get("capabilities", []) + r.get("tags", []) for t in asset.get("tags", []))), None)
+        if match is None:
+            match = next((r for r in resources if r["kind"] in ("template", "blueprint")), None)
+        if match:
+            return {
+                "kind": "resource",
+                "id": match["id"],
+                "twin": twins[match["id"]],
+                "context": context[match["id"]],
+            }
+        return {"kind": "resource", "id": asset.get("id"), "twin": None}
+
+    if atype == "prompt-pack":
+        prompt_id = next((a.get("prompt") for a in agents if "review" in a.get("capabilities", [])), None)
+        return {
+            "kind": "prompt",
+            "promptId": prompt_id or asset.get("id"),
+            "prompts": [p["path"] for p in prompts],
+        }
+
+    if atype == "policy":
+        tags = asset.get("tags", []) + asset["name"].lower().split()
+        for p in model["org"].get("governance", {}).get("policies", []):
+            pname = p["name"].lower()
+            # Match on any shared keyword between the asset and the policy.
+            if any(k in pname for k in tags if len(k) > 3):
+                return {"kind": "policy", "policy": p}
+        return {"kind": "policy", "policy": None}
+
+    if atype == "agent":
+        return {"kind": "agent", "agents": agents}
+
+    return {"kind": "asset", "asset": asset}
+
+
+def resolve_asset(asset: dict, target: str) -> dict:
+    """Resolve a marketplace asset using the live model (convenience wrapper)."""
+    return _resolve_asset(asset, target, MODEL)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -113,6 +175,9 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/agents":
             return self.send_json(MODEL["registries"]["agent"])
 
+        if path == "/marketplace":
+            return self.send_json(MODEL["marketplace"])
+
         if path == "/templates":
             return self.send_json(MODEL["registries"]["template"])
 
@@ -142,6 +207,28 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         parsed = urlparse(self.path)
         path = parsed.path.rstrip("/")
+        if path == "/marketplace/install":
+            length = int(self.headers.get("Content-Length", 0))
+            raw = self.rfile.read(length) if length else b"{}"
+            try:
+                payload = json.loads(raw.decode("utf-8"))
+            except Exception:
+                return self.send_json({"error": "invalid JSON"}, status=400)
+            asset = MODEL["marketplace_by_id"].get(payload.get("id"))
+            if asset is None:
+                return self.send_json({"error": f"unknown asset '{payload.get('id')}'"}, status=404)
+            target = payload.get("target") or asset.get("type")
+            # Resolve a consumable artifact: templates point to the context-fabric
+            # resource; prompt-packs resolve their prompt; policies resolve a
+            # governance policy; agents resolve the matching registered agent.
+            resolution = resolve_asset(asset, target)
+            return self.send_json({
+                "accepted": True,
+                "asset": asset["id"],
+                "type": asset["type"],
+                "target": target,
+                "resolved": resolution,
+            })
         if path == "/webhook/ingest":
             length = int(self.headers.get("Content-Length", 0))
             raw = self.rfile.read(length) if length else b"{}"

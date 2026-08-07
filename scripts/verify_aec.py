@@ -14,7 +14,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
-sys.path.insert(0, str(ROOT / "scripts"))
+SCRIPTS = ROOT / "scripts"
+sys.path.insert(0, str(SCRIPTS))
 
 from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, search as searchmod
 from aec import registries, ingest, analyzers
@@ -179,6 +180,31 @@ def main() -> int:
     ok9b = vectors["model"] == "tfidf-sparse" and len(vectors["vectors"]) == len(resources)
     check("9b. Vector artifacts emitted for every resource", ok9b,
           f"model={vectors['model']} n={len(vectors['vectors'])}")
+
+    # 10. Phase 10.4 marketplace install/consumption API resolves assets to real artifacts.
+    from serve_api import _resolve_asset
+    mp = model.load_json(ROOT / "data" / "marketplace" / "items.json")
+    mini = {
+        "resources": resources, "twins": twins, "context": {r["id"]: ctxmod.build_context(r, readiness[r["id"]]) for r in resources},
+        "agents": agents, "prompts": prompts, "org": org,
+    }
+    asset = next((m for m in mp if m["type"] == "template"), mp[0])
+    resolved = _resolve_asset(asset, asset["type"], mini)
+    ok10 = resolved["kind"] in ("resource", "policy", "prompt", "agent", "asset")
+    check("10. Marketplace install resolves assets to model artifacts", ok10,
+          f"resolved={resolved['kind']}")
+    # A template asset resolves to a real resource twin.
+    tmpl = next((m for m in mp if m["type"] == "template"), None)
+    ok10b = tmpl and _resolve_asset(tmpl, "template", mini)["kind"] == "resource"
+    check("10b. Template assets resolve to a resource twin+context", bool(ok10b),
+          f"asset={tmpl['name'] if tmpl else None}")
+    # prompt-pack resolves to a prompt bundle; policy resolves to a governance policy.
+    pp = next((m for m in mp if m["type"] == "prompt-pack"), None)
+    pol = next((m for m in mp if m["type"] == "policy"), None)
+    ok10c = (pp and _resolve_asset(pp, "prompt-pack", mini)["kind"] == "prompt") and \
+            (pol and _resolve_asset(pol, "policy", mini)["policy"] is not None)
+    check("10c. Prompt-pack and policy assets resolve to model artifacts", bool(ok10c),
+          f"prompt={pp is not None} policy={pol is not None}")
 
     print(f"\n{sum(1 for _, o in CHECKS if o)}/{len(CHECKS)} checks passed")
     if FAILURES:

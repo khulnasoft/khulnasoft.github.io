@@ -685,12 +685,25 @@ def render_marketplace(items, sdk_artifacts):
 <h2>SDKs (generated from resource.schema.json)</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">{sdks}</div>
 <h2>Reusable assets</h2><div class="grid">{cards}</div>
 <div id="toast" class="muted" style="margin-top:.8rem"></div>
-<script>
-document.addEventListener('click',ev=>{{
- const b=ev.target.closest('.install'); if(!b)return;
- const d=document.getElementById('toast'); d.textContent='Installed '+b.dataset.id+' ✔'; 
- setTimeout(()=>d.textContent='',2200);
-}});
+<div id="resolved" style="margin-top:.8rem"></div>
+<script>""" + """
+document.addEventListener('click', ev => {
+  const b = ev.target.closest('.install'); if (!b) return;
+  const d = document.getElementById('toast'); d.textContent = 'Installing ' + b.dataset.id + '…';
+  fetch('/marketplace/install', {method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({id: b.dataset.id})})
+    .then(r => r.json()).then(j => {
+      d.textContent = 'Installed ' + b.dataset.id + ' ✔';
+      let html = '<div class="card"><strong>Resolved:</strong> ' + j.type + ' → ' + j.resolved.kind +
+                 ' (' + j.resolved.id + ')';
+      if (j.resolved.twin) {
+        html += '<br/><span class="muted">twin: ' + j.resolved.twin.resource.name +
+                ' readiness ' + j.resolved.twin.readiness.overall + '</span>';
+      }
+      document.getElementById('resolved').innerHTML = html + '</div>';
+    }).catch(e => { d.textContent = 'Install failed'; console.error(e); });
+  setTimeout(() => d.textContent = '', 2200);
+});
 </script>"""
     return shell("Marketplace", body)
 
