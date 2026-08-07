@@ -1,0 +1,101 @@
+{
+  "resource": {
+    "id": "resource:orders-migration",
+    "name": "Orders Schema Migrations",
+    "slug": "orders-migration",
+    "kind": "migration"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
+      "name": "Orders Schema Migrations",
+      "kind": "migration",
+      "owner": "Commerce",
+      "team": "commerce-data",
+      "workspace": "commerce",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "4.2.0",
+      "tags": [
+        "migration",
+        "database"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "migration",
+        "database",
+        "automation"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:orders-schema",
+          "detail": null
+        },
+        {
+          "type": "deploys",
+          "target": "resource:orders-db",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
+      "owner": "Commerce",
+      "workspace": "commerce"
+    },
+    "health": {
+      "score": 91,
+      "status": "healthy",
+      "readiness": 88
+    }
+  },
+  "summary": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

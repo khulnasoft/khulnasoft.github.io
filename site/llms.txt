@@ -23,6 +23,9 @@
 - [CI Pipelines](https://khulnasoft.github.io/resources/ci-pipelines.html)
   - Context: `/context/ci-pipelines.json`
   - Twin: `/api/resources/ci-pipelines/twin`
+- [Client SDKs](https://khulnasoft.github.io/resources/client-sdks.html)
+  - Context: `/context/client-sdks.json`
+  - Twin: `/api/resources/client-sdks/twin`
 - [Container Registry](https://khulnasoft.github.io/resources/container-registry.html)
   - Context: `/context/container-registry.json`
   - Twin: `/api/resources/container-registry/twin`
@@ -35,9 +38,15 @@
 - [Public Domains](https://khulnasoft.github.io/resources/domains.html)
   - Context: `/context/domains.json`
   - Twin: `/api/resources/domains/twin`
+- [Platform Event Bus](https://khulnasoft.github.io/resources/event-bus.html)
+  - Context: `/context/event-bus.json`
+  - Twin: `/api/resources/event-bus/twin`
 - [Feature Flags](https://khulnasoft.github.io/resources/feature-flag-service.html)
   - Context: `/context/feature-flag-service.json`
   - Twin: `/api/resources/feature-flag-service/twin`
+- [Grafana Dashboards](https://khulnasoft.github.io/resources/grafana-dashboards.html)
+  - Context: `/context/grafana-dashboards.json`
+  - Twin: `/api/resources/grafana-dashboards/twin`
 - [Helm Charts](https://khulnasoft.github.io/resources/helm-charts-registry.html)
   - Context: `/context/helm-charts-registry.json`
   - Twin: `/api/resources/helm-charts-registry/twin`
@@ -53,33 +62,66 @@
 - [Ledger Worker](https://khulnasoft.github.io/resources/ledger-worker.html)
   - Context: `/context/ledger-worker.json`
   - Twin: `/api/resources/ledger-worker/twin`
+- [Logging Libraries](https://khulnasoft.github.io/resources/logging-libraries.html)
+  - Context: `/context/logging-libraries.json`
+  - Twin: `/api/resources/logging-libraries/twin`
 - [Metrics Platform](https://khulnasoft.github.io/resources/metrics-platform.html)
   - Context: `/context/metrics-platform.json`
   - Twin: `/api/resources/metrics-platform/twin`
+- [On-call Alerts](https://khulnasoft.github.io/resources/oncall-alerts.html)
+  - Context: `/context/oncall-alerts.json`
+  - Twin: `/api/resources/oncall-alerts/twin`
 - [Orders Database](https://khulnasoft.github.io/resources/orders-db.html)
   - Context: `/context/orders-db.json`
   - Twin: `/api/resources/orders-db/twin`
+- [Orders Schema Migrations](https://khulnasoft.github.io/resources/orders-migration.html)
+  - Context: `/context/orders-migration.json`
+  - Twin: `/api/resources/orders-migration/twin`
+- [Orders Schema](https://khulnasoft.github.io/resources/orders-schema.html)
+  - Context: `/context/orders-schema.json`
+  - Twin: `/api/resources/orders-schema/twin`
 - [Payment Events](https://khulnasoft.github.io/resources/payment-events.html)
   - Context: `/context/payment-events.json`
   - Twin: `/api/resources/payment-events/twin`
+- [Platform Blueprints](https://khulnasoft.github.io/resources/platform-blueprints.html)
+  - Context: `/context/platform-blueprints.json`
+  - Twin: `/api/resources/platform-blueprints/twin`
 - [Platform Ingress](https://khulnasoft.github.io/resources/platform-ingress.html)
   - Context: `/context/platform-ingress.json`
   - Twin: `/api/resources/platform-ingress/twin`
 - [Policy Engine](https://khulnasoft.github.io/resources/policy-engine.html)
   - Context: `/context/policy-engine.json`
   - Twin: `/api/resources/policy-engine/twin`
+- [Production Cluster](https://khulnasoft.github.io/resources/prod-cluster.html)
+  - Context: `/context/prod-cluster.json`
+  - Twin: `/api/resources/prod-cluster/twin`
 - [Recommendation Model](https://khulnasoft.github.io/resources/recommendation-model.html)
   - Context: `/context/recommendation-model.json`
   - Twin: `/api/resources/recommendation-model/twin`
 - [Release Artifacts](https://khulnasoft.github.io/resources/release-artifacts.html)
   - Context: `/context/release-artifacts.json`
   - Twin: `/api/resources/release-artifacts/twin`
+- [Release Pipeline](https://khulnasoft.github.io/resources/release-pipeline.html)
+  - Context: `/context/release-pipeline.json`
+  - Twin: `/api/resources/release-pipeline/twin`
 - [Repository Catalog Service](https://khulnasoft.github.io/resources/repository-catalog.html)
   - Context: `/context/repository-catalog.json`
   - Twin: `/api/resources/repository-catalog/twin`
+- [Runbook Library](https://khulnasoft.github.io/resources/runbooks.html)
+  - Context: `/context/runbooks.json`
+  - Twin: `/api/resources/runbooks/twin`
+- [Secrets Vault](https://khulnasoft.github.io/resources/secrets-vault.html)
+  - Context: `/context/secrets-vault.json`
+  - Twin: `/api/resources/secrets-vault/twin`
 - [Security Center](https://khulnasoft.github.io/resources/security-center.html)
   - Context: `/context/security-center.json`
   - Twin: `/api/resources/security-center/twin`
+- [Staging Environment](https://khulnasoft.github.io/resources/staging-environment.html)
+  - Context: `/context/staging-environment.json`
+  - Twin: `/api/resources/staging-environment/twin`
+- [TLS Certificates](https://khulnasoft.github.io/resources/tls-certificates.html)
+  - Context: `/context/tls-certificates.json`
+  - Twin: `/api/resources/tls-certificates/twin`
 - [Vector Store](https://khulnasoft.github.io/resources/vector-store.html)
   - Context: `/context/vector-store.json`
   - Twin: `/api/resources/vector-store/twin`

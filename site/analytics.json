@@ -233,6 +233,51 @@
         "signal": null
       }
     },
+    "resource:client-sdks": {
+      "id": "resource:client-sdks",
+      "slug": "client-sdks",
+      "languages": [
+        "typescript",
+        "python",
+        "go",
+        "rust",
+        "java",
+        "c#",
+        "php",
+        "ruby",
+        "swift",
+        "kotlin",
+        "dart"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:api-gateway"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
     "resource:container-registry": {
       "id": "resource:container-registry",
       "slug": "container-registry",
@@ -389,6 +434,47 @@
         "signal": null
       }
     },
+    "resource:event-bus": {
+      "id": "resource:event-bus",
+      "slug": "event-bus",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "kafka"
+      ],
+      "architecture": [
+        "event-driven"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "provides",
+          "target": "resource:payment-events"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
     "resource:feature-flag-service": {
       "id": "resource:feature-flag-service",
       "slug": "feature-flag-service",
@@ -410,6 +496,43 @@
         {
           "type": "serves",
           "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:grafana-dashboards": {
+      "id": "resource:grafana-dashboards",
+      "slug": "grafana-dashboards",
+      "languages": [
+        "json"
+      ],
+      "frameworks": [
+        "grafana"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:metrics-platform"
         }
       ],
       "security": {
@@ -624,6 +747,47 @@
         "signal": null
       }
     },
+    "resource:logging-libraries": {
+      "id": "resource:logging-libraries",
+      "slug": "logging-libraries",
+      "languages": [
+        "go",
+        "python",
+        "typescript"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "used_by",
+          "target": "resource:checkout-service"
+        },
+        {
+          "type": "used_by",
+          "target": "resource:ledger-worker"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
     "resource:metrics-platform": {
       "id": "resource:metrics-platform",
       "slug": "metrics-platform",
@@ -647,6 +811,44 @@
         {
           "type": "monitors",
           "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:oncall-alerts": {
+      "id": "resource:oncall-alerts",
+      "slug": "oncall-alerts",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "prometheus",
+        "pagerduty"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:metrics-platform"
         }
       ],
       "security": {
@@ -702,6 +904,80 @@
         "signal": null
       }
     },
+    "resource:orders-migration": {
+      "id": "resource:orders-migration",
+      "slug": "orders-migration",
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:orders-schema"
+        },
+        {
+          "type": "deploys",
+          "target": "resource:orders-db"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:orders-schema": {
+      "id": "resource:orders-schema",
+      "slug": "orders-schema",
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:orders-db"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
     "resource:payment-events": {
       "id": "resource:payment-events",
       "slug": "payment-events",
@@ -717,6 +993,42 @@
         {
           "type": "consumed_by",
           "target": "resource:ledger-worker"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:platform-blueprints": {
+      "id": "resource:platform-blueprints",
+      "slug": "platform-blueprints",
+      "languages": [
+        "yaml",
+        "markdown"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:blueprint-templates"
         }
       ],
       "security": {
@@ -793,6 +1105,51 @@
         {
           "type": "provides",
           "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:prod-cluster": {
+      "id": "resource:prod-cluster",
+      "slug": "prod-cluster",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "kubernetes"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "hosts",
+          "target": "resource:checkout-service"
+        },
+        {
+          "type": "hosts",
+          "target": "resource:ai-runtime"
+        },
+        {
+          "type": "hosts",
+          "target": "resource:api-gateway"
         }
       ],
       "security": {
@@ -894,6 +1251,47 @@
         "signal": null
       }
     },
+    "resource:release-pipeline": {
+      "id": "resource:release-pipeline",
+      "slug": "release-pipeline",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "github-actions"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ci-pipelines"
+        },
+        {
+          "type": "provides",
+          "target": "resource:release-artifacts"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
     "resource:repository-catalog": {
       "id": "resource:repository-catalog",
       "slug": "repository-catalog",
@@ -927,6 +1325,84 @@
         "signal": null
       }
     },
+    "resource:runbooks": {
+      "id": "resource:runbooks",
+      "slug": "runbooks",
+      "languages": [
+        "markdown"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:security-center"
+        },
+        {
+          "type": "provides",
+          "target": "resource:oncall-alerts"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:secrets-vault": {
+      "id": "resource:secrets-vault",
+      "slug": "secrets-vault",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:identity-provider"
+        },
+        {
+          "type": "provides",
+          "target": "resource:deployment-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
     "resource:security-center": {
       "id": "resource:security-center",
       "slug": "security-center",
@@ -954,6 +1430,89 @@
       "deprecation": {
         "deprecated": false,
         "lifecycle": "active"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:staging-environment": {
+      "id": "resource:staging-environment",
+      "slug": "staging-environment",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "kubernetes",
+        "terraform"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "hosts",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      }
+    },
+    "resource:tls-certificates": {
+      "id": "resource:tls-certificates",
+      "slug": "tls-certificates",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "cert-manager"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:domains"
+        },
+        {
+          "type": "provides",
+          "target": "resource:platform-ingress"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
       },
       "perfRegression": {
         "regression": false,
@@ -1002,14 +1561,24 @@
   },
   "summary": {
     "language_count": [
+      "c#",
+      "dart",
       "go",
+      "java",
       "json",
+      "kotlin",
+      "markdown",
+      "php",
       "python",
+      "ruby",
+      "rust",
       "sql",
+      "swift",
       "typescript",
       "yaml"
     ],
     "framework_count": [
+      "cert-manager",
       "cookiecutter",
       "copier",
       "fastapi",
@@ -1017,14 +1586,16 @@
       "github-actions",
       "grafana",
       "helm",
+      "kafka",
       "kubernetes",
       "networkx-compatible",
       "node",
+      "pagerduty",
       "prometheus",
       "terraform"
     ],
-    "relationship_count": 43,
-    "api_resources": 5,
+    "relationship_count": 67,
+    "api_resources": 6,
     "tech_debt_resources": 0,
     "tech_debt_items": 0,
     "deprecated_resources": 0,

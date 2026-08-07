@@ -1,0 +1,100 @@
+{
+  "resource": {
+    "id": "resource:tls-certificates",
+    "name": "TLS Certificates",
+    "slug": "tls-certificates",
+    "kind": "certificate"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+      "name": "TLS Certificates",
+      "kind": "certificate",
+      "owner": "Platform",
+      "team": "platform-infra",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "2026-07",
+      "tags": [
+        "tls",
+        "certificates",
+        "security"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "cert-manager"
+      ],
+      "capabilities": [
+        "certificate",
+        "security",
+        "networking"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "provides",
+          "target": "resource:domains",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:platform-ingress",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+      "owner": "Platform",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 96,
+      "status": "healthy",
+      "readiness": 93
+    }
+  },
+  "summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

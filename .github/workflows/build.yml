@@ -31,6 +31,8 @@ jobs:
           test -f site/release.html
           test -f site/data-lake.html
           test -f site/analytics.html
+          test -f site/ai-control-plane.html
+          test -f site/ai-services.json
           test -f site/runtime.html
           test -f site/impact.json
           test -f site/release.json

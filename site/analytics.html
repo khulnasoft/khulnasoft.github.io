@@ -39,8 +39,8 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <main><h1>Engineering Intelligence</h1>
 <p class="muted">Deterministic analyzers over the resource registry: languages, frameworks, architecture patterns, API exposure, dependency resolution, security posture, technical debt, deprecation, and performance regressions.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-<div class="card metric"><div class="value">43</div><div class="label">relationships</div></div>
-<div class="card metric"><div class="value">5</div><div class="label">api resources</div></div>
+<div class="card metric"><div class="value">67</div><div class="label">relationships</div></div>
+<div class="card metric"><div class="value">6</div><div class="label">api resources</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">debt items</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">deprecated</div></div>
 <div class="card metric"><div class="value">0</div><div class="label">perf regressions</div></div>
@@ -94,6 +94,14 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/client-sdks.html">client-sdks</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: typescript, python, go, rust, java, c#, php, ruby, swift, kotlin, dart · frameworks: —</div>
+<div class="muted">arch: layered · api: yes</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/container-registry.html">container-registry</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
@@ -126,10 +134,26 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/event-bus.html">event-bus</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: go · frameworks: kafka</div>
+<div class="muted">arch: event-driven · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/feature-flag-service.html">feature-flag-service</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: gin</div>
 <div class="muted">arch: layered · api: yes</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/grafana-dashboards.html">grafana-dashboards</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: json · frameworks: grafana</div>
+<div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
 
@@ -174,6 +198,14 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/logging-libraries.html">logging-libraries</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: go, python, typescript · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/metrics-platform.html">metrics-platform</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go, typescript · frameworks: prometheus, grafana</div>
@@ -182,7 +214,31 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/oncall-alerts.html">oncall-alerts</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: prometheus, pagerduty</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-db.html">orders-db</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/orders-migration.html">orders-migration</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/orders-schema.html">orders-schema</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: sql · frameworks: —</div>
 <div class="muted">arch: layered · api: no</div>
@@ -198,6 +254,14 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/platform-blueprints.html">platform-blueprints</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: yaml, markdown · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/platform-ingress.html">platform-ingress</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
@@ -209,6 +273,14 @@ badge ok</div>
 <a style="font-weight:700" href="resources/policy-engine.html">policy-engine</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/prod-cluster.html">prod-cluster</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: kubernetes</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 
@@ -230,6 +302,14 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/release-pipeline.html">release-pipeline</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: github-actions</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/repository-catalog.html">repository-catalog</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
@@ -238,9 +318,41 @@ badge ok</div>
 
 
 </div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/runbooks.html">runbooks</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: markdown · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/secrets-vault.html">secrets-vault</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: go · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/security-center.html">security-center</a>
 badge ok</div>
 <div class="muted" style="margin:.3rem 0">lang: — · frameworks: —</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/staging-environment.html">staging-environment</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: kubernetes, terraform</div>
+<div class="muted">arch: layered · api: no</div>
+<div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
+
+
+</div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/tls-certificates.html">tls-certificates</a>
+badge ok</div>
+<div class="muted" style="margin:.3rem 0">lang: yaml · frameworks: cert-manager</div>
 <div class="muted">arch: layered · api: no</div>
 <div class="muted" style="margin-top:.3rem">tech debt: <code>none</code></div>
 

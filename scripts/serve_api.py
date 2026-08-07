@@ -18,7 +18,7 @@ from urllib.parse import urlparse, parse_qs
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance, ingest, analyzers, runtime as rtmod  # noqa: E402
+from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, governance, ingest, analyzers, runtime as rtmod, aicontrol  # noqa: E402
 
 
 def load_model() -> dict:
@@ -39,12 +39,13 @@ def load_model() -> dict:
         r["id"]: ctxmod.build_context(r, data["readiness"][r["id"]]) for r in resources
     }
     data["twins"] = twinsmod.build_all_twins(resources, data["insights"], data["recs"], data["context"])
-    data["registries"] = registries.build_registries(resources, data["prompts"], data["agents"])
+    data["registries"] = registries.build_registries(resources, data["prompts"], data["agents"], model.load_json(ROOT / "data" / "marketplace" / "items.json"))
     data["impact"] = graphmod.compute_impact(resources)
     data["release"] = governance.evaluate_release(resources, data["readiness"], data["org"])
     data["events"] = ingest.load_events()
     data["analytics"] = analyzers.build_analyses(resources, data["readiness"])
     data["metrics"] = graphmod._compute_metrics(resources)
+    data["ai_services"] = aicontrol.build_ai_services(resources, data["agents"], data["prompts"], data["readiness"], data["org"])
     data["by_slug"] = {r["slug"]: r for r in resources}
     return data
 
@@ -103,6 +104,21 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/agents":
             return self.send_json(MODEL["registries"]["agent"])
+
+        if path == "/templates":
+            return self.send_json(MODEL["registries"]["template"])
+
+        if path == "/ai/services":
+            return self.send_json(MODEL["ai_services"])
+
+        if path == "/ai/evaluation":
+            return self.send_json(MODEL["ai_services"]["evaluation"])
+
+        if path == "/ai/safety":
+            return self.send_json(MODEL["ai_services"]["safety"])
+
+        if path == "/ai/telemetry":
+            return self.send_json(MODEL["ai_services"]["telemetry"])
 
         if path == "/llms.txt":
             return self.send_text(ctxmod.build_llms(MODEL["resources"]), "text/plain; charset=utf-8")

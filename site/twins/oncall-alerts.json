@@ -1,0 +1,78 @@
+{
+  "resource": {
+    "id": "resource:oncall-alerts",
+    "kind": "alert",
+    "name": "On-call Alerts",
+    "slug": "oncall-alerts",
+    "owner": "Observability",
+    "team": "obs",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "yaml"
+    ],
+    "frameworks": [
+      "prometheus",
+      "pagerduty"
+    ],
+    "capabilities": [
+      "alert",
+      "monitoring",
+      "observability"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:metrics-platform"
+    }
+  ],
+  "health": {
+    "score": 87,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 84,
+    "level": "deployable",
+    "scores": {
+      "architecture": 87,
+      "documentation": 87,
+      "security": 87,
+      "tests": 87,
+      "ci": 87,
+      "performance": 87,
+      "dependencies": 87,
+      "maintainability": 87,
+      "release": 87,
+      "compliance": 87,
+      "observability": 87,
+      "community": 87,
+      "ai_readiness": 50,
+      "production_readiness": 87
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

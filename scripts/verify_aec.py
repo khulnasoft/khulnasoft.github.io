@@ -38,7 +38,8 @@ def main() -> int:
     context_bundles = {r["id"]: ctxmod.build_context(r, readiness[r["id"]]) for r in resources}
     insights = intelligence.build_insights(resources)
     twins = twinsmod.build_all_twins(resources, insights, recs, context_bundles)
-    reg = registries.build_registries(resources, prompts, agents)
+    reg = registries.build_registries(resources, prompts, agents,
+                                      model.load_json(ROOT / "data" / "marketplace" / "items.json"))
     analyses = analyzers.build_analyses(resources, readiness)
     graph = graphmod.build_graph(resources)
 

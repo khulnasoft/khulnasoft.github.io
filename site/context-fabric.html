@@ -50,7 +50,9 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.3rem 0">BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.</div>
 <a href="context/checkout-service.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/ci-pipelines.html">CI Pipelines</a>
 <div class="muted" style="margin:.3rem 0">Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.</div>
-<a href="context/ci-pipelines.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/container-registry.html">Container Registry</a>
+<a href="context/ci-pipelines.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/client-sdks.html">Client SDKs</a>
+<div class="muted" style="margin:.3rem 0">Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.</div>
+<a href="context/client-sdks.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/container-registry.html">Container Registry</a>
 <div class="muted" style="margin:.3rem 0">Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.</div>
 <a href="context/container-registry.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/context-fabric.html">Context Fabric</a>
 <div class="muted" style="margin:.3rem 0">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
@@ -58,9 +60,13 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.3rem 0">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
 <a href="context/deployment-runtime.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/domains.html">Public Domains</a>
 <div class="muted" style="margin:.3rem 0">Managed public domains and TLS certificates terminating traffic at the platform ingress.</div>
-<a href="context/domains.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/feature-flag-service.html">Feature Flags</a>
+<a href="context/domains.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/event-bus.html">Platform Event Bus</a>
+<div class="muted" style="margin:.3rem 0">Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.</div>
+<a href="context/event-bus.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/feature-flag-service.html">Feature Flags</a>
 <div class="muted" style="margin:.3rem 0">Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.</div>
-<a href="context/feature-flag-service.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/helm-charts-registry.html">Helm Charts</a>
+<a href="context/feature-flag-service.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/grafana-dashboards.html">Grafana Dashboards</a>
+<div class="muted" style="margin:.3rem 0">Operational dashboards for services, infrastructure, the AI runtime, and the data lake.</div>
+<a href="context/grafana-dashboards.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/helm-charts-registry.html">Helm Charts</a>
 <div class="muted" style="margin:.3rem 0">Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.</div>
 <a href="context/helm-charts-registry.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/identity-provider.html">Identity Provider</a>
 <div class="muted" style="margin:.3rem 0">Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.</div>
@@ -70,25 +76,47 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted" style="margin:.3rem 0">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
 <a href="context/knowledge-graph.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/ledger-worker.html">Ledger Worker</a>
 <div class="muted" style="margin:.3rem 0">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
-<a href="context/ledger-worker.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/metrics-platform.html">Metrics Platform</a>
+<a href="context/ledger-worker.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/logging-libraries.html">Logging Libraries</a>
+<div class="muted" style="margin:.3rem 0">Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.</div>
+<a href="context/logging-libraries.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/metrics-platform.html">Metrics Platform</a>
 <div class="muted" style="margin:.3rem 0">Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.</div>
-<a href="context/metrics-platform.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/orders-db.html">Orders Database</a>
+<a href="context/metrics-platform.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/oncall-alerts.html">On-call Alerts</a>
+<div class="muted" style="margin:.3rem 0">Alert routing, paging, and escalation policies bound to service SLOs and health signals.</div>
+<a href="context/oncall-alerts.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/orders-db.html">Orders Database</a>
 <div class="muted" style="margin:.3rem 0">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
-<a href="context/orders-db.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/payment-events.html">Payment Events</a>
+<a href="context/orders-db.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/orders-migration.html">Orders Schema Migrations</a>
+<div class="muted" style="margin:.3rem 0">Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.</div>
+<a href="context/orders-migration.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/orders-schema.html">Orders Schema</a>
+<div class="muted" style="margin:.3rem 0">Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.</div>
+<a href="context/orders-schema.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/payment-events.html">Payment Events</a>
 <div class="muted" style="margin:.3rem 0">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
-<a href="context/payment-events.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/platform-ingress.html">Platform Ingress</a>
+<a href="context/payment-events.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/platform-blueprints.html">Platform Blueprints</a>
+<div class="muted" style="margin:.3rem 0">Reference architectures and guardrail blueprints for services, agents, and data workloads.</div>
+<a href="context/platform-blueprints.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/platform-ingress.html">Platform Ingress</a>
 <div class="muted" style="margin:.3rem 0">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
 <a href="context/platform-ingress.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/policy-engine.html">Policy Engine</a>
 <div class="muted" style="margin:.3rem 0">OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.</div>
-<a href="context/policy-engine.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/recommendation-model.html">Recommendation Model</a>
+<a href="context/policy-engine.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/prod-cluster.html">Production Cluster</a>
+<div class="muted" style="margin:.3rem 0">Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.</div>
+<a href="context/prod-cluster.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/recommendation-model.html">Recommendation Model</a>
 <div class="muted" style="margin:.3rem 0">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
 <a href="context/recommendation-model.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/release-artifacts.html">Release Artifacts</a>
 <div class="muted" style="margin:.3rem 0">Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.</div>
-<a href="context/release-artifacts.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a>
+<a href="context/release-artifacts.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/release-pipeline.html">Release Pipeline</a>
+<div class="muted" style="margin:.3rem 0">End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.</div>
+<a href="context/release-pipeline.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a>
 <div class="muted" style="margin:.3rem 0">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
-<a href="context/repository-catalog.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/security-center.html">Security Center</a>
+<a href="context/repository-catalog.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/runbooks.html">Runbook Library</a>
+<div class="muted" style="margin:.3rem 0">Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.</div>
+<a href="context/runbooks.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/secrets-vault.html">Secrets Vault</a>
+<div class="muted" style="margin:.3rem 0">Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.</div>
+<a href="context/secrets-vault.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/security-center.html">Security Center</a>
 <div class="muted" style="margin:.3rem 0">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>
-<a href="context/security-center.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/vector-store.html">Vector Store</a>
+<a href="context/security-center.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/staging-environment.html">Staging Environment</a>
+<div class="muted" style="margin:.3rem 0">Pre-production environment mirroring prod topology for integration testing and release validation.</div>
+<a href="context/staging-environment.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/tls-certificates.html">TLS Certificates</a>
+<div class="muted" style="margin:.3rem 0">Managed TLS certificates for public domains, with automated renewal and expiry alerting.</div>
+<a href="context/tls-certificates.json">full bundle</a></div><div class="card"><a style="font-weight:700" href="resources/vector-store.html">Vector Store</a>
 <div class="muted" style="margin:.3rem 0">Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.</div>
 <a href="context/vector-store.json">full bundle</a></div></div></main>
 <footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>

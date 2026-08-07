@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 from aec import model, graph as graphmod, intelligence, twins as twinsmod, context as ctxmod, registries, history as hist, governance, ingest, analyzers, runtime as rtmod, sdks
+from aec import aicontrol
 from aec import render
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,11 +69,12 @@ def main() -> int:
     analyses = analyzers.build_analyses(resources, readiness_by_id)
     ctx_by_id = {r["id"]: ctxmod.build_context(r, readiness_by_id[r["id"]]) for r in resources}
     twins_all = twinsmod.build_all_twins(resources, insights, recs_by_id, ctx_by_id)
-    reg = registries.build_registries(resources, data["prompts"], data["agents"])
+    marketplace = model.load_json(ROOT / "data" / "marketplace" / "items.json")
+    reg = registries.build_registries(resources, data["prompts"], data["agents"], marketplace)
     release = governance.evaluate_release(resources, readiness_by_id, org)
     runtime_state = rtmod.build_runtime(events, rtmod.load_automations())
     sdk_artifacts = sdks.generate_sdks()
-    marketplace = model.load_json(ROOT / "data" / "marketplace" / "items.json")
+    ai_services = aicontrol.build_ai_services(resources, data["agents"], data["prompts"], readiness_by_id, org)
     metrics = graphmod._compute_metrics(resources)
     metrics["events"] = event_summary
 
@@ -136,7 +138,8 @@ def main() -> int:
     write(SITE / "context-fabric.html", render.render_context_fabric(resources, ctxmod.LAYERS))
     write(SITE / "registries.html", render.render_registries(reg))
     write(SITE / "readiness.html", render.render_readiness(insights, resources))
-    write(SITE / "ai-control-plane.html", render.render_ai_control_plane(reg, ctxmod.LAYERS))
+    write(SITE / "ai-control-plane.html", render.render_ai_control_plane(reg, ctxmod.LAYERS, ai_services))
+    write(SITE / "ai-services.json", ai_services)
     write(SITE / "control-plane.html", render.render_control_plane(org))
     write(SITE / "platform-overview.html", render.render_platform(org))
     write(SITE / "organizations.html", render.render_organization(org))

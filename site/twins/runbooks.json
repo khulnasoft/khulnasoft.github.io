@@ -1,0 +1,77 @@
+{
+  "resource": {
+    "id": "resource:runbooks",
+    "kind": "knowledge",
+    "name": "Runbook Library",
+    "slug": "runbooks",
+    "owner": "Developer Experience",
+    "team": "dx",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "markdown"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "knowledge",
+      "documentation",
+      "discovery"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "provides",
+      "target": "resource:security-center"
+    },
+    {
+      "type": "provides",
+      "target": "resource:oncall-alerts"
+    }
+  ],
+  "health": {
+    "score": 84,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 84,
+    "level": "deployable",
+    "scores": {
+      "architecture": 84,
+      "documentation": 84,
+      "security": 84,
+      "tests": 84,
+      "ci": 84,
+      "performance": 84,
+      "dependencies": 84,
+      "maintainability": 84,
+      "release": 84,
+      "compliance": 84,
+      "observability": 84,
+      "community": 84,
+      "ai_readiness": 82,
+      "production_readiness": 84
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": 82
+  },
+  "context_summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+  "recommended_actions": []
+}

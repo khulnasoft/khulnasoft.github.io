@@ -197,6 +197,11 @@ def render_registries(reg):
     body += "<h2>Service Registry</h2><ul class='plain'>" + "".join(
         f"<li><strong>{s['name']}</strong> ({s['kind']}) <span class='muted'>· {s['workspace']}</span></li>" for s in reg["service"]["services"]
     ) + "</ul>"
+    body += "<h2>Template Registry</h2><ul class='plain'>" + "".join(
+        f"<li><strong>{t['name']}</strong> ({t['kind']}) <span class='muted'>· {t['workspace']}</span></li>" for t in reg["template"]["resources"]
+    ) + "</ul>" + ("<ul class='plain'>" + "".join(
+        f"<li><strong>{m['name']}</strong> <span class='muted'>({m['type']})</span></li>" for m in reg["template"]["marketplace"]
+    ) + "</ul>" if reg["template"]["marketplace"] else "")
     body += "<h2>Context Registry</h2><ul class='plain'>" + "".join(
         f"<li><strong>{r['name']}</strong> <code>{r['slug']}</code></li>" for r in reg["context"]["resources"]
     ) + "</ul>"
@@ -228,12 +233,39 @@ def render_readiness(insights, resources):
     return shell("Readiness", body)
 
 
-def render_ai_control_plane(reg, layers):
+def render_ai_control_plane(reg, layers, ai_services=None):
     models = "".join(f'<li><strong>{m["name"]}</strong> · {m.get("version", "-")} <span class="muted">[{m["kind"]}]</span></li>' for m in reg['model']['models'])
     tools = "".join(f'<li><strong>{t["name"]}</strong> <span class="muted">[{", ".join(t["toolTypes"])}]</span></li>' for t in reg['tool']['tools'])
     memory = "".join(f'<li><strong>{m["name"]}</strong> <span class="muted">({m["kind"]})</span></li>' for m in reg['memory']['memories'])
+
+    services_html = ""
+    if ai_services:
+        ev = ai_services["evaluation"]
+        sa = ai_services["safety"]
+        te = ai_services["telemetry"]
+        guardrails = "".join(
+            f'<li><strong>{g["name"]}</strong> ({g["check"]}) · {", ".join(g["requiredSignals"])}</li>'
+            for g in sa["guardrails"]
+        )
+        eval_rows = "".join(
+            f'<tr><td><strong>{e["name"]}</strong></td><td>{e["kind"]}</td>'
+            f'<td>{e["evaluationScore"]}</td><td>{e.get("ready", "-")}</td></tr>'
+            for e in ev["resources"]
+        )
+        services_html = f"""
+<h2>Evaluation service</h2>
+<div class="card"><strong>{ev['count']}</strong> AI surfaces · avg score <strong>{ev['avgEvaluationScore']}</strong> · {ev['agentCount']} agents · {ev['promptCount']} prompts</div>
+<table><thead><tr><th>Resource</th><th>Kind</th><th>Score</th><th>Readiness</th></tr></thead><tbody>{eval_rows}</tbody></table>
+<h2>Safety service</h2>
+<div class="card"><strong>{sa['policyCount']}</strong> guardrail policies · <strong>{sa['security']['cleanScans']}/{sa['security']['total']}</strong> clean scans · AI agent-ready {sa['aiPosture']['agentReadyPct']}%</div>
+<ul class="plain">{guardrails}</ul>
+<h2>Telemetry service</h2>
+<div class="card"><strong>{te['aiResources']}</strong> AI resources · <strong>{te['contextBundles']}</strong> context bundles · {te['contextCoveragePct']}% coverage<br/>
+<span class="muted">Serving modes:</span> {', '.join(te['operations']['modes'])}<br/>
+<span class="muted">Registries:</span> {', '.join(te['registries'])}</div>"""
+
     body = f"""<h1>AI Control Plane</h1>
-<p class="muted">Prompt registry, context registry, agent registry, model registry, tool registry, memory registry, and AI-safe metadata for agents and automation inside the Knowledge OS.</p>
+<p class="muted">Prompt registry, context registry, agent registry, model registry, tool registry, memory registry, template registry, and AI-safe metadata for agents and automation inside the Knowledge OS.</p>
 <h2>Context Registry ({reg['context']['count']})</h2><ul class="plain">
 {''.join(f'<li><strong>{r["name"]}</strong> <code>{r["slug"]}</code></li>' for r in reg['context']['resources'])}</ul>
 <h2>Prompt Registry ({reg['prompt']['count']})</h2><ul class="plain">
@@ -243,7 +275,8 @@ def render_ai_control_plane(reg, layers):
 <h2>Model Registry ({reg['model']['count']})</h2><ul class="plain">{models}</ul>
 <h2>Tool Registry ({reg['tool']['count']})</h2><ul class="plain">{tools}</ul>
 <h2>Memory Registry ({reg['memory']['count']})</h2><ul class="plain">{memory}</ul>
-<h2>Context layers</h2><p>{''.join(f'<span class="pill">{l}</span>' for l in layers)}</p>"""
+<h2>Context layers</h2><p>{''.join(f'<span class="pill">{l}</span>' for l in layers)}</p>
+{services_html}"""
     return shell("AI Control Plane", body)
 
 
@@ -689,6 +722,8 @@ def render_api():
 <li><code>GET /release</code> — release readiness copilot</li>
 <li><code>GET /search-index</code> — enriched search index</li>
 <li><code>GET /registries</code> — control-plane registries</li>
+<li><code>GET /templates</code> — template registry</li>
+<li><code>GET /ai/services</code>, <code>/ai/evaluation</code>, <code>/ai/safety</code>, <code>/ai/telemetry</code> — AI control-plane services</li>
 <li><code>GET /llms.txt</code>, <code>/llms-full.txt</code>, <code>/mcp.json</code> — AI-ready</li>
 <li><code>GET /health</code> — live platform health</li>
 <li><code>sdks/aec.ts</code>, <code>sdks/aec.py</code> and 9 more generated typed clients (Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, Dart)</li>

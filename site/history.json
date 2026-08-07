@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-07T07:14:37Z",
+  "updatedAt": "2026-08-07T07:26:51Z",
   "max_snapshots": 50,
   "history": [
     {
@@ -220,6 +220,217 @@
         "security-center": 86,
         "vector-store": 85
       }
+    },
+    {
+      "build": "2026-08-07T07:18:45Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "blueprint-templates": 81,
+        "checkout-service": 89,
+        "ci-pipelines": 85,
+        "container-registry": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "domains": 91,
+        "feature-flag-service": 84,
+        "helm-charts-registry": 91,
+        "identity-provider": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "metrics-platform": 86,
+        "orders-db": 90,
+        "payment-events": 88,
+        "platform-ingress": 87,
+        "policy-engine": 90,
+        "recommendation-model": 87,
+        "release-artifacts": 83,
+        "repository-catalog": 87,
+        "security-center": 86,
+        "vector-store": 85
+      }
+    },
+    {
+      "build": "2026-08-07T07:19:30Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "blueprint-templates": 81,
+        "checkout-service": 89,
+        "ci-pipelines": 85,
+        "client-sdks": 88,
+        "container-registry": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "domains": 91,
+        "event-bus": 89,
+        "feature-flag-service": 84,
+        "grafana-dashboards": 85,
+        "helm-charts-registry": 91,
+        "identity-provider": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "logging-libraries": 87,
+        "metrics-platform": 86,
+        "oncall-alerts": 84,
+        "orders-db": 90,
+        "orders-migration": 88,
+        "orders-schema": 90,
+        "payment-events": 88,
+        "platform-blueprints": 82,
+        "platform-ingress": 87,
+        "policy-engine": 90,
+        "prod-cluster": 91,
+        "recommendation-model": 87,
+        "release-artifacts": 83,
+        "release-pipeline": 84,
+        "repository-catalog": 87,
+        "runbooks": 84,
+        "secrets-vault": 92,
+        "security-center": 86,
+        "staging-environment": 87,
+        "tls-certificates": 93,
+        "vector-store": 85
+      }
+    },
+    {
+      "build": "2026-08-07T07:22:34Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "blueprint-templates": 81,
+        "checkout-service": 89,
+        "ci-pipelines": 85,
+        "client-sdks": 88,
+        "container-registry": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "domains": 91,
+        "event-bus": 89,
+        "feature-flag-service": 84,
+        "grafana-dashboards": 85,
+        "helm-charts-registry": 91,
+        "identity-provider": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "logging-libraries": 87,
+        "metrics-platform": 86,
+        "oncall-alerts": 84,
+        "orders-db": 90,
+        "orders-migration": 88,
+        "orders-schema": 90,
+        "payment-events": 88,
+        "platform-blueprints": 82,
+        "platform-ingress": 87,
+        "policy-engine": 90,
+        "prod-cluster": 91,
+        "recommendation-model": 87,
+        "release-artifacts": 83,
+        "release-pipeline": 84,
+        "repository-catalog": 87,
+        "runbooks": 84,
+        "secrets-vault": 92,
+        "security-center": 86,
+        "staging-environment": 87,
+        "tls-certificates": 93,
+        "vector-store": 85
+      }
+    },
+    {
+      "build": "2026-08-07T07:25:28Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "blueprint-templates": 81,
+        "checkout-service": 89,
+        "ci-pipelines": 85,
+        "client-sdks": 88,
+        "container-registry": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "domains": 91,
+        "event-bus": 89,
+        "feature-flag-service": 84,
+        "grafana-dashboards": 85,
+        "helm-charts-registry": 91,
+        "identity-provider": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "logging-libraries": 87,
+        "metrics-platform": 86,
+        "oncall-alerts": 84,
+        "orders-db": 90,
+        "orders-migration": 88,
+        "orders-schema": 90,
+        "payment-events": 88,
+        "platform-blueprints": 82,
+        "platform-ingress": 87,
+        "policy-engine": 90,
+        "prod-cluster": 91,
+        "recommendation-model": 87,
+        "release-artifacts": 83,
+        "release-pipeline": 84,
+        "repository-catalog": 87,
+        "runbooks": 84,
+        "secrets-vault": 92,
+        "security-center": 86,
+        "staging-environment": 87,
+        "tls-certificates": 93,
+        "vector-store": 85
+      }
+    },
+    {
+      "build": "2026-08-07T07:26:51Z",
+      "scores": {
+        "ai-code-assistant": 85,
+        "ai-runtime": 80,
+        "api-gateway": 85,
+        "blueprint-templates": 81,
+        "checkout-service": 89,
+        "ci-pipelines": 85,
+        "client-sdks": 88,
+        "container-registry": 89,
+        "context-fabric": 90,
+        "deployment-runtime": 83,
+        "domains": 91,
+        "event-bus": 89,
+        "feature-flag-service": 84,
+        "grafana-dashboards": 85,
+        "helm-charts-registry": 91,
+        "identity-provider": 91,
+        "khulnasoft-platform": 89,
+        "knowledge-graph": 86,
+        "ledger-worker": 82,
+        "logging-libraries": 87,
+        "metrics-platform": 86,
+        "oncall-alerts": 84,
+        "orders-db": 90,
+        "orders-migration": 88,
+        "orders-schema": 90,
+        "payment-events": 88,
+        "platform-blueprints": 82,
+        "platform-ingress": 87,
+        "policy-engine": 90,
+        "prod-cluster": 91,
+        "recommendation-model": 87,
+        "release-artifacts": 83,
+        "release-pipeline": 84,
+        "repository-catalog": 87,
+        "runbooks": 84,
+        "secrets-vault": 92,
+        "security-center": 86,
+        "staging-environment": 87,
+        "tls-certificates": 93,
+        "vector-store": 85
+      }
     }
   ],
   "resources": {
@@ -247,6 +458,10 @@
       "slug": "ci-pipelines",
       "name": "ci-pipelines"
     },
+    "client-sdks": {
+      "slug": "client-sdks",
+      "name": "client-sdks"
+    },
     "container-registry": {
       "slug": "container-registry",
       "name": "container-registry"
@@ -263,9 +478,17 @@
       "slug": "domains",
       "name": "domains"
     },
+    "event-bus": {
+      "slug": "event-bus",
+      "name": "event-bus"
+    },
     "feature-flag-service": {
       "slug": "feature-flag-service",
       "name": "feature-flag-service"
+    },
+    "grafana-dashboards": {
+      "slug": "grafana-dashboards",
+      "name": "grafana-dashboards"
     },
     "helm-charts-registry": {
       "slug": "helm-charts-registry",
@@ -287,17 +510,37 @@
       "slug": "ledger-worker",
       "name": "ledger-worker"
     },
+    "logging-libraries": {
+      "slug": "logging-libraries",
+      "name": "logging-libraries"
+    },
     "metrics-platform": {
       "slug": "metrics-platform",
       "name": "metrics-platform"
+    },
+    "oncall-alerts": {
+      "slug": "oncall-alerts",
+      "name": "oncall-alerts"
     },
     "orders-db": {
       "slug": "orders-db",
       "name": "orders-db"
     },
+    "orders-migration": {
+      "slug": "orders-migration",
+      "name": "orders-migration"
+    },
+    "orders-schema": {
+      "slug": "orders-schema",
+      "name": "orders-schema"
+    },
     "payment-events": {
       "slug": "payment-events",
       "name": "payment-events"
+    },
+    "platform-blueprints": {
+      "slug": "platform-blueprints",
+      "name": "platform-blueprints"
     },
     "platform-ingress": {
       "slug": "platform-ingress",
@@ -307,6 +550,10 @@
       "slug": "policy-engine",
       "name": "policy-engine"
     },
+    "prod-cluster": {
+      "slug": "prod-cluster",
+      "name": "prod-cluster"
+    },
     "recommendation-model": {
       "slug": "recommendation-model",
       "name": "recommendation-model"
@@ -315,13 +562,33 @@
       "slug": "release-artifacts",
       "name": "release-artifacts"
     },
+    "release-pipeline": {
+      "slug": "release-pipeline",
+      "name": "release-pipeline"
+    },
     "repository-catalog": {
       "slug": "repository-catalog",
       "name": "repository-catalog"
     },
+    "runbooks": {
+      "slug": "runbooks",
+      "name": "runbooks"
+    },
+    "secrets-vault": {
+      "slug": "secrets-vault",
+      "name": "secrets-vault"
+    },
     "security-center": {
       "slug": "security-center",
       "name": "security-center"
+    },
+    "staging-environment": {
+      "slug": "staging-environment",
+      "name": "staging-environment"
+    },
+    "tls-certificates": {
+      "slug": "tls-certificates",
+      "name": "tls-certificates"
     },
     "vector-store": {
       "slug": "vector-store",

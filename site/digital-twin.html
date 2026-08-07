@@ -69,6 +69,11 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted">Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.</div>
 <div class="muted" style="margin:.45rem 0">health <code>87</code> · readiness <code>85</code> · lifecycle <code>supported</code></div>
 <a href="twins/ci-pipelines.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/client-sdks.html">Client SDKs</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">sdk</span>platform</div>
+<div class="muted">Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.</div>
+<div class="muted" style="margin:.45rem 0">health <code>87</code> · readiness <code>88</code> · lifecycle <code>supported</code></div>
+<a href="twins/client-sdks.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/container-registry.html">Container Registry</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">image</span>core-infrastructure</div>
 <div class="muted">Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.</div>
@@ -89,11 +94,21 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted">Managed public domains and TLS certificates terminating traffic at the platform ingress.</div>
 <div class="muted" style="margin:.45rem 0">health <code>94</code> · readiness <code>91</code> · lifecycle <code>supported</code></div>
 <a href="twins/domains.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/event-bus.html">Platform Event Bus</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">event</span>core</div>
+<div class="muted">Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.</div>
+<div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>89</code> · lifecycle <code>supported</code></div>
+<a href="twins/event-bus.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/feature-flag-service.html">Feature Flags</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span>core</div>
 <div class="muted">Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.</div>
 <div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>84</code> · lifecycle <code>supported</code></div>
 <a href="twins/feature-flag-service.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/grafana-dashboards.html">Grafana Dashboards</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">dashboard</span>core-infrastructure</div>
+<div class="muted">Operational dashboards for services, infrastructure, the AI runtime, and the data lake.</div>
+<div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>85</code> · lifecycle <code>supported</code></div>
+<a href="twins/grafana-dashboards.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/helm-charts-registry.html">Helm Charts</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">helm-chart</span>core-infrastructure</div>
 <div class="muted">Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.</div>
@@ -119,21 +134,46 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
 <div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>82</code> · lifecycle <code>supported</code></div>
 <a href="twins/ledger-worker.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/logging-libraries.html">Logging Libraries</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">library</span>platform</div>
+<div class="muted">Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.</div>
+<div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>87</code> · lifecycle <code>supported</code></div>
+<a href="twins/logging-libraries.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/metrics-platform.html">Metrics Platform</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">observability</span>core-infrastructure</div>
 <div class="muted">Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.</div>
 <div class="muted" style="margin:.45rem 0">health <code>88</code> · readiness <code>86</code> · lifecycle <code>supported</code></div>
 <a href="twins/metrics-platform.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/oncall-alerts.html">On-call Alerts</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">alert</span>core-infrastructure</div>
+<div class="muted">Alert routing, paging, and escalation policies bound to service SLOs and health signals.</div>
+<div class="muted" style="margin:.45rem 0">health <code>87</code> · readiness <code>84</code> · lifecycle <code>supported</code></div>
+<a href="twins/oncall-alerts.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/orders-db.html">Orders Database</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span>commerce</div>
 <div class="muted">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
 <div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
 <a href="twins/orders-db.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/orders-migration.html">Orders Schema Migrations</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">migration</span>commerce</div>
+<div class="muted">Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.</div>
+<div class="muted" style="margin:.45rem 0">health <code>91</code> · readiness <code>88</code> · lifecycle <code>supported</code></div>
+<a href="twins/orders-migration.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/orders-schema.html">Orders Schema</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">schema</span>commerce</div>
+<div class="muted">Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.</div>
+<div class="muted" style="margin:.45rem 0">health <code>93</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
+<a href="twins/orders-schema.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/payment-events.html">Payment Events</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">queue</span>commerce</div>
 <div class="muted">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
 <div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>88</code> · lifecycle <code>supported</code></div>
 <a href="twins/payment-events.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/platform-blueprints.html">Platform Blueprints</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">blueprint</span>platform</div>
+<div class="muted">Reference architectures and guardrail blueprints for services, agents, and data workloads.</div>
+<div class="muted" style="margin:.45rem 0">health <code>85</code> · readiness <code>82</code> · lifecycle <code>supported</code></div>
+<a href="twins/platform-blueprints.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/platform-ingress.html">Platform Ingress</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">ingress</span>core</div>
 <div class="muted">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
@@ -144,6 +184,11 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted">OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.</div>
 <div class="muted" style="margin:.45rem 0">health <code>92</code> · readiness <code>90</code> · lifecycle <code>supported</code></div>
 <a href="twins/policy-engine.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/prod-cluster.html">Production Cluster</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">cluster</span>core-infrastructure</div>
+<div class="muted">Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.</div>
+<div class="muted" style="margin:.45rem 0">health <code>94</code> · readiness <code>91</code> · lifecycle <code>supported</code></div>
+<a href="twins/prod-cluster.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/recommendation-model.html">Recommendation Model</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">model</span>ai</div>
 <div class="muted">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
@@ -154,16 +199,41 @@ td{padding:.45rem;border-top:1px solid #1f3244}
 <div class="muted">Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.</div>
 <div class="muted" style="margin:.45rem 0">health <code>85</code> · readiness <code>83</code> · lifecycle <code>supported</code></div>
 <a href="twins/release-artifacts.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/release-pipeline.html">Release Pipeline</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">pipeline</span>platform</div>
+<div class="muted">End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.</div>
+<div class="muted" style="margin:.45rem 0">health <code>86</code> · readiness <code>84</code> · lifecycle <code>supported</code></div>
+<a href="twins/release-pipeline.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/repository-catalog.html">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span>core</div>
 <div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
 <div class="muted" style="margin:.45rem 0">health <code>90</code> · readiness <code>87</code> · lifecycle <code>active</code></div>
 <a href="twins/repository-catalog.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/runbooks.html">Runbook Library</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">knowledge</span>platform</div>
+<div class="muted">Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.</div>
+<div class="muted" style="margin:.45rem 0">health <code>84</code> · readiness <code>84</code> · lifecycle <code>supported</code></div>
+<a href="twins/runbooks.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/secrets-vault.html">Secrets Vault</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">secret</span>core-infrastructure</div>
+<div class="muted">Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.</div>
+<div class="muted" style="margin:.45rem 0">health <code>95</code> · readiness <code>92</code> · lifecycle <code>supported</code></div>
+<a href="twins/secrets-vault.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/security-center.html">Security Center</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">security</span>core</div>
 <div class="muted">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>
 <div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>86</code> · lifecycle <code>active</code></div>
 <a href="twins/security-center.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/staging-environment.html">Staging Environment</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">environment</span>core</div>
+<div class="muted">Pre-production environment mirroring prod topology for integration testing and release validation.</div>
+<div class="muted" style="margin:.45rem 0">health <code>89</code> · readiness <code>87</code> · lifecycle <code>supported</code></div>
+<a href="twins/staging-environment.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
+<a style="font-weight:700" href="resources/tls-certificates.html">TLS Certificates</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">certificate</span>core</div>
+<div class="muted">Managed TLS certificates for public domains, with automated renewal and expiry alerting.</div>
+<div class="muted" style="margin:.45rem 0">health <code>96</code> · readiness <code>93</code> · lifecycle <code>supported</code></div>
+<a href="twins/tls-certificates.json">open twin</a></div><div class="card"><div style="display:flex;justify-content:space-between">
 <a style="font-weight:700" href="resources/vector-store.html">Vector Store</a><span class="badge ok">healthy</span></div>
 <div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span>ai</div>
 <div class="muted">Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.</div>

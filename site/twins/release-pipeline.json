@@ -1,0 +1,88 @@
+{
+  "resource": {
+    "id": "resource:release-pipeline",
+    "kind": "pipeline",
+    "name": "Release Pipeline",
+    "slug": "release-pipeline",
+    "owner": "Developer Experience",
+    "team": "dx",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "1.0.0",
+    "summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "yaml"
+    ],
+    "frameworks": [
+      "github-actions"
+    ],
+    "capabilities": [
+      "pipeline",
+      "release",
+      "automation",
+      "governance"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "github-actions"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:ci-pipelines"
+    },
+    {
+      "type": "provides",
+      "target": "resource:release-artifacts"
+    }
+  ],
+  "health": {
+    "score": 86,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 84,
+    "level": "deployable",
+    "scores": {
+      "architecture": 86,
+      "documentation": 86,
+      "security": 86,
+      "tests": 86,
+      "ci": 86,
+      "performance": 86,
+      "dependencies": 86,
+      "maintainability": 86,
+      "release": 86,
+      "compliance": 86,
+      "observability": 86,
+      "community": 86,
+      "ai_readiness": 50,
+      "production_readiness": 92
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

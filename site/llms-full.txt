@@ -48,6 +48,14 @@
 - Health: 87/100 (healthy)
 - Rendering: 2026-08-07
 
+## Client SDKs (sdk)
+- Summary: Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: sdk, library, api
+- Relationships: depends_on resource:api-gateway
+- Health: 87/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Container Registry (image)
 - Summary: Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.
 - Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
@@ -80,12 +88,28 @@
 - Health: 94/100 (healthy)
 - Rendering: 2026-08-07
 
+## Platform Event Bus (event)
+- Summary: Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: messaging, event-driven, event
+- Relationships: depends_on resource:khulnasoft-platform; provides resource:payment-events
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Feature Flags (component)
 - Summary: Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.
 - Owner: Platform | Workspace: core | Lifecycle: supported
 - Capabilities: feature-flag, api
 - Relationships: serves resource:checkout-service; serves resource:khulnasoft-platform
 - Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Grafana Dashboards (dashboard)
+- Summary: Operational dashboards for services, infrastructure, the AI runtime, and the data lake.
+- Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: dashboard, observability, monitoring
+- Relationships: part_of resource:metrics-platform
+- Health: 88/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Helm Charts (helm-chart)
@@ -128,12 +152,28 @@
 - Health: 84/100 (healthy)
 - Rendering: 2026-08-07
 
+## Logging Libraries (library)
+- Summary: Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: library, observability, logging
+- Relationships: used_by resource:checkout-service; used_by resource:ledger-worker
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Metrics Platform (observability)
 - Summary: Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.
 - Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
 - Capabilities: monitoring, observability, dashboard, alert
 - Relationships: monitors resource:api-gateway; monitors resource:checkout-service
 - Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## On-call Alerts (alert)
+- Summary: Alert routing, paging, and escalation policies bound to service SLOs and health signals.
+- Owner: Observability | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: alert, monitoring, observability
+- Relationships: depends_on resource:metrics-platform
+- Health: 87/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Orders Database (database)
@@ -144,12 +184,36 @@
 - Health: 92/100 (healthy)
 - Rendering: 2026-08-07
 
+## Orders Schema Migrations (migration)
+- Summary: Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: migration, database, automation
+- Relationships: part_of resource:orders-schema; deploys resource:orders-db
+- Health: 91/100 (healthy)
+- Rendering: 2026-08-07
+
+## Orders Schema (schema)
+- Summary: Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.
+- Owner: Commerce | Workspace: commerce | Lifecycle: supported
+- Capabilities: schema, database
+- Relationships: part_of resource:orders-db
+- Health: 93/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Payment Events (queue)
 - Summary: Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.
 - Owner: Commerce | Workspace: commerce | Lifecycle: supported
 - Capabilities: messaging, event-driven
 - Relationships: consumed_by resource:ledger-worker
 - Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Platform Blueprints (blueprint)
+- Summary: Reference architectures and guardrail blueprints for services, agents, and data workloads.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: blueprint, template, governance
+- Relationships: part_of resource:blueprint-templates
+- Health: 85/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Platform Ingress (ingress)
@@ -168,6 +232,14 @@
 - Health: 92/100 (healthy)
 - Rendering: 2026-08-07
 
+## Production Cluster (cluster)
+- Summary: Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: kubernetes, cluster, deployment
+- Relationships: hosts resource:checkout-service; hosts resource:ai-runtime; hosts resource:api-gateway
+- Health: 94/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Recommendation Model (model)
 - Summary: Embedding-based product recommendation model served through the AI runtime with online feature updates.
 - Owner: AI Enablement | Workspace: ai | Lifecycle: supported
@@ -184,6 +256,14 @@
 - Health: 85/100 (healthy)
 - Rendering: 2026-08-07
 
+## Release Pipeline (pipeline)
+- Summary: End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: pipeline, release, automation, governance
+- Relationships: depends_on resource:ci-pipelines; provides resource:release-artifacts
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Repository Catalog Service (repository)
 - Summary: A registry service for discovering repositories, owners, metadata, and health signals across the organization.
 - Owner: KhulnaSoft | Workspace: core | Lifecycle: active
@@ -192,12 +272,44 @@
 - Health: 90/100 (healthy)
 - Rendering: 2026-08-07
 
+## Runbook Library (knowledge)
+- Summary: Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.
+- Owner: Developer Experience | Workspace: platform | Lifecycle: supported
+- Capabilities: knowledge, documentation, discovery
+- Relationships: provides resource:security-center; provides resource:oncall-alerts
+- Health: 84/100 (healthy)
+- Rendering: 2026-08-07
+
+## Secrets Vault (secret)
+- Summary: Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: secret, security, certificate
+- Relationships: depends_on resource:identity-provider; provides resource:deployment-runtime
+- Health: 95/100 (healthy)
+- Rendering: 2026-08-07
+
 ## Security Center (security)
 - Summary: A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.
 - Owner: KhulnaSoft | Workspace: core | Lifecycle: active
 - Capabilities: security, vulnerability, policy
 - Relationships: depends_on resource:repository-catalog
 - Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## Staging Environment (environment)
+- Summary: Pre-production environment mirroring prod topology for integration testing and release validation.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: environment, deployment
+- Relationships: part_of resource:khulnasoft-platform; hosts resource:checkout-service
+- Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+
+## TLS Certificates (certificate)
+- Summary: Managed TLS certificates for public domains, with automated renewal and expiry alerting.
+- Owner: Platform | Workspace: core | Lifecycle: supported
+- Capabilities: certificate, security, networking
+- Relationships: provides resource:domains; provides resource:platform-ingress
+- Health: 96/100 (healthy)
 - Rendering: 2026-08-07
 
 ## Vector Store (database)

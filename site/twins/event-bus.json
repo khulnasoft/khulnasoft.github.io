@@ -1,0 +1,87 @@
+{
+  "resource": {
+    "id": "resource:event-bus",
+    "kind": "event",
+    "name": "Platform Event Bus",
+    "slug": "event-bus",
+    "owner": "Platform",
+    "team": "platform-infra",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "3.1.0",
+    "summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [
+      "kafka"
+    ],
+    "capabilities": [
+      "messaging",
+      "event-driven",
+      "event"
+    ],
+    "security": {},
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:khulnasoft-platform"
+    },
+    {
+      "type": "provides",
+      "target": "resource:payment-events"
+    }
+  ],
+  "health": {
+    "score": 92,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 89,
+    "level": "ready",
+    "scores": {
+      "architecture": 92,
+      "documentation": 92,
+      "security": 92,
+      "tests": 92,
+      "ci": 92,
+      "performance": 92,
+      "dependencies": 92,
+      "maintainability": 92,
+      "release": 92,
+      "compliance": 92,
+      "observability": 92,
+      "community": 92,
+      "ai_readiness": 50,
+      "production_readiness": 98
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

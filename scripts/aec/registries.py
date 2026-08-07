@@ -138,13 +138,40 @@ def build_memory_registry(resources: list[dict]) -> dict:
     return {"registry": "memory", "count": len(memories), "memories": memories}
 
 
-def build_registries(resources: list[dict], prompts: list[dict], agents: list[dict]) -> dict:
+def build_template_registry(resources: list[dict], marketplace: list[dict]) -> dict:
+    """Registry of reusable engineering assets (templates, blueprints, starters).
+
+    Templates come from the resource registry (kind: template/blueprint) and
+    from the marketplace catalog, so the control plane can surface everything
+    a repository can be scaffolded from.
+    """
+    resource_templates = [
+        {"id": r["id"], "name": r["name"], "slug": r["slug"], "kind": r["kind"],
+         "workspace": r.get("workspace"), "capabilities": r.get("capabilities", []),
+         "source": "resource"}
+        for r in resources if r["kind"] in ("template", "blueprint", "starter")
+    ]
+    market_templates = [
+        {"id": m["id"], "name": m["name"], "type": m.get("type"),
+         "summary": m.get("summary"), "tags": m.get("tags", []), "source": "marketplace"}
+        for m in marketplace if m.get("type") in ("template", "blueprint", "prompt-pack")
+    ]
+    return {
+        "registry": "template",
+        "count": len(resource_templates) + len(market_templates),
+        "resources": resource_templates,
+        "marketplace": market_templates,
+    }
+
+
+def build_registries(resources: list[dict], prompts: list[dict], agents: list[dict], marketplace: list[dict] | None = None) -> dict:
     """Build all control-plane registries as one queryable structure."""
     return {
         "capability": build_capability_registry(resources),
         "platform": build_platform_registry(resources),
         "service": build_service_registry(resources),
         "kind": build_kind_registry(resources),
+        "template": build_template_registry(resources, marketplace or []),
         "prompt": build_prompt_registry(prompts),
         "agent": build_agent_registry(agents),
         "context": build_context_registry(resources),

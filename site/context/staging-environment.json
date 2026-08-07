@@ -1,0 +1,103 @@
+{
+  "resource": {
+    "id": "resource:staging-environment",
+    "name": "Staging Environment",
+    "slug": "staging-environment",
+    "kind": "environment"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+      "name": "Staging Environment",
+      "kind": "environment",
+      "owner": "Platform",
+      "team": "platform-infra",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "environment",
+        "staging"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "kubernetes",
+        "terraform"
+      ],
+      "capabilities": [
+        "environment",
+        "deployment"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        },
+        {
+          "type": "hosts",
+          "target": "resource:checkout-service",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "staging",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "staging"
+      }
+    },
+    "business": {
+      "summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+      "owner": "Platform",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 89,
+      "status": "healthy",
+      "readiness": 87
+    }
+  },
+  "summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

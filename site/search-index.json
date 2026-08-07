@@ -169,6 +169,33 @@
     "text": "ci pipelines workflow developer experience platform reusable github actions workflows for build, test, lint, and deploy used across repositories in the ecosystem. workflow github-action automation ci automation devops"
   },
   {
+    "slug": "client-sdks",
+    "name": "Client SDKs",
+    "kind": "sdk",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 88,
+    "level": "ready",
+    "capabilities": [
+      "sdk",
+      "library",
+      "api"
+    ],
+    "tags": [
+      "sdk",
+      "client",
+      "developer-experience"
+    ],
+    "summary": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+    "preview": "Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.",
+    "relationships": [
+      "resource:api-gateway"
+    ],
+    "text": "client sdks sdk developer experience platform typed client libraries in typescript, python, go, rust, java, c#, php, ruby, swift, kotlin, and dart for consuming the knowledge os apis. sdk library api sdk client developer-experience"
+  },
+  {
     "slug": "container-registry",
     "name": "Container Registry",
     "kind": "image",
@@ -282,6 +309,33 @@
     "text": "public domains domain platform core managed public domains and tls certificates terminating traffic at the platform ingress. domain certificate networking dns tls domains"
   },
   {
+    "slug": "event-bus",
+    "name": "Platform Event Bus",
+    "kind": "event",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 89,
+    "level": "ready",
+    "capabilities": [
+      "messaging",
+      "event-driven",
+      "event"
+    ],
+    "tags": [
+      "events",
+      "messaging"
+    ],
+    "summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+    "preview": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+    "relationships": [
+      "resource:khulnasoft-platform",
+      "resource:payment-events"
+    ],
+    "text": "platform event bus event platform core durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes. messaging event-driven event events messaging"
+  },
+  {
     "slug": "feature-flag-service",
     "name": "Feature Flags",
     "kind": "component",
@@ -306,6 +360,32 @@
       "resource:khulnasoft-platform"
     ],
     "text": "feature flags component platform core remote feature-flag service driving progressive delivery and kill-switches across services and the portal. feature-flag api feature-flag delivery"
+  },
+  {
+    "slug": "grafana-dashboards",
+    "name": "Grafana Dashboards",
+    "kind": "dashboard",
+    "owner": "Observability",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 85,
+    "level": "ready",
+    "capabilities": [
+      "dashboard",
+      "observability",
+      "monitoring"
+    ],
+    "tags": [
+      "dashboard",
+      "observability"
+    ],
+    "summary": "Operational dashboards for services, infrastructure, the AI runtime, and the data lake.",
+    "preview": "Operational dashboards for services, infrastructure, the AI runtime, and the data lake.",
+    "relationships": [
+      "resource:metrics-platform"
+    ],
+    "text": "grafana dashboards dashboard observability core-infrastructure operational dashboards for services, infrastructure, the ai runtime, and the data lake. dashboard observability monitoring dashboard observability"
   },
   {
     "slug": "helm-charts-registry",
@@ -446,6 +526,33 @@
     "text": "ledger worker worker commerce commerce consumes payment events and writes idempotent ledger entries, reconciling daily batches. worker messaging automation commerce events"
   },
   {
+    "slug": "logging-libraries",
+    "name": "Logging Libraries",
+    "kind": "library",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "library",
+      "observability",
+      "logging"
+    ],
+    "tags": [
+      "library",
+      "logging"
+    ],
+    "summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+    "preview": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+    "relationships": [
+      "resource:checkout-service",
+      "resource:ledger-worker"
+    ],
+    "text": "logging libraries library developer experience platform standardized structured-logging libraries shared across services, with correlation ids and scrubbing built in. library observability logging library logging"
+  },
+  {
     "slug": "metrics-platform",
     "name": "Metrics Platform",
     "kind": "observability",
@@ -474,6 +581,32 @@
     "text": "metrics platform observability observability core-infrastructure time-series metrics collection, dashboards, and alerting for services, infrastructure, and the ai runtime. monitoring observability dashboard alert observability metrics"
   },
   {
+    "slug": "oncall-alerts",
+    "name": "On-call Alerts",
+    "kind": "alert",
+    "owner": "Observability",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 84,
+    "level": "deployable",
+    "capabilities": [
+      "alert",
+      "monitoring",
+      "observability"
+    ],
+    "tags": [
+      "alerts",
+      "on-call"
+    ],
+    "summary": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+    "preview": "Alert routing, paging, and escalation policies bound to service SLOs and health signals.",
+    "relationships": [
+      "resource:metrics-platform"
+    ],
+    "text": "on-call alerts alert observability core-infrastructure alert routing, paging, and escalation policies bound to service slos and health signals. alert monitoring observability alerts on-call"
+  },
+  {
     "slug": "orders-db",
     "name": "Orders Database",
     "kind": "database",
@@ -499,6 +632,58 @@
     "text": "orders database database commerce commerce primary transactional store for orders and payment state, backed by postgres with wal-based replication. database storage commerce data"
   },
   {
+    "slug": "orders-migration",
+    "name": "Orders Schema Migrations",
+    "kind": "migration",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 88,
+    "level": "ready",
+    "capabilities": [
+      "migration",
+      "database",
+      "automation"
+    ],
+    "tags": [
+      "migration",
+      "database"
+    ],
+    "summary": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
+    "preview": "Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.",
+    "relationships": [
+      "resource:orders-schema",
+      "resource:orders-db"
+    ],
+    "text": "orders schema migrations migration commerce commerce versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks. migration database automation migration database"
+  },
+  {
+    "slug": "orders-schema",
+    "name": "Orders Schema",
+    "kind": "schema",
+    "owner": "Commerce",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 90,
+    "level": "ready",
+    "capabilities": [
+      "schema",
+      "database"
+    ],
+    "tags": [
+      "schema",
+      "database"
+    ],
+    "summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+    "preview": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+    "relationships": [
+      "resource:orders-db"
+    ],
+    "text": "orders schema schema commerce commerce canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database. schema database schema database"
+  },
+  {
     "slug": "payment-events",
     "name": "Payment Events",
     "kind": "queue",
@@ -522,6 +707,32 @@
       "resource:ledger-worker"
     ],
     "text": "payment events queue commerce commerce event topic for payment lifecycle events consumed by ledger, notifications, and analytics. messaging event-driven commerce events"
+  },
+  {
+    "slug": "platform-blueprints",
+    "name": "Platform Blueprints",
+    "kind": "blueprint",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 82,
+    "level": "deployable",
+    "capabilities": [
+      "blueprint",
+      "template",
+      "governance"
+    ],
+    "tags": [
+      "blueprints",
+      "architecture"
+    ],
+    "summary": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
+    "preview": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
+    "relationships": [
+      "resource:blueprint-templates"
+    ],
+    "text": "platform blueprints blueprint developer experience platform reference architectures and guardrail blueprints for services, agents, and data workloads. blueprint template governance blueprints architecture"
   },
   {
     "slug": "platform-ingress",
@@ -576,6 +787,35 @@
       "resource:khulnasoft-platform"
     ],
     "text": "policy engine component core infrastructure core-infrastructure opa-compatible policy decision point enforcing governance, rbac, and release policies for registries, workflows, and approvals. policy governance authorization governance policy"
+  },
+  {
+    "slug": "prod-cluster",
+    "name": "Production Cluster",
+    "kind": "cluster",
+    "owner": "Core Infrastructure",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 91,
+    "level": "ready",
+    "capabilities": [
+      "kubernetes",
+      "cluster",
+      "deployment"
+    ],
+    "tags": [
+      "kubernetes",
+      "infra",
+      "cluster"
+    ],
+    "summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+    "preview": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+    "relationships": [
+      "resource:checkout-service",
+      "resource:ai-runtime",
+      "resource:api-gateway"
+    ],
+    "text": "production cluster cluster core infrastructure core-infrastructure primary kubernetes cluster hosting production services, the ai runtime, and the control plane. kubernetes cluster deployment kubernetes infra cluster"
   },
   {
     "slug": "recommendation-model",
@@ -633,6 +873,34 @@
     "text": "release artifacts release developer experience platform versioned release artifacts, changelogs, and sboms published for every platform and service release. release artifact sdk release artifacts devops"
   },
   {
+    "slug": "release-pipeline",
+    "name": "Release Pipeline",
+    "kind": "pipeline",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 84,
+    "level": "deployable",
+    "capabilities": [
+      "pipeline",
+      "release",
+      "automation",
+      "governance"
+    ],
+    "tags": [
+      "pipeline",
+      "release"
+    ],
+    "summary": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+    "preview": "End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.",
+    "relationships": [
+      "resource:ci-pipelines",
+      "resource:release-artifacts"
+    ],
+    "text": "release pipeline pipeline developer experience platform end-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production. pipeline release automation governance pipeline release"
+  },
+  {
     "slug": "repository-catalog",
     "name": "Repository Catalog Service",
     "kind": "repository",
@@ -659,6 +927,60 @@
     "text": "repository catalog service repository khulnasoft core a registry service for discovering repositories, owners, metadata, and health signals across the organization. catalog discovery metadata catalog governance"
   },
   {
+    "slug": "runbooks",
+    "name": "Runbook Library",
+    "kind": "knowledge",
+    "owner": "Developer Experience",
+    "workspace": "platform",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 84,
+    "level": "deployable",
+    "capabilities": [
+      "knowledge",
+      "documentation",
+      "discovery"
+    ],
+    "tags": [
+      "runbooks",
+      "documentation"
+    ],
+    "summary": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+    "preview": "Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.",
+    "relationships": [
+      "resource:security-center",
+      "resource:oncall-alerts"
+    ],
+    "text": "runbook library knowledge developer experience platform curated runbooks and playbooks for incident response, deployment rollback, and remediation actions. knowledge documentation discovery runbooks documentation"
+  },
+  {
+    "slug": "secrets-vault",
+    "name": "Secrets Vault",
+    "kind": "secret",
+    "owner": "Core Infrastructure",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 92,
+    "level": "ready",
+    "capabilities": [
+      "secret",
+      "security",
+      "certificate"
+    ],
+    "tags": [
+      "secrets",
+      "security"
+    ],
+    "summary": "Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.",
+    "preview": "Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.",
+    "relationships": [
+      "resource:identity-provider",
+      "resource:deployment-runtime"
+    ],
+    "text": "secrets vault secret core infrastructure core-infrastructure encrypted secrets store for api keys, certificates, and service credentials, with rotation and audit logging. secret security certificate secrets security"
+  },
+  {
     "slug": "security-center",
     "name": "Security Center",
     "kind": "security",
@@ -683,6 +1005,60 @@
       "resource:repository-catalog"
     ],
     "text": "security center security khulnasoft core a security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud. security vulnerability policy security compliance"
+  },
+  {
+    "slug": "staging-environment",
+    "name": "Staging Environment",
+    "kind": "environment",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 87,
+    "level": "ready",
+    "capabilities": [
+      "environment",
+      "deployment"
+    ],
+    "tags": [
+      "environment",
+      "staging"
+    ],
+    "summary": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+    "preview": "Pre-production environment mirroring prod topology for integration testing and release validation.",
+    "relationships": [
+      "resource:khulnasoft-platform",
+      "resource:checkout-service"
+    ],
+    "text": "staging environment environment platform core pre-production environment mirroring prod topology for integration testing and release validation. environment deployment environment staging"
+  },
+  {
+    "slug": "tls-certificates",
+    "name": "TLS Certificates",
+    "kind": "certificate",
+    "owner": "Platform",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "health": "healthy",
+    "readiness": 93,
+    "level": "ready",
+    "capabilities": [
+      "certificate",
+      "security",
+      "networking"
+    ],
+    "tags": [
+      "tls",
+      "certificates",
+      "security"
+    ],
+    "summary": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+    "preview": "Managed TLS certificates for public domains, with automated renewal and expiry alerting.",
+    "relationships": [
+      "resource:domains",
+      "resource:platform-ingress"
+    ],
+    "text": "tls certificates certificate platform core managed tls certificates for public domains, with automated renewal and expiry alerting. certificate security networking tls certificates security"
   },
   {
     "slug": "vector-store",

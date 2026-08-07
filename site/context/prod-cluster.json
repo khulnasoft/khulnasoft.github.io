@@ -1,0 +1,113 @@
+{
+  "resource": {
+    "id": "resource:prod-cluster",
+    "name": "Production Cluster",
+    "slug": "prod-cluster",
+    "kind": "cluster"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+      "name": "Production Cluster",
+      "kind": "cluster",
+      "owner": "Core Infrastructure",
+      "team": "core-infra",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.29.0",
+      "tags": [
+        "kubernetes",
+        "infra",
+        "cluster"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "kubernetes"
+      ],
+      "capabilities": [
+        "kubernetes",
+        "cluster",
+        "deployment"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "hosts",
+          "target": "resource:checkout-service",
+          "detail": null
+        },
+        {
+          "type": "hosts",
+          "target": "resource:ai-runtime",
+          "detail": null
+        },
+        {
+          "type": "hosts",
+          "target": "resource:api-gateway",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+      "owner": "Core Infrastructure",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 94,
+      "status": "healthy",
+      "readiness": 91
+    }
+  },
+  "summary": "Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

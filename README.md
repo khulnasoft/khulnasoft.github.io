@@ -24,6 +24,8 @@ The canonical model is `organization → workspace → project → resource`. `k
 - **Canonical schema** (`schemas/`) — universal resource, manifest, and organization/governance contracts.
 - **Model source** (`data/`) — resource registry, organization/governance, manifests, prompts, and agent registrations.
 - **Build engine** (`scripts/aec/`) — loads the model and derives the graph, digital twins, layered context, readiness intelligence, and registries.
+- **Control-plane registries** (`scripts/aec/registries.py`) — capability, platform, service, kind, template, prompt, agent, context, model, tool, and memory registries, all queryable via the API.
+- **AI control-plane services** (`scripts/aec/aicontrol.py`) — evaluation, safety, and telemetry services derived from the model for the AI control plane (`/ai/services`).
 - **Static portal + API** (`site/`, `scripts/serve_api.py`) — catalog, search, graph, digital twins, context fabric, registries, readiness, AI control plane, context explorer/agent playground, change-impact simulator, readiness timeline, release copilot, engineering data lake, and agent endpoints.
 - **AI-ready outputs** — `llms.txt`, `llms-full.txt`, `mcp.json`, and per-resource context bundles/twins (JSON).
 - **Engineering data lake** (`data/events/`, `scripts/aec/ingest.py`) — raw GitHub/CI/K8s/cloud/monitoring/security signals normalized into a versioned event store that feeds twins, graph, context, and intelligence.
