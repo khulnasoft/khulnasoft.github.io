@@ -25,6 +25,14 @@ ENDPOINTS = [
     ("release", None, "/release"),
 ]
 
+# Actions exposed by the agent-facing MCP/SDK surfaces (Phase 9.4/10.4).
+# These are write operations, so they POST to the runtime plane.
+ACTIONS = [
+    ("install_asset", "asset_id", "/marketplace/install"),
+    ("consume_artifact", "asset_id", "/marketplace"),
+    ("route_event", "payload", "/webhook/ingest"),
+]
+
 BRAND = "KhulnaSoft Engineering Knowledge OS"
 
 
@@ -49,10 +57,19 @@ def gen_python() -> str:
             lines.append(f"        path = {path!r}")
         lines.append('        return self.request("GET", path)')
         lines.append("")
+    # Agent-facing marketplace install/consume actions (Phase 9.4/10.4).
+    lines.append("    def install_asset(self, asset_id: str) -> dict:")
+    lines.append('        """Install a reusable marketplace asset (template, prompt pack, policy, agent)."""')
+    lines.append('        return self.request("POST", "/marketplace/install", {"id": asset_id})')
+    lines.append("")
+    lines.append("    def consume_artifact(self, asset_id: str) -> dict:")
+    lines.append('        """Fetch the artifact resolved from an installed marketplace asset."""')
+    lines.append('        return self.request("GET", "/marketplace?asset=" + asset_id)')
+    lines.append("")
     lines += [
-        "    def request(self, method, path):",
+        "    def request(self, method, path, body=None):",
         '        """HTTP helper (swap with an httpx/requests transport)."""',
-        '        return {"path": path, "method": method}',
+        '        return {"path": path, "method": method, "body": body}',
     ]
     return "\n".join(lines) + "\n"
 
@@ -76,6 +93,13 @@ def gen_typescript() -> str:
         else:
             expr = f"this.base + {json.dumps(ts_path)}"
         lines.append(f"  {func}{sig} = fetch({expr}).then(r => r.json());")
+    # Agent-facing marketplace install/consume actions (Phase 9.4/10.4).
+    lines.append("""  /** Install a reusable marketplace asset (template, prompt pack, policy, agent). */""")
+    lines.append("  installAsset = (assetId: string) =>")
+    lines.append("    fetch(this.base + '/marketplace/install', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: assetId})}).then(r => r.json());")
+    lines.append("  /** Fetch the artifact resolved from an installed marketplace asset. */")
+    lines.append("  consumeArtifact = (assetId: string) =>")
+    lines.append("    fetch(this.base + '/marketplace?asset=' + assetId).then(r => r.json());")
     lines.append("}")
     return "\n".join(lines) + "\n"
 
@@ -89,6 +113,7 @@ def gen_go() -> str:
         "import (",
         '\t"fmt"',
         '\t"net/http"',
+        '\t"strings"',
         ")",
         "",
         "const BaseURL = \"https://khulnasoft.github.io/api\"",
@@ -107,6 +132,19 @@ def gen_go() -> str:
             lines.append(f'\treturn c.HTTP.Get(BaseURL + "{path}")')
         lines.append("}")
         lines.append("")
+    # Agent-facing marketplace install/consume actions (Phase 9.4/10.4).
+    lines.append("// InstallAsset installs a reusable marketplace asset.")
+    lines.append("func (c *Client) InstallAsset(assetID string) (*http.Response, error) {")
+    lines.append('\treq, _ := http.NewRequest("POST", BaseURL+"/marketplace/install", strings.NewReader(`{"id":"`+assetID+`"}`))')
+    lines.append('\treq.Header.Set("Content-Type", "application/json")')
+    lines.append("\treturn c.HTTP.Do(req)")
+    lines.append("}")
+    lines.append("")
+    lines.append("// ConsumeArtifact fetches the artifact resolved from an installed asset.")
+    lines.append('func (c *Client) ConsumeArtifact(assetID string) (*http.Response, error) {')
+    lines.append('\treturn c.HTTP.Get(BaseURL + "/marketplace?asset=" + assetID)')
+    lines.append("}")
+    lines.append("")
     return "\n".join(lines) + "\n"
 
 
@@ -152,6 +190,16 @@ def gen_java() -> str:
             lines.append(f'        return BASE + "{path}";')
         lines.append("    }")
         lines.append("")
+    # Agent-facing marketplace install/consume actions (Phase 9.4/10.4).
+    lines.append("    // Install a reusable marketplace asset (template, prompt pack, policy, agent).")
+    lines.append("    public static String installAsset(String assetId) {")
+    lines.append('        return BASE + "/marketplace/install";')
+    lines.append("    }")
+    lines.append("")
+    lines.append("    // Fetch the artifact resolved from an installed marketplace asset.")
+    lines.append("    public static String consumeArtifact(String assetId) {")
+    lines.append('        return BASE + "/marketplace?asset=" + assetId;')
+    lines.append("    }")
     lines.append("}")
     return "\n".join(lines) + "\n"
 

@@ -146,7 +146,13 @@ def build_llms_full(resources: list[dict]) -> str:
 
 
 def build_mcp_metadata(resources: list[dict]) -> dict:
-    """MCP metadata exposed by the runtime plane (Model Context Protocol)."""
+    """MCP metadata exposed by the runtime plane (Model Context Protocol).
+
+    Declares both the resource (context) surface that agents can read and the
+    tool surface exposed over MCP so agents can drive the same actions as the
+    portal/CLI/SDK: install marketplace assets, query automations, and route
+    events through the runtime plane.
+    """
     return {
         "protocol": "model-context-protocol",
         "server": "khulnasoft-aec",
@@ -160,6 +166,40 @@ def build_mcp_metadata(resources: list[dict]) -> dict:
                 "layers": LAYERS,
             }
             for r in resources
+        ],
+        "tools": [
+            {
+                "id": "tool:install-marketplace-asset",
+                "name": "installMarketplaceAsset",
+                "description": "Install a reusable engineering asset (template, prompt pack, policy, agent, workflow) from the marketplace into the calling project/workspace.",
+                "endpoint": "mcp://khulnasoft/tool/install-marketplace-asset",
+                "input": {"id": "asset:<id>", "target": "optional resource target"},
+                "output": {"accepted": True, "type": "<asset type>", "resolved": "<model artifact>"},
+            },
+            {
+                "id": "tool:consume-resolved-artifact",
+                "name": "consumeResolvedArtifact",
+                "description": "Fetch the consumable artifact resolved from an installed marketplace asset (resource twin+context bundle, prompt bundle, policy, or agent).",
+                "endpoint": "mcp://khulnasoft/tool/consume-resolved-artifact",
+                "input": {"id": "asset:<id>"},
+                "output": {"kind": "resource|prompt|policy|agent|asset", "payload": "<model artifact>"},
+            },
+            {
+                "id": "tool:list-runtime-automations",
+                "name": "listRuntimeAutomations",
+                "description": "List runtime-plane automations and the events each one reacts to.",
+                "endpoint": "mcp://khulnasoft/tool/list-runtime-automations",
+                "input": {},
+                "output": {"automations": "<automation[]>", "automation_by_event": "<event->count map>"},
+            },
+            {
+                "id": "tool:route-event",
+                "name": "routeEvent",
+                "description": "Route a native webhook/event payload into the canonical event model and resolve its downstream blast radius (resources to refresh).",
+                "endpoint": "mcp://khulnasoft/tool/route-event",
+                "input": {"payload": "<native event body>", "source": "<github|kubernetes|monitoring|security>"},
+                "output": {"event": "<canonical event>", "touched": "<resources to refresh>"},
+            },
         ],
         "layers": LAYERS,
         "selective": True,

@@ -12,4 +12,10 @@ export class AecClient {
   events() = fetch(this.base + "/events").then(r => r.json());
   analytics() = fetch(this.base + "/analytics").then(r => r.json());
   release() = fetch(this.base + "/release").then(r => r.json());
+  /** Install a reusable marketplace asset (template, prompt pack, policy, agent). */
+  installAsset = (assetId: string) =>
+    fetch(this.base + '/marketplace/install', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: assetId})}).then(r => r.json());
+  /** Fetch the artifact resolved from an installed marketplace asset. */
+  consumeArtifact = (assetId: string) =>
+    fetch(this.base + '/marketplace?asset=' + assetId).then(r => r.json());
 }

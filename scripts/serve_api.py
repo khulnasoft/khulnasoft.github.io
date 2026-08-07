@@ -176,6 +176,19 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_json(MODEL["registries"]["agent"])
 
         if path == "/marketplace":
+            asset_q = query.get("asset", [None])[0]
+            if asset_q:
+                asset = MODEL["marketplace_by_id"].get(asset_q)
+                if asset is None:
+                    return self.send_json({"error": f"unknown asset '{asset_q}'"}, status=404)
+                # Consume the previously-installed artifact by resolving it now.
+                target = asset.get("type")
+                resolution = resolve_asset(asset, target)
+                return self.send_json({
+                    "asset": asset["id"],
+                    "type": asset["type"],
+                    "resolved": resolution,
+                })
             return self.send_json(MODEL["marketplace"])
 
         if path == "/templates":

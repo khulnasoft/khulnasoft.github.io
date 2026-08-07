@@ -206,6 +206,24 @@ def main() -> int:
     check("10c. Prompt-pack and policy assets resolve to model artifacts", bool(ok10c),
           f"prompt={pp is not None} policy={pol is not None}")
 
+    # 10d. Phase 9.4/10.4 agent-facing surface: MCP tools declare install/consume
+    # actions and the generated SDKs expose the same methods.
+    with open(SITE / "mcp.json") as fh:
+        mcp = json.load(fh)
+    tool_names = {t["name"] for t in mcp.get("tools", [])}
+    ok10d = {"installMarketplaceAsset", "consumeResolvedArtifact", "listRuntimeAutomations", "routeEvent"} <= tool_names
+    check("10d. MCP metadata declares agent-facing install/consume/route tools", ok10d,
+          f"tools={sorted(tool_names)}")
+    # Generated Python SDK exposes install_asset/consume_artifact; Go/Java expose them too.
+    py_sdk = (SITE / "sdks" / "aec.py").read_text()
+    go_sdk = (SITE / "sdks" / "aec.go").read_text()
+    java_sdk = (SITE / "sdks" / "AecClient.java").read_text()
+    ok10e = ("def install_asset" in py_sdk and "def consume_artifact" in py_sdk) and \
+            ("InstallAsset" in go_sdk and "ConsumeArtifact" in go_sdk) and \
+            ("installAsset" in java_sdk and "consumeArtifact" in java_sdk)
+    check("10e. Generated SDKs expose install/consume methods across languages", ok10e,
+          f"py={'install_asset' in py_sdk} go={'InstallAsset' in go_sdk} java={'installAsset' in java_sdk}")
+
     print(f"\n{sum(1 for _, o in CHECKS if o)}/{len(CHECKS)} checks passed")
     if FAILURES:
         print("Failures:")

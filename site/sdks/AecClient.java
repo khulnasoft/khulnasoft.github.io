@@ -44,4 +44,13 @@ public final class AecClient {
         return BASE + "/release";
     }
 
+    // Install a reusable marketplace asset (template, prompt pack, policy, agent).
+    public static String installAsset(String assetId) {
+        return BASE + "/marketplace/install";
+    }
+
+    // Fetch the artifact resolved from an installed marketplace asset.
+    public static String consumeArtifact(String assetId) {
+        return BASE + "/marketplace?asset=" + assetId;
+    }
 }

@@ -46,6 +46,14 @@ class Client:
         path = '/release'
         return self.request("GET", path)
 
-    def request(self, method, path):
+    def install_asset(self, asset_id: str) -> dict:
+        """Install a reusable marketplace asset (template, prompt pack, policy, agent)."""
+        return self.request("POST", "/marketplace/install", {"id": asset_id})
+
+    def consume_artifact(self, asset_id: str) -> dict:
+        """Fetch the artifact resolved from an installed marketplace asset."""
+        return self.request("GET", "/marketplace?asset=" + asset_id)
+
+    def request(self, method, path, body=None):
         """HTTP helper (swap with an httpx/requests transport)."""
-        return {"path": path, "method": method}
+        return {"path": path, "method": method, "body": body}

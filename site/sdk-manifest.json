@@ -2,17 +2,17 @@
   {
     "language": "python",
     "path": "sdks/aec.py",
-    "lines": 51
+    "lines": 59
   },
   {
     "language": "typescript",
     "path": "sdks/aec.ts",
-    "lines": 15
+    "lines": 21
   },
   {
     "language": "go",
     "path": "sdks/aec.go",
-    "lines": 63
+    "lines": 76
   },
   {
     "language": "rust",
@@ -22,7 +22,7 @@
   {
     "language": "java",
     "path": "sdks/AecClient.java",
-    "lines": 47
+    "lines": 56
   },
   {
     "language": "csharp",

@@ -5,6 +5,7 @@ package khulnasoft
 import (
 	"fmt"
 	"net/http"
+	"strings"
 )
 
 const BaseURL = "https://khulnasoft.github.io/api"
@@ -59,5 +60,17 @@ func (c *Client) Analytics() (*http.Response, error) {
 // release returns the API payload.
 func (c *Client) Release() (*http.Response, error) {
 	return c.HTTP.Get(BaseURL + "/release")
+}
+
+// InstallAsset installs a reusable marketplace asset.
+func (c *Client) InstallAsset(assetID string) (*http.Response, error) {
+	req, _ := http.NewRequest("POST", BaseURL+"/marketplace/install", strings.NewReader(`{"id":"`+assetID+`"}`))
+	req.Header.Set("Content-Type", "application/json")
+	return c.HTTP.Do(req)
+}
+
+// ConsumeArtifact fetches the artifact resolved from an installed asset.
+func (c *Client) ConsumeArtifact(assetID string) (*http.Response, error) {
+	return c.HTTP.Get(BaseURL + "/marketplace?asset=" + assetID)
 }
 
