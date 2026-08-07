@@ -1,0 +1,23 @@
+{
+  "id": "resource:deployment-runtime",
+  "kind": "deployment",
+  "name": "Deployment Runtime",
+  "slug": "deployment-runtime",
+  "owner": "KhulnaSoft",
+  "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+  "capabilities": ["deployment", "automation", "release"],
+  "health": {
+    "score": 84,
+    "status": "healthy"
+  },
+  "tags": ["deployment", "release", "automation"],
+  "relationships": [
+    { "type": "depends_on", "target": "resource:api-gateway" }
+  ],
+  "recommendedActions": [
+    "Review release runbooks weekly",
+    "Tune automated rollback thresholds",
+    "Keep deployment health checks current"
+  ],
+  "updatedAt": "2026-08-07"
+}

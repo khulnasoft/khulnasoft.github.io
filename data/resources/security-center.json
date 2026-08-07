@@ -1,0 +1,18 @@
+{
+  "id": "resource:security-center",
+  "kind": "security",
+  "name": "Security Center",
+  "slug": "security-center",
+  "owner": "KhulnaSoft",
+  "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+  "capabilities": ["security", "vulnerability", "policy"],
+  "health": {
+    "score": 89,
+    "status": "healthy"
+  },
+  "tags": ["security", "compliance"],
+  "relationships": [
+    { "type": "depends_on", "target": "resource:repository-catalog" }
+  ],
+  "updatedAt": "2026-08-07"
+}

@@ -1,0 +1,209 @@
+{
+  "protocol": "model-context-protocol",
+  "server": "khulnasoft-aec",
+  "resources": [
+    {
+      "id": "resource:ai-code-assistant",
+      "name": "AI Code Assistant",
+      "slug": "ai-code-assistant",
+      "kind": "ai-agent",
+      "endpoint": "mcp://khulnasoft/context/ai-code-assistant",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:ai-runtime",
+      "name": "AI Runtime Services",
+      "slug": "ai-runtime",
+      "kind": "ai-runtime",
+      "endpoint": "mcp://khulnasoft/context/ai-runtime",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:api-gateway",
+      "name": "API Gateway",
+      "slug": "api-gateway",
+      "kind": "api",
+      "endpoint": "mcp://khulnasoft/context/api-gateway",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:context-fabric",
+      "name": "Context Fabric",
+      "slug": "context-fabric",
+      "kind": "component",
+      "endpoint": "mcp://khulnasoft/context/context-fabric",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:deployment-runtime",
+      "name": "Deployment Runtime",
+      "slug": "deployment-runtime",
+      "kind": "deployment",
+      "endpoint": "mcp://khulnasoft/context/deployment-runtime",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:helm-charts-registry",
+      "name": "Helm Charts",
+      "slug": "helm-charts-registry",
+      "kind": "helm-chart",
+      "endpoint": "mcp://khulnasoft/context/helm-charts-registry",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:khulnasoft-platform",
+      "name": "KhulnaSoft Platform Core",
+      "slug": "khulnasoft-platform",
+      "kind": "platform",
+      "endpoint": "mcp://khulnasoft/context/khulnasoft-platform",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:knowledge-graph",
+      "name": "Engineering Knowledge Graph",
+      "slug": "knowledge-graph",
+      "kind": "graph",
+      "endpoint": "mcp://khulnasoft/context/knowledge-graph",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:repository-catalog",
+      "name": "Repository Catalog Service",
+      "slug": "repository-catalog",
+      "kind": "repository",
+      "endpoint": "mcp://khulnasoft/context/repository-catalog",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    },
+    {
+      "id": "resource:security-center",
+      "name": "Security Center",
+      "slug": "security-center",
+      "kind": "security",
+      "endpoint": "mcp://khulnasoft/context/security-center",
+      "layers": [
+        "metadata",
+        "architecture",
+        "dependency",
+        "api",
+        "workflow",
+        "deployment",
+        "runtime",
+        "observability",
+        "security",
+        "business"
+      ]
+    }
+  ],
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ],
+  "selective": true
+}

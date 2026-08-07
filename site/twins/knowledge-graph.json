@@ -1,0 +1,81 @@
+{
+  "resource": {
+    "id": "resource:knowledge-graph",
+    "kind": "graph",
+    "name": "Engineering Knowledge Graph",
+    "slug": "knowledge-graph",
+    "owner": "Platform Core",
+    "team": "platform-core",
+    "workspace": "core",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "python"
+    ],
+    "frameworks": [
+      "networkx-compatible"
+    ],
+    "capabilities": [
+      "knowledge-graph",
+      "relationship-model",
+      "search"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "resource:repository-catalog"
+    },
+    {
+      "type": "provides",
+      "target": "resource:context-fabric"
+    }
+  ],
+  "health": {
+    "score": 93,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 86,
+    "level": "ready",
+    "scores": {
+      "architecture": 93,
+      "documentation": 0,
+      "security": 93,
+      "tests": 93,
+      "ci": 93,
+      "performance": 93,
+      "dependencies": 93,
+      "maintainability": 93,
+      "release": 93,
+      "compliance": 93,
+      "observability": 93,
+      "community": 93,
+      "ai_readiness": 90,
+      "production_readiness": 93
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": true,
+    "agentReady": true,
+    "readiness": 90
+  },
+  "context_summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+  "recommended_actions": [
+    "Publish an architecture doc and README for AI/agent discoverability."
+  ]
+}

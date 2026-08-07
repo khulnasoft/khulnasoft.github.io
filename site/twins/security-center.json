@@ -1,0 +1,74 @@
+{
+  "resource": {
+    "id": "resource:security-center",
+    "kind": "security",
+    "name": "Security Center",
+    "slug": "security-center",
+    "owner": "KhulnaSoft",
+    "team": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "security",
+      "vulnerability",
+      "policy"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:repository-catalog"
+    }
+  ],
+  "health": {
+    "score": 89,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 80,
+    "level": "deployable",
+    "scores": {
+      "architecture": 89,
+      "documentation": 0,
+      "security": 89,
+      "tests": 89,
+      "ci": 89,
+      "performance": 89,
+      "dependencies": 89,
+      "maintainability": 89,
+      "release": 89,
+      "compliance": 89,
+      "observability": 89,
+      "community": 89,
+      "ai_readiness": 50,
+      "production_readiness": 89
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.",
+  "recommended_actions": [
+    "Publish an architecture doc and README for AI/agent discoverability.",
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

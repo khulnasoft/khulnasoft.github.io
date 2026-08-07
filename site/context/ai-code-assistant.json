@@ -1,0 +1,97 @@
+{
+  "resource": {
+    "id": "resource:ai-code-assistant",
+    "name": "AI Code Assistant",
+    "slug": "ai-code-assistant",
+    "kind": "ai-agent"
+  },
+  "context": {
+    "metadata": {
+      "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+      "name": "AI Code Assistant",
+      "kind": "ai-agent",
+      "owner": "AI Enablement",
+      "team": "ai-platform",
+      "workspace": "ai",
+      "lifecycle": "beta",
+      "status": "active",
+      "visibility": "internal",
+      "version": "0.9.2",
+      "tags": [
+        "ai",
+        "agent",
+        "assistant"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "typescript"
+      ],
+      "frameworks": [
+        "node"
+      ],
+      "capabilities": [
+        "ai-agent",
+        "context-retrieval",
+        "review",
+        "assistant"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "resource:context-fabric",
+          "detail": null
+        },
+        {
+          "type": "uses",
+          "target": "resource:ai-runtime",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+      "owner": "AI Enablement",
+      "workspace": "ai"
+    },
+    "health": {
+      "score": 85,
+      "status": "healthy",
+      "readiness": 79
+    }
+  },
+  "summary": "An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

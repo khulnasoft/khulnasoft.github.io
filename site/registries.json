@@ -1,0 +1,441 @@
+{
+  "capability": {
+    "registry": "capability",
+    "count": 30,
+    "capabilities": {
+      "agent-runtime": {
+        "resources": [
+          "resource:ai-runtime"
+        ],
+        "count": 1
+      },
+      "ai-agent": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "api": {
+        "resources": [
+          "resource:api-gateway"
+        ],
+        "count": 1
+      },
+      "assistant": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "automation": {
+        "resources": [
+          "resource:deployment-runtime"
+        ],
+        "count": 1
+      },
+      "catalog": {
+        "resources": [
+          "resource:khulnasoft-platform",
+          "resource:repository-catalog"
+        ],
+        "count": 2
+      },
+      "context-fabric": {
+        "resources": [
+          "resource:ai-runtime",
+          "resource:context-fabric"
+        ],
+        "count": 2
+      },
+      "context-retrieval": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "control-plane": {
+        "resources": [
+          "resource:khulnasoft-platform"
+        ],
+        "count": 1
+      },
+      "deployment": {
+        "resources": [
+          "resource:deployment-runtime",
+          "resource:helm-charts-registry"
+        ],
+        "count": 2
+      },
+      "discovery": {
+        "resources": [
+          "resource:repository-catalog"
+        ],
+        "count": 1
+      },
+      "governance": {
+        "resources": [
+          "resource:khulnasoft-platform"
+        ],
+        "count": 1
+      },
+      "helm-chart": {
+        "resources": [
+          "resource:helm-charts-registry"
+        ],
+        "count": 1
+      },
+      "knowledge-graph": {
+        "resources": [
+          "resource:knowledge-graph"
+        ],
+        "count": 1
+      },
+      "kubernetes": {
+        "resources": [
+          "resource:helm-charts-registry"
+        ],
+        "count": 1
+      },
+      "layered-context": {
+        "resources": [
+          "resource:context-fabric"
+        ],
+        "count": 1
+      },
+      "llms.txt": {
+        "resources": [
+          "resource:context-fabric"
+        ],
+        "count": 1
+      },
+      "mcp": {
+        "resources": [
+          "resource:ai-runtime",
+          "resource:api-gateway"
+        ],
+        "count": 2
+      },
+      "metadata": {
+        "resources": [
+          "resource:repository-catalog"
+        ],
+        "count": 1
+      },
+      "policy": {
+        "resources": [
+          "resource:security-center"
+        ],
+        "count": 1
+      },
+      "prompt-registry": {
+        "resources": [
+          "resource:ai-runtime"
+        ],
+        "count": 1
+      },
+      "registry": {
+        "resources": [
+          "resource:khulnasoft-platform"
+        ],
+        "count": 1
+      },
+      "relationship-model": {
+        "resources": [
+          "resource:knowledge-graph"
+        ],
+        "count": 1
+      },
+      "release": {
+        "resources": [
+          "resource:deployment-runtime"
+        ],
+        "count": 1
+      },
+      "review": {
+        "resources": [
+          "resource:ai-code-assistant"
+        ],
+        "count": 1
+      },
+      "routing": {
+        "resources": [
+          "resource:api-gateway"
+        ],
+        "count": 1
+      },
+      "search": {
+        "resources": [
+          "resource:knowledge-graph"
+        ],
+        "count": 1
+      },
+      "security": {
+        "resources": [
+          "resource:security-center"
+        ],
+        "count": 1
+      },
+      "selective-retrieval": {
+        "resources": [
+          "resource:context-fabric"
+        ],
+        "count": 1
+      },
+      "vulnerability": {
+        "resources": [
+          "resource:security-center"
+        ],
+        "count": 1
+      }
+    },
+    "top": [
+      "context-fabric",
+      "mcp",
+      "deployment",
+      "catalog",
+      "ai-agent",
+      "context-retrieval",
+      "review",
+      "assistant",
+      "agent-runtime",
+      "prompt-registry",
+      "api",
+      "routing",
+      "layered-context",
+      "selective-retrieval",
+      "llms.txt",
+      "automation",
+      "release",
+      "helm-chart",
+      "kubernetes",
+      "control-plane",
+      "governance",
+      "registry",
+      "knowledge-graph",
+      "relationship-model",
+      "search",
+      "discovery",
+      "metadata",
+      "security",
+      "vulnerability",
+      "policy"
+    ]
+  },
+  "platform": {
+    "registry": "platform",
+    "count": 10,
+    "kinds": {
+      "ai-agent": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:ai-code-assistant",
+            "name": "AI Code Assistant",
+            "slug": "ai-code-assistant"
+          }
+        ]
+      },
+      "ai-runtime": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:ai-runtime",
+            "name": "AI Runtime Services",
+            "slug": "ai-runtime"
+          }
+        ]
+      },
+      "api": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:api-gateway",
+            "name": "API Gateway",
+            "slug": "api-gateway"
+          }
+        ]
+      },
+      "component": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:context-fabric",
+            "name": "Context Fabric",
+            "slug": "context-fabric"
+          }
+        ]
+      },
+      "deployment": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:deployment-runtime",
+            "name": "Deployment Runtime",
+            "slug": "deployment-runtime"
+          }
+        ]
+      },
+      "graph": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:knowledge-graph",
+            "name": "Engineering Knowledge Graph",
+            "slug": "knowledge-graph"
+          }
+        ]
+      },
+      "helm-chart": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:helm-charts-registry",
+            "name": "Helm Charts",
+            "slug": "helm-charts-registry"
+          }
+        ]
+      },
+      "platform": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:khulnasoft-platform",
+            "name": "KhulnaSoft Platform Core",
+            "slug": "khulnasoft-platform"
+          }
+        ]
+      },
+      "repository": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:repository-catalog",
+            "name": "Repository Catalog Service",
+            "slug": "repository-catalog"
+          }
+        ]
+      },
+      "security": {
+        "count": 1,
+        "resources": [
+          {
+            "id": "resource:security-center",
+            "name": "Security Center",
+            "slug": "security-center"
+          }
+        ]
+      }
+    }
+  },
+  "service": {
+    "registry": "service",
+    "count": 3,
+    "services": [
+      {
+        "id": "resource:api-gateway",
+        "name": "API Gateway",
+        "slug": "api-gateway",
+        "kind": "api",
+        "workspace": "core"
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "slug": "context-fabric",
+        "kind": "component",
+        "workspace": "ai"
+      },
+      {
+        "id": "resource:khulnasoft-platform",
+        "name": "KhulnaSoft Platform Core",
+        "slug": "khulnasoft-platform",
+        "kind": "platform",
+        "workspace": "core"
+      }
+    ]
+  },
+  "kind": {
+    "registry": "kind",
+    "count": 10,
+    "coverage": {
+      "ai-agent": 1,
+      "ai-runtime": 1,
+      "api": 1,
+      "component": 1,
+      "deployment": 1,
+      "helm-chart": 1,
+      "platform": 1,
+      "graph": 1,
+      "repository": 1,
+      "security": 1
+    }
+  },
+  "prompt": {
+    "registry": "prompt",
+    "count": 2,
+    "prompts": [
+      {
+        "id": "architecture",
+        "file": "architecture.md",
+        "body": "# Architecture Prompt\n\nDescribe the architecture of the target resource, including:\n- major components\n- boundaries\n- important relationships\n- deployment assumptions"
+      },
+      {
+        "id": "review",
+        "file": "review.md",
+        "body": "# Review Prompt\n\nReview the repository context and summarize:\n- architecture risks\n- dependency concerns\n- security posture\n- release readiness"
+      }
+    ]
+  },
+  "agent": {
+    "registry": "agent",
+    "count": 2,
+    "agents": [
+      {
+        "id": "agent:review",
+        "name": "Repository Review Agent",
+        "description": "Reviews repository posture, health, and release readiness.",
+        "capabilities": [
+          "review",
+          "risk-analysis"
+        ],
+        "prompt": "review"
+      },
+      {
+        "id": "agent:architecture",
+        "name": "Architecture Agent",
+        "description": "Explains architecture and component relationships.",
+        "capabilities": [
+          "architecture",
+          "context-composition"
+        ],
+        "prompt": "architecture"
+      }
+    ]
+  },
+  "context": {
+    "registry": "context",
+    "count": 4,
+    "resources": [
+      {
+        "id": "resource:ai-code-assistant",
+        "name": "AI Code Assistant",
+        "slug": "ai-code-assistant"
+      },
+      {
+        "id": "resource:context-fabric",
+        "name": "Context Fabric",
+        "slug": "context-fabric"
+      },
+      {
+        "id": "resource:helm-charts-registry",
+        "name": "Helm Charts",
+        "slug": "helm-charts-registry"
+      },
+      {
+        "id": "resource:knowledge-graph",
+        "name": "Engineering Knowledge Graph",
+        "slug": "knowledge-graph"
+      }
+    ]
+  }
+}

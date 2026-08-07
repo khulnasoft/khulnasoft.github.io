@@ -1,0 +1,16 @@
+[
+  {
+    "id": "agent:review",
+    "name": "Repository Review Agent",
+    "description": "Reviews repository posture, health, and release readiness.",
+    "capabilities": ["review", "risk-analysis"],
+    "prompt": "review"
+  },
+  {
+    "id": "agent:architecture",
+    "name": "Architecture Agent",
+    "description": "Explains architecture and component relationships.",
+    "capabilities": ["architecture", "context-composition"],
+    "prompt": "architecture"
+  }
+]

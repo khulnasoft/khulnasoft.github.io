@@ -1,0 +1,18 @@
+{
+  "id": "resource:ai-runtime",
+  "kind": "ai-runtime",
+  "name": "AI Runtime Services",
+  "slug": "ai-runtime",
+  "owner": "KhulnaSoft",
+  "summary": "Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.",
+  "capabilities": ["context-fabric", "agent-runtime", "prompt-registry", "mcp"],
+  "health": {
+    "score": 88,
+    "status": "healthy"
+  },
+  "tags": ["ai", "agents", "context"],
+  "relationships": [
+    { "type": "depends_on", "target": "resource:khulnasoft-platform" }
+  ],
+  "updatedAt": "2026-08-07"
+}

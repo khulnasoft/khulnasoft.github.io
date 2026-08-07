@@ -1,0 +1,82 @@
+# KhulnaSoft AI Engineering Cloud (full)
+
+## AI Code Assistant (ai-agent)
+- Summary: An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: beta
+- Capabilities: ai-agent, context-retrieval, review, assistant
+- Relationships: uses resource:context-fabric; uses resource:ai-runtime
+- Health: 85/100 (healthy)
+- Rendering: 2026-08-07
+
+## AI Runtime Services (ai-runtime)
+- Summary: Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: context-fabric, agent-runtime, prompt-registry, mcp
+- Relationships: depends_on resource:khulnasoft-platform
+- Health: 88/100 (healthy)
+- Rendering: 2026-08-07
+
+## API Gateway (api)
+- Summary: The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: api, mcp, routing
+- Relationships: depends_on resource:ai-runtime
+- Health: 86/100 (healthy)
+- Rendering: 2026-08-07
+
+## Context Fabric (component)
+- Summary: Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.
+- Owner: AI Enablement | Workspace: ai | Lifecycle: supported
+- Capabilities: context-fabric, layered-context, selective-retrieval, llms.txt
+- Relationships: provides resource:khulnasoft-platform; depends_on resource:knowledge-graph
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Deployment Runtime (deployment)
+- Summary: The runtime layer that orchestrates deployment automation, health checks, and release coordination.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: deployment, automation, release
+- Relationships: depends_on resource:api-gateway
+- Health: 84/100 (healthy)
+- Rendering: 2026-08-07
+
+## Helm Charts (helm-chart)
+- Summary: Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.
+- Owner: Core Infrastructure | Workspace: core-infrastructure | Lifecycle: supported
+- Capabilities: helm-chart, deployment, kubernetes
+- Relationships: deploys resource:deployment-runtime; part_of resource:khulnasoft-platform
+- Health: 91/100 (healthy)
+- Rendering: 2026-08-07
+
+## KhulnaSoft Platform Core (platform)
+- Summary: The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: control-plane, catalog, governance, registry
+- Relationships: depends_on resource:ai-runtime
+- Health: 92/100 (healthy)
+- Rendering: 2026-08-07
+
+## Engineering Knowledge Graph (graph)
+- Summary: The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.
+- Owner: Platform Core | Workspace: core | Lifecycle: supported
+- Capabilities: knowledge-graph, relationship-model, search
+- Relationships: contains resource:repository-catalog; provides resource:context-fabric
+- Health: 93/100 (healthy)
+- Rendering: 2026-08-07
+
+## Repository Catalog Service (repository)
+- Summary: A registry service for discovering repositories, owners, metadata, and health signals across the organization.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: catalog, discovery, metadata
+- Relationships: depends_on resource:khulnasoft-platform
+- Health: 90/100 (healthy)
+- Rendering: 2026-08-07
+
+## Security Center (security)
+- Summary: A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.
+- Owner: KhulnaSoft | Workspace: core | Lifecycle: active
+- Capabilities: security, vulnerability, policy
+- Relationships: depends_on resource:repository-catalog
+- Health: 89/100 (healthy)
+- Rendering: 2026-08-07
+

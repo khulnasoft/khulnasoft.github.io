@@ -1,0 +1,103 @@
+{
+  "resource": {
+    "id": "resource:context-fabric",
+    "name": "Context Fabric",
+    "slug": "context-fabric",
+    "kind": "component"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+      "name": "Context Fabric",
+      "kind": "component",
+      "owner": "AI Enablement",
+      "team": "ai-platform",
+      "workspace": "ai",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.4.0",
+      "tags": [
+        "context",
+        "ai",
+        "plane-knowledge"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "typescript",
+        "python"
+      ],
+      "frameworks": [
+        "node",
+        "fastapi"
+      ],
+      "capabilities": [
+        "context-fabric",
+        "layered-context",
+        "selective-retrieval",
+        "llms.txt"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "provides",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:knowledge-graph",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "business": {
+      "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+      "owner": "AI Enablement",
+      "workspace": "ai"
+    },
+    "health": {
+      "score": 90,
+      "status": "healthy",
+      "readiness": 84
+    }
+  },
+  "summary": "Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

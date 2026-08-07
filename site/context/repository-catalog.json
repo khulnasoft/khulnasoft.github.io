@@ -1,0 +1,86 @@
+{
+  "resource": {
+    "id": "resource:repository-catalog",
+    "name": "Repository Catalog Service",
+    "slug": "repository-catalog",
+    "kind": "repository"
+  },
+  "context": {
+    "metadata": {
+      "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+      "name": "Repository Catalog Service",
+      "kind": "repository",
+      "owner": "KhulnaSoft",
+      "team": "KhulnaSoft",
+      "workspace": "core",
+      "lifecycle": "active",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "catalog",
+        "governance"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "catalog",
+        "discovery",
+        "metadata"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+      "owner": "KhulnaSoft",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 90,
+      "status": "healthy",
+      "readiness": 81
+    }
+  },
+  "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

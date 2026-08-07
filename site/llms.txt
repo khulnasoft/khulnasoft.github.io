@@ -1,0 +1,37 @@
+# KhulnaSoft AI-Native Engineering Cloud
+
+> Continuously updated control plane for engineering assets, AI-ready context,
+> and agent-friendly APIs.
+
+## Resources
+
+- [AI Code Assistant](https://khulnasoft.github.io/resources/ai-code-assistant.html)
+  - Context: `/context/ai-code-assistant.json`
+  - Twin: `/api/resources/ai-code-assistant/twin`
+- [AI Runtime Services](https://khulnasoft.github.io/resources/ai-runtime.html)
+  - Context: `/context/ai-runtime.json`
+  - Twin: `/api/resources/ai-runtime/twin`
+- [API Gateway](https://khulnasoft.github.io/resources/api-gateway.html)
+  - Context: `/context/api-gateway.json`
+  - Twin: `/api/resources/api-gateway/twin`
+- [Context Fabric](https://khulnasoft.github.io/resources/context-fabric.html)
+  - Context: `/context/context-fabric.json`
+  - Twin: `/api/resources/context-fabric/twin`
+- [Deployment Runtime](https://khulnasoft.github.io/resources/deployment-runtime.html)
+  - Context: `/context/deployment-runtime.json`
+  - Twin: `/api/resources/deployment-runtime/twin`
+- [Helm Charts](https://khulnasoft.github.io/resources/helm-charts-registry.html)
+  - Context: `/context/helm-charts-registry.json`
+  - Twin: `/api/resources/helm-charts-registry/twin`
+- [KhulnaSoft Platform Core](https://khulnasoft.github.io/resources/khulnasoft-platform.html)
+  - Context: `/context/khulnasoft-platform.json`
+  - Twin: `/api/resources/khulnasoft-platform/twin`
+- [Engineering Knowledge Graph](https://khulnasoft.github.io/resources/knowledge-graph.html)
+  - Context: `/context/knowledge-graph.json`
+  - Twin: `/api/resources/knowledge-graph/twin`
+- [Repository Catalog Service](https://khulnasoft.github.io/resources/repository-catalog.html)
+  - Context: `/context/repository-catalog.json`
+  - Twin: `/api/resources/repository-catalog/twin`
+- [Security Center](https://khulnasoft.github.io/resources/security-center.html)
+  - Context: `/context/security-center.json`
+  - Twin: `/api/resources/security-center/twin`

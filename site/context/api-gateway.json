@@ -1,0 +1,87 @@
+{
+  "resource": {
+    "id": "resource:api-gateway",
+    "name": "API Gateway",
+    "slug": "api-gateway",
+    "kind": "api"
+  },
+  "context": {
+    "metadata": {
+      "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+      "name": "API Gateway",
+      "kind": "api",
+      "owner": "KhulnaSoft",
+      "team": "KhulnaSoft",
+      "workspace": "core",
+      "lifecycle": "active",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "api",
+        "routing",
+        "agent"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "api",
+        "mcp",
+        "routing"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+      "owner": "KhulnaSoft",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 86,
+      "status": "healthy",
+      "readiness": 77
+    }
+  },
+  "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

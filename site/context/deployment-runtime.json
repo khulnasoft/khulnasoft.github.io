@@ -1,0 +1,87 @@
+{
+  "resource": {
+    "id": "resource:deployment-runtime",
+    "name": "Deployment Runtime",
+    "slug": "deployment-runtime",
+    "kind": "deployment"
+  },
+  "context": {
+    "metadata": {
+      "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+      "name": "Deployment Runtime",
+      "kind": "deployment",
+      "owner": "KhulnaSoft",
+      "team": "KhulnaSoft",
+      "workspace": "core",
+      "lifecycle": "active",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "deployment",
+        "release",
+        "automation"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "deployment",
+        "automation",
+        "release"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:api-gateway",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+      "owner": "KhulnaSoft",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 84,
+      "status": "healthy",
+      "readiness": 76
+    }
+  },
+  "summary": "The runtime layer that orchestrates deployment automation, health checks, and release coordination.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

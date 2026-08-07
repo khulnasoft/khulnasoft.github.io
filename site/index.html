@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Platform · KhulnaSoft AEC</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#07111f;color:#f5f7fb;line-height:1.5}
+a{color:#58c6dd}a:hover{text-decoration:underline}
+header.top{border-bottom:1px solid #1f3040;padding:.85rem 1.4rem;display:flex;align-items:center;gap:1rem;
+position:sticky;top:0;background:rgba(7,17,31,.95)}
+header.top .brand{font-weight:700;letter-spacing:.2px}
+header.top .accent{color:#58c6dd}
+header.top nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:.2rem}
+header.top nav a{color:#93a7bd;text-decoration:none;padding:.3rem .55rem;border-radius:8px;font-size:.82rem}
+header.top nav a:hover{color:#f5f7fb;background:#1f2f40}
+main{max-width:1140px;margin:0 auto;padding:1.6rem}
+h1{letter-spacing:-.03em;font-size:1.8rem}
+h2{color:#58c6dd;font-size:1.15rem;margin:1.5rem 0 .6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.card{background:#10202f;border:1px solid #1f3244;border-radius:12px;padding:1rem 1.1rem}
+.card.metric{text-align:center}
+.metric .value{font-size:1.9rem;font-weight:800;color:#58c6dd}
+.metric .label{color:#93a7bd;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;background:#14324f;color:#58c6dd;padding:.18rem .6rem;border-radius:999px;font-size:.75rem;margin:.15rem .25rem .15rem 0}
+.pill.kind{background:#14314a;color:#c5d5e8}
+.muted{color:#93a7bd}
+code{background:#0d1a28;padding:.1rem .35rem;border-radius:5px;font-size:.85rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:.42rem 0;border-bottom:1px solid #1f3244}
+ul.plain li:last-child{border-bottom:none}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:#93a7bd;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.4rem}
+td{padding:.45rem;border-top:1px solid #1f3244}
+.footer{border-top:1px solid #1f3244;margin-top:2rem;padding:1rem 1.4rem;color:#93a7bd;font-size:.8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.badge{display:inline-block;padding:.12rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600}
+.badge.ok{background:rgba(74,222,128,.16);color:#4ade80}
+.badge.warn{background:rgba(251,191,36,.16);color:#fbbf24}
+.badge.bad{background:rgba(248,113,113,.16);color:#f87171}
+</style></head>
+<body>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">AEC</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a></nav></header>
+<main><h1>KhulnaSoft AI-Native Engineering Cloud</h1>
+<p class="muted">A continuously updated control plane for engineering assets, AI-ready context, and agent-friendly APIs.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+<div class="card metric"><div class="value">10</div><div class="label">resource count</div></div><div class="card metric"><div class="value">{'ai-agent': 1, 'ai-runtime': 1, 'api': 1, 'component': 1, 'deployment': 1, 'helm-chart': 1, 'platform': 1, 'graph': 1, 'repository': 1, 'security': 1}</div><div class="label">kind distribution</div></div><div class="card metric"><div class="value">89</div><div class="label">health score</div></div><div class="card metric"><div class="value">89</div><div class="label">reliability score</div></div><div class="card metric"><div class="value">0</div><div class="label">automation coverage</div></div><div class="card metric"><div class="value">40</div><div class="label">context coverage</div></div></div>
+<h2>Resources</h2><div class="grid"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ai-code-assistant.html" style="font-weight:700;font-size:1.05rem">AI Code Assistant</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-agent</span><span class="pill">ai</span></div>
+<div class="muted">An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.</div>
+<div style="margin-top:.6rem"><a href="context/ai-code-assistant.json">bundle</a> · <a href="twins/ai-code-assistant.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ai-runtime.html" style="font-weight:700;font-size:1.05rem">AI Runtime Services</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-runtime</span><span class="pill">core</span></div>
+<div class="muted">Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.</div>
+<div style="margin-top:.6rem"><a href="context/ai-runtime.json">bundle</a> · <a href="twins/ai-runtime.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/api-gateway.html" style="font-weight:700;font-size:1.05rem">API Gateway</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">api</span><span class="pill">core</span></div>
+<div class="muted">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
+<div style="margin-top:.6rem"><a href="context/api-gateway.json">bundle</a> · <a href="twins/api-gateway.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/context-fabric.html" style="font-weight:700;font-size:1.05rem">Context Fabric</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span><span class="pill">ai</span></div>
+<div class="muted">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
+<div style="margin-top:.6rem"><a href="context/context-fabric.json">bundle</a> · <a href="twins/context-fabric.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/deployment-runtime.html" style="font-weight:700;font-size:1.05rem">Deployment Runtime</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">deployment</span><span class="pill">core</span></div>
+<div class="muted">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
+<div style="margin-top:.6rem"><a href="context/deployment-runtime.json">bundle</a> · <a href="twins/deployment-runtime.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/helm-charts-registry.html" style="font-weight:700;font-size:1.05rem">Helm Charts</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">helm-chart</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.</div>
+<div style="margin-top:.6rem"><a href="context/helm-charts-registry.json">bundle</a> · <a href="twins/helm-charts-registry.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/khulnasoft-platform.html" style="font-weight:700;font-size:1.05rem">KhulnaSoft Platform Core</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">platform</span><span class="pill">core</span></div>
+<div class="muted">The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.</div>
+<div style="margin-top:.6rem"><a href="context/khulnasoft-platform.json">bundle</a> · <a href="twins/khulnasoft-platform.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/knowledge-graph.html" style="font-weight:700;font-size:1.05rem">Engineering Knowledge Graph</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">graph</span><span class="pill">core</span></div>
+<div class="muted">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
+<div style="margin-top:.6rem"><a href="context/knowledge-graph.json">bundle</a> · <a href="twins/knowledge-graph.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/repository-catalog.html" style="font-weight:700;font-size:1.05rem">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span><span class="pill">core</span></div>
+<div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
+<div style="margin-top:.6rem"><a href="context/repository-catalog.json">bundle</a> · <a href="twins/repository-catalog.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/security-center.html" style="font-weight:700;font-size:1.05rem">Security Center</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">security</span><span class="pill">core</span></div>
+<div class="muted">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>
+<div style="margin-top:.6rem"><a href="context/security-center.json">bundle</a> · <a href="twins/security-center.json">twin</a></div></div></div></main>
+<footer class="footer"><span>KhulnaSoft AI-Native Engineering Cloud</span>
+<a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
+<a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
+</body></html>

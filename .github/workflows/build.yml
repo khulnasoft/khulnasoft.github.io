@@ -1,0 +1,31 @@
+name: Build AEC portal
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Build AEC portal
+        run: python3 scripts/build_aec.py
+      - name: Verify generated artifacts
+        run: |
+          test -f site/index.html
+          test -f site/llms.txt
+          test -f site/mcp.json
+          python3 -m py_compile scripts/serve_api.py
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site

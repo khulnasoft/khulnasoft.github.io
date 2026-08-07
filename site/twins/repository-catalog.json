@@ -1,0 +1,74 @@
+{
+  "resource": {
+    "id": "resource:repository-catalog",
+    "kind": "repository",
+    "name": "Repository Catalog Service",
+    "slug": "repository-catalog",
+    "owner": "KhulnaSoft",
+    "team": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "catalog",
+      "discovery",
+      "metadata"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:khulnasoft-platform"
+    }
+  ],
+  "health": {
+    "score": 90,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 81,
+    "level": "deployable",
+    "scores": {
+      "architecture": 90,
+      "documentation": 0,
+      "security": 90,
+      "tests": 90,
+      "ci": 90,
+      "performance": 90,
+      "dependencies": 90,
+      "maintainability": 90,
+      "release": 90,
+      "compliance": 90,
+      "observability": 90,
+      "community": 90,
+      "ai_readiness": 50,
+      "production_readiness": 90
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "A registry service for discovering repositories, owners, metadata, and health signals across the organization.",
+  "recommended_actions": [
+    "Publish an architecture doc and README for AI/agent discoverability.",
+    "Enable a context bundle and register a prompt for agent consumption."
+  ]
+}

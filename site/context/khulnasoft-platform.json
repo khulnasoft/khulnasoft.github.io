@@ -1,0 +1,88 @@
+{
+  "resource": {
+    "id": "resource:khulnasoft-platform",
+    "name": "KhulnaSoft Platform Core",
+    "slug": "khulnasoft-platform",
+    "kind": "platform"
+  },
+  "context": {
+    "metadata": {
+      "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+      "name": "KhulnaSoft Platform Core",
+      "kind": "platform",
+      "owner": "KhulnaSoft",
+      "team": "KhulnaSoft",
+      "workspace": "core",
+      "lifecycle": "active",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "control-plane",
+        "governance",
+        "catalog"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [],
+      "frameworks": [],
+      "capabilities": [
+        "control-plane",
+        "catalog",
+        "governance",
+        "registry"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+      "owner": "KhulnaSoft",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 92,
+      "status": "healthy",
+      "readiness": 82
+    }
+  },
+  "summary": "The control-plane foundation for the AI-native engineering cloud, coordinating organizations, projects, policies, and engineering resources.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}
