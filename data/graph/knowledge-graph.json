@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {"id": "resource:khulnasoft-platform", "label": "KhulnaSoft Platform Core", "kind": "platform"},
+    {"id": "resource:ai-runtime", "label": "AI Runtime Services", "kind": "ai-runtime"},
+    {"id": "resource:api-gateway", "label": "API Gateway", "kind": "api"},
+    {"id": "resource:deployment-runtime", "label": "Deployment Runtime", "kind": "deployment"}
+  ],
+  "edges": [
+    {"from": "resource:khulnasoft-platform", "to": "resource:ai-runtime", "type": "depends_on"},
+    {"from": "resource:ai-runtime", "to": "resource:api-gateway", "type": "depends_on"},
+    {"from": "resource:api-gateway", "to": "resource:deployment-runtime", "type": "depends_on"}
+  ],
+  "metrics": {
+    "health_score": 89,
+    "reliability_score": 94,
+    "automation_coverage": 72,
+    "context_coverage": 81
+  },
+  "status_feed": [
+    {
+      "title": "Knowledge graph synced",
+      "detail": "Six resources and four dependencies refreshed successfully.",
+      "severity": "ok"
+    },
+    {
+      "title": "Context bundles updated",
+      "detail": "Runtime context material is ready for agent consumption.",
+      "severity": "ok"
+    },
+    {
+      "title": "Governance review pending",
+      "detail": "Security policy review is queued for the deployment runtime.",
+      "severity": "warn"
+    }
+  ]
+}

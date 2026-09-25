@@ -1,0 +1,91 @@
+{
+  "resource": {
+    "id": "resource:identity-provider",
+    "kind": "service",
+    "name": "Identity Provider",
+    "slug": "identity-provider",
+    "owner": "Core Infrastructure",
+    "team": "core-platform",
+    "workspace": "core-infrastructure",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "5.2.0",
+    "summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "go"
+    ],
+    "frameworks": [
+      "gin"
+    ],
+    "capabilities": [
+      "authentication",
+      "authorization",
+      "api",
+      "sdk"
+    ],
+    "security": {
+      "scanStatus": "clean",
+      "posture": "good"
+    },
+    "deployment": {
+      "status": "active",
+      "environment": "prod",
+      "targets": [
+        "kubernetes"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "type": "provides",
+      "target": "resource:api-gateway"
+    },
+    {
+      "type": "depends_on",
+      "target": "resource:policy-engine"
+    }
+  ],
+  "health": {
+    "score": 90,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 91,
+    "level": "ready",
+    "scores": {
+      "architecture": 90,
+      "documentation": 90,
+      "security": 90,
+      "tests": 90,
+      "ci": 90,
+      "performance": 90,
+      "dependencies": 90,
+      "maintainability": 90,
+      "release": 90,
+      "compliance": 90,
+      "observability": 90,
+      "community": 90,
+      "ai_readiness": 88,
+      "production_readiness": 100
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": true,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": 88
+  },
+  "context_summary": "Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.",
+  "recommended_actions": [
+    "Address engineering-intelligence signals before release."
+  ]
+}

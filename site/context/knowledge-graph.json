@@ -1,0 +1,95 @@
+{
+  "resource": {
+    "id": "resource:knowledge-graph",
+    "name": "Engineering Knowledge Graph",
+    "slug": "knowledge-graph",
+    "kind": "graph"
+  },
+  "context": {
+    "metadata": {
+      "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+      "name": "Engineering Knowledge Graph",
+      "kind": "graph",
+      "owner": "Platform Core",
+      "team": "platform-core",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": null,
+      "tags": [
+        "graph",
+        "knowledge-plane"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "networkx-compatible"
+      ],
+      "capabilities": [
+        "knowledge-graph",
+        "relationship-model",
+        "search"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "contains",
+          "target": "resource:repository-catalog",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:context-fabric",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+      "owner": "Platform Core",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 86,
+      "status": "healthy",
+      "readiness": 86
+    }
+  },
+  "summary": "The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

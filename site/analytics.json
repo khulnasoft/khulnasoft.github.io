@@ -1,0 +1,1992 @@
+{
+  "per_resource": {
+    "resource:ai-code-assistant": {
+      "id": "resource:ai-code-assistant",
+      "slug": "ai-code-assistant",
+      "languages": [
+        "typescript"
+      ],
+      "frameworks": [
+        "node"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "uses",
+          "target": "resource:context-fabric"
+        },
+        {
+          "type": "uses",
+          "target": "resource:ai-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "beta"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:ai-runtime": {
+      "id": "resource:ai-runtime",
+      "slug": "ai-runtime",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "security": "new security findings event recorded (open vulnerabilities)",
+        "configuration": "configuration changed since last baseline snapshot"
+      }
+    },
+    "resource:api-gateway": {
+      "id": "resource:api-gateway",
+      "slug": "api-gateway",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "apiCompatibility": {
+        "risk": "unversioned",
+        "versioned": false,
+        "note": "API must carry a version to guarantee compatibility"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "architecture": "api capability not backed by an active deployment"
+      }
+    },
+    "resource:blueprint-templates": {
+      "id": "resource:blueprint-templates",
+      "slug": "blueprint-templates",
+      "languages": [
+        "typescript",
+        "go",
+        "python"
+      ],
+      "frameworks": [
+        "copier",
+        "cookiecutter"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:repository-catalog"
+        },
+        {
+          "type": "provides",
+          "target": "resource:ci-pipelines"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:checkout-service": {
+      "id": "resource:checkout-service",
+      "slug": "checkout-service",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "architecture": [
+        "microservice"
+      ],
+      "api": true,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": true,
+        "note": "API is versioned"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:orders-db"
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:payment-events"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": "210ms"
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:ci-pipelines": {
+      "id": "resource:ci-pipelines",
+      "slug": "ci-pipelines",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "github-actions"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "deploys",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "tracks",
+          "target": "resource:repository-catalog"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:client-sdks": {
+      "id": "resource:client-sdks",
+      "slug": "client-sdks",
+      "languages": [
+        "typescript",
+        "python",
+        "go",
+        "rust",
+        "java",
+        "c#",
+        "php",
+        "ruby",
+        "swift",
+        "kotlin",
+        "dart"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": true,
+        "note": "API is versioned"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:api-gateway"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:container-registry": {
+      "id": "resource:container-registry",
+      "slug": "container-registry",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:deployment-runtime"
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:context-fabric": {
+      "id": "resource:context-fabric",
+      "slug": "context-fabric",
+      "languages": [
+        "typescript",
+        "python"
+      ],
+      "frameworks": [
+        "node",
+        "fastapi"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:knowledge-graph"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:deployment-runtime": {
+      "id": "resource:deployment-runtime",
+      "slug": "deployment-runtime",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:api-gateway"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:domains": {
+      "id": "resource:domains",
+      "slug": "domains",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "terraform"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:platform-ingress"
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:event-bus": {
+      "id": "resource:event-bus",
+      "slug": "event-bus",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "kafka"
+      ],
+      "architecture": [
+        "event-driven"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "provides",
+          "target": "resource:payment-events"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:feature-flag-service": {
+      "id": "resource:feature-flag-service",
+      "slug": "feature-flag-service",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": true,
+        "note": "API is versioned"
+      },
+      "dependencies": [
+        {
+          "type": "serves",
+          "target": "resource:checkout-service"
+        },
+        {
+          "type": "serves",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:grafana-dashboards": {
+      "id": "resource:grafana-dashboards",
+      "slug": "grafana-dashboards",
+      "languages": [
+        "json"
+      ],
+      "frameworks": [
+        "grafana"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:metrics-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:helm-charts-registry": {
+      "id": "resource:helm-charts-registry",
+      "slug": "helm-charts-registry",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "helm",
+        "kubernetes"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "deploys",
+          "target": "resource:deployment-runtime"
+        },
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:identity-provider": {
+      "id": "resource:identity-provider",
+      "slug": "identity-provider",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "gin"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": true,
+        "note": "API is versioned"
+      },
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:api-gateway"
+        },
+        {
+          "type": "depends_on",
+          "target": "resource:policy-engine"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:khulnasoft-platform": {
+      "id": "resource:khulnasoft-platform",
+      "slug": "khulnasoft-platform",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:knowledge-graph": {
+      "id": "resource:knowledge-graph",
+      "slug": "knowledge-graph",
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "networkx-compatible"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "contains",
+          "target": "resource:repository-catalog"
+        },
+        {
+          "type": "provides",
+          "target": "resource:context-fabric"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "configuration": "configuration changed since last baseline snapshot"
+      }
+    },
+    "resource:ledger-worker": {
+      "id": "resource:ledger-worker",
+      "slug": "ledger-worker",
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "fastapi"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:payment-events"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "infrastructure": "deployment failure recorded for this resource",
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource",
+        "configuration": "configuration changed since last baseline snapshot"
+      }
+    },
+    "resource:logging-libraries": {
+      "id": "resource:logging-libraries",
+      "slug": "logging-libraries",
+      "languages": [
+        "go",
+        "python",
+        "typescript"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "used_by",
+          "target": "resource:checkout-service"
+        },
+        {
+          "type": "used_by",
+          "target": "resource:ledger-worker"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:metrics-platform": {
+      "id": "resource:metrics-platform",
+      "slug": "metrics-platform",
+      "languages": [
+        "go",
+        "typescript"
+      ],
+      "frameworks": [
+        "prometheus",
+        "grafana"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "monitors",
+          "target": "resource:api-gateway"
+        },
+        {
+          "type": "monitors",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:oncall-alerts": {
+      "id": "resource:oncall-alerts",
+      "slug": "oncall-alerts",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "prometheus",
+        "pagerduty"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:metrics-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:orders-db": {
+      "id": "resource:orders-db",
+      "slug": "orders-db",
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "serves",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource",
+        "configuration": "configuration changed since last baseline snapshot"
+      }
+    },
+    "resource:orders-migration": {
+      "id": "resource:orders-migration",
+      "slug": "orders-migration",
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:orders-schema"
+        },
+        {
+          "type": "deploys",
+          "target": "resource:orders-db"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:orders-schema": {
+      "id": "resource:orders-schema",
+      "slug": "orders-schema",
+      "languages": [
+        "sql"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:orders-db"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:payment-events": {
+      "id": "resource:payment-events",
+      "slug": "payment-events",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "event-driven"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "consumed_by",
+          "target": "resource:ledger-worker"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:platform-blueprints": {
+      "id": "resource:platform-blueprints",
+      "slug": "platform-blueprints",
+      "languages": [
+        "yaml",
+        "markdown"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:blueprint-templates"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:platform-ingress": {
+      "id": "resource:platform-ingress",
+      "slug": "platform-ingress",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": true,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": true,
+        "note": "API is versioned"
+      },
+      "dependencies": [
+        {
+          "type": "routes_to",
+          "target": "resource:api-gateway"
+        },
+        {
+          "type": "routes_to",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:policy-engine": {
+      "id": "resource:policy-engine",
+      "slug": "policy-engine",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:security-center"
+        },
+        {
+          "type": "provides",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:prod-cluster": {
+      "id": "resource:prod-cluster",
+      "slug": "prod-cluster",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "kubernetes"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "hosts",
+          "target": "resource:checkout-service"
+        },
+        {
+          "type": "hosts",
+          "target": "resource:ai-runtime"
+        },
+        {
+          "type": "hosts",
+          "target": "resource:api-gateway"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:recommendation-model": {
+      "id": "resource:recommendation-model",
+      "slug": "recommendation-model",
+      "languages": [
+        "python"
+      ],
+      "frameworks": [
+        "fastapi"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        },
+        {
+          "type": "serves",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:release-artifacts": {
+      "id": "resource:release-artifacts",
+      "slug": "release-artifacts",
+      "languages": [
+        "yaml",
+        "json"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:repository-catalog"
+        },
+        {
+          "type": "tracks",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:release-pipeline": {
+      "id": "resource:release-pipeline",
+      "slug": "release-pipeline",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "github-actions"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ci-pipelines"
+        },
+        {
+          "type": "provides",
+          "target": "resource:release-artifacts"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:repository-catalog": {
+      "id": "resource:repository-catalog",
+      "slug": "repository-catalog",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:runbooks": {
+      "id": "resource:runbooks",
+      "slug": "runbooks",
+      "languages": [
+        "markdown"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:security-center"
+        },
+        {
+          "type": "provides",
+          "target": "resource:oncall-alerts"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:secrets-vault": {
+      "id": "resource:secrets-vault",
+      "slug": "secrets-vault",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:identity-provider"
+        },
+        {
+          "type": "provides",
+          "target": "resource:deployment-runtime"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:security-center": {
+      "id": "resource:security-center",
+      "slug": "security-center",
+      "languages": [],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:repository-catalog"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "active"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:staging-environment": {
+      "id": "resource:staging-environment",
+      "slug": "staging-environment",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "kubernetes",
+        "terraform"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "part_of",
+          "target": "resource:khulnasoft-platform"
+        },
+        {
+          "type": "hosts",
+          "target": "resource:checkout-service"
+        }
+      ],
+      "security": {
+        "scanStatus": "unknown",
+        "posture": "unknown",
+        "clean": false,
+        "risk": "medium"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    },
+    "resource:tls-certificates": {
+      "id": "resource:tls-certificates",
+      "slug": "tls-certificates",
+      "languages": [
+        "yaml"
+      ],
+      "frameworks": [
+        "cert-manager"
+      ],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "provides",
+          "target": "resource:domains"
+        },
+        {
+          "type": "provides",
+          "target": "resource:platform-ingress"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "supported"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {}
+    },
+    "resource:vector-store": {
+      "id": "resource:vector-store",
+      "slug": "vector-store",
+      "languages": [
+        "go"
+      ],
+      "frameworks": [],
+      "architecture": [
+        "layered"
+      ],
+      "api": false,
+      "apiCompatibility": {
+        "risk": "none",
+        "versioned": false,
+        "note": "resource does not expose an API"
+      },
+      "dependencies": [
+        {
+          "type": "depends_on",
+          "target": "resource:ai-runtime"
+        },
+        {
+          "type": "serves",
+          "target": "resource:context-fabric"
+        }
+      ],
+      "security": {
+        "scanStatus": "clean",
+        "posture": "good",
+        "clean": true,
+        "risk": "low"
+      },
+      "techDebt": [
+        "none detected"
+      ],
+      "deprecation": {
+        "deprecated": false,
+        "lifecycle": "beta"
+      },
+      "migrationSuggestions": [],
+      "costOptimization": [],
+      "perfRegression": {
+        "regression": false,
+        "signal": null
+      },
+      "drift": {
+        "documentation": "no runbook, dashboard, or metrics surfaced for a deployed resource"
+      }
+    }
+  },
+  "summary": {
+    "language_count": [
+      "c#",
+      "dart",
+      "go",
+      "java",
+      "json",
+      "kotlin",
+      "markdown",
+      "php",
+      "python",
+      "ruby",
+      "rust",
+      "sql",
+      "swift",
+      "typescript",
+      "yaml"
+    ],
+    "framework_count": [
+      "cert-manager",
+      "cookiecutter",
+      "copier",
+      "fastapi",
+      "gin",
+      "github-actions",
+      "grafana",
+      "helm",
+      "kafka",
+      "kubernetes",
+      "networkx-compatible",
+      "node",
+      "pagerduty",
+      "prometheus",
+      "terraform"
+    ],
+    "relationship_count": 67,
+    "api_resources": 6,
+    "api_compatibility_risk": 1,
+    "migration_suggestions": 0,
+    "cost_optimization_opportunities": 0,
+    "unused_components": 0,
+    "duplicate_libraries": 0,
+    "tech_debt_resources": 0,
+    "tech_debt_items": 0,
+    "deprecated_resources": 0,
+    "perf_regressions": 0,
+    "drift_resources": 24,
+    "drift_items": 28,
+    "drift_by_kind": {
+      "architecture": 1,
+      "dependency": 0,
+      "security": 1,
+      "infrastructure": 1,
+      "documentation": 21,
+      "configuration": 4
+    }
+  },
+  "duplicate_libraries": {}
+}

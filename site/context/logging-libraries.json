@@ -1,0 +1,95 @@
+{
+  "resource": {
+    "id": "resource:logging-libraries",
+    "name": "Logging Libraries",
+    "slug": "logging-libraries",
+    "kind": "library"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+      "name": "Logging Libraries",
+      "kind": "library",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "2.0.0",
+      "tags": [
+        "library",
+        "logging"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go",
+        "python",
+        "typescript"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "library",
+        "observability",
+        "logging"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "used_by",
+          "target": "resource:checkout-service",
+          "detail": null
+        },
+        {
+          "type": "used_by",
+          "target": "resource:ledger-worker",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 90,
+      "status": "healthy",
+      "readiness": 87
+    }
+  },
+  "summary": "Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

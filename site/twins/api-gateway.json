@@ -1,0 +1,74 @@
+{
+  "resource": {
+    "id": "resource:api-gateway",
+    "kind": "api",
+    "name": "API Gateway",
+    "slug": "api-gateway",
+    "owner": "KhulnaSoft",
+    "team": "KhulnaSoft",
+    "workspace": "core",
+    "lifecycle": "active",
+    "status": "active",
+    "visibility": "internal",
+    "version": null,
+    "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [],
+    "frameworks": [],
+    "capabilities": [
+      "api",
+      "mcp",
+      "routing"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "depends_on",
+      "target": "resource:ai-runtime"
+    }
+  ],
+  "health": {
+    "score": 88,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 85,
+    "level": "ready",
+    "scores": {
+      "architecture": 88,
+      "documentation": 88,
+      "security": 88,
+      "tests": 88,
+      "ci": 88,
+      "performance": 88,
+      "dependencies": 88,
+      "maintainability": 88,
+      "release": 88,
+      "compliance": 88,
+      "observability": 88,
+      "community": 88,
+      "ai_readiness": 50,
+      "production_readiness": 88
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

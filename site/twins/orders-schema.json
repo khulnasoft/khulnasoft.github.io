@@ -1,0 +1,75 @@
+{
+  "resource": {
+    "id": "resource:orders-schema",
+    "kind": "schema",
+    "name": "Orders Schema",
+    "slug": "orders-schema",
+    "owner": "Commerce",
+    "team": "commerce-data",
+    "workspace": "commerce",
+    "lifecycle": "supported",
+    "status": "active",
+    "visibility": "internal",
+    "version": "4.2.0",
+    "summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+    "source": "generated",
+    "updatedAt": "2026-08-07"
+  },
+  "source_state": {
+    "languages": [
+      "sql"
+    ],
+    "frameworks": [],
+    "capabilities": [
+      "schema",
+      "database"
+    ],
+    "security": {},
+    "deployment": {}
+  },
+  "relationships": [
+    {
+      "type": "part_of",
+      "target": "resource:orders-db"
+    }
+  ],
+  "health": {
+    "score": 93,
+    "status": "healthy"
+  },
+  "readiness": {
+    "overall": 90,
+    "level": "ready",
+    "scores": {
+      "architecture": 93,
+      "documentation": 93,
+      "security": 93,
+      "tests": 93,
+      "ci": 93,
+      "performance": 93,
+      "dependencies": 93,
+      "maintainability": 93,
+      "release": 93,
+      "compliance": 93,
+      "observability": 93,
+      "community": 93,
+      "ai_readiness": 50,
+      "production_readiness": 93
+    }
+  },
+  "intelligence": {
+    "drift": [],
+    "signals": []
+  },
+  "ai": {
+    "contextBundle": false,
+    "promptRegistry": false,
+    "agentReady": false,
+    "readiness": null
+  },
+  "context_summary": "Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.",
+  "recommended_actions": [
+    "Enable a context bundle and register a prompt for agent consumption.",
+    "Address engineering-intelligence signals before release."
+  ]
+}

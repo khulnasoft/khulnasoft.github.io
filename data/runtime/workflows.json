@@ -1,0 +1,51 @@
+[
+  {
+    "id": "workflow:onboard-repository",
+    "name": "Repository onboarding",
+    "trigger": "github.repository.created",
+    "steps": [
+      "Normalize repository metadata into a resource twin",
+      "Detect languages and capabilities",
+      "Compose initial context bundle",
+      "Seed readiness and recommendations",
+      "Register capabilities in the capability registry"
+    ],
+    "kind": "workflow"
+  },
+  {
+    "id": "workflow:impact-analysis",
+    "name": "Dependency impact analysis",
+    "trigger": "github.push",
+    "steps": [
+      "Resolve affected resources from the change surface",
+      "Traverse downstream blast radius",
+      "Rank impacted dependents by exposure",
+      "Emit impact report"
+    ],
+    "kind": "workflow"
+  },
+  {
+    "id": "workflow:release-readiness",
+    "name": "Release readiness check",
+    "trigger": "release.published",
+    "steps": [
+      "Aggregate docs, security, tests, approvals, readiness",
+      "Evaluate governance gates",
+      "Produce release verdict",
+      "Notify approvers on block"
+    ],
+    "kind": "workflow"
+  },
+  {
+    "id": "workflow:deployment-validation",
+    "name": "Deployment validation",
+    "trigger": "deployment.success",
+    "steps": [
+      "Verify active deployment state",
+      "Check health post-deploy",
+      "Update twin and readiness timeline",
+      "Alert on regression"
+    ],
+    "kind": "workflow"
+  }
+]

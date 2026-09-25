@@ -1,0 +1,12 @@
+{
+  "id": "evt:2026-08-07-health-degrade",
+  "source": "monitoring",
+  "type": "health.degraded",
+  "happenedAt": "2026-08-07T11:40:00Z",
+  "scope": ["resource:knowledge-graph"],
+  "payload": {
+    "signal": "latency_p99_high",
+    "severity": "warning",
+    "metric": 412
+  }
+}

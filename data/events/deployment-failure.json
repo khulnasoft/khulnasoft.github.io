@@ -1,0 +1,12 @@
+{
+  "id": "evt:2026-08-07-deploy-failure",
+  "source": "kubernetes",
+  "type": "deployment.failure",
+  "happenedAt": "2026-08-07T09:45:00Z",
+  "scope": ["resource:ledger-worker"],
+  "payload": {
+    "namespace": "commerce",
+    "reason": "CrashLoopBackOff",
+    "unavailable": 2
+  }
+}

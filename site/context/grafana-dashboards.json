@@ -1,0 +1,93 @@
+{
+  "resource": {
+    "id": "resource:grafana-dashboards",
+    "name": "Grafana Dashboards",
+    "slug": "grafana-dashboards",
+    "kind": "dashboard"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Operational dashboards for services, infrastructure, the AI runtime, and the data lake.",
+      "name": "Grafana Dashboards",
+      "kind": "dashboard",
+      "owner": "Observability",
+      "team": "obs",
+      "workspace": "core-infrastructure",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "2.4.0",
+      "tags": [
+        "dashboard",
+        "observability"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "json"
+      ],
+      "frameworks": [
+        "grafana"
+      ],
+      "capabilities": [
+        "dashboard",
+        "observability",
+        "monitoring"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:metrics-platform",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "observability": {
+      "metrics": true
+    },
+    "business": {
+      "summary": "Operational dashboards for services, infrastructure, the AI runtime, and the data lake.",
+      "owner": "Observability",
+      "workspace": "core-infrastructure"
+    },
+    "health": {
+      "score": 88,
+      "status": "healthy",
+      "readiness": 85
+    }
+  },
+  "summary": "Operational dashboards for services, infrastructure, the AI runtime, and the data lake.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

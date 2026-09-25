@@ -1,0 +1,12 @@
+{
+  "id": "evt:2026-08-07-github-push",
+  "source": "github",
+  "type": "repository.push",
+  "happenedAt": "2026-08-07T08:15:00Z",
+  "scope": ["resource:api-gateway"],
+  "payload": {
+    "ref": "refs/heads/main",
+    "commit": "a1b2c3d",
+    "changed_files": ["src/router.ts", "openapi.yaml"]
+  }
+}

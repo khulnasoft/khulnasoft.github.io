@@ -1,0 +1,103 @@
+{
+  "resource": {
+    "id": "resource:event-bus",
+    "name": "Platform Event Bus",
+    "slug": "event-bus",
+    "kind": "event"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+      "name": "Platform Event Bus",
+      "kind": "event",
+      "owner": "Platform",
+      "team": "platform-infra",
+      "workspace": "core",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "3.1.0",
+      "tags": [
+        "events",
+        "messaging"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "go"
+      ],
+      "frameworks": [
+        "kafka"
+      ],
+      "capabilities": [
+        "messaging",
+        "event-driven",
+        "event"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "depends_on",
+          "target": "resource:khulnasoft-platform",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:payment-events",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {
+        "status": "active",
+        "environment": "prod",
+        "targets": [
+          "kubernetes"
+        ]
+      },
+      "targets": [
+        "kubernetes"
+      ]
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": "prod"
+      }
+    },
+    "business": {
+      "summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+      "owner": "Platform",
+      "workspace": "core"
+    },
+    "health": {
+      "score": 92,
+      "status": "healthy",
+      "readiness": 89
+    }
+  },
+  "summary": "Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

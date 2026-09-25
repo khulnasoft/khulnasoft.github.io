@@ -1,0 +1,57 @@
+[
+  {
+    "id": "asset:service-template-go",
+    "type": "template",
+    "name": "Go service template",
+    "summary": "Opinionated Go microservice with health checks, structured logging, and a khulnasoft.yaml contract.",
+    "tags": [
+      "service",
+      "go",
+      "microservice"
+    ]
+  },
+  {
+    "id": "asset:prompt-pack-context",
+    "type": "prompt-pack",
+    "name": "Context composition prompt pack",
+    "summary": "Prompts that compose layered context and selective retrieval for agent tasks.",
+    "tags": [
+      "ai",
+      "context",
+      "prompts"
+    ]
+  },
+  {
+    "id": "asset:policy-release",
+    "type": "policy",
+    "name": "Release readiness policy",
+    "summary": "Governance policy requiring docs, security, and approval gates before release.",
+    "tags": [
+      "governance",
+      "release",
+      "policy"
+    ]
+  },
+  {
+    "id": "asset:agent-review",
+    "type": "agent",
+    "name": "Repository review agent",
+    "summary": "Agent that reviews repository posture, health, and release readiness.",
+    "tags": [
+      "ai",
+      "agent",
+      "review"
+    ]
+  },
+  {
+    "id": "asset:workflow-onboarding",
+    "type": "workflow",
+    "name": "Repository onboarding workflow",
+    "summary": "Automates twin creation, capability detection, and context provisioning for new repositories.",
+    "tags": [
+      "runtime",
+      "automation",
+      "onboarding"
+    ]
+  }
+]

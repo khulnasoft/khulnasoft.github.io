@@ -1,0 +1,100 @@
+{
+  "resource": {
+    "id": "resource:blueprint-templates",
+    "name": "Blueprint Templates",
+    "slug": "blueprint-templates",
+    "kind": "template"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+      "name": "Blueprint Templates",
+      "kind": "template",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "templates",
+        "blueprints",
+        "onboarding"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "typescript",
+        "go",
+        "python"
+      ],
+      "frameworks": [
+        "copier",
+        "cookiecutter"
+      ],
+      "capabilities": [
+        "template",
+        "blueprint",
+        "starter",
+        "scaffolding"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:repository-catalog",
+          "detail": null
+        },
+        {
+          "type": "provides",
+          "target": "resource:ci-pipelines",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 83,
+      "status": "healthy",
+      "readiness": 81
+    }
+  },
+  "summary": "Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

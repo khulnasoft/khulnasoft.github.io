@@ -1,0 +1,89 @@
+{
+  "resource": {
+    "id": "resource:platform-blueprints",
+    "name": "Platform Blueprints",
+    "slug": "platform-blueprints",
+    "kind": "blueprint"
+  },
+  "context": {
+    "metadata": {
+      "summary": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
+      "name": "Platform Blueprints",
+      "kind": "blueprint",
+      "owner": "Developer Experience",
+      "team": "dx",
+      "workspace": "platform",
+      "lifecycle": "supported",
+      "status": "active",
+      "visibility": "internal",
+      "version": "1.0.0",
+      "tags": [
+        "blueprints",
+        "architecture"
+      ],
+      "labels": {}
+    },
+    "architecture": {
+      "languages": [
+        "yaml",
+        "markdown"
+      ],
+      "frameworks": [],
+      "capabilities": [
+        "blueprint",
+        "template",
+        "governance"
+      ]
+    },
+    "dependency": {
+      "relationships": [
+        {
+          "type": "part_of",
+          "target": "resource:blueprint-templates",
+          "detail": null
+        }
+      ]
+    },
+    "api": {
+      "apis": [],
+      "exposes": []
+    },
+    "workflow": {
+      "workflows": [],
+      "ci": {}
+    },
+    "deployment": {
+      "deployment": {},
+      "targets": []
+    },
+    "runtime": {
+      "runtime": {
+        "status": "active",
+        "environment": null
+      }
+    },
+    "business": {
+      "summary": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
+      "owner": "Developer Experience",
+      "workspace": "platform"
+    },
+    "health": {
+      "score": 85,
+      "status": "healthy",
+      "readiness": 82
+    }
+  },
+  "summary": "Reference architectures and guardrail blueprints for services, agents, and data workloads.",
+  "layers": [
+    "metadata",
+    "architecture",
+    "dependency",
+    "api",
+    "workflow",
+    "deployment",
+    "runtime",
+    "observability",
+    "security",
+    "business"
+  ]
+}

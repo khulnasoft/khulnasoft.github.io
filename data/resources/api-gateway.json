@@ -1,0 +1,18 @@
+{
+  "id": "resource:api-gateway",
+  "kind": "api",
+  "name": "API Gateway",
+  "slug": "api-gateway",
+  "owner": "KhulnaSoft",
+  "summary": "The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.",
+  "capabilities": ["api", "mcp", "routing"],
+  "health": {
+    "score": 86,
+    "status": "healthy"
+  },
+  "tags": ["api", "routing", "agent"],
+  "relationships": [
+    { "type": "depends_on", "target": "resource:ai-runtime" }
+  ],
+  "updatedAt": "2026-08-07"
+}

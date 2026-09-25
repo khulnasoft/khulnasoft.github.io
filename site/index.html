@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Platform · KhulnaSoft Engineering Knowledge OS</title><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+background:#07111f;color:#f5f7fb;line-height:1.5}
+a{color:#58c6dd}a:hover{text-decoration:underline}
+header.top{border-bottom:1px solid #1f3040;padding:.85rem 1.4rem;display:flex;align-items:center;gap:1rem;
+position:sticky;top:0;background:rgba(7,17,31,.95)}
+header.top .brand{font-weight:700;letter-spacing:.2px}
+header.top .accent{color:#58c6dd}
+header.top nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:.2rem}
+header.top nav a{color:#93a7bd;text-decoration:none;padding:.3rem .55rem;border-radius:8px;font-size:.82rem}
+header.top nav a:hover{color:#f5f7fb;background:#1f2f40}
+main{max-width:1140px;margin:0 auto;padding:1.6rem}
+h1{letter-spacing:-.03em;font-size:1.8rem}
+h2{color:#58c6dd;font-size:1.15rem;margin:1.5rem 0 .6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.card{background:#10202f;border:1px solid #1f3244;border-radius:12px;padding:1rem 1.1rem}
+.card.metric{text-align:center}
+.metric .value{font-size:1.9rem;font-weight:800;color:#58c6dd}
+.metric .label{color:#93a7bd;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;background:#14324f;color:#58c6dd;padding:.18rem .6rem;border-radius:999px;font-size:.75rem;margin:.15rem .25rem .15rem 0}
+.pill.kind{background:#14314a;color:#c5d5e8}
+.muted{color:#93a7bd}
+code{background:#0d1a28;padding:.1rem .35rem;border-radius:5px;font-size:.85rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:.42rem 0;border-bottom:1px solid #1f3244}
+ul.plain li:last-child{border-bottom:none}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:#93a7bd;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.4rem}
+td{padding:.45rem;border-top:1px solid #1f3244}
+.footer{border-top:1px solid #1f3244;margin-top:2rem;padding:1rem 1.4rem;color:#93a7bd;font-size:.8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.badge{display:inline-block;padding:.12rem .5rem;border-radius:999px;font-size:.7rem;font-weight:600}
+.badge.ok{background:rgba(74,222,128,.16);color:#4ade80}
+.badge.warn{background:rgba(251,191,36,.16);color:#fbbf24}
+.badge.bad{background:rgba(248,113,113,.16);color:#f87171}
+</style></head>
+<body>
+<header class="top"><div class="brand">KhulnaSoft <span class="accent">Knowledge OS</span></div><nav><a href="index.html">Index</a><a href="catalog.html">Resources</a><a href="search.html">Search</a><a href="graph.html">Graph</a><a href="playground.html">Playground</a><a href="impact.html">Impact</a><a href="data-lake.html">Data Lake</a><a href="digital-twin.html">Digital Twins</a><a href="context-fabric.html">Context</a><a href="registries.html">Registries</a><a href="readiness.html">Readiness</a><a href="timeline.html">Timeline</a><a href="analytics.html">Intelligence</a><a href="runtime.html">Runtime</a><a href="ai-control-plane.html">AI Plane</a><a href="control-plane.html">Control Plane</a><a href="release.html">Release</a><a href="organizations.html">Organization</a><a href="platform-overview.html">Platform</a><a href="exec-dashboard.html">Dashboard</a><a href="docs/architecture.html">Docs</a><a href="api.html">API</a><a href="marketplace.html">Marketplace</a></nav></header>
+<main><h1>KhulnaSoft Engineering Knowledge OS</h1>
+<p class="muted">The monorepo-scale operating layer for the Developer Portal, AI Context Platform, and Control Plane across the KhulnaSoft ecosystem.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+<div class="card metric"><div class="value">40</div><div class="label">resource count</div></div><div class="card metric"><div class="value">{'ai-agent': 1, 'ai-runtime': 1, 'api': 1, 'template': 1, 'service': 2, 'workflow': 1, 'sdk': 1, 'image': 1, 'component': 3, 'deployment': 1, 'domain': 1, 'event': 1, 'dashboard': 1, 'helm-chart': 1, 'platform': 1, 'graph': 1, 'worker': 1, 'library': 1, 'observability': 1, 'alert': 1, 'database': 2, 'migration': 1, 'schema': 1, 'queue': 1, 'blueprint': 1, 'ingress': 1, 'cluster': 1, 'model': 1, 'release': 1, 'pipeline': 1, 'repository': 1, 'knowledge': 1, 'secret': 1, 'security': 1, 'environment': 1, 'certificate': 1}</div><div class="label">kind distribution</div></div><div class="card metric"><div class="value">88</div><div class="label">health score</div></div><div class="card metric"><div class="value">88</div><div class="label">reliability score</div></div><div class="card metric"><div class="value">8</div><div class="label">automation coverage</div></div><div class="card metric"><div class="value">25</div><div class="label">context coverage</div></div><div class="card metric"><div class="value">{'total_events': 8, 'sources': {'kubernetes': 2, 'documentation': 1, 'github': 1, 'monitoring': 2, 'packages': 1, 'security': 1}, 'types': {'deployment.failure': 1, 'deployment.success': 1, 'doc.updated': 1, 'repository.push': 1, 'health.degraded': 2, 'package.published': 1, 'security.findings': 1}, 'resources_touched': 7}</div><div class="label">events</div></div></div>
+<h2>Resources</h2><div class="grid"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ai-code-assistant.html" style="font-weight:700;font-size:1.05rem">AI Code Assistant</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-agent</span><span class="pill">ai</span></div>
+<div class="muted">An AI agent that navigates the context fabric and control plane to summarize architecture, review Posture, and answer engineering questions.</div>
+<div style="margin-top:.6rem"><a href="context/ai-code-assistant.json">bundle</a> · <a href="twins/ai-code-assistant.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ai-runtime.html" style="font-weight:700;font-size:1.05rem">AI Runtime Services</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ai-runtime</span><span class="pill">core</span></div>
+<div class="muted">Runtime services that compose context, invoke agents, and provide reusable AI capabilities across the engineering cloud.</div>
+<div style="margin-top:.6rem"><a href="context/ai-runtime.json">bundle</a> · <a href="twins/ai-runtime.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/api-gateway.html" style="font-weight:700;font-size:1.05rem">API Gateway</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">api</span><span class="pill">core</span></div>
+<div class="muted">The public entry point for context, catalog, and platform APIs consumed by internal tools, CLI clients, and AI agents.</div>
+<div style="margin-top:.6rem"><a href="context/api-gateway.json">bundle</a> · <a href="twins/api-gateway.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/blueprint-templates.html" style="font-weight:700;font-size:1.05rem">Blueprint Templates</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">template</span><span class="pill">platform</span></div>
+<div class="muted">Repository blueprint and starter templates for onboarding new services, libraries, and agents with guardrails preconfigured.</div>
+<div style="margin-top:.6rem"><a href="context/blueprint-templates.json">bundle</a> · <a href="twins/blueprint-templates.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/checkout-service.html" style="font-weight:700;font-size:1.05rem">Checkout Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">service</span><span class="pill">commerce</span></div>
+<div class="muted">BFF for checkout flows: cart orchestration, payment intent creation, and idempotent order placement.</div>
+<div style="margin-top:.6rem"><a href="context/checkout-service.json">bundle</a> · <a href="twins/checkout-service.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ci-pipelines.html" style="font-weight:700;font-size:1.05rem">CI Pipelines</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">workflow</span><span class="pill">platform</span></div>
+<div class="muted">Reusable GitHub Actions workflows for build, test, lint, and deploy used across repositories in the ecosystem.</div>
+<div style="margin-top:.6rem"><a href="context/ci-pipelines.json">bundle</a> · <a href="twins/ci-pipelines.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/client-sdks.html" style="font-weight:700;font-size:1.05rem">Client SDKs</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">sdk</span><span class="pill">platform</span></div>
+<div class="muted">Typed client libraries in TypeScript, Python, Go, Rust, Java, C#, PHP, Ruby, Swift, Kotlin, and Dart for consuming the Knowledge OS APIs.</div>
+<div style="margin-top:.6rem"><a href="context/client-sdks.json">bundle</a> · <a href="twins/client-sdks.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/container-registry.html" style="font-weight:700;font-size:1.05rem">Container Registry</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">image</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Versioned OCI container registry hosting images for services, workers, and the AI runtime with signed provenance.</div>
+<div style="margin-top:.6rem"><a href="context/container-registry.json">bundle</a> · <a href="twins/container-registry.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/context-fabric.html" style="font-weight:700;font-size:1.05rem">Context Fabric</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span><span class="pill">ai</span></div>
+<div class="muted">Composes layered, AI-ready context by metadata, architecture, dependency, API, deployment, runtime, observability, security, and business layers, supporting selective retrieval.</div>
+<div style="margin-top:.6rem"><a href="context/context-fabric.json">bundle</a> · <a href="twins/context-fabric.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/deployment-runtime.html" style="font-weight:700;font-size:1.05rem">Deployment Runtime</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">deployment</span><span class="pill">core</span></div>
+<div class="muted">The runtime layer that orchestrates deployment automation, health checks, and release coordination.</div>
+<div style="margin-top:.6rem"><a href="context/deployment-runtime.json">bundle</a> · <a href="twins/deployment-runtime.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/domains.html" style="font-weight:700;font-size:1.05rem">Public Domains</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">domain</span><span class="pill">core</span></div>
+<div class="muted">Managed public domains and TLS certificates terminating traffic at the platform ingress.</div>
+<div style="margin-top:.6rem"><a href="context/domains.json">bundle</a> · <a href="twins/domains.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/event-bus.html" style="font-weight:700;font-size:1.05rem">Platform Event Bus</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">event</span><span class="pill">core</span></div>
+<div class="muted">Durable event bus that carries resource lifecycle, deployment, and security events across the control and runtime planes.</div>
+<div style="margin-top:.6rem"><a href="context/event-bus.json">bundle</a> · <a href="twins/event-bus.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/feature-flag-service.html" style="font-weight:700;font-size:1.05rem">Feature Flags</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span><span class="pill">core</span></div>
+<div class="muted">Remote feature-flag service driving progressive delivery and kill-switches across services and the portal.</div>
+<div style="margin-top:.6rem"><a href="context/feature-flag-service.json">bundle</a> · <a href="twins/feature-flag-service.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/grafana-dashboards.html" style="font-weight:700;font-size:1.05rem">Grafana Dashboards</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">dashboard</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Operational dashboards for services, infrastructure, the AI runtime, and the data lake.</div>
+<div style="margin-top:.6rem"><a href="context/grafana-dashboards.json">bundle</a> · <a href="twins/grafana-dashboards.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/helm-charts-registry.html" style="font-weight:700;font-size:1.05rem">Helm Charts</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">helm-chart</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Versioned Helm charts packaging workhorse services and their deployment topology for Kubernetes targets.</div>
+<div style="margin-top:.6rem"><a href="context/helm-charts-registry.json">bundle</a> · <a href="twins/helm-charts-registry.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/identity-provider.html" style="font-weight:700;font-size:1.05rem">Identity Provider</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">service</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Central OIDC/OAuth identity service issuing tokens, service accounts, and API keys for humans, automation, and agents across the platform.</div>
+<div style="margin-top:.6rem"><a href="context/identity-provider.json">bundle</a> · <a href="twins/identity-provider.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/khulnasoft-platform.html" style="font-weight:700;font-size:1.05rem">KhulnaSoft Platform Core</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">platform</span><span class="pill">core</span></div>
+<div class="muted">The control-plane foundation for the KhulnaSoft Engineering Knowledge OS, coordinating organizations, projects, policies, and engineering resources.</div>
+<div style="margin-top:.6rem"><a href="context/khulnasoft-platform.json">bundle</a> · <a href="twins/khulnasoft-platform.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/knowledge-graph.html" style="font-weight:700;font-size:1.05rem">Engineering Knowledge Graph</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">graph</span><span class="pill">core</span></div>
+<div class="muted">The derived graph of all resources and their relationships, generated from the resource registry so twins, search, graph, and portal views are a single source of truth.</div>
+<div style="margin-top:.6rem"><a href="context/knowledge-graph.json">bundle</a> · <a href="twins/knowledge-graph.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/ledger-worker.html" style="font-weight:700;font-size:1.05rem">Ledger Worker</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">worker</span><span class="pill">commerce</span></div>
+<div class="muted">Consumes payment events and writes idempotent ledger entries, reconciling daily batches.</div>
+<div style="margin-top:.6rem"><a href="context/ledger-worker.json">bundle</a> · <a href="twins/ledger-worker.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/logging-libraries.html" style="font-weight:700;font-size:1.05rem">Logging Libraries</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">library</span><span class="pill">platform</span></div>
+<div class="muted">Standardized structured-logging libraries shared across services, with correlation IDs and scrubbing built in.</div>
+<div style="margin-top:.6rem"><a href="context/logging-libraries.json">bundle</a> · <a href="twins/logging-libraries.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/metrics-platform.html" style="font-weight:700;font-size:1.05rem">Metrics Platform</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">observability</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Time-series metrics collection, dashboards, and alerting for services, infrastructure, and the AI runtime.</div>
+<div style="margin-top:.6rem"><a href="context/metrics-platform.json">bundle</a> · <a href="twins/metrics-platform.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/oncall-alerts.html" style="font-weight:700;font-size:1.05rem">On-call Alerts</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">alert</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Alert routing, paging, and escalation policies bound to service SLOs and health signals.</div>
+<div style="margin-top:.6rem"><a href="context/oncall-alerts.json">bundle</a> · <a href="twins/oncall-alerts.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/orders-db.html" style="font-weight:700;font-size:1.05rem">Orders Database</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span><span class="pill">commerce</span></div>
+<div class="muted">Primary transactional store for orders and payment state, backed by Postgres with WAL-based replication.</div>
+<div style="margin-top:.6rem"><a href="context/orders-db.json">bundle</a> · <a href="twins/orders-db.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/orders-migration.html" style="font-weight:700;font-size:1.05rem">Orders Schema Migrations</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">migration</span><span class="pill">commerce</span></div>
+<div class="muted">Versioned database migrations applied to the orders database, with rollback planning and pre-deploy checks.</div>
+<div style="margin-top:.6rem"><a href="context/orders-migration.json">bundle</a> · <a href="twins/orders-migration.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/orders-schema.html" style="font-weight:700;font-size:1.05rem">Orders Schema</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">schema</span><span class="pill">commerce</span></div>
+<div class="muted">Canonical relational schema for orders and payment state, versioned and reviewed as part of the orders database.</div>
+<div style="margin-top:.6rem"><a href="context/orders-schema.json">bundle</a> · <a href="twins/orders-schema.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/payment-events.html" style="font-weight:700;font-size:1.05rem">Payment Events</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">queue</span><span class="pill">commerce</span></div>
+<div class="muted">Event topic for payment lifecycle events consumed by ledger, notifications, and analytics.</div>
+<div style="margin-top:.6rem"><a href="context/payment-events.json">bundle</a> · <a href="twins/payment-events.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/platform-blueprints.html" style="font-weight:700;font-size:1.05rem">Platform Blueprints</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">blueprint</span><span class="pill">platform</span></div>
+<div class="muted">Reference architectures and guardrail blueprints for services, agents, and data workloads.</div>
+<div style="margin-top:.6rem"><a href="context/platform-blueprints.json">bundle</a> · <a href="twins/platform-blueprints.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/platform-ingress.html" style="font-weight:700;font-size:1.05rem">Platform Ingress</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">ingress</span><span class="pill">core</span></div>
+<div class="muted">North-south ingress gateway routing external traffic to platform APIs and the portal.</div>
+<div style="margin-top:.6rem"><a href="context/platform-ingress.json">bundle</a> · <a href="twins/platform-ingress.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/policy-engine.html" style="font-weight:700;font-size:1.05rem">Policy Engine</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">component</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">OPA-compatible policy decision point enforcing governance, RBAC, and release policies for registries, workflows, and approvals.</div>
+<div style="margin-top:.6rem"><a href="context/policy-engine.json">bundle</a> · <a href="twins/policy-engine.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/prod-cluster.html" style="font-weight:700;font-size:1.05rem">Production Cluster</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">cluster</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Primary Kubernetes cluster hosting production services, the AI runtime, and the control plane.</div>
+<div style="margin-top:.6rem"><a href="context/prod-cluster.json">bundle</a> · <a href="twins/prod-cluster.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/recommendation-model.html" style="font-weight:700;font-size:1.05rem">Recommendation Model</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">model</span><span class="pill">ai</span></div>
+<div class="muted">Embedding-based product recommendation model served through the AI runtime with online feature updates.</div>
+<div style="margin-top:.6rem"><a href="context/recommendation-model.json">bundle</a> · <a href="twins/recommendation-model.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/release-artifacts.html" style="font-weight:700;font-size:1.05rem">Release Artifacts</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">release</span><span class="pill">platform</span></div>
+<div class="muted">Versioned release artifacts, changelogs, and SBOMs published for every platform and service release.</div>
+<div style="margin-top:.6rem"><a href="context/release-artifacts.json">bundle</a> · <a href="twins/release-artifacts.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/release-pipeline.html" style="font-weight:700;font-size:1.05rem">Release Pipeline</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">pipeline</span><span class="pill">platform</span></div>
+<div class="muted">End-to-end release pipeline: build, test, security gates, readiness checks, approval, and promotion to production.</div>
+<div style="margin-top:.6rem"><a href="context/release-pipeline.json">bundle</a> · <a href="twins/release-pipeline.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/repository-catalog.html" style="font-weight:700;font-size:1.05rem">Repository Catalog Service</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">repository</span><span class="pill">core</span></div>
+<div class="muted">A registry service for discovering repositories, owners, metadata, and health signals across the organization.</div>
+<div style="margin-top:.6rem"><a href="context/repository-catalog.json">bundle</a> · <a href="twins/repository-catalog.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/runbooks.html" style="font-weight:700;font-size:1.05rem">Runbook Library</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">knowledge</span><span class="pill">platform</span></div>
+<div class="muted">Curated runbooks and playbooks for incident response, deployment rollback, and remediation actions.</div>
+<div style="margin-top:.6rem"><a href="context/runbooks.json">bundle</a> · <a href="twins/runbooks.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/secrets-vault.html" style="font-weight:700;font-size:1.05rem">Secrets Vault</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">secret</span><span class="pill">core-infrastructure</span></div>
+<div class="muted">Encrypted secrets store for API keys, certificates, and service credentials, with rotation and audit logging.</div>
+<div style="margin-top:.6rem"><a href="context/secrets-vault.json">bundle</a> · <a href="twins/secrets-vault.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/security-center.html" style="font-weight:700;font-size:1.05rem">Security Center</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">security</span><span class="pill">core</span></div>
+<div class="muted">A security intelligence component that provides posture signals, policy awareness, and vulnerability context across the engineering cloud.</div>
+<div style="margin-top:.6rem"><a href="context/security-center.json">bundle</a> · <a href="twins/security-center.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/staging-environment.html" style="font-weight:700;font-size:1.05rem">Staging Environment</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">environment</span><span class="pill">core</span></div>
+<div class="muted">Pre-production environment mirroring prod topology for integration testing and release validation.</div>
+<div style="margin-top:.6rem"><a href="context/staging-environment.json">bundle</a> · <a href="twins/staging-environment.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/tls-certificates.html" style="font-weight:700;font-size:1.05rem">TLS Certificates</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">certificate</span><span class="pill">core</span></div>
+<div class="muted">Managed TLS certificates for public domains, with automated renewal and expiry alerting.</div>
+<div style="margin-top:.6rem"><a href="context/tls-certificates.json">bundle</a> · <a href="twins/tls-certificates.json">twin</a></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center">
+<a href="resources/vector-store.html" style="font-weight:700;font-size:1.05rem">Vector Store</a><span class="badge ok">healthy</span></div>
+<div class="muted" style="margin:.25rem 0"><span class="pill kind">database</span><span class="pill">ai</span></div>
+<div class="muted">Vector database powering semantic search over engineering knowledge, context bundles, and generated intelligence.</div>
+<div style="margin-top:.6rem"><a href="context/vector-store.json">bundle</a> · <a href="twins/vector-store.json">twin</a></div></div></div></main>
+<footer class="footer"><span>KhulnaSoft Engineering Knowledge OS</span>
+<a href="llms.txt">llms.txt</a><a href="llms-full.txt">llms-full.txt</a><a href="mcp.json">MCP</a>
+<a href="manifests.json">manifests</a><a href="graph-data.json">graph</a><a href="search-index.json">search</a></footer>
+</body></html>
